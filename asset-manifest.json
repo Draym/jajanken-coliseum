@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/jajanken-coliseum.io/static/css/main.7e871eeb.chunk.css",
+    "main.js": "/jajanken-coliseum.io/static/js/main.5bd3cb83.chunk.js",
+    "main.js.map": "/jajanken-coliseum.io/static/js/main.5bd3cb83.chunk.js.map",
+    "runtime-main.js": "/jajanken-coliseum.io/static/js/runtime-main.b84b74da.js",
+    "runtime-main.js.map": "/jajanken-coliseum.io/static/js/runtime-main.b84b74da.js.map",
+    "static/js/2.f375cada.chunk.js": "/jajanken-coliseum.io/static/js/2.f375cada.chunk.js",
+    "static/js/2.f375cada.chunk.js.map": "/jajanken-coliseum.io/static/js/2.f375cada.chunk.js.map",
+    "static/js/3.fff3c40a.chunk.js": "/jajanken-coliseum.io/static/js/3.fff3c40a.chunk.js",
+    "static/js/3.fff3c40a.chunk.js.map": "/jajanken-coliseum.io/static/js/3.fff3c40a.chunk.js.map",
+    "index.html": "/jajanken-coliseum.io/index.html",
+    "static/css/main.7e871eeb.chunk.css.map": "/jajanken-coliseum.io/static/css/main.7e871eeb.chunk.css.map",
+    "static/js/2.f375cada.chunk.js.LICENSE.txt": "/jajanken-coliseum.io/static/js/2.f375cada.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b84b74da.js",
+    "static/js/2.f375cada.chunk.js",
+    "static/css/main.7e871eeb.chunk.css",
+    "static/js/main.5bd3cb83.chunk.js"
+  ]
+}
