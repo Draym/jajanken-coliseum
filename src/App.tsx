@@ -7,7 +7,7 @@ import Navbar from "./web/views/Navbar";
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {faGithub, faLinkedinIn} from '@fortawesome/free-brands-svg-icons';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import JaJankenColiseumView from "./web/views/JaJankenColiseumView";
+import JaJankenColiseum from "./web/views/coliseum/JaJankenColiseum";
 
 library.add(faGithub, faLinkedinIn);
 
@@ -16,8 +16,8 @@ interface AppProperties {
 }
 
 interface AppState {
-    account: String,
-    loading: Boolean
+    account: string,
+    loading: boolean
 }
 
 export default class App extends Component<AppProperties, AppState> {
@@ -40,27 +40,28 @@ export default class App extends Component<AppProperties, AppState> {
     }
 
     render() {
-        const loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>;
-        return <div className="App">
-            <Navbar account={this.state.account}/>
-            <div className="container-fluid mt-5">
-                <div className="row">
-                    <main role="main" className="col-lg-12 ml-auto mr-auto" style={{maxWidth: '100%'}}>
-                        <BrowserRouter>
-                            <React.Suspense fallback={loading()}>
+        if (this.state.loading) {
+            return <div className="animated fadeIn pt-1 text-center">Loading...</div>
+        } else {
+            return <div className="App">
+                <Navbar account={this.state.account}/>
+                <div className="container-fluid mt-5">
+                    <div className="row">
+                        <main role="main" className="col-lg-12 ml-auto mr-auto" style={{maxWidth: '100%'}}>
+                            <BrowserRouter>
                                 <Switch>
                                     <Route path={"/coliseum"}>
-                                        <JaJankenColiseumView account={this.state.account}/>
+                                        <JaJankenColiseum account={this.state.account}/>
                                     </Route>
                                     <Route path={"/"}>
                                         <HomeView/>
                                     </Route>
                                 </Switch>
-                            </React.Suspense>
-                        </BrowserRouter>
-                    </main>
+                            </BrowserRouter>
+                        </main>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     }
 }

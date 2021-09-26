@@ -36,7 +36,7 @@ class HomeView extends Component<HomeViewProperties, HomeViewState> {
                 </div>
 
                 <div className="row">
-                    <button className={"btn-light"} onClick={this.startColiseum}>Enter Coliseum</button>
+                    <button className={"btn-light"} onClick={this.startColiseum}>Launch Coliseum</button>
                 </div>
             </div>
         }
