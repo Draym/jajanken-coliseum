@@ -97,7 +97,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
     }
 
     handlePlayerJoinGame = (event: any) => {
-        if (event.p == this.state.account) {
+        if (event.p === this.state.account) {
             Game.getMyProfile(this.state.jajankenColiseum).then(profile => {
                     if (profile) {
                         this.setState({
