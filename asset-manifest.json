@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/jajanken-coliseum.io/static/css/main.7e871eeb.chunk.css",
-    "main.js": "/jajanken-coliseum.io/static/js/main.86b71e1f.chunk.js",
-    "main.js.map": "/jajanken-coliseum.io/static/js/main.86b71e1f.chunk.js.map",
-    "runtime-main.js": "/jajanken-coliseum.io/static/js/runtime-main.baabb185.js",
-    "runtime-main.js.map": "/jajanken-coliseum.io/static/js/runtime-main.baabb185.js.map",
-    "static/js/2.f8798477.chunk.js": "/jajanken-coliseum.io/static/js/2.f8798477.chunk.js",
-    "static/js/2.f8798477.chunk.js.map": "/jajanken-coliseum.io/static/js/2.f8798477.chunk.js.map",
-    "static/js/3.4b879a4c.chunk.js": "/jajanken-coliseum.io/static/js/3.4b879a4c.chunk.js",
-    "static/js/3.4b879a4c.chunk.js.map": "/jajanken-coliseum.io/static/js/3.4b879a4c.chunk.js.map",
+    "main.js": "/jajanken-coliseum.io/static/js/main.990f11b9.chunk.js",
+    "main.js.map": "/jajanken-coliseum.io/static/js/main.990f11b9.chunk.js.map",
+    "runtime-main.js": "/jajanken-coliseum.io/static/js/runtime-main.736ea778.js",
+    "runtime-main.js.map": "/jajanken-coliseum.io/static/js/runtime-main.736ea778.js.map",
+    "static/js/2.4f5d2c44.chunk.js": "/jajanken-coliseum.io/static/js/2.4f5d2c44.chunk.js",
+    "static/js/2.4f5d2c44.chunk.js.map": "/jajanken-coliseum.io/static/js/2.4f5d2c44.chunk.js.map",
+    "static/js/3.918c7f96.chunk.js": "/jajanken-coliseum.io/static/js/3.918c7f96.chunk.js",
+    "static/js/3.918c7f96.chunk.js.map": "/jajanken-coliseum.io/static/js/3.918c7f96.chunk.js.map",
     "index.html": "/jajanken-coliseum.io/index.html",
     "static/css/main.7e871eeb.chunk.css.map": "/jajanken-coliseum.io/static/css/main.7e871eeb.chunk.css.map",
-    "static/js/2.f8798477.chunk.js.LICENSE.txt": "/jajanken-coliseum.io/static/js/2.f8798477.chunk.js.LICENSE.txt",
+    "static/js/2.4f5d2c44.chunk.js.LICENSE.txt": "/jajanken-coliseum.io/static/js/2.4f5d2c44.chunk.js.LICENSE.txt",
     "static/media/chi.9d6708ec.png": "/jajanken-coliseum.io/static/media/chi.9d6708ec.png",
     "static/media/guu.b4d646ff.png": "/jajanken-coliseum.io/static/media/guu.b4d646ff.png",
     "static/media/hidden.ee575a9e.png": "/jajanken-coliseum.io/static/media/hidden.ee575a9e.png",
     "static/media/paa.063b3a7d.png": "/jajanken-coliseum.io/static/media/paa.063b3a7d.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.baabb185.js",
-    "static/js/2.f8798477.chunk.js",
+    "static/js/runtime-main.736ea778.js",
+    "static/js/2.4f5d2c44.chunk.js",
     "static/css/main.7e871eeb.chunk.css",
-    "static/js/main.86b71e1f.chunk.js"
+    "static/js/main.990f11b9.chunk.js"
   ]
 }
