@@ -48,29 +48,35 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
 
     async loadColiseumData() {
         let coliseum = await this.props.jajankenColiseum
-        let profile = await Game.getMyProfile(coliseum)
-        if (profile) {
-            let nen = NumberUtils.from(profile.nen)
-            if (nen === 0) {
-                this.setState({matchState: MatchState.Result})
-                window.alert(`Account ${this.props.account} has previously lost all his nen, please re-join the game first!`)
+        Game.getMyProfile(coliseum).then(profile => {
+                if (profile) {
+                    if (profile.nen === 0) {
+                        this.setState({matchState: MatchState.Result})
+                        window.alert(`Account ${this.props.account} has previously lost all his nen, please re-join the game first!`)
+                    }
+                    else if (profile.chi === 0 && profile.paa === 0 && profile.guu === 0) {
+                        this.setState({matchState: MatchState.Result})
+                        window.alert(`Account ${this.props.account} has no card to play, you can withdraw you gain or re-join the game!`)
+                    } else {
+                        this.setState({
+                            nenBalance: profile.nen,
+                            availableGuu: profile.guu,
+                            availablePaa: profile.paa,
+                            availableChi: profile.chi,
+                            matchState: MatchState.PickPlay
+                        })
+                    }
+                } else {
+                    this.setState({matchState: MatchState.Result})
+                    window.alert(`Account ${this.props.account} do not exist yet, please join the game first!`)
+                }
             }
-            this.setState({
-                nenBalance: nen,
-                availableGuu: NumberUtils.from(profile.guu),
-                availablePaa: NumberUtils.from(profile.paa),
-                availableChi: NumberUtils.from(profile.chi),
-                matchState: MatchState.PickPlay
-            })
-        } else {
-            this.setState({matchState: MatchState.Result})
-            window.alert(`Account ${this.props.account} do not exist yet, please join the game first!`)
-        }
+        )
     }
 
     render() {
         return <div>
-            <img src={TechniqueImg.guu} width={300} alt="error with messenger QR code."/>
+            <img src={TechniqueImg.guu} width={300} alt="guu"/>
         </div>
     }
 }
