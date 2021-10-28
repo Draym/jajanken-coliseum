@@ -7,6 +7,7 @@ import ColiseumMatch from "./ColiseumMatch";
 import {CurrentMatch} from "../../../game/data/CurrentMatch";
 import {PlayerStats} from "../../../game/data/PlayerStats";
 import {GameStats} from "../../../game/data/GameStats";
+import Lina from "../../../blockchain/Lina";
 
 enum GameState {
     Loading,
@@ -21,7 +22,6 @@ interface JaJankenColiseumProperties extends RouteComponentProps {
 }
 
 interface JaJankenColiseumState {
-    account: string,
     jajankenColiseum: any,
     player: PlayerStats,
     game: GameStats,
@@ -34,7 +34,6 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
     constructor(props: JaJankenColiseumProperties) {
         super(props)
         this.state = {
-            account: props.account,
             jajankenColiseum: {},
             player: {
                 inQueue: false,
@@ -61,15 +60,13 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
     }
 
     async loadColiseumData() {
-        const accounts = await Web3Utils.getAccounts()
-        const defaultAccount = accounts[0]
         const coliseum = await ContractLoader.instantiateColiseum()
 
-        Web3Utils.setDefaultAccount(defaultAccount)
+        Web3Utils.setDefaultAccount(this.props.account)
 
-        this.setState({jajankenColiseum: coliseum, account: defaultAccount})
+        this.setState({jajankenColiseum: coliseum})
 
-        Game.getGameStat(this.state.jajankenColiseum).then(game => {
+        Game.getGameStats(this.state.jajankenColiseum).then(game => {
                 console.log("[init] game", game)
                 this.setState({
                     game: game
@@ -81,7 +78,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
             console.log("[init] profile", profile)
             if (profile) {
                 if (profile.nen === 0) {
-                    window.alert(`Account ${this.state.account} has previously lost all his nen, please re-join the game first!`)
+                    window.alert(`Account ${Lina.account()} has previously lost all his nen, please re-join the game first!`)
                     this.setState({gameState: GameState.NeedPay})
                 } else if (profile.inMatch) {
                     this.setState({player: profile, gameState: GameState.InMatch})
@@ -91,7 +88,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
                     this.setState({player: profile, gameState: GameState.Lobby})
                 }
             } else {
-                window.alert(`Account ${this.state.account} do not exist yet, please join the game first!`)
+                window.alert(`Account ${Lina.account()} do not exist yet, please join the game first!`)
                 this.setState({gameState: GameState.NeedPay})
             }
         })
@@ -107,7 +104,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
 
     handlePlayerJoinGame = (event: any) => {
         const data = event.returnValues
-        if (data.p === this.state.account) {
+        if (data.p === Lina.account()) {
             Game.getMyProfile(this.state.jajankenColiseum).then(profile => {
                     if (profile) {
                         this.setState({player: profile})
@@ -116,7 +113,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
             )
             this.setState({gameState: GameState.Lobby})
         }
-        Game.getGameStat(this.state.jajankenColiseum).then(game => {
+        Game.getGameStats(this.state.jajankenColiseum).then(game => {
                 this.setState({game: game})
             }
         )
@@ -127,9 +124,9 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
 
         this.state.jajankenColiseum.events.PlayerJoin()
             .on('data', this.handlePlayerJoinGame)
-        this.state.jajankenColiseum.events.MatchStart({p1: this.state.account})
+        this.state.jajankenColiseum.events.MatchStart({p1: Lina.account()})
             .on('data', this.handleStartMatch)
-        this.state.jajankenColiseum.events.MatchStart({p2: this.state.account})
+        this.state.jajankenColiseum.events.MatchStart({p2: Lina.account()})
             .on('data', this.handleStartMatch)
     }
 
@@ -138,7 +135,9 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
     }
 
     joinMatch = async () => {
-        await Game.joinMatchQueue(this.state.jajankenColiseum).catch(error => console.log("failed join Match:", error))
+        await Game.joinMatchQueue(this.state.jajankenColiseum).then(data =>
+            this.setState({gameState: GameState.LookingMatch})
+        ).catch(error => console.log("failed join Match:", error))
     }
 
     backToLobby = () => {
@@ -146,12 +145,11 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
     }
 
     render() {
-        console.log("gamestate: ", this.state.game)
         if (this.state.gameState === GameState.Loading) {
             return <p id="loader" className="text-center">Loading...</p>
         } else if (this.state.gameState === GameState.NeedPay) {
             return <div>
-                Welcome to the Coliseum {this.state.account} !
+                Welcome to the Coliseum {Lina.account()} !
                 <div className="row">
                     <button className={"btn-light"} onClick={this.joinColiseum}>Join Coliseum</button>
                 </div>
@@ -170,7 +168,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
         } else if (this.state.gameState === GameState.InMatch) {
             if (this.state.currentMatch != null) {
                 return <div>
-                    <ColiseumMatch account={this.state.account} jajankenColiseum={this.state.jajankenColiseum} backToLobby={this.backToLobby}
+                    <ColiseumMatch account={Lina.account()} jajankenColiseum={this.state.jajankenColiseum} backToLobby={this.backToLobby}
                                    currentMatch={this.state.currentMatch}/>
                 </div>
             } else {

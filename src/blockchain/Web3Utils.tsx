@@ -1,7 +1,6 @@
 import Web3 from 'web3'
 
 declare let window: any;
-declare let web3: any;
 
 export default class Web3Utils {
 

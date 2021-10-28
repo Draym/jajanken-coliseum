@@ -21,7 +21,7 @@ export default class Game {
         await Lina.send(contract.methods.joinMatch())
     }
 
-    static async getGameStat(contract: any): Promise<GameStats> {
+    static async getGameStats(contract: any): Promise<GameStats> {
         const alivePlayers = await Lina.call(contract.methods.alivePlayers())
         const totalPaa = await Lina.call(contract.methods.totalPaa())
         const totalChi = await Lina.call(contract.methods.totalChi())
@@ -39,8 +39,8 @@ export default class Game {
         const queued = await Lina.call(contract.methods.queued())
         if (profile) {
             return {
-                inQueue: queued == Web3Utils.getDefaultAccount(),
-                inMatch: profile.inMatch.toString() === 1,
+                inQueue: queued === Web3Utils.getDefaultAccount(),
+                inMatch: profile.inMatch === 1,
                 nen: NumberUtils.from(profile.nen),
                 guu: NumberUtils.from(profile.guu),
                 paa: NumberUtils.from(profile.paa),
