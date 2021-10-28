@@ -1,6 +1,7 @@
 import Web3 from 'web3'
 
 declare let window: any;
+declare let web3: any;
 
 export default class Web3Utils {
 
@@ -22,7 +23,14 @@ export default class Web3Utils {
     }
 
     static async getAccounts() {
-        return window.ethereum.request({ method: 'eth_requestAccounts' })
+        return window.web3.eth.getAccounts()//window.ethereum.request({ method: 'eth_requestAccounts' })
     }
 
+    static getDefaultAccount() {
+        return window.web3.eth.defaultAccount
+    }
+
+    static setDefaultAccount(account: any) {
+        window.web3.eth.defaultAccount = account
+    }
 }

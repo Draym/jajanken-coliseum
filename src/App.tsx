@@ -36,6 +36,7 @@ export default class App extends Component<AppProperties, AppState> {
 
     async loadBlockchainData() {
         const accounts = await Web3Utils.getAccounts()
+        console.log("accounts: ", accounts)
         this.setState({account: accounts[0], loading: false})
     }
 

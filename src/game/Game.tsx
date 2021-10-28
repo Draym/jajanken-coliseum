@@ -2,28 +2,30 @@ import NumberUtils from "../utils/NumberUtils";
 import {PlayerStats} from "./data/PlayerStats";
 import {GameStats} from "./data/GameStats";
 import {OpponentStat} from "./data/OpponentStat";
+import Lina from "../blockchain/Lina";
+import Web3Utils from "../blockchain/Web3Utils";
 
 
 export default class Game {
 
     static async getGameEntranceTicketFee(contract: any): Promise<number> {
-        return await contract.methods.entranceTicketFee().call()
+        return await Lina.call(contract.methods.entranceTicketFee())
     }
 
-    static async joinColiseum(contract: any, from: string) {
+    static async joinColiseum(contract: any) {
         const entranceTicket = await this.getGameEntranceTicketFee(contract)
-        await contract.methods.joinGame().send({from: from, value: entranceTicket})
+        await Lina.send(contract.methods.joinGame(), {value: entranceTicket})
     }
 
-    static async joinMatchQueue(contract: any, from: string) {
-        await contract.methods.joinMatch().send({from: from})
+    static async joinMatchQueue(contract: any) {
+        await Lina.send(contract.methods.joinMatch())
     }
 
     static async getGameStat(contract: any): Promise<GameStats> {
-        const alivePlayers = await contract.methods.alivePlayers().call()
-        const totalPaa = await contract.methods.totalPaa().call()
-        const totalChi = await contract.methods.totalChi().call()
-        const totalGuu = await contract.methods.totalGuu().call()
+        const alivePlayers = await Lina.call(contract.methods.alivePlayers())
+        const totalPaa = await Lina.call(contract.methods.totalPaa())
+        const totalChi = await Lina.call(contract.methods.totalChi())
+        const totalGuu = await Lina.call(contract.methods.totalGuu())
         return {
             alivePlayers: NumberUtils.from(alivePlayers),
             totalPaa: NumberUtils.from(totalPaa),
@@ -33,9 +35,12 @@ export default class Game {
     }
 
     static async getMyProfile(contract: any): Promise<PlayerStats | null> {
-        const profile = await contract.methods.getProfile().call()
+        const profile = await Lina.call(contract.methods.getProfile())
+        const queued = await Lina.call(contract.methods.queued())
         if (profile) {
             return {
+                inQueue: queued == Web3Utils.getDefaultAccount(),
+                inMatch: profile.inMatch.toString() === 1,
                 nen: NumberUtils.from(profile.nen),
                 guu: NumberUtils.from(profile.guu),
                 paa: NumberUtils.from(profile.paa),
@@ -45,7 +50,7 @@ export default class Game {
     }
 
     static async getOpponent(contract: any, playerAddress: any): Promise<OpponentStat | null> {
-        const player = await contract.methods.getPlayer({_player: playerAddress}).call()
+        const player = await Lina.call(contract.methods.getPlayer({_player: playerAddress}))
         if (player) {
             return {
                 nen: NumberUtils.from(player.nen),
