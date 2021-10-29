@@ -4,21 +4,24 @@ import {GameStats} from "./data/GameStats";
 import {OpponentStat} from "./data/OpponentStat";
 import Lina from "../blockchain/Lina";
 import Web3Utils from "../blockchain/Web3Utils";
+import {JaJankenTechnique} from "./data/JaJankenTechnique";
+import {v4 as uuidv4} from "uuid";
 
-
-export default class Game {
+export default class JaJanken {
 
     static async getGameEntranceTicketFee(contract: any): Promise<number> {
         return await Lina.call(contract.methods.entranceTicketFee())
     }
 
     static async joinColiseum(contract: any) {
-        const entranceTicket = await this.getGameEntranceTicketFee(contract)
-        await Lina.send(contract.methods.joinGame(), {value: entranceTicket})
+        this.getGameEntranceTicketFee(contract).then(entranceTicket => {
+            Lina.send(contract.methods.joinGame(), {value: entranceTicket})
+        })
     }
 
     static async joinMatchQueue(contract: any) {
-        await Lina.send(contract.methods.joinMatch())
+        Lina.send(contract.methods.joinMatch()).then(_ => {
+        })
     }
 
     static async getGameStats(contract: any): Promise<GameStats> {
@@ -57,5 +60,35 @@ export default class Game {
                 techniques: NumberUtils.from(player.techniques),
             }
         } else return null
+    }
+
+    static Player = class {
+
+        static getKey(): string {
+            let key = localStorage.getItem('jajanken-key')
+
+            if (key == null) {
+                key = this.initKey()
+            }
+            return key
+        }
+
+        static initKey(): string {
+            const key = uuidv4()
+            localStorage.setItem('jajanken-key', key)
+            return key
+        }
+
+        static async commitPlay(contract: any, matchId: string, technique: JaJankenTechnique) {
+            Lina.call(contract.methods.encodeAction({_yourAddress: Lina.account(), _action: technique, _revealKey: Web3Utils.encode(this.getKey())})).then(encodedTechnique => {
+                Lina.send(contract.methods.playMatch({_commitment: encodedTechnique, _matchId: matchId})).then(_ => {
+                })
+            })
+        }
+
+        static async revealPlay(contract: any, matchId: string, technique: JaJankenTechnique) {
+            Lina.send(contract.methods.revealMatch({_action: technique, _revealKey: this.getKey(), _matchId: matchId})).then(_ => {
+            })
+        }
     }
 }

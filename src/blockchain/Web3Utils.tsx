@@ -17,19 +17,23 @@ export default class Web3Utils {
         }
     }
 
-    static async getNetwork() {
+    static async getNetwork(): Promise<number> {
         return window.web3.eth.net.getId()
     }
 
-    static async getAccounts() {
+    static async getAccounts(): Promise<string[]> {
         return window.web3.eth.getAccounts()//window.ethereum.request({ method: 'eth_requestAccounts' })
     }
 
-    static getDefaultAccount() {
+    static getDefaultAccount(): string | null {
         return window.web3.eth.defaultAccount
     }
 
     static setDefaultAccount(account: any) {
         window.web3.eth.defaultAccount = account
+    }
+
+    static encode(value: string): string {
+       return window.web3.utils.fromAscii(value)
     }
 }

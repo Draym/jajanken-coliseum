@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {RouteComponentProps, withRouter} from "react-router-dom";
 import ContractLoader from "../../../blockchain/ContractLoader";
 import Web3Utils from "../../../blockchain/Web3Utils";
-import Game from "../../../game/Game";
+import JaJanken from "../../../game/JaJanken";
 import ColiseumMatch from "./ColiseumMatch";
 import {CurrentMatch} from "../../../game/data/CurrentMatch";
 import {PlayerStats} from "../../../game/data/PlayerStats";
@@ -66,7 +66,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
 
         this.setState({jajankenColiseum: coliseum})
 
-        Game.getGameStats(this.state.jajankenColiseum).then(game => {
+        JaJanken.getGameStats(this.state.jajankenColiseum).then(game => {
                 console.log("[init] game", game)
                 this.setState({
                     game: game
@@ -74,7 +74,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
             }
         )
 
-        Game.getMyProfile(coliseum).then(profile => {
+        JaJanken.getMyProfile(coliseum).then(profile => {
             console.log("[init] profile", profile)
             if (profile) {
                 if (profile.nen === 0) {
@@ -105,7 +105,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
     handlePlayerJoinGame = (event: any) => {
         const data = event.returnValues
         if (data.p === Lina.account()) {
-            Game.getMyProfile(this.state.jajankenColiseum).then(profile => {
+            JaJanken.getMyProfile(this.state.jajankenColiseum).then(profile => {
                     if (profile) {
                         this.setState({player: profile})
                     }
@@ -113,7 +113,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
             )
             this.setState({gameState: GameState.Lobby})
         }
-        Game.getGameStats(this.state.jajankenColiseum).then(game => {
+        JaJanken.getGameStats(this.state.jajankenColiseum).then(game => {
                 this.setState({game: game})
             }
         )
@@ -131,11 +131,11 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
     }
 
     joinColiseum = async () => {
-        await Game.joinColiseum(this.state.jajankenColiseum)
+        await JaJanken.joinColiseum(this.state.jajankenColiseum)
     }
 
     joinMatch = async () => {
-        await Game.joinMatchQueue(this.state.jajankenColiseum).then(data =>
+        await JaJanken.joinMatchQueue(this.state.jajankenColiseum).then(data =>
             this.setState({gameState: GameState.LookingMatch})
         ).catch(error => console.log("failed join Match:", error))
     }
@@ -168,7 +168,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
         } else if (this.state.gameState === GameState.InMatch) {
             if (this.state.currentMatch != null) {
                 return <div>
-                    <ColiseumMatch account={Lina.account()} jajankenColiseum={this.state.jajankenColiseum} backToLobby={this.backToLobby}
+                    <ColiseumMatch jajankenColiseum={this.state.jajankenColiseum} backToLobby={this.backToLobby}
                                    currentMatch={this.state.currentMatch}/>
                 </div>
             } else {
