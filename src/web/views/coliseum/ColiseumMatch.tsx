@@ -35,6 +35,7 @@ interface ColiseumMatchState {
 
 interface MatchResult {
     opponent: string,
+    opponentPlayed: JaJankenTechnique,
     winner: string,
     isVictory: boolean
 }
@@ -86,6 +87,10 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
                 }
             }
         )
+
+        JaJanken.getOpponent(coliseum, this.state.match.p1 === Lina.account() ? this.state.match.p2 : this.state.match.p1).then(opponent => {
+            console.log("[init] opponent: ", opponent)
+        })
     }
 
     async subscribeToGameEvents() {
@@ -103,7 +108,12 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
         const data = event.returnValues
         this.setState({
             matchState: MatchState.Result,
-            matchResult: {isVictory: data.winner == Lina.account(), opponent: data.p1 == Lina.account() ? data.p2 : data.p1, winner: data.winner}
+            matchResult: {
+                isVictory: data.winner === Lina.account(),
+                opponent: data.p1 === Lina.account() ? data.p2 : data.p1,
+                opponentPlayed: data.p1 === Lina.account() ? data.p2Played : data.p1Played,
+                winner: data.winner
+            }
         })
     }
 
@@ -136,25 +146,38 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
     }
 
     render() {
+        let currentPick = TechniqueImg.fromTechnique(this.state.currentPick)
+
         if (this.state.matchState === MatchState.Loading) {
             return <p id="loader" className="text-center">Loading...</p>
         } else if (this.state.matchState === MatchState.PickPlay) {
-            return <div className="row">
-                <img src={TechniqueImg.guu} width={300} alt="guu" onClick={this.pickGuu}/>
-                <img src={TechniqueImg.chi} width={300} alt="chi" onClick={this.pickChi}/>
-                <img src={TechniqueImg.paa} width={300} alt="paa" onClick={this.pickPaa}/>
+            return <div>
+                <img src={TechniqueImg.guu} width={200} alt="guu" onClick={this.pickGuu}/>
+                <img src={TechniqueImg.chi} width={200} alt="chi" onClick={this.pickChi}/>
+                <img src={TechniqueImg.paa} width={200} alt="paa" onClick={this.pickPaa}/>
             </div>
         } else if (this.state.matchState === MatchState.Commit) {
-            <div className="row">
+            return <div className="row">
+                <img src={currentPick} width={300} alt="currentPicket"/>
                 <button className={"btn-light"} onClick={this.commitPlay}>Commit play!</button>
             </div>
         } else if (this.state.matchState === MatchState.Reveal) {
-            <div className="row">
+            return <div className="row">
+                <img src={currentPick} width={300} alt="currentPicket"/>
                 <button className={"btn-light"} onClick={this.revealPlay}>Fight!</button>
             </div>
         } else if (this.state.matchState === MatchState.Result) {
-            <div className="row">
-                <button className={"btn-light"} onClick={this.backToLobby}>Back to Lobby!</button>
+            let opponentPick = TechniqueImg.fromTechnique(this.state.matchResult!.opponentPlayed)
+            return <div className="row">
+                <div className="row">
+                    <img src={currentPick} width={300} alt="currentPicket"/>
+                    <span>...VS...</span>
+                    <img src={opponentPick} width={300} alt="currentPicket"/>
+                </div>
+                <div className="row">
+                    <h2>You {this.state.matchResult!.isVictory ? "Win!" : "Loose :/"}</h2>
+                    <button className={"btn-light"} onClick={this.backToLobby}>Back to Lobby!</button>
+                </div>
             </div>
         } else {
             return <div>How did you get there?</div>

@@ -36,4 +36,8 @@ export default class Web3Utils {
     static encode(value: string): string {
        return window.web3.utils.fromAscii(value)
     }
+
+    static nullAddress() {
+        return '0x0000000000000000000000000000000000000000';
+    }
 }

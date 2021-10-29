@@ -1,11 +1,12 @@
 import NumberUtils from "../utils/NumberUtils";
 import {PlayerStats} from "./data/PlayerStats";
 import {GameStats} from "./data/GameStats";
-import {OpponentStat} from "./data/OpponentStat";
+import {OpponentStats} from "./data/OpponentStats";
 import Lina from "../blockchain/Lina";
 import Web3Utils from "../blockchain/Web3Utils";
 import {JaJankenTechnique} from "./data/JaJankenTechnique";
 import {v4 as uuidv4} from "uuid";
+import {MatchStats} from "./data/MatchStats";
 
 export default class JaJanken {
 
@@ -43,7 +44,7 @@ export default class JaJanken {
         if (profile) {
             return {
                 inQueue: queued === Web3Utils.getDefaultAccount(),
-                inMatch: profile.inMatch === 1,
+                inMatch: profile.inMatch == Web3Utils.nullAddress() ? null : profile.inMatch,
                 nen: NumberUtils.from(profile.nen),
                 guu: NumberUtils.from(profile.guu),
                 paa: NumberUtils.from(profile.paa),
@@ -52,8 +53,10 @@ export default class JaJanken {
         } else return null
     }
 
-    static async getOpponent(contract: any, playerAddress: any): Promise<OpponentStat | null> {
-        const player = await Lina.call(contract.methods.getPlayer({_player: playerAddress}))
+    static async getOpponent(contract: any, playerAddress: string | null): Promise<OpponentStats | null> {
+        if (playerAddress == null)
+            return null
+        const player = await Lina.call(contract.methods.getPlayer(playerAddress))
         if (player) {
             return {
                 nen: NumberUtils.from(player.nen),
@@ -62,11 +65,24 @@ export default class JaJanken {
         } else return null
     }
 
+    static async getMatch(contract: any, matchId: string): Promise<MatchStats | null> {
+        const match = await Lina.call(contract.methods.matches(matchId))
+        if (match) {
+            return {
+                p2: match.p2,
+                p1Hidden: match.p1Hidden,
+                p2Hidden: match.p2Hidden,
+                pPlayed: match.pPlayed,
+                playTime: match.playTime,
+                revealTime: match.revealTime
+            }
+        } else return null
+    }
+
     static Player = class {
 
         static getKey(): string {
             let key = localStorage.getItem('jajanken-key')
-
             if (key == null) {
                 key = this.initKey()
             }
@@ -80,14 +96,14 @@ export default class JaJanken {
         }
 
         static async commitPlay(contract: any, matchId: string, technique: JaJankenTechnique) {
-            Lina.call(contract.methods.encodeAction({_yourAddress: Lina.account(), _action: technique, _revealKey: Web3Utils.encode(this.getKey())})).then(encodedTechnique => {
+            Lina.call(contract.methods.encodeAction(Lina.account(), technique, Web3Utils.encode(this.getKey()))).then(encodedTechnique => {
                 Lina.send(contract.methods.playMatch({_commitment: encodedTechnique, _matchId: matchId})).then(_ => {
                 })
             })
         }
 
         static async revealPlay(contract: any, matchId: string, technique: JaJankenTechnique) {
-            Lina.send(contract.methods.revealMatch({_action: technique, _revealKey: this.getKey(), _matchId: matchId})).then(_ => {
+            Lina.send(contract.methods.revealMatch(technique, this.getKey(), matchId)).then(_ => {
             })
         }
     }

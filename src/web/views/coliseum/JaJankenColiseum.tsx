@@ -37,7 +37,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
             jajankenColiseum: {},
             player: {
                 inQueue: false,
-                inMatch: false,
+                inMatch: null,
                 nen: 0,
                 guu: 0,
                 paa: 0,
@@ -80,8 +80,17 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
                 if (profile.nen === 0) {
                     window.alert(`Account ${Lina.account()} has previously lost all his nen, please re-join the game first!`)
                     this.setState({gameState: GameState.NeedPay})
-                } else if (profile.inMatch) {
-                    this.setState({player: profile, gameState: GameState.InMatch})
+                } else if (profile.inMatch != null) {
+                    JaJanken.getMatch(coliseum, profile.inMatch).then(match => {
+                        console.log("[init] match: ", match)
+                        if (match != null) {
+                            let opponentId = profile.inMatch === Lina.account() ? match.p2 : profile.inMatch
+                            JaJanken.getOpponent(coliseum, opponentId).then(opponent => {
+                                console.log("[init] opponent: ", opponent)
+                                this.setState({player: profile, gameState: GameState.InMatch, currentMatch: {p1: profile.inMatch!, p2: match.p2, matchId: profile.inMatch!}})
+                            })
+                        }
+                    })
                 } else if (profile.inQueue) {
                     this.setState({player: profile, gameState: GameState.LookingMatch})
                 } else {
@@ -92,6 +101,15 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
                 this.setState({gameState: GameState.NeedPay})
             }
         })
+        // JaJanken.getOpponent(coliseum, Lina.account()).then(opponent => {
+        //     console.log("[test] me: ", opponent)
+        // })
+        // JaJanken.getMatch(coliseum, Lina.account()!).then(match => {
+        //     console.log("[test] match: ", match)
+        //     JaJanken.getOpponent(coliseum, match!.p2).then(opponent => {
+        //         console.log("[test] opponent: ", opponent)
+        //     })
+        // })
     }
 
     handleStartMatch = (event: any) => {
@@ -172,7 +190,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
                                    currentMatch={this.state.currentMatch}/>
                 </div>
             } else {
-                <div className="row">
+                return <div className="row">
                     <button className={"btn-light"} onClick={this.backToLobby}>Back to Lobby!</button>
                 </div>
             }

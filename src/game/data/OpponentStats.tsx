@@ -1,4 +1,4 @@
-export interface OpponentStat {
+export interface OpponentStats {
     nen: number,
     techniques: number
 }
