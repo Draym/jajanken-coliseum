@@ -90,14 +90,27 @@ export default class JaJanken {
         }
 
         static initKey(): string {
-            const key = uuidv4()
+            const key = uuidv4().substring(0, 20)
             localStorage.setItem('jajanken-key', key)
             return key
         }
 
+        static getPlayed(): JaJankenTechnique {
+            let key = localStorage.getItem('jajanken-played')
+            if (key == null) {
+                return JaJankenTechnique.None
+            } else {
+                return parseInt(key)
+            }
+        }
+
+        static savePlay(technique: JaJankenTechnique) {
+            localStorage.setItem('jajanken-played', technique.toString())
+        }
+
         static async commitPlay(contract: any, matchId: string, technique: JaJankenTechnique) {
             Lina.call(contract.methods.encodeAction(Lina.account(), technique, Web3Utils.encode(this.getKey()))).then(encodedTechnique => {
-                Lina.send(contract.methods.playMatch({_commitment: encodedTechnique, _matchId: matchId})).then(_ => {
+                Lina.send(contract.methods.playMatch(encodedTechnique, matchId)).then(_ => {
                 })
             })
         }
