@@ -6,7 +6,7 @@
     "name": "Kevin Andres",
     "email": "kevin.andres@epitech.eu"
   },
-  "version": "0.1.0",
+  "version": "0.9.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
