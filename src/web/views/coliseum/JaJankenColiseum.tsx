@@ -159,7 +159,17 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
     }
 
     backToLobby = () => {
+        JaJanken.getMyProfile(this.state.jajankenColiseum).then(profile => {
+                if (profile) {
+                    this.setState({player: profile})
+                }
+            }
+        )
         this.setState({gameState: GameState.Lobby})
+        JaJanken.getGameStats(this.state.jajankenColiseum).then(game => {
+                this.setState({game: game})
+            }
+        )
     }
 
     render() {
