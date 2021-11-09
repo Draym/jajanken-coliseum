@@ -400,7 +400,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.4+commit.3f05b770\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p1\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p2\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"enum JaJanken.Technique\",\"name\":\"p1Played\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"enum JaJanken.Technique\",\"name\":\"p2Played\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"winner\",\"type\":\"address\"}],\"name\":\"MatchEnd\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"matchId\",\"type\":\"address\"}],\"name\":\"MatchPlayed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"matchId\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p1\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p2\",\"type\":\"address\"}],\"name\":\"MatchStart\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"player\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"WithdrawRewards\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_yourAddress\",\"type\":\"address\"},{\"internalType\":\"enum JaJanken.Technique\",\"name\":\"_action\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"_revealKey\",\"type\":\"bytes32\"}],\"name\":\"encodeAction\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"entranceTicketFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"forfeitMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_player\",\"type\":\"address\"}],\"name\":\"getPlayer\",\"outputs\":[{\"components\":[{\"internalType\":\"uint32\",\"name\":\"nen\",\"type\":\"uint32\"},{\"internalType\":\"uint8\",\"name\":\"techniques\",\"type\":\"uint8\"}],\"internalType\":\"struct JaJanken.Opponent\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getProfile\",\"outputs\":[{\"components\":[{\"internalType\":\"uint8\",\"name\":\"guu\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"paa\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"chi\",\"type\":\"uint8\"},{\"internalType\":\"uint32\",\"name\":\"nen\",\"type\":\"uint32\"},{\"internalType\":\"address\",\"name\":\"inMatch\",\"type\":\"address\"}],\"internalType\":\"struct JaJanken.Player\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalChi\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalGuu\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPaa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPlayers\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"joinGame\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"joinMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_commitment\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"playMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum JaJanken.Technique\",\"name\":\"_action\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"_revealKey\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"revealMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"skipAfkDuringPlay\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"skipAfkDuringReveal\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"waitingForOpponentToPlay\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"waitingForOpponentToReveal\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawGains\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"encodeAction(address,uint8,bytes32)\":{\"notice\":\"Encode the specified technique Should be used to generate a hashed value in order to commit secretly the player action for playMatch\"},\"forfeitMatch(address)\":{\"notice\":\"The player decide to forfeit and quit the specified match No card will be used from either players -> Should emit a MatchEnd event\"},\"getPlayer(address)\":{\"notice\":\"Get the player profile stat for the current Game\"},\"getProfile()\":{\"notice\":\"Get your profile stat for the current Game\"},\"getTotalChi()\":{\"notice\":\"Get the number of Chi from alive players\"},\"getTotalGuu()\":{\"notice\":\"Get the number of Guu from alive players\"},\"getTotalPaa()\":{\"notice\":\"Get the number of Paa from alive players\"},\"getTotalPlayers()\":{\"notice\":\"Get the number of player alive in the game\"},\"joinGame()\":{\"notice\":\"Join a game, the caller must pay the required entrance ticket amount in ETH\"},\"joinMatch()\":{\"notice\":\"Join a queue in order to find an opponent to fight against -> Should emit a StartMatch event when an opponent is found\"},\"playMatch(bytes32,address)\":{\"notice\":\"Commit the player's action for his current match The action(Technique) must be hashed with a bytes32 key. so it can be saved with his hidden form. -> Should emit a MatchPlayed event when the last player of the Match commit his play\"},\"revealMatch(uint8,bytes32,address)\":{\"notice\":\"Reveal the player's action for his current match It is required to send the player's action with the key used to hash it previously for platMatch method -> Should emit a MatchEnd event when the last player of the Match reveal his play\"},\"skipAfkDuringPlay(address)\":{\"notice\":\"Kick your opponent from the match if conditions are met. You will win this match by default\"},\"skipAfkDuringReveal(address)\":{\"notice\":\"Kick your opponent from the match if conditions are met. You will win this match by default\"},\"waitingForOpponentToPlay(address)\":{\"notice\":\"This method will check if your opponent didn't play yet If this method return true, you will be allowed to call skipAfkDuringPlay to pass the turn of your opponent and win the match\"},\"waitingForOpponentToReveal(address)\":{\"notice\":\"This method will check if your opponent didn't reveal his play yet If this method return true, you will be allowed to call skipAfkDuringReveal to pass the turn of your opponent and win the match\"},\"withdrawGains()\":{\"notice\":\"Withdraw gains from the Game send rewards to the the players if he meets the withdrawal conditions, do nothing otherwise\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/JaJanken.sol\":\"JaJanken\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/JaJanken.sol\":{\"keccak256\":\"0x1d5a418dfcd2849531783776b6bb41d47fa289ba538336777561b97435c7c278\",\"license\":\"GLWTPL\",\"urls\":[\"bzz-raw://ca987b832e1ccc413d68c2a88d0f30074bda2b0a6a0ef0c8f22ce173b28d526f\",\"dweb:/ipfs/QmXYcwAknHft3WHLjQ9f9XVCcC8f2HTedmhzkLVe6Yo7ZA\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.4+commit.3f05b770\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p1\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p2\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"enum JaJanken.Technique\",\"name\":\"p1Played\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"enum JaJanken.Technique\",\"name\":\"p2Played\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"winner\",\"type\":\"address\"}],\"name\":\"MatchEnd\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"matchId\",\"type\":\"address\"}],\"name\":\"MatchPlayed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"matchId\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p1\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p2\",\"type\":\"address\"}],\"name\":\"MatchStart\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"player\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"WithdrawRewards\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_yourAddress\",\"type\":\"address\"},{\"internalType\":\"enum JaJanken.Technique\",\"name\":\"_action\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"_revealKey\",\"type\":\"bytes32\"}],\"name\":\"encodeAction\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"entranceTicketFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"forfeitMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_player\",\"type\":\"address\"}],\"name\":\"getPlayer\",\"outputs\":[{\"components\":[{\"internalType\":\"uint32\",\"name\":\"nen\",\"type\":\"uint32\"},{\"internalType\":\"uint8\",\"name\":\"techniques\",\"type\":\"uint8\"}],\"internalType\":\"struct JaJanken.Opponent\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getProfile\",\"outputs\":[{\"components\":[{\"internalType\":\"uint8\",\"name\":\"guu\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"paa\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"chi\",\"type\":\"uint8\"},{\"internalType\":\"uint32\",\"name\":\"nen\",\"type\":\"uint32\"},{\"internalType\":\"address\",\"name\":\"inMatch\",\"type\":\"address\"}],\"internalType\":\"struct JaJanken.Player\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalChi\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalGuu\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPaa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPlayers\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"joinGame\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"joinMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_commitment\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"playMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum JaJanken.Technique\",\"name\":\"_action\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"_revealKey\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"revealMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"skipAfkDuringPlay\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"skipAfkDuringReveal\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"waitingForOpponentToPlay\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"waitingForOpponentToReveal\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawGains\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"encodeAction(address,uint8,bytes32)\":{\"notice\":\"Encode the specified technique Should be used to generate a hashed value in order to commit secretly the player action for playMatch\"},\"forfeitMatch(address)\":{\"notice\":\"The player decide to forfeit and quit the specified match No card will be used from either players -> Should emit a MatchEnd event\"},\"getPlayer(address)\":{\"notice\":\"Get the player profile stat for the current Game\"},\"getProfile()\":{\"notice\":\"Get your profile stat for the current Game\"},\"getTotalChi()\":{\"notice\":\"Get the number of Chi from alive players\"},\"getTotalGuu()\":{\"notice\":\"Get the number of Guu from alive players\"},\"getTotalPaa()\":{\"notice\":\"Get the number of Paa from alive players\"},\"getTotalPlayers()\":{\"notice\":\"Get the number of player alive in the game\"},\"joinGame()\":{\"notice\":\"Join a game, the caller must pay the required entrance ticket amount in ETH\"},\"joinMatch()\":{\"notice\":\"Join a queue in order to find an opponent to fight against -> Should emit a StartMatch event when an opponent is found\"},\"playMatch(bytes32,address)\":{\"notice\":\"Commit the player's action for his current match The action(Technique) must be hashed with a bytes32 key. so it can be saved with his hidden form. -> Should emit a MatchPlayed event when the last player of the Match commit his play\"},\"revealMatch(uint8,bytes32,address)\":{\"notice\":\"Reveal the player's action for his current match It is required to send the player's action with the key used to hash it previously for platMatch method -> Should emit a MatchEnd event when the last player of the Match reveal his play\"},\"skipAfkDuringPlay(address)\":{\"notice\":\"Kick your opponent from the match if conditions are met. You will win this match by default\"},\"skipAfkDuringReveal(address)\":{\"notice\":\"Kick your opponent from the match if conditions are met. You will win this match by default\"},\"waitingForOpponentToPlay(address)\":{\"notice\":\"This method will check if your opponent didn't play yet If this method return true, you will be allowed to call skipAfkDuringPlay to pass the turn of your opponent and win the match\"},\"waitingForOpponentToReveal(address)\":{\"notice\":\"This method will check if your opponent didn't reveal his play yet If this method return true, you will be allowed to call skipAfkDuringReveal to pass the turn of your opponent and win the match\"},\"withdrawGains()\":{\"notice\":\"Withdraw gains from the Game send rewards to the the players if he meets the withdrawal conditions, do nothing otherwise\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/JaJanken.sol\":\"JaJanken\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/JaJanken.sol\":{\"keccak256\":\"0xb3b99b300903128e2acb3f81097712f3e64549f175b40a921565e368052131ca\",\"license\":\"GLWTPL\",\"urls\":[\"bzz-raw://8acc6d34c051723243782270e3ee08bcf9cb253e69da509e5c06830d0ed1c0da\",\"dweb:/ipfs/Qme6zWXwNhkEgKCt3fVzYW16RDGhzYaKeHjcsceeYciFME\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -408,16 +408,16 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.7.4;\r\npragma experimental ABIEncoderV2;\r\n\r\n// SPDX-License-Identifier: GLWTPL\r\ninterface JaJanken {\r\n\r\n    enum Technique {\r\n        None,\r\n        Guu,\r\n        Paa,\r\n        Chi\r\n    }\r\n\r\n    struct Player {\r\n        uint8 guu;\r\n        uint8 paa;\r\n        uint8 chi;\r\n        uint32 nen;\r\n        address inMatch;\r\n    }\r\n\r\n    struct Opponent {\r\n        uint32 nen;\r\n        uint8 techniques;\r\n    }\r\n\r\n    struct Match {\r\n        address p2;\r\n        bytes32 p1Hidden;\r\n        bytes32 p2Hidden;\r\n        Technique pPlayed;\r\n        uint256 playTime;\r\n        uint256 revealTime;\r\n    }\r\n\r\n    event MatchStart(\r\n        address matchId,\r\n        address indexed p1,\r\n        address indexed p2\r\n    );\r\n\r\n    event MatchPlayed(\r\n        address indexed matchId // p1\r\n    );\r\n\r\n    event MatchEnd(\r\n        address indexed p1,\r\n        address indexed p2,\r\n        Technique p1Played,\r\n        Technique p2Played,\r\n        address winner\r\n    );\r\n\r\n    event WithdrawRewards(\r\n        address indexed player,\r\n        uint256 amount\r\n    );\r\n\r\n    /*\r\n     * Return the required fee in Wei to pay to receive the game starter pack\r\n     * /!\\ depending on implementation, the pack may be given only if the value is enough to buy the entrance ticket\r\n     */\r\n    function entranceTicketFee() external view returns (uint256);\r\n\r\n    /**\r\n     * Join a game, the caller must pay the required entrance ticket amount in ETH\r\n     */\r\n    function joinGame() external payable;\r\n\r\n    /**\r\n     * Join a queue in order to find an opponent to fight against\r\n     * -> Should emit a StartMatch event when an opponent is found\r\n     */\r\n    function joinMatch() external;\r\n\r\n    /**\r\n     * Encode the specified technique\r\n     * Should be used to generate a hashed value in order to commit secretly the player action for playMatch\r\n     */\r\n    function encodeAction(address _yourAddress, Technique _action, bytes32 _revealKey) external pure returns (bytes32);\r\n\r\n    /**\r\n     * Commit the player's action for his current match\r\n     * The action(Technique) must be hashed with a bytes32 key. so it can be saved with his hidden form.\r\n     * -> Should emit a MatchPlayed event when the last player of the Match commit his play\r\n     */\r\n    function playMatch(bytes32 _commitment, address _matchId) external;\r\n\r\n    /**\r\n     * Reveal the player's action for his current match\r\n     * It is required to send the player's action with the key used to hash it previously for platMatch method\r\n     * -> Should emit a MatchEnd event when the last player of the Match reveal his play\r\n     */\r\n    function revealMatch(Technique _action, bytes32 _revealKey, address _matchId) external;\r\n\r\n    /**\r\n     * The player decide to forfeit and quit the specified match\r\n     * No card will be used from either players\r\n     * -> Should emit a MatchEnd event\r\n     */\r\n    function forfeitMatch(address _matchId) external;\r\n\r\n\r\n    /**\r\n     * Withdraw gains from the Game\r\n     * send rewards to the the players if he meets the withdrawal conditions, do nothing otherwise\r\n     */\r\n    function withdrawGains() external;\r\n\r\n    /**\r\n     * This method will check if your opponent didn't play yet\r\n     * If this method return true, you will be allowed to call skipAfkDuringPlay to pass the turn of your opponent and win the match\r\n     */\r\n    function waitingForOpponentToPlay(address _matchId) external view returns (bool);\r\n\r\n    /**\r\n     * This method will check if your opponent didn't reveal his play yet\r\n     * If this method return true, you will be allowed to call skipAfkDuringReveal to pass the turn of your opponent and win the match\r\n     */\r\n    function waitingForOpponentToReveal(address _matchId) external view returns (bool);\r\n\r\n    /**\r\n     * Kick your opponent from the match if conditions are met. You will win this match by default\r\n     */\r\n    function skipAfkDuringPlay(address _matchId) external;\r\n\r\n    /**\r\n     * Kick your opponent from the match if conditions are met. You will win this match by default\r\n     */\r\n    function skipAfkDuringReveal(address _matchId) external;\r\n\r\n    /**\r\n     * Get your profile stat for the current Game\r\n     */\r\n    function getProfile() external view returns (Player memory);\r\n\r\n    /**\r\n     * Get the player profile stat for the current Game\r\n     */\r\n    function getPlayer(address _player) external view returns (Opponent memory);\r\n\r\n    /**\r\n     * Get the number of player alive in the game\r\n     */\r\n    function getTotalPlayers() external view returns (uint);\r\n    /**\r\n     * Get the number of Guu from alive players\r\n     */\r\n    function getTotalGuu() external view returns (uint);\r\n    /**\r\n     * Get the number of Paa from alive players\r\n     */\r\n    function getTotalPaa() external view returns (uint);\r\n    /**\r\n     * Get the number of Chi from alive players\r\n     */\r\n    function getTotalChi() external view returns (uint);\r\n}",
+  "source": "pragma solidity ^0.7.4;\r\npragma experimental ABIEncoderV2;\r\n\r\n// SPDX-License-Identifier: GLWTPL\r\ninterface JaJanken {\r\n\r\n    enum Technique {\r\n        None,\r\n        Guu,\r\n        Paa,\r\n        Chi\r\n    }\r\n\r\n    struct Player {\r\n        uint8 guu;\r\n        uint8 paa;\r\n        uint8 chi;\r\n        uint32 nen;\r\n        address inMatch;\r\n    }\r\n\r\n    struct Opponent {\r\n        uint32 nen;\r\n        uint8 techniques;\r\n    }\r\n\r\n    struct Match {\r\n        address p2;\r\n        bytes32 p1Hidden;\r\n        bytes32 p2Hidden;\r\n        Technique p1Revealed;\r\n        Technique p2Revealed;\r\n        uint256 playTime;\r\n        uint256 revealTime;\r\n    }\r\n\r\n    event MatchStart(\r\n        address matchId,\r\n        address indexed p1,\r\n        address indexed p2\r\n    );\r\n\r\n    event MatchPlayed(\r\n        address indexed matchId // p1\r\n    );\r\n\r\n    event MatchEnd(\r\n        address indexed p1,\r\n        address indexed p2,\r\n        Technique p1Played,\r\n        Technique p2Played,\r\n        address winner\r\n    );\r\n\r\n    event WithdrawRewards(\r\n        address indexed player,\r\n        uint256 amount\r\n    );\r\n\r\n    /*\r\n     * Return the required fee in Wei to pay to receive the game starter pack\r\n     * /!\\ depending on implementation, the pack may be given only if the value is enough to buy the entrance ticket\r\n     */\r\n    function entranceTicketFee() external view returns (uint256);\r\n\r\n    /**\r\n     * Join a game, the caller must pay the required entrance ticket amount in ETH\r\n     */\r\n    function joinGame() external payable;\r\n\r\n    /**\r\n     * Join a queue in order to find an opponent to fight against\r\n     * -> Should emit a StartMatch event when an opponent is found\r\n     */\r\n    function joinMatch() external;\r\n\r\n    /**\r\n     * Encode the specified technique\r\n     * Should be used to generate a hashed value in order to commit secretly the player action for playMatch\r\n     */\r\n    function encodeAction(address _yourAddress, Technique _action, bytes32 _revealKey) external pure returns (bytes32);\r\n\r\n    /**\r\n     * Commit the player's action for his current match\r\n     * The action(Technique) must be hashed with a bytes32 key. so it can be saved with his hidden form.\r\n     * -> Should emit a MatchPlayed event when the last player of the Match commit his play\r\n     */\r\n    function playMatch(bytes32 _commitment, address _matchId) external;\r\n\r\n    /**\r\n     * Reveal the player's action for his current match\r\n     * It is required to send the player's action with the key used to hash it previously for platMatch method\r\n     * -> Should emit a MatchEnd event when the last player of the Match reveal his play\r\n     */\r\n    function revealMatch(Technique _action, bytes32 _revealKey, address _matchId) external;\r\n\r\n    /**\r\n     * The player decide to forfeit and quit the specified match\r\n     * No card will be used from either players\r\n     * -> Should emit a MatchEnd event\r\n     */\r\n    function forfeitMatch(address _matchId) external;\r\n\r\n\r\n    /**\r\n     * Withdraw gains from the Game\r\n     * send rewards to the the players if he meets the withdrawal conditions, do nothing otherwise\r\n     */\r\n    function withdrawGains() external;\r\n\r\n    /**\r\n     * This method will check if your opponent didn't play yet\r\n     * If this method return true, you will be allowed to call skipAfkDuringPlay to pass the turn of your opponent and win the match\r\n     */\r\n    function waitingForOpponentToPlay(address _matchId) external view returns (bool);\r\n\r\n    /**\r\n     * This method will check if your opponent didn't reveal his play yet\r\n     * If this method return true, you will be allowed to call skipAfkDuringReveal to pass the turn of your opponent and win the match\r\n     */\r\n    function waitingForOpponentToReveal(address _matchId) external view returns (bool);\r\n\r\n    /**\r\n     * Kick your opponent from the match if conditions are met. You will win this match by default\r\n     */\r\n    function skipAfkDuringPlay(address _matchId) external;\r\n\r\n    /**\r\n     * Kick your opponent from the match if conditions are met. You will win this match by default\r\n     */\r\n    function skipAfkDuringReveal(address _matchId) external;\r\n\r\n    /**\r\n     * Get your profile stat for the current Game\r\n     */\r\n    function getProfile() external view returns (Player memory);\r\n\r\n    /**\r\n     * Get the player profile stat for the current Game\r\n     */\r\n    function getPlayer(address _player) external view returns (Opponent memory);\r\n\r\n    /**\r\n     * Get the number of player alive in the game\r\n     */\r\n    function getTotalPlayers() external view returns (uint);\r\n    /**\r\n     * Get the number of Guu from alive players\r\n     */\r\n    function getTotalGuu() external view returns (uint);\r\n    /**\r\n     * Get the number of Paa from alive players\r\n     */\r\n    function getTotalPaa() external view returns (uint);\r\n    /**\r\n     * Get the number of Chi from alive players\r\n     */\r\n    function getTotalChi() external view returns (uint);\r\n}",
   "sourcePath": "C:\\Users\\KevinGeorgesAndres\\Documents\\projects\\perso\\jajanken-evm\\contracts\\JaJanken.sol",
   "ast": {
     "absolutePath": "project:/contracts/JaJanken.sol",
     "exportedSymbols": {
       "JaJanken": [
-        186
+        188
       ]
     },
-    "id": 187,
+    "id": 189,
     "license": "GLWTPL",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -447,9 +447,9 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 186,
+        "id": 188,
         "linearizedBaseContracts": [
-          186
+          188
         ],
         "name": "JaJanken",
         "nodeType": "ContractDefinition",
@@ -625,7 +625,7 @@
             ],
             "name": "Player",
             "nodeType": "StructDefinition",
-            "scope": 186,
+            "scope": 188,
             "src": "213:129:0",
             "visibility": "public"
           },
@@ -688,13 +688,13 @@
             ],
             "name": "Opponent",
             "nodeType": "StructDefinition",
-            "scope": 186,
+            "scope": 188,
             "src": "350:72:0",
             "visibility": "public"
           },
           {
             "canonicalName": "JaJanken.Match",
-            "id": 36,
+            "id": 38,
             "members": [
               {
                 "constant": false,
@@ -702,7 +702,7 @@
                 "mutability": "mutable",
                 "name": "p2",
                 "nodeType": "VariableDeclaration",
-                "scope": 36,
+                "scope": 38,
                 "src": "454:10:0",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -729,7 +729,7 @@
                 "mutability": "mutable",
                 "name": "p1Hidden",
                 "nodeType": "VariableDeclaration",
-                "scope": 36,
+                "scope": 38,
                 "src": "475:16:0",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -755,7 +755,7 @@
                 "mutability": "mutable",
                 "name": "p2Hidden",
                 "nodeType": "VariableDeclaration",
-                "scope": 36,
+                "scope": 38,
                 "src": "502:16:0",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -779,10 +779,10 @@
                 "constant": false,
                 "id": 31,
                 "mutability": "mutable",
-                "name": "pPlayed",
+                "name": "p1Revealed",
                 "nodeType": "VariableDeclaration",
-                "scope": 36,
-                "src": "529:17:0",
+                "scope": 38,
+                "src": "529:20:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -806,24 +806,25 @@
                 "constant": false,
                 "id": 33,
                 "mutability": "mutable",
-                "name": "playTime",
+                "name": "p2Revealed",
                 "nodeType": "VariableDeclaration",
-                "scope": 36,
-                "src": "557:16:0",
+                "scope": 38,
+                "src": "560:20:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
+                  "typeIdentifier": "t_enum$_Technique_$7",
+                  "typeString": "enum JaJanken.Technique"
                 },
                 "typeName": {
                   "id": 32,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "557:7:0",
+                  "name": "Technique",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 7,
+                  "src": "560:9:0",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
+                    "typeIdentifier": "t_enum$_Technique_$7",
+                    "typeString": "enum JaJanken.Technique"
                   }
                 },
                 "visibility": "internal"
@@ -832,10 +833,10 @@
                 "constant": false,
                 "id": 35,
                 "mutability": "mutable",
-                "name": "revealTime",
+                "name": "playTime",
                 "nodeType": "VariableDeclaration",
-                "scope": 36,
-                "src": "584:18:0",
+                "scope": 38,
+                "src": "591:16:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -846,7 +847,33 @@
                   "id": 34,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "584:7:0",
+                  "src": "591:7:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 37,
+                "mutability": "mutable",
+                "name": "revealTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 38,
+                "src": "618:18:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 36,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "618:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -857,56 +884,28 @@
             ],
             "name": "Match",
             "nodeType": "StructDefinition",
-            "scope": 186,
-            "src": "430:180:0",
+            "scope": 188,
+            "src": "430:214:0",
             "visibility": "public"
           },
           {
             "anonymous": false,
-            "id": 44,
+            "id": 46,
             "name": "MatchStart",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 43,
+              "id": 45,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 38,
+                  "id": 40,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "matchId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 44,
-                  "src": "645:15:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 37,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "645:7:0",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 40,
-                  "indexed": true,
-                  "mutability": "mutable",
-                  "name": "p1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 44,
-                  "src": "671:18:0",
+                  "scope": 46,
+                  "src": "679:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -917,7 +916,7 @@
                     "id": 39,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "671:7:0",
+                    "src": "679:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -931,10 +930,10 @@
                   "id": 42,
                   "indexed": true,
                   "mutability": "mutable",
-                  "name": "p2",
+                  "name": "p1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 44,
-                  "src": "700:18:0",
+                  "scope": 46,
+                  "src": "705:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -945,91 +944,7 @@
                     "id": 41,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "700:7:0",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "634:91:0"
-            },
-            "src": "618:108:0"
-          },
-          {
-            "anonymous": false,
-            "id": 48,
-            "name": "MatchPlayed",
-            "nodeType": "EventDefinition",
-            "parameters": {
-              "id": 47,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 46,
-                  "indexed": true,
-                  "mutability": "mutable",
-                  "name": "matchId",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 48,
-                  "src": "762:23:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 45,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "762:7:0",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "751:47:0"
-            },
-            "src": "734:65:0"
-          },
-          {
-            "anonymous": false,
-            "id": 60,
-            "name": "MatchEnd",
-            "nodeType": "EventDefinition",
-            "parameters": {
-              "id": 59,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 50,
-                  "indexed": true,
-                  "mutability": "mutable",
-                  "name": "p1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 60,
-                  "src": "832:18:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 49,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "832:7:0",
+                    "src": "705:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1040,13 +955,97 @@
                 },
                 {
                   "constant": false,
-                  "id": 52,
+                  "id": 44,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "p2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 60,
-                  "src": "861:18:0",
+                  "scope": 46,
+                  "src": "734:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 43,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "734:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "668:91:0"
+            },
+            "src": "652:108:0"
+          },
+          {
+            "anonymous": false,
+            "id": 50,
+            "name": "MatchPlayed",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 49,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 48,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "matchId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 50,
+                  "src": "796:23:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 47,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "796:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "785:47:0"
+            },
+            "src": "768:65:0"
+          },
+          {
+            "anonymous": false,
+            "id": 62,
+            "name": "MatchEnd",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 61,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "p1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62,
+                  "src": "866:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1057,7 +1056,7 @@
                     "id": 51,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "861:7:0",
+                    "src": "866:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1069,27 +1068,27 @@
                 {
                   "constant": false,
                   "id": 54,
-                  "indexed": false,
+                  "indexed": true,
                   "mutability": "mutable",
-                  "name": "p1Played",
+                  "name": "p2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 60,
-                  "src": "890:18:0",
+                  "scope": 62,
+                  "src": "895:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Technique_$7",
-                    "typeString": "enum JaJanken.Technique"
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
                   },
                   "typeName": {
                     "id": 53,
-                    "name": "Technique",
-                    "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7,
-                    "src": "890:9:0",
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "895:7:0",
+                    "stateMutability": "nonpayable",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Technique_$7",
-                      "typeString": "enum JaJanken.Technique"
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
                     }
                   },
                   "visibility": "internal"
@@ -1099,10 +1098,10 @@
                   "id": 56,
                   "indexed": false,
                   "mutability": "mutable",
-                  "name": "p2Played",
+                  "name": "p1Played",
                   "nodeType": "VariableDeclaration",
-                  "scope": 60,
-                  "src": "919:18:0",
+                  "scope": 62,
+                  "src": "924:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1114,7 +1113,7 @@
                     "name": "Technique",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 7,
-                    "src": "919:9:0",
+                    "src": "924:9:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_enum$_Technique_$7",
                       "typeString": "enum JaJanken.Technique"
@@ -1127,273 +1126,10 @@
                   "id": 58,
                   "indexed": false,
                   "mutability": "mutable",
-                  "name": "winner",
+                  "name": "p2Played",
                   "nodeType": "VariableDeclaration",
-                  "scope": 60,
-                  "src": "948:14:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 57,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "948:7:0",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "821:148:0"
-            },
-            "src": "807:163:0"
-          },
-          {
-            "anonymous": false,
-            "id": 66,
-            "name": "WithdrawRewards",
-            "nodeType": "EventDefinition",
-            "parameters": {
-              "id": 65,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 62,
-                  "indexed": true,
-                  "mutability": "mutable",
-                  "name": "player",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 66,
-                  "src": "1010:22:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 61,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1010:7:0",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 64,
-                  "indexed": false,
-                  "mutability": "mutable",
-                  "name": "amount",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 66,
-                  "src": "1043:14:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 63,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1043:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "999:65:0"
-            },
-            "src": "978:87:0"
-          },
-          {
-            "functionSelector": "da3b3393",
-            "id": 71,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "entranceTicketFee",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 67,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "1313:2:0"
-            },
-            "returnParameters": {
-              "id": 70,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 69,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 71,
-                  "src": "1339:7:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 68,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1339:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "1338:9:0"
-            },
-            "scope": 186,
-            "src": "1287:61:0",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "documentation": {
-              "id": 72,
-              "nodeType": "StructuredDocumentation",
-              "src": "1356:96:0",
-              "text": " Join a game, the caller must pay the required entrance ticket amount in ETH"
-            },
-            "functionSelector": "d4f77b1c",
-            "id": 75,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "joinGame",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 73,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "1475:2:0"
-            },
-            "returnParameters": {
-              "id": 74,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "1494:0:0"
-            },
-            "scope": 186,
-            "src": "1458:37:0",
-            "stateMutability": "payable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "documentation": {
-              "id": 76,
-              "nodeType": "StructuredDocumentation",
-              "src": "1503:147:0",
-              "text": " Join a queue in order to find an opponent to fight against\n -> Should emit a StartMatch event when an opponent is found"
-            },
-            "functionSelector": "02c0cdc4",
-            "id": 79,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "joinMatch",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 77,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "1674:2:0"
-            },
-            "returnParameters": {
-              "id": 78,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "1685:0:0"
-            },
-            "scope": 186,
-            "src": "1656:30:0",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "documentation": {
-              "id": 80,
-              "nodeType": "StructuredDocumentation",
-              "src": "1694:161:0",
-              "text": " Encode the specified technique\n Should be used to generate a hashed value in order to commit secretly the player action for playMatch"
-            },
-            "functionSelector": "36847b66",
-            "id": 91,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "encodeAction",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 87,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 82,
-                  "mutability": "mutable",
-                  "name": "_yourAddress",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 91,
-                  "src": "1883:20:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 81,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1883:7:0",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 84,
-                  "mutability": "mutable",
-                  "name": "_action",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 91,
-                  "src": "1905:17:0",
+                  "scope": 62,
+                  "src": "953:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1401,14 +1137,278 @@
                     "typeString": "enum JaJanken.Technique"
                   },
                   "typeName": {
-                    "id": 83,
+                    "id": 57,
                     "name": "Technique",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 7,
-                    "src": "1905:9:0",
+                    "src": "953:9:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_enum$_Technique_$7",
                       "typeString": "enum JaJanken.Technique"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 60,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "winner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62,
+                  "src": "982:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 59,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "982:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "855:148:0"
+            },
+            "src": "841:163:0"
+          },
+          {
+            "anonymous": false,
+            "id": 68,
+            "name": "WithdrawRewards",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 67,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "player",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 68,
+                  "src": "1044:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 63,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1044:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 66,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 68,
+                  "src": "1077:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 65,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1077:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1033:65:0"
+            },
+            "src": "1012:87:0"
+          },
+          {
+            "functionSelector": "da3b3393",
+            "id": 73,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "entranceTicketFee",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 69,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1347:2:0"
+            },
+            "returnParameters": {
+              "id": 72,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 71,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 73,
+                  "src": "1373:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 70,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1373:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1372:9:0"
+            },
+            "scope": 188,
+            "src": "1321:61:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 74,
+              "nodeType": "StructuredDocumentation",
+              "src": "1390:96:0",
+              "text": " Join a game, the caller must pay the required entrance ticket amount in ETH"
+            },
+            "functionSelector": "d4f77b1c",
+            "id": 77,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "joinGame",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 75,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1509:2:0"
+            },
+            "returnParameters": {
+              "id": 76,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1528:0:0"
+            },
+            "scope": 188,
+            "src": "1492:37:0",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 78,
+              "nodeType": "StructuredDocumentation",
+              "src": "1537:147:0",
+              "text": " Join a queue in order to find an opponent to fight against\n -> Should emit a StartMatch event when an opponent is found"
+            },
+            "functionSelector": "02c0cdc4",
+            "id": 81,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "joinMatch",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 79,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1708:2:0"
+            },
+            "returnParameters": {
+              "id": 80,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1719:0:0"
+            },
+            "scope": 188,
+            "src": "1690:30:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 82,
+              "nodeType": "StructuredDocumentation",
+              "src": "1728:161:0",
+              "text": " Encode the specified technique\n Should be used to generate a hashed value in order to commit secretly the player action for playMatch"
+            },
+            "functionSelector": "36847b66",
+            "id": 93,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "encodeAction",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 89,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 84,
+                  "mutability": "mutable",
+                  "name": "_yourAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 93,
+                  "src": "1917:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 83,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1917:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
                     }
                   },
                   "visibility": "internal"
@@ -1417,182 +1417,10 @@
                   "constant": false,
                   "id": 86,
                   "mutability": "mutable",
-                  "name": "_revealKey",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 91,
-                  "src": "1924:18:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bytes32",
-                    "typeString": "bytes32"
-                  },
-                  "typeName": {
-                    "id": 85,
-                    "name": "bytes32",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1924:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bytes32",
-                      "typeString": "bytes32"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "1882:61:0"
-            },
-            "returnParameters": {
-              "id": 90,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 89,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 91,
-                  "src": "1967:7:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bytes32",
-                    "typeString": "bytes32"
-                  },
-                  "typeName": {
-                    "id": 88,
-                    "name": "bytes32",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1967:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bytes32",
-                      "typeString": "bytes32"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "1966:9:0"
-            },
-            "scope": 186,
-            "src": "1861:115:0",
-            "stateMutability": "pure",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "documentation": {
-              "id": 92,
-              "nodeType": "StructuredDocumentation",
-              "src": "1984:268:0",
-              "text": " Commit the player's action for his current match\n The action(Technique) must be hashed with a bytes32 key. so it can be saved with his hidden form.\n -> Should emit a MatchPlayed event when the last player of the Match commit his play"
-            },
-            "functionSelector": "1158ed61",
-            "id": 99,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "playMatch",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 97,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 94,
-                  "mutability": "mutable",
-                  "name": "_commitment",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 99,
-                  "src": "2277:19:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bytes32",
-                    "typeString": "bytes32"
-                  },
-                  "typeName": {
-                    "id": 93,
-                    "name": "bytes32",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2277:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bytes32",
-                      "typeString": "bytes32"
-                    }
-                  },
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 96,
-                  "mutability": "mutable",
-                  "name": "_matchId",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 99,
-                  "src": "2298:16:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 95,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2298:7:0",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2276:39:0"
-            },
-            "returnParameters": {
-              "id": 98,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "2324:0:0"
-            },
-            "scope": 186,
-            "src": "2258:67:0",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "documentation": {
-              "id": 100,
-              "nodeType": "StructuredDocumentation",
-              "src": "2333:271:0",
-              "text": " Reveal the player's action for his current match\n It is required to send the player's action with the key used to hash it previously for platMatch method\n -> Should emit a MatchEnd event when the last player of the Match reveal his play"
-            },
-            "functionSelector": "65ea05d1",
-            "id": 109,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "revealMatch",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 107,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 102,
-                  "mutability": "mutable",
                   "name": "_action",
                   "nodeType": "VariableDeclaration",
-                  "scope": 109,
-                  "src": "2631:17:0",
+                  "scope": 93,
+                  "src": "1939:17:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1600,11 +1428,11 @@
                     "typeString": "enum JaJanken.Technique"
                   },
                   "typeName": {
-                    "id": 101,
+                    "id": 85,
                     "name": "Technique",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 7,
-                    "src": "2631:9:0",
+                    "src": "1939:9:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_enum$_Technique_$7",
                       "typeString": "enum JaJanken.Technique"
@@ -1614,12 +1442,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 104,
+                  "id": 88,
                   "mutability": "mutable",
                   "name": "_revealKey",
                   "nodeType": "VariableDeclaration",
-                  "scope": 109,
-                  "src": "2650:18:0",
+                  "scope": 93,
+                  "src": "1958:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1627,10 +1455,96 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 103,
+                    "id": 87,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2650:7:0",
+                    "src": "1958:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1916:61:0"
+            },
+            "returnParameters": {
+              "id": 92,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 91,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 93,
+                  "src": "2001:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 90,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2001:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2000:9:0"
+            },
+            "scope": 188,
+            "src": "1895:115:0",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 94,
+              "nodeType": "StructuredDocumentation",
+              "src": "2018:268:0",
+              "text": " Commit the player's action for his current match\n The action(Technique) must be hashed with a bytes32 key. so it can be saved with his hidden form.\n -> Should emit a MatchPlayed event when the last player of the Match commit his play"
+            },
+            "functionSelector": "1158ed61",
+            "id": 101,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "playMatch",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 99,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 96,
+                  "mutability": "mutable",
+                  "name": "_commitment",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 101,
+                  "src": "2311:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 95,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2311:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1640,12 +1554,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 106,
+                  "id": 98,
                   "mutability": "mutable",
                   "name": "_matchId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 109,
-                  "src": "2670:16:0",
+                  "scope": 101,
+                  "src": "2332:16:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1653,10 +1567,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 105,
+                    "id": 97,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2670:7:0",
+                    "src": "2332:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1666,46 +1580,159 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2630:57:0"
+              "src": "2310:39:0"
             },
             "returnParameters": {
-              "id": 108,
+              "id": 100,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2696:0:0"
+              "src": "2358:0:0"
             },
-            "scope": 186,
-            "src": "2610:87:0",
+            "scope": 188,
+            "src": "2292:67:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 110,
+              "id": 102,
               "nodeType": "StructuredDocumentation",
-              "src": "2705:167:0",
+              "src": "2367:271:0",
+              "text": " Reveal the player's action for his current match\n It is required to send the player's action with the key used to hash it previously for platMatch method\n -> Should emit a MatchEnd event when the last player of the Match reveal his play"
+            },
+            "functionSelector": "65ea05d1",
+            "id": 111,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "revealMatch",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 109,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 104,
+                  "mutability": "mutable",
+                  "name": "_action",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 111,
+                  "src": "2665:17:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Technique_$7",
+                    "typeString": "enum JaJanken.Technique"
+                  },
+                  "typeName": {
+                    "id": 103,
+                    "name": "Technique",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7,
+                    "src": "2665:9:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_Technique_$7",
+                      "typeString": "enum JaJanken.Technique"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 106,
+                  "mutability": "mutable",
+                  "name": "_revealKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 111,
+                  "src": "2684:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 105,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2684:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 108,
+                  "mutability": "mutable",
+                  "name": "_matchId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 111,
+                  "src": "2704:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 107,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2704:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2664:57:0"
+            },
+            "returnParameters": {
+              "id": 110,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2730:0:0"
+            },
+            "scope": 188,
+            "src": "2644:87:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 112,
+              "nodeType": "StructuredDocumentation",
+              "src": "2739:167:0",
               "text": " The player decide to forfeit and quit the specified match\n No card will be used from either players\n -> Should emit a MatchEnd event"
             },
             "functionSelector": "0c5b6cff",
-            "id": 115,
+            "id": 117,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "forfeitMatch",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 113,
+              "id": 115,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 112,
+                  "id": 114,
                   "mutability": "mutable",
                   "name": "_matchId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 115,
-                  "src": "2900:16:0",
+                  "scope": 117,
+                  "src": "2934:16:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1713,10 +1740,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 111,
+                    "id": 113,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2900:7:0",
+                    "src": "2934:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1726,78 +1753,78 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2899:18:0"
+              "src": "2933:18:0"
             },
             "returnParameters": {
-              "id": 114,
+              "id": 116,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2926:0:0"
+              "src": "2960:0:0"
             },
-            "scope": 186,
-            "src": "2878:49:0",
+            "scope": 188,
+            "src": "2912:49:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 116,
+              "id": 118,
               "nodeType": "StructuredDocumentation",
-              "src": "2937:149:0",
+              "src": "2971:149:0",
               "text": " Withdraw gains from the Game\n send rewards to the the players if he meets the withdrawal conditions, do nothing otherwise"
             },
             "functionSelector": "483f0219",
-            "id": 119,
+            "id": 121,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "withdrawGains",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 117,
+              "id": 119,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3114:2:0"
+              "src": "3148:2:0"
             },
             "returnParameters": {
-              "id": 118,
+              "id": 120,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3125:0:0"
+              "src": "3159:0:0"
             },
-            "scope": 186,
-            "src": "3092:34:0",
+            "scope": 188,
+            "src": "3126:34:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 120,
+              "id": 122,
               "nodeType": "StructuredDocumentation",
-              "src": "3134:210:0",
+              "src": "3168:210:0",
               "text": " This method will check if your opponent didn't play yet\n If this method return true, you will be allowed to call skipAfkDuringPlay to pass the turn of your opponent and win the match"
             },
             "functionSelector": "25e1556e",
-            "id": 127,
+            "id": 129,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "waitingForOpponentToPlay",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 123,
+              "id": 125,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 122,
+                  "id": 124,
                   "mutability": "mutable",
                   "name": "_matchId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 127,
-                  "src": "3384:16:0",
+                  "scope": 129,
+                  "src": "3418:16:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1805,10 +1832,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 121,
+                    "id": 123,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3384:7:0",
+                    "src": "3418:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1818,20 +1845,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3383:18:0"
+              "src": "3417:18:0"
             },
             "returnParameters": {
-              "id": 126,
+              "id": 128,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 125,
+                  "id": 127,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 127,
-                  "src": "3425:4:0",
+                  "scope": 129,
+                  "src": "3459:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1839,10 +1866,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 124,
+                    "id": 126,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3425:4:0",
+                    "src": "3459:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1851,40 +1878,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3424:6:0"
+              "src": "3458:6:0"
             },
-            "scope": 186,
-            "src": "3350:81:0",
+            "scope": 188,
+            "src": "3384:81:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 128,
+              "id": 130,
               "nodeType": "StructuredDocumentation",
-              "src": "3439:223:0",
+              "src": "3473:223:0",
               "text": " This method will check if your opponent didn't reveal his play yet\n If this method return true, you will be allowed to call skipAfkDuringReveal to pass the turn of your opponent and win the match"
             },
             "functionSelector": "28362bc7",
-            "id": 135,
+            "id": 137,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "waitingForOpponentToReveal",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 131,
+              "id": 133,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 130,
+                  "id": 132,
                   "mutability": "mutable",
                   "name": "_matchId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 135,
-                  "src": "3704:16:0",
+                  "scope": 137,
+                  "src": "3738:16:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1892,10 +1919,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 129,
+                    "id": 131,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3704:7:0",
+                    "src": "3738:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1905,20 +1932,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3703:18:0"
+              "src": "3737:18:0"
             },
             "returnParameters": {
-              "id": 134,
+              "id": 136,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 133,
+                  "id": 135,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 135,
-                  "src": "3745:4:0",
+                  "scope": 137,
+                  "src": "3779:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1926,10 +1953,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 132,
+                    "id": 134,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3745:4:0",
+                    "src": "3779:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1938,40 +1965,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3744:6:0"
+              "src": "3778:6:0"
             },
-            "scope": 186,
-            "src": "3668:83:0",
+            "scope": 188,
+            "src": "3702:83:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 136,
+              "id": 138,
               "nodeType": "StructuredDocumentation",
-              "src": "3759:112:0",
+              "src": "3793:112:0",
               "text": " Kick your opponent from the match if conditions are met. You will win this match by default"
             },
             "functionSelector": "739f9469",
-            "id": 141,
+            "id": 143,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "skipAfkDuringPlay",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 139,
+              "id": 141,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 138,
+                  "id": 140,
                   "mutability": "mutable",
                   "name": "_matchId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 141,
-                  "src": "3904:16:0",
+                  "scope": 143,
+                  "src": "3938:16:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1979,10 +2006,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 137,
+                    "id": 139,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3904:7:0",
+                    "src": "3938:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1992,46 +2019,46 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3903:18:0"
+              "src": "3937:18:0"
             },
             "returnParameters": {
-              "id": 140,
+              "id": 142,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3930:0:0"
+              "src": "3964:0:0"
             },
-            "scope": 186,
-            "src": "3877:54:0",
+            "scope": 188,
+            "src": "3911:54:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 142,
+              "id": 144,
               "nodeType": "StructuredDocumentation",
-              "src": "3939:112:0",
+              "src": "3973:112:0",
               "text": " Kick your opponent from the match if conditions are met. You will win this match by default"
             },
             "functionSelector": "cb13ec2d",
-            "id": 147,
+            "id": 149,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "skipAfkDuringReveal",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 145,
+              "id": 147,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 144,
+                  "id": 146,
                   "mutability": "mutable",
                   "name": "_matchId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 147,
-                  "src": "4086:16:0",
+                  "scope": 149,
+                  "src": "4120:16:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2039,10 +2066,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 143,
+                    "id": 145,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4086:7:0",
+                    "src": "4120:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2052,52 +2079,52 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4085:18:0"
+              "src": "4119:18:0"
             },
             "returnParameters": {
-              "id": 146,
+              "id": 148,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4112:0:0"
+              "src": "4146:0:0"
             },
-            "scope": 186,
-            "src": "4057:56:0",
+            "scope": 188,
+            "src": "4091:56:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 148,
+              "id": 150,
               "nodeType": "StructuredDocumentation",
-              "src": "4121:63:0",
+              "src": "4155:63:0",
               "text": " Get your profile stat for the current Game"
             },
             "functionSelector": "d6afc9b1",
-            "id": 153,
+            "id": 155,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getProfile",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 149,
+              "id": 151,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4209:2:0"
+              "src": "4243:2:0"
             },
             "returnParameters": {
-              "id": 152,
+              "id": 154,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 151,
+                  "id": 153,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 153,
-                  "src": "4235:13:0",
+                  "scope": 155,
+                  "src": "4269:13:0",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2105,11 +2132,11 @@
                     "typeString": "struct JaJanken.Player"
                   },
                   "typeName": {
-                    "id": 150,
+                    "id": 152,
                     "name": "Player",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 18,
-                    "src": "4235:6:0",
+                    "src": "4269:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_Player_$18_storage_ptr",
                       "typeString": "struct JaJanken.Player"
@@ -2118,40 +2145,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4234:15:0"
+              "src": "4268:15:0"
             },
-            "scope": 186,
-            "src": "4190:60:0",
+            "scope": 188,
+            "src": "4224:60:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 154,
+              "id": 156,
               "nodeType": "StructuredDocumentation",
-              "src": "4258:69:0",
+              "src": "4292:69:0",
               "text": " Get the player profile stat for the current Game"
             },
             "functionSelector": "5c12cd4b",
-            "id": 161,
+            "id": 163,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getPlayer",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 157,
+              "id": 159,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 156,
+                  "id": 158,
                   "mutability": "mutable",
                   "name": "_player",
                   "nodeType": "VariableDeclaration",
-                  "scope": 161,
-                  "src": "4352:15:0",
+                  "scope": 163,
+                  "src": "4386:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2159,10 +2186,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 155,
+                    "id": 157,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4352:7:0",
+                    "src": "4386:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2172,20 +2199,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4351:17:0"
+              "src": "4385:17:0"
             },
             "returnParameters": {
-              "id": 160,
+              "id": 162,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 159,
+                  "id": 161,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 161,
-                  "src": "4392:15:0",
+                  "scope": 163,
+                  "src": "4426:15:0",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2193,11 +2220,11 @@
                     "typeString": "struct JaJanken.Opponent"
                   },
                   "typeName": {
-                    "id": 158,
+                    "id": 160,
                     "name": "Opponent",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 23,
-                    "src": "4392:8:0",
+                    "src": "4426:8:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_Opponent_$23_storage_ptr",
                       "typeString": "struct JaJanken.Opponent"
@@ -2206,46 +2233,46 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4391:17:0"
+              "src": "4425:17:0"
             },
-            "scope": 186,
-            "src": "4333:76:0",
+            "scope": 188,
+            "src": "4367:76:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 162,
+              "id": 164,
               "nodeType": "StructuredDocumentation",
-              "src": "4417:63:0",
+              "src": "4451:63:0",
               "text": " Get the number of player alive in the game"
             },
             "functionSelector": "4529cae7",
-            "id": 167,
+            "id": 169,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getTotalPlayers",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 163,
+              "id": 165,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4510:2:0"
+              "src": "4544:2:0"
             },
             "returnParameters": {
-              "id": 166,
+              "id": 168,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 165,
+                  "id": 167,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 167,
-                  "src": "4536:4:0",
+                  "scope": 169,
+                  "src": "4570:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2253,10 +2280,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 164,
+                    "id": 166,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4536:4:0",
+                    "src": "4570:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2265,46 +2292,46 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4535:6:0"
+              "src": "4569:6:0"
             },
-            "scope": 186,
-            "src": "4486:56:0",
+            "scope": 188,
+            "src": "4520:56:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 168,
+              "id": 170,
               "nodeType": "StructuredDocumentation",
-              "src": "4548:61:0",
+              "src": "4582:61:0",
               "text": " Get the number of Guu from alive players"
             },
             "functionSelector": "32003bc3",
-            "id": 173,
+            "id": 175,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getTotalGuu",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 169,
+              "id": 171,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4635:2:0"
+              "src": "4669:2:0"
             },
             "returnParameters": {
-              "id": 172,
+              "id": 174,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 171,
+                  "id": 173,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 173,
-                  "src": "4661:4:0",
+                  "scope": 175,
+                  "src": "4695:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2312,10 +2339,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 170,
+                    "id": 172,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4661:4:0",
+                    "src": "4695:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2324,46 +2351,46 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4660:6:0"
+              "src": "4694:6:0"
             },
-            "scope": 186,
-            "src": "4615:52:0",
+            "scope": 188,
+            "src": "4649:52:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 174,
+              "id": 176,
               "nodeType": "StructuredDocumentation",
-              "src": "4673:61:0",
+              "src": "4707:61:0",
               "text": " Get the number of Paa from alive players"
             },
             "functionSelector": "464be0c7",
-            "id": 179,
+            "id": 181,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getTotalPaa",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 175,
+              "id": 177,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4760:2:0"
+              "src": "4794:2:0"
             },
             "returnParameters": {
-              "id": 178,
+              "id": 180,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 177,
+                  "id": 179,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 179,
-                  "src": "4786:4:0",
+                  "scope": 181,
+                  "src": "4820:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2371,10 +2398,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 176,
+                    "id": 178,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4786:4:0",
+                    "src": "4820:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2383,46 +2410,46 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4785:6:0"
+              "src": "4819:6:0"
             },
-            "scope": 186,
-            "src": "4740:52:0",
+            "scope": 188,
+            "src": "4774:52:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 180,
+              "id": 182,
               "nodeType": "StructuredDocumentation",
-              "src": "4798:61:0",
+              "src": "4832:61:0",
               "text": " Get the number of Chi from alive players"
             },
             "functionSelector": "5eb0ad5e",
-            "id": 185,
+            "id": 187,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getTotalChi",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 181,
+              "id": 183,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4885:2:0"
+              "src": "4919:2:0"
             },
             "returnParameters": {
-              "id": 184,
+              "id": 186,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 183,
+                  "id": 185,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 185,
-                  "src": "4911:4:0",
+                  "scope": 187,
+                  "src": "4945:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2430,10 +2457,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 182,
+                    "id": 184,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4911:4:0",
+                    "src": "4945:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2442,27 +2469,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4910:6:0"
+              "src": "4944:6:0"
             },
-            "scope": 186,
-            "src": "4865:52:0",
+            "scope": 188,
+            "src": "4899:52:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 187,
-        "src": "98:4822:0"
+        "scope": 189,
+        "src": "98:4856:0"
       }
     ],
-    "src": "0:4920:0"
+    "src": "0:4954:0"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "project:/contracts/JaJanken.sol",
       "exportedSymbols": {
         "JaJanken": [
-          186
+          188
         ]
       },
       "license": "GLWTPL"
@@ -2504,10 +2531,10 @@
           "contractKind": "interface",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            186
+            188
           ],
           "name": "JaJanken",
-          "scope": 187
+          "scope": 189
         },
         "children": [
           {
@@ -2557,7 +2584,7 @@
             "attributes": {
               "canonicalName": "JaJanken.Player",
               "name": "Player",
-              "scope": 186,
+              "scope": 188,
               "visibility": "public"
             },
             "children": [
@@ -2701,7 +2728,7 @@
             "attributes": {
               "canonicalName": "JaJanken.Opponent",
               "name": "Opponent",
-              "scope": 186,
+              "scope": 188,
               "visibility": "public"
             },
             "children": [
@@ -2766,7 +2793,7 @@
             "attributes": {
               "canonicalName": "JaJanken.Match",
               "name": "Match",
-              "scope": 186,
+              "scope": 188,
               "visibility": "public"
             },
             "children": [
@@ -2775,7 +2802,7 @@
                   "constant": false,
                   "mutability": "mutable",
                   "name": "p2",
-                  "scope": 36,
+                  "scope": 38,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "address",
@@ -2802,7 +2829,7 @@
                   "constant": false,
                   "mutability": "mutable",
                   "name": "p1Hidden",
-                  "scope": 36,
+                  "scope": 38,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "bytes32",
@@ -2828,7 +2855,7 @@
                   "constant": false,
                   "mutability": "mutable",
                   "name": "p2Hidden",
-                  "scope": 36,
+                  "scope": 38,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "bytes32",
@@ -2853,8 +2880,8 @@
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
-                  "name": "pPlayed",
-                  "scope": 36,
+                  "name": "p1Revealed",
+                  "scope": 38,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "enum JaJanken.Technique",
@@ -2874,40 +2901,41 @@
                 ],
                 "id": 31,
                 "name": "VariableDeclaration",
-                "src": "529:17:0"
+                "src": "529:20:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "p2Revealed",
+                  "scope": 38,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "enum JaJanken.Technique",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "Technique",
+                      "referencedDeclaration": 7,
+                      "type": "enum JaJanken.Technique"
+                    },
+                    "id": 32,
+                    "name": "UserDefinedTypeName",
+                    "src": "560:9:0"
+                  }
+                ],
+                "id": 33,
+                "name": "VariableDeclaration",
+                "src": "560:20:0"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "playTime",
-                  "scope": 36,
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "type": "uint256",
-                  "visibility": "internal"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "uint256",
-                      "type": "uint256"
-                    },
-                    "id": 32,
-                    "name": "ElementaryTypeName",
-                    "src": "557:7:0"
-                  }
-                ],
-                "id": 33,
-                "name": "VariableDeclaration",
-                "src": "557:16:0"
-              },
-              {
-                "attributes": {
-                  "constant": false,
-                  "mutability": "mutable",
-                  "name": "revealTime",
-                  "scope": 36,
+                  "scope": 38,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -2921,17 +2949,43 @@
                     },
                     "id": 34,
                     "name": "ElementaryTypeName",
-                    "src": "584:7:0"
+                    "src": "591:7:0"
                   }
                 ],
                 "id": 35,
                 "name": "VariableDeclaration",
-                "src": "584:18:0"
+                "src": "591:16:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "revealTime",
+                  "scope": 38,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 36,
+                    "name": "ElementaryTypeName",
+                    "src": "618:7:0"
+                  }
+                ],
+                "id": 37,
+                "name": "VariableDeclaration",
+                "src": "618:18:0"
               }
             ],
-            "id": 36,
+            "id": 38,
             "name": "StructDefinition",
-            "src": "430:180:0"
+            "src": "430:214:0"
           },
           {
             "attributes": {
@@ -2947,35 +3001,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "matchId",
-                      "scope": 44,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "stateMutability": "nonpayable",
-                          "type": "address"
-                        },
-                        "id": 37,
-                        "name": "ElementaryTypeName",
-                        "src": "645:7:0"
-                      }
-                    ],
-                    "id": 38,
-                    "name": "VariableDeclaration",
-                    "src": "645:15:0"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "indexed": true,
-                      "mutability": "mutable",
-                      "name": "p1",
-                      "scope": 44,
+                      "scope": 46,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -2990,20 +3016,20 @@
                         },
                         "id": 39,
                         "name": "ElementaryTypeName",
-                        "src": "671:7:0"
+                        "src": "679:7:0"
                       }
                     ],
                     "id": 40,
                     "name": "VariableDeclaration",
-                    "src": "671:18:0"
+                    "src": "679:15:0"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "indexed": true,
                       "mutability": "mutable",
-                      "name": "p2",
-                      "scope": 44,
+                      "name": "p1",
+                      "scope": 46,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -3018,22 +3044,50 @@
                         },
                         "id": 41,
                         "name": "ElementaryTypeName",
-                        "src": "700:7:0"
+                        "src": "705:7:0"
                       }
                     ],
                     "id": 42,
                     "name": "VariableDeclaration",
-                    "src": "700:18:0"
+                    "src": "705:18:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "p2",
+                      "scope": 46,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 43,
+                        "name": "ElementaryTypeName",
+                        "src": "734:7:0"
+                      }
+                    ],
+                    "id": 44,
+                    "name": "VariableDeclaration",
+                    "src": "734:18:0"
                   }
                 ],
-                "id": 43,
+                "id": 45,
                 "name": "ParameterList",
-                "src": "634:91:0"
+                "src": "668:91:0"
               }
             ],
-            "id": 44,
+            "id": 46,
             "name": "EventDefinition",
-            "src": "618:108:0"
+            "src": "652:108:0"
           },
           {
             "attributes": {
@@ -3049,7 +3103,7 @@
                       "indexed": true,
                       "mutability": "mutable",
                       "name": "matchId",
-                      "scope": 48,
+                      "scope": 50,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -3062,24 +3116,24 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 45,
+                        "id": 47,
                         "name": "ElementaryTypeName",
-                        "src": "762:7:0"
+                        "src": "796:7:0"
                       }
                     ],
-                    "id": 46,
+                    "id": 48,
                     "name": "VariableDeclaration",
-                    "src": "762:23:0"
+                    "src": "796:23:0"
                   }
                 ],
-                "id": 47,
+                "id": 49,
                 "name": "ParameterList",
-                "src": "751:47:0"
+                "src": "785:47:0"
               }
             ],
-            "id": 48,
+            "id": 50,
             "name": "EventDefinition",
-            "src": "734:65:0"
+            "src": "768:65:0"
           },
           {
             "attributes": {
@@ -3095,35 +3149,7 @@
                       "indexed": true,
                       "mutability": "mutable",
                       "name": "p1",
-                      "scope": 60,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "stateMutability": "nonpayable",
-                          "type": "address"
-                        },
-                        "id": 49,
-                        "name": "ElementaryTypeName",
-                        "src": "832:7:0"
-                      }
-                    ],
-                    "id": 50,
-                    "name": "VariableDeclaration",
-                    "src": "832:18:0"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "indexed": true,
-                      "mutability": "mutable",
-                      "name": "p2",
-                      "scope": 60,
+                      "scope": 62,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -3138,12 +3164,40 @@
                         },
                         "id": 51,
                         "name": "ElementaryTypeName",
-                        "src": "861:7:0"
+                        "src": "866:7:0"
                       }
                     ],
                     "id": 52,
                     "name": "VariableDeclaration",
-                    "src": "861:18:0"
+                    "src": "866:18:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "p2",
+                      "scope": 62,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 53,
+                        "name": "ElementaryTypeName",
+                        "src": "895:7:0"
+                      }
+                    ],
+                    "id": 54,
+                    "name": "VariableDeclaration",
+                    "src": "895:18:0"
                   },
                   {
                     "attributes": {
@@ -3151,35 +3205,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "p1Played",
-                      "scope": 60,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "enum JaJanken.Technique",
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "Technique",
-                          "referencedDeclaration": 7,
-                          "type": "enum JaJanken.Technique"
-                        },
-                        "id": 53,
-                        "name": "UserDefinedTypeName",
-                        "src": "890:9:0"
-                      }
-                    ],
-                    "id": 54,
-                    "name": "VariableDeclaration",
-                    "src": "890:18:0"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "indexed": false,
-                      "mutability": "mutable",
-                      "name": "p2Played",
-                      "scope": 60,
+                      "scope": 62,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "enum JaJanken.Technique",
@@ -3194,12 +3220,40 @@
                         },
                         "id": 55,
                         "name": "UserDefinedTypeName",
-                        "src": "919:9:0"
+                        "src": "924:9:0"
                       }
                     ],
                     "id": 56,
                     "name": "VariableDeclaration",
-                    "src": "919:18:0"
+                    "src": "924:18:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "p2Played",
+                      "scope": 62,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "enum JaJanken.Technique",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "Technique",
+                          "referencedDeclaration": 7,
+                          "type": "enum JaJanken.Technique"
+                        },
+                        "id": 57,
+                        "name": "UserDefinedTypeName",
+                        "src": "953:9:0"
+                      }
+                    ],
+                    "id": 58,
+                    "name": "VariableDeclaration",
+                    "src": "953:18:0"
                   },
                   {
                     "attributes": {
@@ -3207,7 +3261,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "winner",
-                      "scope": 60,
+                      "scope": 62,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -3220,24 +3274,24 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 57,
+                        "id": 59,
                         "name": "ElementaryTypeName",
-                        "src": "948:7:0"
+                        "src": "982:7:0"
                       }
                     ],
-                    "id": 58,
+                    "id": 60,
                     "name": "VariableDeclaration",
-                    "src": "948:14:0"
+                    "src": "982:14:0"
                   }
                 ],
-                "id": 59,
+                "id": 61,
                 "name": "ParameterList",
-                "src": "821:148:0"
+                "src": "855:148:0"
               }
             ],
-            "id": 60,
+            "id": 62,
             "name": "EventDefinition",
-            "src": "807:163:0"
+            "src": "841:163:0"
           },
           {
             "attributes": {
@@ -3253,7 +3307,7 @@
                       "indexed": true,
                       "mutability": "mutable",
                       "name": "player",
-                      "scope": 66,
+                      "scope": 68,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -3266,14 +3320,14 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 61,
+                        "id": 63,
                         "name": "ElementaryTypeName",
-                        "src": "1010:7:0"
+                        "src": "1044:7:0"
                       }
                     ],
-                    "id": 62,
+                    "id": 64,
                     "name": "VariableDeclaration",
-                    "src": "1010:22:0"
+                    "src": "1044:22:0"
                   },
                   {
                     "attributes": {
@@ -3281,7 +3335,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "amount",
-                      "scope": 66,
+                      "scope": 68,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -3293,24 +3347,24 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 63,
+                        "id": 65,
                         "name": "ElementaryTypeName",
-                        "src": "1043:7:0"
+                        "src": "1077:7:0"
                       }
                     ],
-                    "id": 64,
+                    "id": 66,
                     "name": "VariableDeclaration",
-                    "src": "1043:14:0"
+                    "src": "1077:14:0"
                   }
                 ],
-                "id": 65,
+                "id": 67,
                 "name": "ParameterList",
-                "src": "999:65:0"
+                "src": "1033:65:0"
               }
             ],
-            "id": 66,
+            "id": 68,
             "name": "EventDefinition",
-            "src": "978:87:0"
+            "src": "1012:87:0"
           },
           {
             "attributes": {
@@ -3322,7 +3376,7 @@
                 null
               ],
               "name": "entranceTicketFee",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -3335,9 +3389,9 @@
                   ]
                 },
                 "children": [],
-                "id": 67,
+                "id": 69,
                 "name": "ParameterList",
-                "src": "1313:2:0"
+                "src": "1347:2:0"
               },
               {
                 "children": [
@@ -3346,7 +3400,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 71,
+                      "scope": 73,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -3358,24 +3412,24 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 68,
+                        "id": 70,
                         "name": "ElementaryTypeName",
-                        "src": "1339:7:0"
+                        "src": "1373:7:0"
                       }
                     ],
-                    "id": 69,
+                    "id": 71,
                     "name": "VariableDeclaration",
-                    "src": "1339:7:0"
+                    "src": "1373:7:0"
                   }
                 ],
-                "id": 70,
+                "id": 72,
                 "name": "ParameterList",
-                "src": "1338:9:0"
+                "src": "1372:9:0"
               }
             ],
-            "id": 71,
+            "id": 73,
             "name": "FunctionDefinition",
-            "src": "1287:61:0"
+            "src": "1321:61:0"
           },
           {
             "attributes": {
@@ -3387,7 +3441,7 @@
                 null
               ],
               "name": "joinGame",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "payable",
               "virtual": false,
               "visibility": "external"
@@ -3397,36 +3451,36 @@
                 "attributes": {
                   "text": " Join a game, the caller must pay the required entrance ticket amount in ETH"
                 },
-                "id": 72,
-                "name": "StructuredDocumentation",
-                "src": "1356:96:0"
-              },
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
-                "id": 73,
-                "name": "ParameterList",
-                "src": "1475:2:0"
-              },
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
                 "id": 74,
+                "name": "StructuredDocumentation",
+                "src": "1390:96:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 75,
                 "name": "ParameterList",
-                "src": "1494:0:0"
+                "src": "1509:2:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 76,
+                "name": "ParameterList",
+                "src": "1528:0:0"
               }
             ],
-            "id": 75,
+            "id": 77,
             "name": "FunctionDefinition",
-            "src": "1458:37:0"
+            "src": "1492:37:0"
           },
           {
             "attributes": {
@@ -3438,7 +3492,7 @@
                 null
               ],
               "name": "joinMatch",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -3448,36 +3502,36 @@
                 "attributes": {
                   "text": " Join a queue in order to find an opponent to fight against\n -> Should emit a StartMatch event when an opponent is found"
                 },
-                "id": 76,
-                "name": "StructuredDocumentation",
-                "src": "1503:147:0"
-              },
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
-                "id": 77,
-                "name": "ParameterList",
-                "src": "1674:2:0"
-              },
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
                 "id": 78,
+                "name": "StructuredDocumentation",
+                "src": "1537:147:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 79,
                 "name": "ParameterList",
-                "src": "1685:0:0"
+                "src": "1708:2:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 80,
+                "name": "ParameterList",
+                "src": "1719:0:0"
               }
             ],
-            "id": 79,
+            "id": 81,
             "name": "FunctionDefinition",
-            "src": "1656:30:0"
+            "src": "1690:30:0"
           },
           {
             "attributes": {
@@ -3489,7 +3543,7 @@
                 null
               ],
               "name": "encodeAction",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "pure",
               "virtual": false,
               "visibility": "external"
@@ -3499,9 +3553,9 @@
                 "attributes": {
                   "text": " Encode the specified technique\n Should be used to generate a hashed value in order to commit secretly the player action for playMatch"
                 },
-                "id": 80,
+                "id": 82,
                 "name": "StructuredDocumentation",
-                "src": "1694:161:0"
+                "src": "1728:161:0"
               },
               {
                 "children": [
@@ -3510,7 +3564,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_yourAddress",
-                      "scope": 91,
+                      "scope": 93,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -3523,21 +3577,21 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 81,
+                        "id": 83,
                         "name": "ElementaryTypeName",
-                        "src": "1883:7:0"
+                        "src": "1917:7:0"
                       }
                     ],
-                    "id": 82,
+                    "id": 84,
                     "name": "VariableDeclaration",
-                    "src": "1883:20:0"
+                    "src": "1917:20:0"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_action",
-                      "scope": 91,
+                      "scope": 93,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "enum JaJanken.Technique",
@@ -3550,21 +3604,21 @@
                           "referencedDeclaration": 7,
                           "type": "enum JaJanken.Technique"
                         },
-                        "id": 83,
+                        "id": 85,
                         "name": "UserDefinedTypeName",
-                        "src": "1905:9:0"
+                        "src": "1939:9:0"
                       }
                     ],
-                    "id": 84,
+                    "id": 86,
                     "name": "VariableDeclaration",
-                    "src": "1905:17:0"
+                    "src": "1939:17:0"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_revealKey",
-                      "scope": 91,
+                      "scope": 93,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -3576,19 +3630,19 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 85,
+                        "id": 87,
                         "name": "ElementaryTypeName",
-                        "src": "1924:7:0"
+                        "src": "1958:7:0"
                       }
                     ],
-                    "id": 86,
+                    "id": 88,
                     "name": "VariableDeclaration",
-                    "src": "1924:18:0"
+                    "src": "1958:18:0"
                   }
                 ],
-                "id": 87,
+                "id": 89,
                 "name": "ParameterList",
-                "src": "1882:61:0"
+                "src": "1916:61:0"
               },
               {
                 "children": [
@@ -3597,7 +3651,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 91,
+                      "scope": 93,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -3609,24 +3663,24 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 88,
+                        "id": 90,
                         "name": "ElementaryTypeName",
-                        "src": "1967:7:0"
+                        "src": "2001:7:0"
                       }
                     ],
-                    "id": 89,
+                    "id": 91,
                     "name": "VariableDeclaration",
-                    "src": "1967:7:0"
+                    "src": "2001:7:0"
                   }
                 ],
-                "id": 90,
+                "id": 92,
                 "name": "ParameterList",
-                "src": "1966:9:0"
+                "src": "2000:9:0"
               }
             ],
-            "id": 91,
+            "id": 93,
             "name": "FunctionDefinition",
-            "src": "1861:115:0"
+            "src": "1895:115:0"
           },
           {
             "attributes": {
@@ -3638,7 +3692,7 @@
                 null
               ],
               "name": "playMatch",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -3648,9 +3702,9 @@
                 "attributes": {
                   "text": " Commit the player's action for his current match\n The action(Technique) must be hashed with a bytes32 key. so it can be saved with his hidden form.\n -> Should emit a MatchPlayed event when the last player of the Match commit his play"
                 },
-                "id": 92,
+                "id": 94,
                 "name": "StructuredDocumentation",
-                "src": "1984:268:0"
+                "src": "2018:268:0"
               },
               {
                 "children": [
@@ -3659,7 +3713,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_commitment",
-                      "scope": 99,
+                      "scope": 101,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -3671,21 +3725,21 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 93,
+                        "id": 95,
                         "name": "ElementaryTypeName",
-                        "src": "2277:7:0"
+                        "src": "2311:7:0"
                       }
                     ],
-                    "id": 94,
+                    "id": 96,
                     "name": "VariableDeclaration",
-                    "src": "2277:19:0"
+                    "src": "2311:19:0"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_matchId",
-                      "scope": 99,
+                      "scope": 101,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -3698,19 +3752,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 95,
+                        "id": 97,
                         "name": "ElementaryTypeName",
-                        "src": "2298:7:0"
+                        "src": "2332:7:0"
                       }
                     ],
-                    "id": 96,
+                    "id": 98,
                     "name": "VariableDeclaration",
-                    "src": "2298:16:0"
+                    "src": "2332:16:0"
                   }
                 ],
-                "id": 97,
+                "id": 99,
                 "name": "ParameterList",
-                "src": "2276:39:0"
+                "src": "2310:39:0"
               },
               {
                 "attributes": {
@@ -3719,14 +3773,14 @@
                   ]
                 },
                 "children": [],
-                "id": 98,
+                "id": 100,
                 "name": "ParameterList",
-                "src": "2324:0:0"
+                "src": "2358:0:0"
               }
             ],
-            "id": 99,
+            "id": 101,
             "name": "FunctionDefinition",
-            "src": "2258:67:0"
+            "src": "2292:67:0"
           },
           {
             "attributes": {
@@ -3738,7 +3792,7 @@
                 null
               ],
               "name": "revealMatch",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -3748,9 +3802,9 @@
                 "attributes": {
                   "text": " Reveal the player's action for his current match\n It is required to send the player's action with the key used to hash it previously for platMatch method\n -> Should emit a MatchEnd event when the last player of the Match reveal his play"
                 },
-                "id": 100,
+                "id": 102,
                 "name": "StructuredDocumentation",
-                "src": "2333:271:0"
+                "src": "2367:271:0"
               },
               {
                 "children": [
@@ -3759,7 +3813,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_action",
-                      "scope": 109,
+                      "scope": 111,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "enum JaJanken.Technique",
@@ -3772,21 +3826,21 @@
                           "referencedDeclaration": 7,
                           "type": "enum JaJanken.Technique"
                         },
-                        "id": 101,
+                        "id": 103,
                         "name": "UserDefinedTypeName",
-                        "src": "2631:9:0"
+                        "src": "2665:9:0"
                       }
                     ],
-                    "id": 102,
+                    "id": 104,
                     "name": "VariableDeclaration",
-                    "src": "2631:17:0"
+                    "src": "2665:17:0"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_revealKey",
-                      "scope": 109,
+                      "scope": 111,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -3798,21 +3852,21 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 103,
+                        "id": 105,
                         "name": "ElementaryTypeName",
-                        "src": "2650:7:0"
+                        "src": "2684:7:0"
                       }
                     ],
-                    "id": 104,
+                    "id": 106,
                     "name": "VariableDeclaration",
-                    "src": "2650:18:0"
+                    "src": "2684:18:0"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_matchId",
-                      "scope": 109,
+                      "scope": 111,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -3825,19 +3879,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 105,
+                        "id": 107,
                         "name": "ElementaryTypeName",
-                        "src": "2670:7:0"
+                        "src": "2704:7:0"
                       }
                     ],
-                    "id": 106,
+                    "id": 108,
                     "name": "VariableDeclaration",
-                    "src": "2670:16:0"
+                    "src": "2704:16:0"
                   }
                 ],
-                "id": 107,
+                "id": 109,
                 "name": "ParameterList",
-                "src": "2630:57:0"
+                "src": "2664:57:0"
               },
               {
                 "attributes": {
@@ -3846,14 +3900,14 @@
                   ]
                 },
                 "children": [],
-                "id": 108,
+                "id": 110,
                 "name": "ParameterList",
-                "src": "2696:0:0"
+                "src": "2730:0:0"
               }
             ],
-            "id": 109,
+            "id": 111,
             "name": "FunctionDefinition",
-            "src": "2610:87:0"
+            "src": "2644:87:0"
           },
           {
             "attributes": {
@@ -3865,7 +3919,7 @@
                 null
               ],
               "name": "forfeitMatch",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -3875,9 +3929,9 @@
                 "attributes": {
                   "text": " The player decide to forfeit and quit the specified match\n No card will be used from either players\n -> Should emit a MatchEnd event"
                 },
-                "id": 110,
+                "id": 112,
                 "name": "StructuredDocumentation",
-                "src": "2705:167:0"
+                "src": "2739:167:0"
               },
               {
                 "children": [
@@ -3886,7 +3940,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_matchId",
-                      "scope": 115,
+                      "scope": 117,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -3899,19 +3953,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 111,
+                        "id": 113,
                         "name": "ElementaryTypeName",
-                        "src": "2900:7:0"
+                        "src": "2934:7:0"
                       }
                     ],
-                    "id": 112,
+                    "id": 114,
                     "name": "VariableDeclaration",
-                    "src": "2900:16:0"
+                    "src": "2934:16:0"
                   }
                 ],
-                "id": 113,
+                "id": 115,
                 "name": "ParameterList",
-                "src": "2899:18:0"
+                "src": "2933:18:0"
               },
               {
                 "attributes": {
@@ -3920,14 +3974,14 @@
                   ]
                 },
                 "children": [],
-                "id": 114,
+                "id": 116,
                 "name": "ParameterList",
-                "src": "2926:0:0"
+                "src": "2960:0:0"
               }
             ],
-            "id": 115,
+            "id": 117,
             "name": "FunctionDefinition",
-            "src": "2878:49:0"
+            "src": "2912:49:0"
           },
           {
             "attributes": {
@@ -3939,7 +3993,7 @@
                 null
               ],
               "name": "withdrawGains",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -3949,36 +4003,36 @@
                 "attributes": {
                   "text": " Withdraw gains from the Game\n send rewards to the the players if he meets the withdrawal conditions, do nothing otherwise"
                 },
-                "id": 116,
-                "name": "StructuredDocumentation",
-                "src": "2937:149:0"
-              },
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
-                "id": 117,
-                "name": "ParameterList",
-                "src": "3114:2:0"
-              },
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
                 "id": 118,
+                "name": "StructuredDocumentation",
+                "src": "2971:149:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 119,
                 "name": "ParameterList",
-                "src": "3125:0:0"
+                "src": "3148:2:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 120,
+                "name": "ParameterList",
+                "src": "3159:0:0"
               }
             ],
-            "id": 119,
+            "id": 121,
             "name": "FunctionDefinition",
-            "src": "3092:34:0"
+            "src": "3126:34:0"
           },
           {
             "attributes": {
@@ -3990,7 +4044,7 @@
                 null
               ],
               "name": "waitingForOpponentToPlay",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -4000,9 +4054,9 @@
                 "attributes": {
                   "text": " This method will check if your opponent didn't play yet\n If this method return true, you will be allowed to call skipAfkDuringPlay to pass the turn of your opponent and win the match"
                 },
-                "id": 120,
+                "id": 122,
                 "name": "StructuredDocumentation",
-                "src": "3134:210:0"
+                "src": "3168:210:0"
               },
               {
                 "children": [
@@ -4011,7 +4065,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_matchId",
-                      "scope": 127,
+                      "scope": 129,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -4024,19 +4078,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 121,
+                        "id": 123,
                         "name": "ElementaryTypeName",
-                        "src": "3384:7:0"
+                        "src": "3418:7:0"
                       }
                     ],
-                    "id": 122,
+                    "id": 124,
                     "name": "VariableDeclaration",
-                    "src": "3384:16:0"
+                    "src": "3418:16:0"
                   }
                 ],
-                "id": 123,
+                "id": 125,
                 "name": "ParameterList",
-                "src": "3383:18:0"
+                "src": "3417:18:0"
               },
               {
                 "children": [
@@ -4045,7 +4099,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 127,
+                      "scope": 129,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -4057,24 +4111,24 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 124,
+                        "id": 126,
                         "name": "ElementaryTypeName",
-                        "src": "3425:4:0"
+                        "src": "3459:4:0"
                       }
                     ],
-                    "id": 125,
+                    "id": 127,
                     "name": "VariableDeclaration",
-                    "src": "3425:4:0"
+                    "src": "3459:4:0"
                   }
                 ],
-                "id": 126,
+                "id": 128,
                 "name": "ParameterList",
-                "src": "3424:6:0"
+                "src": "3458:6:0"
               }
             ],
-            "id": 127,
+            "id": 129,
             "name": "FunctionDefinition",
-            "src": "3350:81:0"
+            "src": "3384:81:0"
           },
           {
             "attributes": {
@@ -4086,7 +4140,7 @@
                 null
               ],
               "name": "waitingForOpponentToReveal",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -4096,9 +4150,9 @@
                 "attributes": {
                   "text": " This method will check if your opponent didn't reveal his play yet\n If this method return true, you will be allowed to call skipAfkDuringReveal to pass the turn of your opponent and win the match"
                 },
-                "id": 128,
+                "id": 130,
                 "name": "StructuredDocumentation",
-                "src": "3439:223:0"
+                "src": "3473:223:0"
               },
               {
                 "children": [
@@ -4107,7 +4161,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_matchId",
-                      "scope": 135,
+                      "scope": 137,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -4120,19 +4174,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 129,
+                        "id": 131,
                         "name": "ElementaryTypeName",
-                        "src": "3704:7:0"
+                        "src": "3738:7:0"
                       }
                     ],
-                    "id": 130,
+                    "id": 132,
                     "name": "VariableDeclaration",
-                    "src": "3704:16:0"
+                    "src": "3738:16:0"
                   }
                 ],
-                "id": 131,
+                "id": 133,
                 "name": "ParameterList",
-                "src": "3703:18:0"
+                "src": "3737:18:0"
               },
               {
                 "children": [
@@ -4141,7 +4195,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 135,
+                      "scope": 137,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -4153,24 +4207,24 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 132,
+                        "id": 134,
                         "name": "ElementaryTypeName",
-                        "src": "3745:4:0"
+                        "src": "3779:4:0"
                       }
                     ],
-                    "id": 133,
+                    "id": 135,
                     "name": "VariableDeclaration",
-                    "src": "3745:4:0"
+                    "src": "3779:4:0"
                   }
                 ],
-                "id": 134,
+                "id": 136,
                 "name": "ParameterList",
-                "src": "3744:6:0"
+                "src": "3778:6:0"
               }
             ],
-            "id": 135,
+            "id": 137,
             "name": "FunctionDefinition",
-            "src": "3668:83:0"
+            "src": "3702:83:0"
           },
           {
             "attributes": {
@@ -4182,7 +4236,7 @@
                 null
               ],
               "name": "skipAfkDuringPlay",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -4192,9 +4246,9 @@
                 "attributes": {
                   "text": " Kick your opponent from the match if conditions are met. You will win this match by default"
                 },
-                "id": 136,
+                "id": 138,
                 "name": "StructuredDocumentation",
-                "src": "3759:112:0"
+                "src": "3793:112:0"
               },
               {
                 "children": [
@@ -4203,7 +4257,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_matchId",
-                      "scope": 141,
+                      "scope": 143,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -4216,19 +4270,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 137,
+                        "id": 139,
                         "name": "ElementaryTypeName",
-                        "src": "3904:7:0"
+                        "src": "3938:7:0"
                       }
                     ],
-                    "id": 138,
+                    "id": 140,
                     "name": "VariableDeclaration",
-                    "src": "3904:16:0"
+                    "src": "3938:16:0"
                   }
                 ],
-                "id": 139,
+                "id": 141,
                 "name": "ParameterList",
-                "src": "3903:18:0"
+                "src": "3937:18:0"
               },
               {
                 "attributes": {
@@ -4237,14 +4291,14 @@
                   ]
                 },
                 "children": [],
-                "id": 140,
+                "id": 142,
                 "name": "ParameterList",
-                "src": "3930:0:0"
+                "src": "3964:0:0"
               }
             ],
-            "id": 141,
+            "id": 143,
             "name": "FunctionDefinition",
-            "src": "3877:54:0"
+            "src": "3911:54:0"
           },
           {
             "attributes": {
@@ -4256,7 +4310,7 @@
                 null
               ],
               "name": "skipAfkDuringReveal",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -4266,9 +4320,9 @@
                 "attributes": {
                   "text": " Kick your opponent from the match if conditions are met. You will win this match by default"
                 },
-                "id": 142,
+                "id": 144,
                 "name": "StructuredDocumentation",
-                "src": "3939:112:0"
+                "src": "3973:112:0"
               },
               {
                 "children": [
@@ -4277,7 +4331,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_matchId",
-                      "scope": 147,
+                      "scope": 149,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -4290,19 +4344,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 143,
+                        "id": 145,
                         "name": "ElementaryTypeName",
-                        "src": "4086:7:0"
+                        "src": "4120:7:0"
                       }
                     ],
-                    "id": 144,
+                    "id": 146,
                     "name": "VariableDeclaration",
-                    "src": "4086:16:0"
+                    "src": "4120:16:0"
                   }
                 ],
-                "id": 145,
+                "id": 147,
                 "name": "ParameterList",
-                "src": "4085:18:0"
+                "src": "4119:18:0"
               },
               {
                 "attributes": {
@@ -4311,14 +4365,14 @@
                   ]
                 },
                 "children": [],
-                "id": 146,
+                "id": 148,
                 "name": "ParameterList",
-                "src": "4112:0:0"
+                "src": "4146:0:0"
               }
             ],
-            "id": 147,
+            "id": 149,
             "name": "FunctionDefinition",
-            "src": "4057:56:0"
+            "src": "4091:56:0"
           },
           {
             "attributes": {
@@ -4330,7 +4384,7 @@
                 null
               ],
               "name": "getProfile",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -4340,9 +4394,9 @@
                 "attributes": {
                   "text": " Get your profile stat for the current Game"
                 },
-                "id": 148,
+                "id": 150,
                 "name": "StructuredDocumentation",
-                "src": "4121:63:0"
+                "src": "4155:63:0"
               },
               {
                 "attributes": {
@@ -4351,9 +4405,9 @@
                   ]
                 },
                 "children": [],
-                "id": 149,
+                "id": 151,
                 "name": "ParameterList",
-                "src": "4209:2:0"
+                "src": "4243:2:0"
               },
               {
                 "children": [
@@ -4362,7 +4416,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 153,
+                      "scope": 155,
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "type": "struct JaJanken.Player",
@@ -4375,24 +4429,24 @@
                           "referencedDeclaration": 18,
                           "type": "struct JaJanken.Player"
                         },
-                        "id": 150,
+                        "id": 152,
                         "name": "UserDefinedTypeName",
-                        "src": "4235:6:0"
+                        "src": "4269:6:0"
                       }
                     ],
-                    "id": 151,
+                    "id": 153,
                     "name": "VariableDeclaration",
-                    "src": "4235:13:0"
+                    "src": "4269:13:0"
                   }
                 ],
-                "id": 152,
+                "id": 154,
                 "name": "ParameterList",
-                "src": "4234:15:0"
+                "src": "4268:15:0"
               }
             ],
-            "id": 153,
+            "id": 155,
             "name": "FunctionDefinition",
-            "src": "4190:60:0"
+            "src": "4224:60:0"
           },
           {
             "attributes": {
@@ -4404,7 +4458,7 @@
                 null
               ],
               "name": "getPlayer",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -4414,9 +4468,9 @@
                 "attributes": {
                   "text": " Get the player profile stat for the current Game"
                 },
-                "id": 154,
+                "id": 156,
                 "name": "StructuredDocumentation",
-                "src": "4258:69:0"
+                "src": "4292:69:0"
               },
               {
                 "children": [
@@ -4425,7 +4479,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_player",
-                      "scope": 161,
+                      "scope": 163,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -4438,19 +4492,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 155,
+                        "id": 157,
                         "name": "ElementaryTypeName",
-                        "src": "4352:7:0"
+                        "src": "4386:7:0"
                       }
                     ],
-                    "id": 156,
+                    "id": 158,
                     "name": "VariableDeclaration",
-                    "src": "4352:15:0"
+                    "src": "4386:15:0"
                   }
                 ],
-                "id": 157,
+                "id": 159,
                 "name": "ParameterList",
-                "src": "4351:17:0"
+                "src": "4385:17:0"
               },
               {
                 "children": [
@@ -4459,7 +4513,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 161,
+                      "scope": 163,
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "type": "struct JaJanken.Opponent",
@@ -4472,24 +4526,24 @@
                           "referencedDeclaration": 23,
                           "type": "struct JaJanken.Opponent"
                         },
-                        "id": 158,
+                        "id": 160,
                         "name": "UserDefinedTypeName",
-                        "src": "4392:8:0"
+                        "src": "4426:8:0"
                       }
                     ],
-                    "id": 159,
+                    "id": 161,
                     "name": "VariableDeclaration",
-                    "src": "4392:15:0"
+                    "src": "4426:15:0"
                   }
                 ],
-                "id": 160,
+                "id": 162,
                 "name": "ParameterList",
-                "src": "4391:17:0"
+                "src": "4425:17:0"
               }
             ],
-            "id": 161,
+            "id": 163,
             "name": "FunctionDefinition",
-            "src": "4333:76:0"
+            "src": "4367:76:0"
           },
           {
             "attributes": {
@@ -4501,7 +4555,7 @@
                 null
               ],
               "name": "getTotalPlayers",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -4511,9 +4565,9 @@
                 "attributes": {
                   "text": " Get the number of player alive in the game"
                 },
-                "id": 162,
+                "id": 164,
                 "name": "StructuredDocumentation",
-                "src": "4417:63:0"
+                "src": "4451:63:0"
               },
               {
                 "attributes": {
@@ -4522,9 +4576,9 @@
                   ]
                 },
                 "children": [],
-                "id": 163,
+                "id": 165,
                 "name": "ParameterList",
-                "src": "4510:2:0"
+                "src": "4544:2:0"
               },
               {
                 "children": [
@@ -4533,7 +4587,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 167,
+                      "scope": 169,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -4545,24 +4599,24 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 164,
+                        "id": 166,
                         "name": "ElementaryTypeName",
-                        "src": "4536:4:0"
+                        "src": "4570:4:0"
                       }
                     ],
-                    "id": 165,
+                    "id": 167,
                     "name": "VariableDeclaration",
-                    "src": "4536:4:0"
+                    "src": "4570:4:0"
                   }
                 ],
-                "id": 166,
+                "id": 168,
                 "name": "ParameterList",
-                "src": "4535:6:0"
+                "src": "4569:6:0"
               }
             ],
-            "id": 167,
+            "id": 169,
             "name": "FunctionDefinition",
-            "src": "4486:56:0"
+            "src": "4520:56:0"
           },
           {
             "attributes": {
@@ -4574,7 +4628,7 @@
                 null
               ],
               "name": "getTotalGuu",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -4584,9 +4638,9 @@
                 "attributes": {
                   "text": " Get the number of Guu from alive players"
                 },
-                "id": 168,
+                "id": 170,
                 "name": "StructuredDocumentation",
-                "src": "4548:61:0"
+                "src": "4582:61:0"
               },
               {
                 "attributes": {
@@ -4595,9 +4649,9 @@
                   ]
                 },
                 "children": [],
-                "id": 169,
+                "id": 171,
                 "name": "ParameterList",
-                "src": "4635:2:0"
+                "src": "4669:2:0"
               },
               {
                 "children": [
@@ -4606,7 +4660,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 173,
+                      "scope": 175,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -4618,24 +4672,24 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 170,
+                        "id": 172,
                         "name": "ElementaryTypeName",
-                        "src": "4661:4:0"
+                        "src": "4695:4:0"
                       }
                     ],
-                    "id": 171,
+                    "id": 173,
                     "name": "VariableDeclaration",
-                    "src": "4661:4:0"
+                    "src": "4695:4:0"
                   }
                 ],
-                "id": 172,
+                "id": 174,
                 "name": "ParameterList",
-                "src": "4660:6:0"
+                "src": "4694:6:0"
               }
             ],
-            "id": 173,
+            "id": 175,
             "name": "FunctionDefinition",
-            "src": "4615:52:0"
+            "src": "4649:52:0"
           },
           {
             "attributes": {
@@ -4647,7 +4701,7 @@
                 null
               ],
               "name": "getTotalPaa",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -4657,9 +4711,9 @@
                 "attributes": {
                   "text": " Get the number of Paa from alive players"
                 },
-                "id": 174,
+                "id": 176,
                 "name": "StructuredDocumentation",
-                "src": "4673:61:0"
+                "src": "4707:61:0"
               },
               {
                 "attributes": {
@@ -4668,9 +4722,9 @@
                   ]
                 },
                 "children": [],
-                "id": 175,
+                "id": 177,
                 "name": "ParameterList",
-                "src": "4760:2:0"
+                "src": "4794:2:0"
               },
               {
                 "children": [
@@ -4679,7 +4733,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 179,
+                      "scope": 181,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -4691,24 +4745,24 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 176,
+                        "id": 178,
                         "name": "ElementaryTypeName",
-                        "src": "4786:4:0"
+                        "src": "4820:4:0"
                       }
                     ],
-                    "id": 177,
+                    "id": 179,
                     "name": "VariableDeclaration",
-                    "src": "4786:4:0"
+                    "src": "4820:4:0"
                   }
                 ],
-                "id": 178,
+                "id": 180,
                 "name": "ParameterList",
-                "src": "4785:6:0"
+                "src": "4819:6:0"
               }
             ],
-            "id": 179,
+            "id": 181,
             "name": "FunctionDefinition",
-            "src": "4740:52:0"
+            "src": "4774:52:0"
           },
           {
             "attributes": {
@@ -4720,7 +4774,7 @@
                 null
               ],
               "name": "getTotalChi",
-              "scope": 186,
+              "scope": 188,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -4730,9 +4784,9 @@
                 "attributes": {
                   "text": " Get the number of Chi from alive players"
                 },
-                "id": 180,
+                "id": 182,
                 "name": "StructuredDocumentation",
-                "src": "4798:61:0"
+                "src": "4832:61:0"
               },
               {
                 "attributes": {
@@ -4741,9 +4795,9 @@
                   ]
                 },
                 "children": [],
-                "id": 181,
+                "id": 183,
                 "name": "ParameterList",
-                "src": "4885:2:0"
+                "src": "4919:2:0"
               },
               {
                 "children": [
@@ -4752,7 +4806,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 185,
+                      "scope": 187,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -4764,34 +4818,34 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 182,
+                        "id": 184,
                         "name": "ElementaryTypeName",
-                        "src": "4911:4:0"
+                        "src": "4945:4:0"
                       }
                     ],
-                    "id": 183,
+                    "id": 185,
                     "name": "VariableDeclaration",
-                    "src": "4911:4:0"
+                    "src": "4945:4:0"
                   }
                 ],
-                "id": 184,
+                "id": 186,
                 "name": "ParameterList",
-                "src": "4910:6:0"
+                "src": "4944:6:0"
               }
             ],
-            "id": 185,
+            "id": 187,
             "name": "FunctionDefinition",
-            "src": "4865:52:0"
+            "src": "4899:52:0"
           }
         ],
-        "id": 186,
+        "id": 188,
         "name": "ContractDefinition",
-        "src": "98:4822:0"
+        "src": "98:4856:0"
       }
     ],
-    "id": 187,
+    "id": 189,
     "name": "SourceUnit",
-    "src": "0:4920:0"
+    "src": "0:4954:0"
   },
   "compiler": {
     "name": "solc",
@@ -4799,7 +4853,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-29T09:29:54.157Z",
+  "updatedAt": "2021-11-09T04:31:46.301Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

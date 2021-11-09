@@ -188,7 +188,12 @@
         },
         {
           "internalType": "enum JaJanken.Technique",
-          "name": "pPlayed",
+          "name": "p1Revealed",
+          "type": "uint8"
+        },
+        {
+          "internalType": "enum JaJanken.Technique",
+          "name": "p2Revealed",
           "type": "uint8"
         },
         {
@@ -575,7 +580,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.4+commit.3f05b770\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p1\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p2\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"enum JaJanken.Technique\",\"name\":\"p1Played\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"enum JaJanken.Technique\",\"name\":\"p2Played\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"winner\",\"type\":\"address\"}],\"name\":\"MatchEnd\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"matchId\",\"type\":\"address\"}],\"name\":\"MatchPlayed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"matchId\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p1\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p2\",\"type\":\"address\"}],\"name\":\"MatchStart\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"player\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"WithdrawRewards\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"alivePlayers\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"balance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cleanupSink\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_yourAddress\",\"type\":\"address\"},{\"internalType\":\"enum JaJanken.Technique\",\"name\":\"_action\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"_revealKey\",\"type\":\"bytes32\"}],\"name\":\"encodeAction\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"entranceTicketFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fees\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"forfeitMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_player\",\"type\":\"address\"}],\"name\":\"getPlayer\",\"outputs\":[{\"components\":[{\"internalType\":\"uint32\",\"name\":\"nen\",\"type\":\"uint32\"},{\"internalType\":\"uint8\",\"name\":\"techniques\",\"type\":\"uint8\"}],\"internalType\":\"struct JaJanken.Opponent\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getProfile\",\"outputs\":[{\"components\":[{\"internalType\":\"uint8\",\"name\":\"guu\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"paa\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"chi\",\"type\":\"uint8\"},{\"internalType\":\"uint32\",\"name\":\"nen\",\"type\":\"uint32\"},{\"internalType\":\"address\",\"name\":\"inMatch\",\"type\":\"address\"}],\"internalType\":\"struct JaJanken.Player\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalChi\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalGuu\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPaa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPlayers\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"joinGame\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"joinMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"matches\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"p2\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"p1Hidden\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"p2Hidden\",\"type\":\"bytes32\"},{\"internalType\":\"enum JaJanken.Technique\",\"name\":\"pPlayed\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"playTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealTime\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_commitment\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"playMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum JaJanken.Technique\",\"name\":\"_action\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"_revealKey\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"revealMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sink\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"skipAfkDuringPlay\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"skipAfkDuringReveal\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalChi\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalGuu\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalPaa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"waitingForOpponentToPlay\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"waitingForOpponentToReveal\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawFees\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawGains\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"cleanupSink()\":{\"notice\":\"Cleanup sink only available for game owner\"},\"encodeAction(address,uint8,bytes32)\":{\"notice\":\"Encode the specified technique Should be used to generate a hashed value in order to commit secretly the player action for playMatch\"},\"forfeitMatch(address)\":{\"notice\":\"The player decide to forfeit and quit the specified match No card will be used from either players -> Should emit a MatchEnd event\"},\"getPlayer(address)\":{\"notice\":\"Get the player profile stat for the current Game\"},\"getProfile()\":{\"notice\":\"Get your profile stat for the current Game\"},\"getTotalChi()\":{\"notice\":\"Get the number of Chi from alive players\"},\"getTotalGuu()\":{\"notice\":\"Get the number of Guu from alive players\"},\"getTotalPaa()\":{\"notice\":\"Get the number of Paa from alive players\"},\"getTotalPlayers()\":{\"notice\":\"Get the number of player alive in the game\"},\"joinGame()\":{\"notice\":\"Join a game, the caller must pay the required entrance ticket amount in ETH\"},\"joinMatch()\":{\"notice\":\"Join a queue in order to find an opponent to fight against -> Should emit a StartMatch event when an opponent is found\"},\"playMatch(bytes32,address)\":{\"notice\":\"Commit the player's action for his current match The action(Technique) must be hashed with a bytes32 key. so it can be saved with his hidden form. -> Should emit a MatchPlayed event when the last player of the Match commit his play\"},\"revealMatch(uint8,bytes32,address)\":{\"notice\":\"Reveal the player's action for his current match It is required to send the player's action with the key used to hash it previously for platMatch method -> Should emit a MatchEnd event when the last player of the Match reveal his play\"},\"skipAfkDuringPlay(address)\":{\"notice\":\"Kick your opponent from the match if conditions are met. You will win this match by default\"},\"skipAfkDuringReveal(address)\":{\"notice\":\"Kick your opponent from the match if conditions are met. You will win this match by default\"},\"waitingForOpponentToPlay(address)\":{\"notice\":\"This method will check if your opponent didn't play yet If this method return true, you will be allowed to call skipAfkDuringPlay to pass the turn of your opponent and win the match\"},\"waitingForOpponentToReveal(address)\":{\"notice\":\"This method will check if your opponent didn't reveal his play yet If this method return true, you will be allowed to call skipAfkDuringReveal to pass the turn of your opponent and win the match\"},\"withdrawFees()\":{\"notice\":\"Withdraw fees earning from the Game only available for game owner\"},\"withdrawGains()\":{\"notice\":\"Withdraw gains from the Game send rewards to the the players if he meets the withdrawal conditions, do nothing otherwise\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/JaJankenGame.sol\":\"JaJankenGame\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/JaJanken.sol\":{\"keccak256\":\"0x1d5a418dfcd2849531783776b6bb41d47fa289ba538336777561b97435c7c278\",\"license\":\"GLWTPL\",\"urls\":[\"bzz-raw://ca987b832e1ccc413d68c2a88d0f30074bda2b0a6a0ef0c8f22ce173b28d526f\",\"dweb:/ipfs/QmXYcwAknHft3WHLjQ9f9XVCcC8f2HTedmhzkLVe6Yo7ZA\"]},\"project:/contracts/JaJankenGame.sol\":{\"keccak256\":\"0x2c56c9866f0a0f940d7c882293091aaeb871ba4548ef14c226d7e6b5ff021cd3\",\"license\":\"GLWTPL\",\"urls\":[\"bzz-raw://9c198a4416099c9d3cdf55b90bd5066af4022bdc7cfd84fbf6c9e73653287432\",\"dweb:/ipfs/QmXmavHhCvFgR44RofjRDwKDVwcGd5fiCViqR6NXfPknYm\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.4+commit.3f05b770\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p1\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p2\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"enum JaJanken.Technique\",\"name\":\"p1Played\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"enum JaJanken.Technique\",\"name\":\"p2Played\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"winner\",\"type\":\"address\"}],\"name\":\"MatchEnd\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"matchId\",\"type\":\"address\"}],\"name\":\"MatchPlayed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"matchId\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p1\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"p2\",\"type\":\"address\"}],\"name\":\"MatchStart\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"player\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"WithdrawRewards\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"alivePlayers\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"balance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cleanupSink\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_yourAddress\",\"type\":\"address\"},{\"internalType\":\"enum JaJanken.Technique\",\"name\":\"_action\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"_revealKey\",\"type\":\"bytes32\"}],\"name\":\"encodeAction\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"entranceTicketFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fees\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"forfeitMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_player\",\"type\":\"address\"}],\"name\":\"getPlayer\",\"outputs\":[{\"components\":[{\"internalType\":\"uint32\",\"name\":\"nen\",\"type\":\"uint32\"},{\"internalType\":\"uint8\",\"name\":\"techniques\",\"type\":\"uint8\"}],\"internalType\":\"struct JaJanken.Opponent\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getProfile\",\"outputs\":[{\"components\":[{\"internalType\":\"uint8\",\"name\":\"guu\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"paa\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"chi\",\"type\":\"uint8\"},{\"internalType\":\"uint32\",\"name\":\"nen\",\"type\":\"uint32\"},{\"internalType\":\"address\",\"name\":\"inMatch\",\"type\":\"address\"}],\"internalType\":\"struct JaJanken.Player\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalChi\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalGuu\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPaa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPlayers\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"joinGame\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"joinMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"matches\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"p2\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"p1Hidden\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"p2Hidden\",\"type\":\"bytes32\"},{\"internalType\":\"enum JaJanken.Technique\",\"name\":\"p1Revealed\",\"type\":\"uint8\"},{\"internalType\":\"enum JaJanken.Technique\",\"name\":\"p2Revealed\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"playTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealTime\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_commitment\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"playMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum JaJanken.Technique\",\"name\":\"_action\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"_revealKey\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"revealMatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sink\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"skipAfkDuringPlay\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"skipAfkDuringReveal\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalChi\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalGuu\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalPaa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"waitingForOpponentToPlay\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_matchId\",\"type\":\"address\"}],\"name\":\"waitingForOpponentToReveal\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawFees\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawGains\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"cleanupSink()\":{\"notice\":\"Cleanup sink only available for game owner\"},\"encodeAction(address,uint8,bytes32)\":{\"notice\":\"Encode the specified technique Should be used to generate a hashed value in order to commit secretly the player action for playMatch\"},\"forfeitMatch(address)\":{\"notice\":\"The player decide to forfeit and quit the specified match No card will be used from either players -> Should emit a MatchEnd event\"},\"getPlayer(address)\":{\"notice\":\"Get the player profile stat for the current Game\"},\"getProfile()\":{\"notice\":\"Get your profile stat for the current Game\"},\"getTotalChi()\":{\"notice\":\"Get the number of Chi from alive players\"},\"getTotalGuu()\":{\"notice\":\"Get the number of Guu from alive players\"},\"getTotalPaa()\":{\"notice\":\"Get the number of Paa from alive players\"},\"getTotalPlayers()\":{\"notice\":\"Get the number of player alive in the game\"},\"joinGame()\":{\"notice\":\"Join a game, the caller must pay the required entrance ticket amount in ETH\"},\"joinMatch()\":{\"notice\":\"Join a queue in order to find an opponent to fight against -> Should emit a StartMatch event when an opponent is found\"},\"playMatch(bytes32,address)\":{\"notice\":\"Commit the player's action for his current match The action(Technique) must be hashed with a bytes32 key. so it can be saved with his hidden form. -> Should emit a MatchPlayed event when the last player of the Match commit his play\"},\"revealMatch(uint8,bytes32,address)\":{\"notice\":\"Reveal the player's action for his current match It is required to send the player's action with the key used to hash it previously for platMatch method -> Should emit a MatchEnd event when the last player of the Match reveal his play\"},\"skipAfkDuringPlay(address)\":{\"notice\":\"Kick your opponent from the match if conditions are met. You will win this match by default\"},\"skipAfkDuringReveal(address)\":{\"notice\":\"Kick your opponent from the match if conditions are met. You will win this match by default\"},\"waitingForOpponentToPlay(address)\":{\"notice\":\"This method will check if your opponent didn't play yet If this method return true, you will be allowed to call skipAfkDuringPlay to pass the turn of your opponent and win the match\"},\"waitingForOpponentToReveal(address)\":{\"notice\":\"This method will check if your opponent didn't reveal his play yet If this method return true, you will be allowed to call skipAfkDuringReveal to pass the turn of your opponent and win the match\"},\"withdrawFees()\":{\"notice\":\"Withdraw fees earning from the Game only available for game owner\"},\"withdrawGains()\":{\"notice\":\"Withdraw gains from the Game send rewards to the the players if he meets the withdrawal conditions, do nothing otherwise\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/JaJankenGame.sol\":\"JaJankenGame\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/JaJanken.sol\":{\"keccak256\":\"0xb3b99b300903128e2acb3f81097712f3e64549f175b40a921565e368052131ca\",\"license\":\"GLWTPL\",\"urls\":[\"bzz-raw://8acc6d34c051723243782270e3ee08bcf9cb253e69da509e5c06830d0ed1c0da\",\"dweb:/ipfs/Qme6zWXwNhkEgKCt3fVzYW16RDGhzYaKeHjcsceeYciFME\"]},\"project:/contracts/JaJankenGame.sol\":{\"keccak256\":\"0x2c56c9866f0a0f940d7c882293091aaeb871ba4548ef14c226d7e6b5ff021cd3\",\"license\":\"GLWTPL\",\"urls\":[\"bzz-raw://9c198a4416099c9d3cdf55b90bd5066af4022bdc7cfd84fbf6c9e73653287432\",\"dweb:/ipfs/QmXmavHhCvFgR44RofjRDwKDVwcGd5fiCViqR6NXfPknYm\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -589,7 +594,7 @@
     "absolutePath": "project:/contracts/JaJankenGame.sol",
     "exportedSymbols": {
       "JaJanken": [
-        186
+        188
       ],
       "JaJankenGame": [
         1697
@@ -625,7 +630,7 @@
         "id": 1286,
         "nodeType": "ImportDirective",
         "scope": 1698,
-        "sourceUnit": 187,
+        "sourceUnit": 189,
         "src": "62:24:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -638,10 +643,10 @@
               "id": 1287,
               "name": "JaJanken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 186,
+              "referencedDeclaration": 188,
               "src": "160:8:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_JaJanken_$186",
+                "typeIdentifier": "t_contract$_JaJanken_$188",
                 "typeString": "contract JaJanken"
               }
             },
@@ -651,14 +656,14 @@
           }
         ],
         "contractDependencies": [
-          186
+          188
         ],
         "contractKind": "contract",
         "fullyImplemented": false,
         "id": 1697,
         "linearizedBaseContracts": [
           1697,
-          186
+          188
         ],
         "name": "JaJankenGame",
         "nodeType": "ContractDefinition",
@@ -809,7 +814,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Match_$36_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Match_$38_storage_$",
               "typeString": "mapping(address => struct JaJanken.Match)"
             },
             "typeName": {
@@ -827,17 +832,17 @@
               "nodeType": "Mapping",
               "src": "397:25:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Match_$36_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Match_$38_storage_$",
                 "typeString": "mapping(address => struct JaJanken.Match)"
               },
               "valueType": {
                 "id": 1303,
                 "name": "Match",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 36,
+                "referencedDeclaration": 38,
                 "src": "416:5:2",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Match_$36_storage_ptr",
+                  "typeIdentifier": "t_struct$_Match_$38_storage_ptr",
                   "typeString": "struct JaJanken.Match"
                 }
               }
@@ -2031,7 +2036,7 @@
           },
           {
             "baseFunctions": [
-              71
+              73
             ],
             "body": {
               "id": 1420,
@@ -2183,10 +2188,10 @@
                   "id": 1406,
                   "name": "JaJanken",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 186,
+                  "referencedDeclaration": 188,
                   "src": "1646:8:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_JaJanken_$186",
+                    "typeIdentifier": "t_contract$_JaJanken_$188",
                     "typeString": "contract JaJanken"
                   }
                 }
@@ -2240,7 +2245,7 @@
           },
           {
             "baseFunctions": [
-              91
+              93
             ],
             "body": {
               "id": 1443,
@@ -2400,10 +2405,10 @@
                   "id": 1429,
                   "name": "JaJanken",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 186,
+                  "referencedDeclaration": 188,
                   "src": "1859:8:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_JaJanken_$186",
+                    "typeIdentifier": "t_contract$_JaJanken_$188",
                     "typeString": "contract JaJanken"
                   }
                 }
@@ -2538,7 +2543,7 @@
           },
           {
             "baseFunctions": [
-              153
+              155
             ],
             "body": {
               "id": 1456,
@@ -2619,10 +2624,10 @@
                   "id": 1446,
                   "name": "JaJanken",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 186,
+                  "referencedDeclaration": 188,
                   "src": "2028:8:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_JaJanken_$186",
+                    "typeIdentifier": "t_contract$_JaJanken_$188",
                     "typeString": "contract JaJanken"
                   }
                 }
@@ -2677,7 +2682,7 @@
           },
           {
             "baseFunctions": [
-              161
+              163
             ],
             "body": {
               "id": 1487,
@@ -2994,10 +2999,10 @@
                   "id": 1461,
                   "name": "JaJanken",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 186,
+                  "referencedDeclaration": 188,
                   "src": "2174:8:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_JaJanken_$186",
+                    "typeIdentifier": "t_contract$_JaJanken_$188",
                     "typeString": "contract JaJanken"
                   }
                 }
@@ -3080,7 +3085,7 @@
           },
           {
             "baseFunctions": [
-              167
+              169
             ],
             "body": {
               "id": 1497,
@@ -3122,10 +3127,10 @@
                   "id": 1490,
                   "name": "JaJanken",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 186,
+                  "referencedDeclaration": 188,
                   "src": "2442:8:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_JaJanken_$186",
+                    "typeIdentifier": "t_contract$_JaJanken_$188",
                     "typeString": "contract JaJanken"
                   }
                 }
@@ -3179,7 +3184,7 @@
           },
           {
             "baseFunctions": [
-              173
+              175
             ],
             "body": {
               "id": 1507,
@@ -3221,10 +3226,10 @@
                   "id": 1500,
                   "name": "JaJanken",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 186,
+                  "referencedDeclaration": 188,
                   "src": "2559:8:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_JaJanken_$186",
+                    "typeIdentifier": "t_contract$_JaJanken_$188",
                     "typeString": "contract JaJanken"
                   }
                 }
@@ -3278,7 +3283,7 @@
           },
           {
             "baseFunctions": [
-              179
+              181
             ],
             "body": {
               "id": 1517,
@@ -3320,10 +3325,10 @@
                   "id": 1510,
                   "name": "JaJanken",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 186,
+                  "referencedDeclaration": 188,
                   "src": "2672:8:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_JaJanken_$186",
+                    "typeIdentifier": "t_contract$_JaJanken_$188",
                     "typeString": "contract JaJanken"
                   }
                 }
@@ -3377,7 +3382,7 @@
           },
           {
             "baseFunctions": [
-              185
+              187
             ],
             "body": {
               "id": 1527,
@@ -3419,10 +3424,10 @@
                   "id": 1520,
                   "name": "JaJanken",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 186,
+                  "referencedDeclaration": 188,
                   "src": "2785:8:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_JaJanken_$186",
+                    "typeIdentifier": "t_contract$_JaJanken_$188",
                     "typeString": "contract JaJanken"
                   }
                 }
@@ -5537,7 +5542,7 @@
       "absolutePath": "project:/contracts/JaJankenGame.sol",
       "exportedSymbols": {
         "JaJanken": [
-          186
+          188
         ],
         "JaJankenGame": [
           1697
@@ -5572,7 +5577,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 187,
+          "SourceUnit": 189,
           "absolutePath": "project:/contracts/JaJanken.sol",
           "file": "./JaJanken.sol",
           "scope": 1698,
@@ -5589,13 +5594,13 @@
         "attributes": {
           "abstract": true,
           "contractDependencies": [
-            186
+            188
           ],
           "contractKind": "contract",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
             1697,
-            186
+            188
           ],
           "name": "JaJankenGame",
           "scope": 1698
@@ -5607,7 +5612,7 @@
               {
                 "attributes": {
                   "name": "JaJanken",
-                  "referencedDeclaration": 186,
+                  "referencedDeclaration": 188,
                   "type": "contract JaJanken"
                 },
                 "id": 1287,
@@ -5793,7 +5798,7 @@
                   {
                     "attributes": {
                       "name": "Match",
-                      "referencedDeclaration": 36,
+                      "referencedDeclaration": 38,
                       "type": "struct JaJanken.Match"
                     },
                     "id": 1303,
@@ -7073,7 +7078,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                71
+                73
               ],
               "functionSelector": "da3b3393",
               "implemented": true,
@@ -7094,7 +7099,7 @@
                   {
                     "attributes": {
                       "name": "JaJanken",
-                      "referencedDeclaration": 186,
+                      "referencedDeclaration": 188,
                       "type": "contract JaJanken"
                     },
                     "id": 1406,
@@ -7301,7 +7306,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                91
+                93
               ],
               "functionSelector": "36847b66",
               "implemented": true,
@@ -7322,7 +7327,7 @@
                   {
                     "attributes": {
                       "name": "JaJanken",
-                      "referencedDeclaration": 186,
+                      "referencedDeclaration": 188,
                       "type": "contract JaJanken"
                     },
                     "id": 1429,
@@ -7619,7 +7624,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                153
+                155
               ],
               "functionSelector": "d6afc9b1",
               "implemented": true,
@@ -7640,7 +7645,7 @@
                   {
                     "attributes": {
                       "name": "JaJanken",
-                      "referencedDeclaration": 186,
+                      "referencedDeclaration": 188,
                       "type": "contract JaJanken"
                     },
                     "id": 1446,
@@ -7777,7 +7782,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                161
+                163
               ],
               "functionSelector": "5c12cd4b",
               "implemented": true,
@@ -7798,7 +7803,7 @@
                   {
                     "attributes": {
                       "name": "JaJanken",
-                      "referencedDeclaration": 186,
+                      "referencedDeclaration": 188,
                       "type": "contract JaJanken"
                     },
                     "id": 1461,
@@ -8209,7 +8214,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                167
+                169
               ],
               "functionSelector": "4529cae7",
               "implemented": true,
@@ -8230,7 +8235,7 @@
                   {
                     "attributes": {
                       "name": "JaJanken",
-                      "referencedDeclaration": 186,
+                      "referencedDeclaration": 188,
                       "type": "contract JaJanken"
                     },
                     "id": 1490,
@@ -8324,7 +8329,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                173
+                175
               ],
               "functionSelector": "32003bc3",
               "implemented": true,
@@ -8345,7 +8350,7 @@
                   {
                     "attributes": {
                       "name": "JaJanken",
-                      "referencedDeclaration": 186,
+                      "referencedDeclaration": 188,
                       "type": "contract JaJanken"
                     },
                     "id": 1500,
@@ -8439,7 +8444,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                179
+                181
               ],
               "functionSelector": "464be0c7",
               "implemented": true,
@@ -8460,7 +8465,7 @@
                   {
                     "attributes": {
                       "name": "JaJanken",
-                      "referencedDeclaration": 186,
+                      "referencedDeclaration": 188,
                       "type": "contract JaJanken"
                     },
                     "id": 1510,
@@ -8554,7 +8559,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                185
+                187
               ],
               "functionSelector": "5eb0ad5e",
               "implemented": true,
@@ -8575,7 +8580,7 @@
                   {
                     "attributes": {
                       "name": "JaJanken",
-                      "referencedDeclaration": 186,
+                      "referencedDeclaration": 188,
                       "type": "contract JaJanken"
                     },
                     "id": 1520,
@@ -10918,7 +10923,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-29T09:29:54.188Z",
+  "updatedAt": "2021-11-09T04:31:46.328Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
