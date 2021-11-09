@@ -83,7 +83,7 @@ export default class JaJanken {
     static Player = class {
 
         static getKey(): string {
-            let key = localStorage.getItem('jajanken-key')
+            let key = localStorage.getItem('jajanken-key$' + Lina.account())
             if (key == null) {
                 key = this.initKey()
             }
@@ -92,12 +92,12 @@ export default class JaJanken {
 
         static initKey(): string {
             const key = uuidv4().substring(0, 20)
-            localStorage.setItem('jajanken-key', key)
+            localStorage.setItem('jajanken-key$' + Lina.account(), key)
             return key
         }
 
         static getPlayed(): JaJankenTechnique {
-            let key = localStorage.getItem('jajanken-played')
+            let key = localStorage.getItem('jajanken-played$' + Lina.account())
             if (key == null || key === '') {
                 return JaJankenTechnique.None
             } else {
@@ -106,7 +106,7 @@ export default class JaJanken {
         }
 
         static savePlay(technique: JaJankenTechnique) {
-            localStorage.setItem('jajanken-played', technique.toString())
+            localStorage.setItem('jajanken-played$' + Lina.account(), technique.toString())
         }
 
         static async commitPlay(contract: any, matchId: string, technique: JaJankenTechnique) {
