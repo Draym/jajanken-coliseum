@@ -44,7 +44,7 @@ export default class JaJanken {
         if (profile) {
             return {
                 inQueue: queued === Web3Utils.getDefaultAccount(),
-                inMatch: profile.inMatch == Web3Utils.nullAddress() ? null : profile.inMatch,
+                inMatch: profile.inMatch === Web3Utils.nullAddress() ? null : profile.inMatch,
                 nen: NumberUtils.from(profile.nen),
                 guu: NumberUtils.from(profile.guu),
                 paa: NumberUtils.from(profile.paa),
@@ -72,9 +72,10 @@ export default class JaJanken {
                 p2: match.p2,
                 p1Hidden: match.p1Hidden,
                 p2Hidden: match.p2Hidden,
-                pPlayed: match.pPlayed,
-                playTime: match.playTime,
-                revealTime: match.revealTime
+                p1Revealed: parseInt(match.p1Revealed),
+                p2Revealed: parseInt(match.p2Revealed),
+                playTime: parseInt(match.playTime),
+                revealTime: parseInt(match.revealTime)
             }
         } else return null
     }
@@ -97,7 +98,7 @@ export default class JaJanken {
 
         static getPlayed(): JaJankenTechnique {
             let key = localStorage.getItem('jajanken-played')
-            if (key == null) {
+            if (key == null || key === '') {
                 return JaJankenTechnique.None
             } else {
                 return parseInt(key)
@@ -116,7 +117,7 @@ export default class JaJanken {
         }
 
         static async revealPlay(contract: any, matchId: string, technique: JaJankenTechnique) {
-            Lina.send(contract.methods.revealMatch(technique, this.getKey(), matchId)).then(_ => {
+            Lina.send(contract.methods.revealMatch(technique, Web3Utils.encode(this.getKey()), matchId)).then(_ => {
             })
         }
     }

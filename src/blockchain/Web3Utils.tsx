@@ -40,4 +40,8 @@ export default class Web3Utils {
     static nullAddress() {
         return '0x0000000000000000000000000000000000000000';
     }
+
+    static nullBytes() {
+        return '0x0000000000000000000000000000000000000000000000000000000000000000';
+    }
 }

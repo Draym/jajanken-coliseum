@@ -153,9 +153,9 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
     }
 
     joinMatch = async () => {
-        await JaJanken.joinMatchQueue(this.state.jajankenColiseum).then(data =>
+        await JaJanken.joinMatchQueue(this.state.jajankenColiseum).then(data => {
             this.setState({gameState: GameState.LookingMatch})
-        ).catch(error => console.log("failed join Match:", error))
+        }).catch(error => console.log("failed join Match:", error))
     }
 
     backToLobby = () => {

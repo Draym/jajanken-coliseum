@@ -5,6 +5,7 @@ import {TechniqueImg} from "../../../resources/images";
 import {CurrentMatch} from "../../../game/data/CurrentMatch";
 import {JaJankenTechnique} from "../../../game/data/JaJankenTechnique";
 import Lina from "../../../blockchain/Lina";
+import Web3Utils from "../../../blockchain/Web3Utils";
 
 
 enum MatchState {
@@ -14,7 +15,8 @@ enum MatchState {
     CommitWait,
     Reveal,
     RevealWait,
-    Result
+    Result,
+    MatchEnded
 }
 
 
@@ -91,20 +93,49 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
                 JaJanken.getMatch(coliseum, this.state.match.matchId).then(match => {
                     console.log("{match}[init] match: ", match)
                     if (match != null) {
-                        if (match.pPlayed !== JaJankenTechnique.None) {
-                            this.setState({matchState: MatchState.Reveal})
+                        let meHidden;
+                        let opHidden;
+                        let meRevealed;
+                        let opRevealed;
+
+
+                        if (match.p2 === Web3Utils.nullAddress()) {
+                            this.setState({matchState: MatchState.MatchEnded})
                         } else {
                             if (Lina.account() === this.state.match.matchId) {
-                                if (match.p1Hidden !== "") {
-                                    this.setState({matchState: MatchState.CommitWait})
+                                meHidden = match.p1Hidden
+                                opHidden = match.p2Hidden
+                                meRevealed = match.p1Revealed
+                                opRevealed = match.p2Revealed
+                            } else {
+                                meHidden = match.p2Hidden
+                                opHidden = match.p1Hidden
+                                meRevealed = match.p2Revealed
+                                opRevealed = match.p1Revealed
+                            }
+
+                            if (meRevealed !== JaJankenTechnique.None) {
+                                if (opRevealed !== JaJankenTechnique.None) {
+                                    this.setState({matchState: MatchState.Result})
                                 } else {
-                                    this.setState({matchState: MatchState.Commit})
+                                    this.setState({matchState: MatchState.RevealWait})
                                 }
                             } else {
-                                if (match.p2Hidden !== "") {
-                                    this.setState({matchState: MatchState.CommitWait})
+                                if (opRevealed !== JaJankenTechnique.None) {
+                                    this.setState({matchState: MatchState.Reveal})
                                 } else {
-                                    this.setState({matchState: MatchState.Commit})
+                                    if (meHidden !== Web3Utils.nullBytes()) {
+                                        if (opHidden !== Web3Utils.nullBytes()) {
+                                            this.setState({matchState: MatchState.Reveal})
+                                        } else {
+                                            this.setState({matchState: MatchState.CommitWait})
+                                        }
+                                    } else {
+                                        this.setState({
+                                            currentPick: JaJanken.Player.getPlayed(),
+                                            matchState: JaJanken.Player.getPlayed() !== JaJankenTechnique.None ? MatchState.Commit : MatchState.PickPlay
+                                        })
+                                    }
                                 }
                             }
                         }
@@ -136,7 +167,7 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
             matchResult: {
                 isVictory: data.winner === Lina.account(),
                 opponent: data.p1 === Lina.account() ? data.p2 : data.p1,
-                opponentPlayed: data.p1 === Lina.account() ? data.p2Played : data.p1Played,
+                opponentPlayed: data.p1 === Lina.account() ? parseInt(data.p2Played) : parseInt(data.p1Played),
                 winner: data.winner
             }
         })
@@ -150,6 +181,11 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
 
     backToLobby = () => {
         this.props.backToLobby()
+    }
+
+    backToPickPlay = () => {
+        JaJanken.Player.savePlay(JaJankenTechnique.None)
+        this.setState({currentPick: JaJankenTechnique.None, matchState: MatchState.PickPlay})
     }
 
     pickGuu = () => {
@@ -192,6 +228,9 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
             return <div>
                 <img src={currentPick} width={300} alt="currentPicket"/>
                 <button className={"btn-light"} onClick={this.commitPlay}>Commit play!</button>
+                <div>
+                    <button className={"btn-light"} onClick={this.backToPickPlay}>Back to PickPlay</button>
+                </div>
             </div>
         } else if (this.state.matchState === MatchState.Reveal) {
             return <div>
@@ -210,6 +249,16 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
                     <h2>You {this.state.matchResult!.isVictory ? "Win!" : "Loose :/"}</h2>
                     <button className={"btn-light"} onClick={this.backToLobby}>Back to Lobby!</button>
                 </div>
+            </div>
+        } else if (this.state.matchState === MatchState.CommitWait || this.state.matchState === MatchState.RevealWait) {
+            return <div>
+                <img src={currentPick} width={300} alt="currentPicket"/>
+                <span className={"btn-light"}>waiting for opponent {this.state.matchState === MatchState.CommitWait ? "commit" : "reveal"}</span>
+            </div>
+        } else if (this.state.matchState === MatchState.MatchEnded) {
+            return <div>
+                <h4>Match is already finished</h4>
+                <button className={"btn-light"} onClick={this.backToLobby}>Back to Lobby!</button>
             </div>
         } else {
             return <div>How did you get there?</div>
