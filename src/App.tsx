@@ -11,6 +11,7 @@ import JaJankenColiseum from "./web/views/coliseum/JaJankenColiseum";
 
 library.add(faGithub, faLinkedinIn);
 
+const routerBaseName = process.env.PUBLIC_URL;
 
 interface AppProperties {
 }
@@ -61,7 +62,7 @@ export default class App extends Component<AppProperties, AppState> {
                 <div className="container-fluid mt-5">
                     <div className="row">
                         <main role="main" className="col-lg-12 ml-auto mr-auto" style={{maxWidth: '100%'}}>
-                            <BrowserRouter>
+                            <BrowserRouter basename={routerBaseName}>
                                 <Switch>
                                     {this.state.networkId != null &&
                                     <Route path={"/coliseum"}>
