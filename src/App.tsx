@@ -16,6 +16,7 @@ interface AppProperties {
 }
 
 interface AppState {
+    networkId: number | null,
     account: string,
     loading: boolean
 }
@@ -24,20 +25,31 @@ export default class App extends Component<AppProperties, AppState> {
     constructor(props: AppProperties) {
         super(props)
         this.state = {
+            networkId: null,
             account: '0x0',
             loading: true
         }
     }
 
     async componentDidMount() {
-        await Web3Utils.loadMetamask()
-        await this.loadBlockchainData()
+        let metamaskLoaded = await Web3Utils.loadMetamask()
+        if (metamaskLoaded) {
+            await this.loadBlockchainData()
+            await this.listenNetworkChanges()
+        }
     }
 
     async loadBlockchainData() {
         const accounts = await Web3Utils.getAccounts()
+        let networkId = await Web3Utils.getNetwork()
         console.log("accounts: ", accounts)
-        this.setState({account: accounts[0], loading: false})
+        this.setState({account: accounts[0], loading: false, networkId: networkId})
+    }
+
+    async listenNetworkChanges() {
+        Web3Utils.getEth().on('chainChanged', (chainId: number) => {
+            this.setState({networkId: chainId})
+        })
     }
 
     render() {
@@ -51,9 +63,11 @@ export default class App extends Component<AppProperties, AppState> {
                         <main role="main" className="col-lg-12 ml-auto mr-auto" style={{maxWidth: '100%'}}>
                             <BrowserRouter>
                                 <Switch>
+                                    {this.state.networkId != null &&
                                     <Route path={"/coliseum"}>
-                                        <JaJankenColiseum account={this.state.account}/>
+                                        <JaJankenColiseum account={this.state.account} network={this.state.networkId}/>
                                     </Route>
+                                    }
                                     <Route path={"/"}>
                                         <HomeView/>
                                     </Route>

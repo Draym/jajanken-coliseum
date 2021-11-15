@@ -10,6 +10,7 @@ import {GameStats} from "../../../game/data/GameStats";
 import Lina from "../../../blockchain/Lina";
 
 enum GameState {
+    NotValid,
     Loading,
     NeedPay,
     Lobby,
@@ -19,9 +20,11 @@ enum GameState {
 
 interface JaJankenColiseumProperties extends RouteComponentProps {
     account: string,
+    network: number
 }
 
 interface JaJankenColiseumState {
+    account: string,
     jajankenColiseum: any,
     player: PlayerStats,
     game: GameStats,
@@ -34,7 +37,8 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
     constructor(props: JaJankenColiseumProperties) {
         super(props)
         this.state = {
-            jajankenColiseum: {},
+            account: props.account,
+            jajankenColiseum: null,
             player: {
                 inQueue: false,
                 inMatch: null,
@@ -59,57 +63,67 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
         await this.subscribeToGameEvents()
     }
 
+    async componentWillReceiveProps(nextProps: JaJankenColiseumProperties) {
+        this.setState({account: nextProps.account})
+        await this.loadColiseumData()
+        await this.subscribeToGameEvents()
+    }
+
     async loadColiseumData() {
         const coliseum = await ContractLoader.instantiateColiseum()
 
-        Web3Utils.setDefaultAccount(this.props.account)
+        if (coliseum != null) {
+            Web3Utils.setDefaultAccount(this.state.account)
 
-        this.setState({jajankenColiseum: coliseum})
+            this.setState({jajankenColiseum: coliseum})
 
-        JaJanken.getGameStats(this.state.jajankenColiseum).then(game => {
-                console.log("[init] game", game)
-                this.setState({
-                    game: game
-                })
-            }
-        )
-
-        JaJanken.getMyProfile(coliseum).then(profile => {
-            console.log("[init] profile", profile)
-            if (profile) {
-                if (profile.nen === 0) {
-                    window.alert(`Account ${Lina.account()} has previously lost all his nen, please re-join the game first!`)
-                    this.setState({gameState: GameState.NeedPay})
-                } else if (profile.inMatch != null) {
-                    JaJanken.getMatch(coliseum, profile.inMatch).then(match => {
-                        console.log("[init] match: ", match)
-                        if (match != null) {
-                            let opponentId = profile.inMatch === Lina.account() ? match.p2 : profile.inMatch
-                            JaJanken.getOpponent(coliseum, opponentId).then(opponent => {
-                                console.log("[init] opponent: ", opponent)
-                                this.setState({player: profile, gameState: GameState.InMatch, currentMatch: {p1: profile.inMatch!, p2: match.p2, matchId: profile.inMatch!}})
-                            })
-                        }
+            JaJanken.getGameStats(coliseum).then(game => {
+                    console.log("[init] game", game)
+                    this.setState({
+                        game: game
                     })
-                } else if (profile.inQueue) {
-                    this.setState({player: profile, gameState: GameState.LookingMatch})
-                } else {
-                    this.setState({player: profile, gameState: GameState.Lobby})
                 }
-            } else {
-                window.alert(`Account ${Lina.account()} do not exist yet, please join the game first!`)
-                this.setState({gameState: GameState.NeedPay})
-            }
-        })
-        // JaJanken.getOpponent(coliseum, Lina.account()).then(opponent => {
-        //     console.log("[test] me: ", opponent)
-        // })
-        // JaJanken.getMatch(coliseum, Lina.account()!).then(match => {
-        //     console.log("[test] match: ", match)
-        //     JaJanken.getOpponent(coliseum, match!.p2).then(opponent => {
-        //         console.log("[test] opponent: ", opponent)
-        //     })
-        // })
+            )
+
+            JaJanken.getMyProfile(coliseum).then(profile => {
+                console.log("[init] profile", profile)
+                if (profile) {
+                    if (profile.nen === 0) {
+                        window.alert(`Account ${Lina.account()} has previously lost all his nen, please re-join the game first!`)
+                        this.setState({gameState: GameState.NeedPay})
+                    } else if (profile.inMatch != null) {
+                        JaJanken.getMatch(coliseum, profile.inMatch).then(match => {
+                            console.log("[init] match: ", match)
+                            if (match != null) {
+                                let opponentId = profile.inMatch === Lina.account() ? match.p2 : profile.inMatch
+                                JaJanken.getOpponent(coliseum, opponentId).then(opponent => {
+                                    console.log("[init] opponent: ", opponent)
+                                    this.setState({player: profile, gameState: GameState.InMatch, currentMatch: {p1: profile.inMatch!, p2: match.p2, matchId: profile.inMatch!}})
+                                })
+                            }
+                        })
+                    } else if (profile.inQueue) {
+                        this.setState({player: profile, gameState: GameState.LookingMatch})
+                    } else {
+                        this.setState({player: profile, gameState: GameState.Lobby})
+                    }
+                } else {
+                    window.alert(`Account ${Lina.account()} do not exist yet, please join the game first!`)
+                    this.setState({gameState: GameState.NeedPay})
+                }
+            })
+            // JaJanken.getOpponent(coliseum, Lina.account()).then(opponent => {
+            //     console.log("[test] me: ", opponent)
+            // })
+            // JaJanken.getMatch(coliseum, Lina.account()!).then(match => {
+            //     console.log("[test] match: ", match)
+            //     JaJanken.getOpponent(coliseum, match!.p2).then(opponent => {
+            //         console.log("[test] opponent: ", opponent)
+            //     })
+            // })
+        } else {
+            this.setState({gameState: GameState.NotValid})
+        }
     }
 
     handleStartMatch = (event: any) => {
@@ -140,12 +154,14 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
     async subscribeToGameEvents() {
         await this.state.jajankenColiseum
 
-        this.state.jajankenColiseum.events.PlayerJoin()
-            .on('data', this.handlePlayerJoinGame)
-        this.state.jajankenColiseum.events.MatchStart({p1: Lina.account()})
-            .on('data', this.handleStartMatch)
-        this.state.jajankenColiseum.events.MatchStart({p2: Lina.account()})
-            .on('data', this.handleStartMatch)
+        if (this.state.jajankenColiseum) {
+            this.state.jajankenColiseum.events.PlayerJoin()
+                .on('data', this.handlePlayerJoinGame)
+            this.state.jajankenColiseum.events.MatchStart({p1: Lina.account()})
+                .on('data', this.handleStartMatch)
+            this.state.jajankenColiseum.events.MatchStart({p2: Lina.account()})
+                .on('data', this.handleStartMatch)
+        }
     }
 
     joinColiseum = async () => {
@@ -184,7 +200,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
             </div>
         } else if (this.state.gameState === GameState.Lobby) {
             return <div>
-                Welcome to the Coliseum ! You got {this.state.player.nen} nen
+                Have fun in the Coliseum ! You got {this.state.player.nen} nen
                 <div className="row">
                     <button className={"btn-light"} onClick={this.joinMatch}>Join Match!</button>
                 </div>
@@ -204,6 +220,8 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
                     <button className={"btn-light"} onClick={this.backToLobby}>Back to Lobby!</button>
                 </div>
             }
+        } else if (this.state.gameState === GameState.NotValid){
+            return <div>JaJanken Coliseum is not deployed on your selected network.</div>
         } else {
             return <div>How did you get there?</div>
         }

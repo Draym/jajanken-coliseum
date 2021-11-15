@@ -14,6 +14,7 @@ export default class ContractLoader {
             return new window.web3.eth.Contract(JaJankenColiseum.abi, JaJankenColiseumData.address)
         } else {
             window.alert('JaJankenColiseum contract not deployed to detected network.')
+            return null
         }
 
     }

@@ -4,6 +4,7 @@ import {RouteComponentProps, withRouter} from "react-router-dom";
 
 interface HomeViewProperties extends RouteComponentProps {
 }
+
 interface HomeViewState {
     loading: Boolean
 }
@@ -25,14 +26,13 @@ class HomeView extends Component<HomeViewProperties, HomeViewState> {
         this.props.history.push('/coliseum')
     }
 
-
     render() {
-        if(this.state.loading) {
+        if (this.state.loading) {
             return <p id="loader" className="text-center">Loading...</p>
         } else {
             return <div>
                 <div className="row">
-                Hello World !
+                    Hello World !
                 </div>
 
                 <div className="row">
