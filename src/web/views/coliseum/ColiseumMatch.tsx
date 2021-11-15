@@ -255,7 +255,7 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
                         <img src={opponentPick} width={300} alt="currentPicket"/>
                     </div>
                     <div>
-                        <h2>You {this.state.matchResult!.result == MatchEnding.WINNER ? "Win!" : (this.state.matchResult!.result == MatchEnding.LOOSER ? "Loose :/" : "Equality")}</h2>
+                        <h2>You {this.state.matchResult!.result === MatchEnding.WINNER ? "Win!" : (this.state.matchResult!.result === MatchEnding.LOOSER ? "Loose :/" : "Equality")}</h2>
                         <button className={"btn-light"} onClick={this.backToLobby}>Back to Lobby!</button>
                     </div>
                 </div>
