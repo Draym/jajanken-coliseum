@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/jajanken-coliseum/static/css/main.255a125b.chunk.css",
-    "main.js": "/jajanken-coliseum/static/js/main.3baa65a1.chunk.js",
-    "main.js.map": "/jajanken-coliseum/static/js/main.3baa65a1.chunk.js.map",
+    "main.js": "/jajanken-coliseum/static/js/main.a72ca19c.chunk.js",
+    "main.js.map": "/jajanken-coliseum/static/js/main.a72ca19c.chunk.js.map",
     "runtime-main.js": "/jajanken-coliseum/static/js/runtime-main.fb86af50.js",
     "runtime-main.js.map": "/jajanken-coliseum/static/js/runtime-main.fb86af50.js.map",
     "static/js/2.7f13e51f.chunk.js": "/jajanken-coliseum/static/js/2.7f13e51f.chunk.js",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.fb86af50.js",
     "static/js/2.7f13e51f.chunk.js",
     "static/css/main.255a125b.chunk.css",
-    "static/js/main.3baa65a1.chunk.js"
+    "static/js/main.a72ca19c.chunk.js"
   ]
 }
