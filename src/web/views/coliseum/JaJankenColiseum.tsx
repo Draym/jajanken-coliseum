@@ -8,6 +8,7 @@ import {CurrentMatch} from "../../../game/data/CurrentMatch"
 import {PlayerStats} from "../../../game/data/PlayerStats"
 import {GameStats} from "../../../game/data/GameStats"
 import Lina from "../../../blockchain/Lina"
+import {TechniqueImg} from "../../../resources/images"
 
 enum GameState {
     NotValid,
@@ -232,13 +233,22 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
         }
         return <div>
             <div className="row">
-                <div className="col-md-12">
+                <div className="col-md-4">
                     Game state:
                     <ul>
                         <li>Players in-game: {this.state.game.alivePlayers}</li>
-                        <li>total Guu: {this.state.game.totalGuu}</li>
-                        <li>total Paa: {this.state.game.totalPaa}</li>
-                        <li>Total Chi: {this.state.game.totalChi}</li>
+                        <li>total Guu: {this.state.game.totalGuu} <img src={TechniqueImg.guu} width={20} alt="guu"/></li>
+                        <li>total Paa: {this.state.game.totalPaa} <img src={TechniqueImg.paa} width={20} alt="paa"/></li>
+                        <li>Total Chi: {this.state.game.totalChi} <img src={TechniqueImg.chi} width={20} alt="chi"/></li>
+                    </ul>
+                </div>
+                <div className="col-md-4">
+                    Your Hand :
+                    <ul>
+                        <li>Life point: {this.state.player.nen}</li>
+                        <li>total Guu: {this.state.player.guu} <img src={TechniqueImg.guu} width={20} alt="guu"/></li>
+                        <li>total Paa: {this.state.player.paa} <img src={TechniqueImg.paa} width={20} alt="paa"/></li>
+                        <li>total Chi: {this.state.player.chi} <img src={TechniqueImg.chi} width={20} alt="chi"/></li>
                     </ul>
                 </div>
             </div>
