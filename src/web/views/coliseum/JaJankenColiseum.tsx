@@ -1,13 +1,13 @@
-import React, {Component} from "react";
-import {RouteComponentProps, withRouter} from "react-router-dom";
-import ContractLoader from "../../../blockchain/ContractLoader";
-import Web3Utils from "../../../blockchain/Web3Utils";
-import JaJanken from "../../../game/JaJanken";
-import ColiseumMatch from "./ColiseumMatch";
-import {CurrentMatch} from "../../../game/data/CurrentMatch";
-import {PlayerStats} from "../../../game/data/PlayerStats";
-import {GameStats} from "../../../game/data/GameStats";
-import Lina from "../../../blockchain/Lina";
+import React, {Component} from "react"
+import {RouteComponentProps, withRouter} from "react-router-dom"
+import ContractLoader from "../../../blockchain/ContractLoader"
+import Web3Utils from "../../../blockchain/Web3Utils"
+import JaJanken from "../../../game/JaJanken"
+import ColiseumMatch from "./ColiseumMatch"
+import {CurrentMatch} from "../../../game/data/CurrentMatch"
+import {PlayerStats} from "../../../game/data/PlayerStats"
+import {GameStats} from "../../../game/data/GameStats"
+import Lina from "../../../blockchain/Lina"
 
 enum GameState {
     NotValid,
@@ -98,7 +98,11 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
                                 let opponentId = profile.inMatch === Lina.account() ? match.p2 : profile.inMatch
                                 JaJanken.getOpponent(coliseum, opponentId).then(opponent => {
                                     console.log("[init] opponent: ", opponent)
-                                    this.setState({player: profile, gameState: GameState.InMatch, currentMatch: {p1: profile.inMatch!, p2: match.p2, matchId: profile.inMatch!}})
+                                    this.setState({
+                                        player: profile,
+                                        gameState: GameState.InMatch,
+                                        currentMatch: {p1: profile.inMatch!, p2: match.p2, matchId: profile.inMatch!}
+                                    })
                                 })
                             }
                         })
@@ -189,43 +193,62 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
     }
 
     render() {
+        let content
         if (this.state.gameState === GameState.Loading) {
-            return <p id="loader" className="text-center">Loading...</p>
+            content = <p id="loader" className="text-center">Loading...</p>
         } else if (this.state.gameState === GameState.NeedPay) {
-            return <div>
+            content = <div>
                 Welcome to the Coliseum {Lina.account()} !
                 <div className="row">
                     <button className={"btn-light"} onClick={this.joinColiseum}>Join Coliseum</button>
                 </div>
             </div>
         } else if (this.state.gameState === GameState.Lobby) {
-            return <div>
+            content = <div>
                 Have fun in the Coliseum ! You got {this.state.player.nen} nen
                 <div className="row">
                     <button className={"btn-light"} onClick={this.joinMatch}>Join Match!</button>
                 </div>
             </div>
         } else if (this.state.gameState === GameState.LookingMatch) {
-            return <div>
+            content = <div>
                 Looking for an opponent
             </div>
         } else if (this.state.gameState === GameState.InMatch) {
             if (this.state.currentMatch != null) {
-                return <div>
+                content = <div>
                     <ColiseumMatch jajankenColiseum={this.state.jajankenColiseum} backToLobby={this.backToLobby}
                                    currentMatch={this.state.currentMatch}/>
                 </div>
             } else {
-                return <div className="row">
+                content = <div className="row">
                     <button className={"btn-light"} onClick={this.backToLobby}>Back to Lobby!</button>
                 </div>
             }
-        } else if (this.state.gameState === GameState.NotValid){
-            return <div>JaJanken Coliseum is not deployed on your selected network.</div>
+        } else if (this.state.gameState === GameState.NotValid) {
+            content = <div>JaJanken Coliseum is not deployed on your selected network.</div>
         } else {
-            return <div>How did you get there?</div>
+            content = <div>How did you get there?</div>
         }
+        return <div>
+            <div className="row">
+                <div className="col-md-12">
+                    Game state:
+                    <ul>
+                        <li>Players in-game: {this.state.game.alivePlayers}</li>
+                        <li>total Guu: {this.state.game.totalGuu}</li>
+                        <li>total Paa: {this.state.game.totalPaa}</li>
+                        <li>Total Chi: {this.state.game.totalChi}</li>
+                    </ul>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-12">
+                    {content}
+                </div>
+            </div>
+        </div>
     }
 }
 
-export default withRouter(JaJankenColiseum);
+export default withRouter(JaJankenColiseum)

@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {RouteComponentProps, withRouter} from "react-router-dom";
+import React, {Component} from "react"
+import {RouteComponentProps, withRouter} from "react-router-dom"
 
 
 interface HomeViewProperties extends RouteComponentProps {
@@ -31,16 +31,10 @@ class HomeView extends Component<HomeViewProperties, HomeViewState> {
             return <p id="loader" className="text-center">Loading...</p>
         } else {
             return <div>
-                <div className="row">
-                    Hello World !
-                </div>
-
-                <div className="row">
-                    <button className={"btn-light"} onClick={this.startColiseum}>Launch Coliseum</button>
-                </div>
+                <button className="btn-info h-align h-center" onClick={this.startColiseum}>Launch Coliseum</button>
             </div>
         }
     }
 }
 
-export default withRouter(HomeView);
+export default withRouter(HomeView)
