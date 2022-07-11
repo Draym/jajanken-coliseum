@@ -1,11 +1,12 @@
-import React, {Component} from "react";
-import {RouteComponentProps, withRouter} from "react-router-dom";
-import JaJanken from "../../../game/JaJanken";
-import {TechniqueImg} from "../../../resources/images";
-import {CurrentMatch} from "../../../game/data/CurrentMatch";
-import {JaJankenTechnique} from "../../../game/data/JaJankenTechnique";
-import Lina from "../../../blockchain/Lina";
-import Web3Utils from "../../../blockchain/Web3Utils";
+import React, {Component} from "react"
+import {RouteComponentProps, withRouter} from "react-router-dom"
+import JaJanken from "../../../game/JaJanken"
+import {TechniqueImg} from "../../../resources/images"
+import {CurrentMatch} from "../../../game/data/CurrentMatch"
+import {JaJankenTechnique} from "../../../game/data/JaJankenTechnique"
+import Lina from "../../../blockchain/Lina"
+import Web3Utils from "../../../blockchain/Web3Utils"
+import {OpponentStats} from "../../../game/data/OpponentStats"
 
 
 enum MatchState {
@@ -40,7 +41,14 @@ interface ColiseumMatchState {
     currentPick: JaJankenTechnique,
     match: CurrentMatch,
     matchState: MatchState,
-    matchResult: MatchResult | null
+    matchResult: MatchResult | null,
+    opponent: Opponent | null
+}
+
+interface Opponent {
+    address: string,
+    nen: number,
+    techniques: number
 }
 
 interface MatchResult {
@@ -63,7 +71,8 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
             currentPick: JaJanken.Player.getPlayed(),
             match: props.currentMatch,
             matchState: MatchState.Loading,
-            matchResult: null
+            matchResult: null,
+            opponent: null
         }
     }
 
@@ -99,10 +108,10 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
                 JaJanken.getMatch(coliseum, this.state.match.matchId).then(match => {
                     console.log("{match}[init] match: ", match)
                     if (match != null) {
-                        let meHidden;
-                        let opHidden;
-                        let meRevealed;
-                        let opRevealed;
+                        let meHidden
+                        let opHidden
+                        let meRevealed
+                        let opRevealed
 
 
                         if (match.p2 === Web3Utils.nullAddress()) {
@@ -149,9 +158,17 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
                 })
             }
         )
-
         JaJanken.getOpponent(coliseum, this.state.match.p1 === Lina.account() ? this.state.match.p2 : this.state.match.p1).then(opponent => {
             console.log("[test] opponent: ", opponent)
+            if (opponent != null) {
+                this.setState({
+                    opponent: {
+                        address: this.state.match.p1 === Lina.account() ? this.state.match.p2 : this.state.match.p1,
+                        nen: opponent.nen,
+                        techniques: opponent.techniques
+                    }
+                })
+            }
         })
     }
 
@@ -229,9 +246,15 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
                 return <p id="loader" className="text-center">Loading...</p>
             } else if (this.state.matchState === MatchState.PickPlay) {
                 return <div>
-                    <button onClick={this.pickGuu} disabled={this.state.availableGuu === 0}><img className={this.state.availableGuu === 0 ? "img-disabled" : ""} src={TechniqueImg.guu} width={200} alt="guu"/></button>
-                    <button onClick={this.pickChi} disabled={this.state.availableChi === 0}><img className={this.state.availableChi === 0 ? "img-disabled" : ""} src={TechniqueImg.chi} width={200} alt="chi"/></button>
-                    <button onClick={this.pickPaa} disabled={this.state.availablePaa === 0}><img className={this.state.availablePaa === 0 ? "img-disabled" : ""} src={TechniqueImg.paa} width={200} alt="paa"/></button>
+                    <button onClick={this.pickGuu} disabled={this.state.availableGuu === 0}><img
+                        className={this.state.availableGuu === 0 ? "img-disabled" : ""} src={TechniqueImg.guu}
+                        width={200} alt="guu"/></button>
+                    <button onClick={this.pickChi} disabled={this.state.availableChi === 0}><img
+                        className={this.state.availableChi === 0 ? "img-disabled" : ""} src={TechniqueImg.chi}
+                        width={200} alt="chi"/></button>
+                    <button onClick={this.pickPaa} disabled={this.state.availablePaa === 0}><img
+                        className={this.state.availablePaa === 0 ? "img-disabled" : ""} src={TechniqueImg.paa}
+                        width={200} alt="paa"/></button>
                 </div>
             } else if (this.state.matchState === MatchState.Commit) {
                 return <div>
@@ -262,7 +285,8 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
             } else if (this.state.matchState === MatchState.CommitWait || this.state.matchState === MatchState.RevealWait) {
                 return <div>
                     <img src={currentPick} width={300} alt="currentPicket"/>
-                    <span className={"btn-light"}>waiting for opponent {this.state.matchState === MatchState.CommitWait ? "commit" : "reveal"}</span>
+                    <span
+                        className={"btn-light"}>waiting for opponent {this.state.matchState === MatchState.CommitWait ? "commit" : "reveal"}</span>
                 </div>
             } else if (this.state.matchState === MatchState.MatchEnded) {
                 return <div>
@@ -275,10 +299,11 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
         }
 
         return <div>
-            <h4>Profile ({this.state.nenBalance}Nen): [{this.state.availableGuu} Guu][{this.state.availableChi} Chi][{this.state.availablePaa} Paa]</h4>
+            <h4>Profile ({this.state.nenBalance}Nen):
+                [{this.state.availableGuu} Guu][{this.state.availableChi} Chi][{this.state.availablePaa} Paa]</h4>
             {matchState()}
         </div>
     }
 }
 
-export default withRouter(ColiseumMatch);
+export default withRouter(ColiseumMatch)
