@@ -1,3 +1,3 @@
 # JaJanKen game
 
-[LIVE HERE](https://draym.github.io/jajanken-coliseum/)
+[WebGame prototype LIVE HERE](https://draym.github.io/jajanken-coliseum/)
