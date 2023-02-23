@@ -6,8 +6,6 @@ import {CurrentMatch} from "../../../game/data/CurrentMatch"
 import {JaJankenTechnique} from "../../../game/data/JaJankenTechnique"
 import Lina from "../../../blockchain/Lina"
 import Web3Utils from "../../../blockchain/Web3Utils"
-import {OpponentStats} from "../../../game/data/OpponentStats"
-
 
 enum MatchState {
     Loading,
@@ -247,18 +245,18 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
             } else if (this.state.matchState === MatchState.PickPlay) {
                 return <div>
                     <button onClick={this.pickGuu} disabled={this.state.availableGuu === 0}><img
-                        className={this.state.availableGuu === 0 ? "img-disabled" : ""} src={TechniqueImg.guu}
+                        className={this.state.availableGuu === 0 ? "img-disabled card" : "card"} src={TechniqueImg.guu}
                         width={200} alt="guu"/></button>
                     <button onClick={this.pickChi} disabled={this.state.availableChi === 0}><img
-                        className={this.state.availableChi === 0 ? "img-disabled" : ""} src={TechniqueImg.chi}
+                        className={this.state.availableChi === 0 ? "img-disabled card" : "card"} src={TechniqueImg.chi}
                         width={200} alt="chi"/></button>
                     <button onClick={this.pickPaa} disabled={this.state.availablePaa === 0}><img
-                        className={this.state.availablePaa === 0 ? "img-disabled" : ""} src={TechniqueImg.paa}
+                        className={this.state.availablePaa === 0 ? "img-disabled card" : "card"} src={TechniqueImg.paa}
                         width={200} alt="paa"/></button>
                 </div>
             } else if (this.state.matchState === MatchState.Commit) {
                 return <div>
-                    <img src={currentPick} width={300} alt="currentPicket"/>
+                    <img className="card" src={currentPick} width={300} alt="currentPicket"/>
                     <button className={"btn-light"} onClick={this.commitPlay}>Commit play!</button>
                     <div>
                         <button className={"btn-light"} onClick={this.backToPickPlay}>Back to PickPlay</button>
@@ -266,16 +264,16 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
                 </div>
             } else if (this.state.matchState === MatchState.Reveal) {
                 return <div>
-                    <img src={currentPick} width={300} alt="currentPicket"/>
+                    <img className="card" src={currentPick} width={300} alt="currentPicket"/>
                     <button className={"btn-light"} onClick={this.revealPlay}>Fight!</button>
                 </div>
             } else if (this.state.matchState === MatchState.Result) {
                 let opponentPick = TechniqueImg.fromTechnique(this.state.matchResult!.opponentPlayed)
                 return <div className="row">
                     <div>
-                        <img src={currentPick} width={300} alt="currentPicket"/>
+                        <img className="card" src={currentPick} width={300} alt="currentPicket"/>
                         <span>...VS...</span>
-                        <img src={opponentPick} width={300} alt="currentPicket"/>
+                        <img className="card" src={opponentPick} width={300} alt="currentPicket"/>
                     </div>
                     <div>
                         <h2>You {this.state.matchResult!.result === MatchEnding.WINNER ? "Win!" : (this.state.matchResult!.result === MatchEnding.LOOSER ? "Loose :/" : "Equality")}</h2>
@@ -284,7 +282,7 @@ class ColiseumMatch extends Component<ColiseumMatchProperties, ColiseumMatchStat
                 </div>
             } else if (this.state.matchState === MatchState.CommitWait || this.state.matchState === MatchState.RevealWait) {
                 return <div>
-                    <img src={currentPick} width={300} alt="currentPicket"/>
+                    <img className="card" src={currentPick} width={300} alt="currentPicket"/>
                     <span
                         className={"btn-light"}>waiting for opponent {this.state.matchState === MatchState.CommitWait ? "commit" : "reveal"}</span>
                 </div>
