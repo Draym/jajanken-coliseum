@@ -23,7 +23,7 @@ export default class Navbar extends Component<NavbarProperties, NavbarState> {
     }
 
     render() {
-        return <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        return <nav className="navbar navbar-dark fixed-top flex-md-nowrap p-0">
             <div className="col-md-2">
                 <a className="navbar-brand"
                    href="https://github.com/Draym/jajanken-evm"
@@ -32,11 +32,8 @@ export default class Navbar extends Component<NavbarProperties, NavbarState> {
                     <span><FontAwesomeIcon icon={['fab', "github"]}/> smart-contracts</span>
                 </a>
             </div>
-            <div className="col-md-8 text-center">
-                <span className="navbar-brand">JaJanKen Coliseum</span>
-            </div>
-            <div className="col-md-2">
-                <small id="account" className="text-white">{this.props.account}</small>
+            <div className="col-md-4">
+                <small id="wallet-address" className="text-white bg-dark">{this.props.account}</small>
             </div>
         </nav>
     }

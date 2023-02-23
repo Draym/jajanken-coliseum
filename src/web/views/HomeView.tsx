@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import {RouteComponentProps, withRouter} from "react-router-dom"
-
+import {BackgroundImd} from "../../resources/images"
 
 interface HomeViewProperties extends RouteComponentProps {
 }
@@ -31,7 +31,15 @@ class HomeView extends Component<HomeViewProperties, HomeViewState> {
             return <p id="loader" className="text-center">Loading...</p>
         } else {
             return <div>
-                <button className="btn-info h-align h-center" onClick={this.startColiseum}>Launch Coliseum</button>
+                <div className="row horizontal-align">
+                    <img id="main-img" src={BackgroundImd.jajanken} alt=""></img>
+                </div>
+                <div className="row horizontal-align">
+                    <img id="title-img" src={BackgroundImd.title} alt=""></img>
+                </div>
+                <div className="row horizontal-align">
+                    <button className="btn-info fw-bold" onClick={this.startColiseum}>Join Coliseum</button>
+                </div>
             </div>
         }
     }

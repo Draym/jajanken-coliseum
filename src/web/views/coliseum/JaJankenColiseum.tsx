@@ -231,7 +231,7 @@ class JaJankenColiseum extends Component<JaJankenColiseumProperties, JaJankenCol
         } else {
             content = <div>How did you get there?</div>
         }
-        return <div>
+        return <div className="mt-5">
             <div className="row">
                 <div className="col-md-4">
                     Game state:
