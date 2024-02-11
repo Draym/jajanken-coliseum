@@ -1,1 +1,0 @@
-# jajanken.io
