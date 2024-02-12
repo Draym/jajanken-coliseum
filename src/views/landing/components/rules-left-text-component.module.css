@@ -69,7 +69,6 @@
   font-size: var(--headline-h5-size);
   color: var(--base-typography-textwhite);
   font-family: var(--paragraph-tooltip);
-  background-color: #eb1212 !important;
 }
 @media screen and (max-width: 450px) {
   .outsmartYourLuck {
