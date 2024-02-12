@@ -340,6 +340,15 @@
     padding: 17px 0 0;
     box-sizing: border-box;
 }
+.frameWrapper4 {
+    width: 313px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 17px 0 0;
+    box-sizing: border-box;
+}
 
 .frameChild1 {
     height: 192px;
@@ -603,8 +612,7 @@
     justify-content: center;
 }
 
-.image10Icon,
-.image11Icon {
+.image10Icon {
     position: absolute;
     border-radius: var(--br-7xs);
     width: 123.5px;
@@ -617,15 +625,6 @@
     height: 155.8px;
 }
 
-.image11Icon {
-    height: calc(100% - 4.1px);
-    top: 0;
-    bottom: 4.1px;
-    left: 0;
-    max-height: 100%;
-    z-index: 1;
-}
-
 .image10Parent {
     position: absolute;
     top: -0.5px;
@@ -633,10 +632,6 @@
     width: 131px;
     height: 159.9px;
     z-index: 4;
-}
-
-.span1 {
-    font-size: var(--headline-h5-size);
 }
 
 .div1 {
@@ -716,21 +711,16 @@
     z-index: 5;
 }
 
-.image21Icon,
-.image5Icon {
-    position: absolute;
-    top: 1686px;
-    left: 907px;
-    width: 108.6px;
-    height: 136.7px;
+.image21Icon {
+    width: 300px;
     object-fit: contain;
     z-index: 2;
 }
 
-.image5Icon {
-    top: 1745px;
-    left: 972px;
-    z-index: 3;
+.image22Icon {
+    width: 600px;
+    object-fit: contain;
+    z-index: 2;
 }
 
 .wrapperRectangle18Parent {
