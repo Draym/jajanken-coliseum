@@ -8,6 +8,7 @@ import FooterComponent from "./components/footer-component"
 import JoinGameComponent2 from "@/views/landing/components/join-game2-component";
 import FaqComponent from "@/views/landing/components/faq-component";
 import {Flex} from "@chakra-ui/react";
+import ScrollLink from "@/components/scroll-link";
 
 export default function Landing() {
     return (
@@ -16,11 +17,13 @@ export default function Landing() {
             <HeaderComponent/>
             <div className={styles.homepage} id='toplanding'>
                 <img className={styles.unionIcon} alt="" src="/union.svg"/>
+                <img className={styles.frameChild} alt="" src="/rectangle-18@2x.png"/>
                 <section className={styles.vectorParent}>
-                    <img className={styles.frameChild} alt="" src="/rectangle-18@2x.png"/>
                     <JoinGameComponent/>
                     <div className={styles.seeMoreParent}>
-                        <div className={styles.seeMore}>see more</div>
+                        <div className={styles.seeMore}>
+                            <ScrollLink target={'explore'}><b>see more</b></ScrollLink>
+                        </div>
                         <img
                             className={styles.arrowsDiagramsarrowIcon}
                             loading="eager"
@@ -29,7 +32,6 @@ export default function Landing() {
                         />
                     </div>
                 </section>
-                <img className={styles.image20Icon} alt="" src="/image-20@2x.png"/>
                 <section className={styles.frameParent}>
                     <div className={styles.maskGroupParent}>
                         <img className={styles.maskGroupIcon} alt="" src="/mask-group.svg"/>

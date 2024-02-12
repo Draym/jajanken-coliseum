@@ -14,7 +14,7 @@ const ScrollLink = ({children, target, className}: ScrollLinkType) => {
         const targetElement = document.getElementById(target);
         if (targetElement) {
             const topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-            window.scrollTo({top: topPosition - 100, behavior: 'smooth'});
+            window.scrollTo({top: topPosition - 170, behavior: 'smooth'});
         }
     };
 
