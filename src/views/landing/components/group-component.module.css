@@ -1,0 +1,109 @@
+.frameChild {
+  height: 72px;
+  width: 1440px;
+  position: relative;
+  background-color: var(--text);
+  display: none;
+  max-width: 100%;
+}
+.vectorIcon {
+  height: 40px;
+  width: 43.3px;
+  position: relative;
+  min-height: 40px;
+  z-index: 1;
+}
+.explore,
+.rules {
+  position: relative;
+  line-height: 24px;
+  font-weight: 500;
+  z-index: 1;
+}
+.unionIcon {
+  height: 40px;
+  width: 28.9px;
+  position: relative;
+  z-index: 1;
+}
+.exploreParent {
+  width: 322px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--padding-10xs) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-xl);
+  max-width: 100%;
+}
+.faq,
+.quests {
+  position: relative;
+  line-height: 24px;
+  font-weight: 500;
+  z-index: 1;
+}
+.faqWrapper {
+  width: 109px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.btn {
+  white-space: nowrap;
+  z-index: 1;
+}
+.frameParent,
+.rectangleParent {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+}
+.frameParent {
+  width: 904px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-77xl);
+}
+.rectangleParent {
+  align-self: stretch;
+  background-color: var(--text);
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-base) var(--padding-xl);
+  box-sizing: border-box;
+  gap: var(--gap-234xl);
+  top: 0;
+  z-index: 99;
+  position: sticky;
+  text-align: center;
+  font-size: var(--paragraph-body-default-size);
+  color: var(--base-typography-textwhite);
+  font-family: var(--paragraph-tooltip);
+}
+@media screen and (max-width: 1200px) {
+  .rectangleParent {
+    gap: var(--gap-234xl);
+  }
+}
+@media screen and (max-width: 1050px) {
+  .frameParent {
+    display: none;
+    gap: var(--gap-77xl);
+  }
+}
+@media screen and (max-width: 750px) {
+  .rectangleParent {
+    gap: var(--gap-234xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .frameParent {
+    gap: var(--gap-77xl);
+  }
+  .rectangleParent {
+    gap: var(--gap-234xl);
+  }
+}

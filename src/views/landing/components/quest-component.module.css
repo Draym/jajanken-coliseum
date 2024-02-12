@@ -1,0 +1,56 @@
+.frameChild {
+  height: 200px;
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.frameChild,
+.loremIpsumDolor,
+.winStreak {
+  align-self: stretch;
+  position: relative;
+}
+.winStreak {
+  line-height: 32px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.loremIpsumDolor {
+  height: 96px;
+  font-size: var(--paragraph-subtitle-s-size);
+  line-height: 24px;
+  display: inline-block;
+}
+.rectangleParent,
+.winStreakParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.winStreakParent {
+  align-self: stretch;
+  padding: 0 var(--padding-5xl);
+  gap: var(--gap-5xs);
+}
+.rectangleParent {
+  height: 480px;
+  border-radius: var(--br-mini);
+  background-color: var(--color-gray-100);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--color-gray-200);
+  box-sizing: border-box;
+  overflow: hidden;
+  gap: var(--gap-5xl);
+  text-align: left;
+  font-size: var(--headline-h5-size);
+  color: var(--base-typography-textwhite);
+  font-family: var(--paragraph-tooltip);
+}
+@media screen and (max-width: 450px) {
+  .winStreak {
+    font-size: var(--font-size-lgi);
+    line-height: 26px;
+  }
+}

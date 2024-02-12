@@ -1,0 +1,128 @@
+.vectorIcon {
+  height: 40px;
+  width: 43.3px;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  left: 0;
+}
+.aboutTheGame {
+  position: relative;
+  line-height: 16px;
+  font-weight: 500;
+}
+.explore,
+.quests,
+.rules {
+  position: relative;
+  line-height: 24px;
+}
+.aboutTheGameParent {
+  flex: 0.8293;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-2xl) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-9xs);
+  min-width: 80px;
+}
+.faq,
+.more {
+  position: relative;
+}
+.more {
+  line-height: 16px;
+  font-weight: 500;
+}
+.faq {
+  line-height: 24px;
+}
+.moreParent,
+.vectorParent {
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.moreParent {
+  flex: 0.2787;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 var(--padding-69xl) 0 0;
+  gap: var(--gap-9xs);
+  min-width: 79px;
+}
+.vectorParent {
+  width: 917px;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 0 0 var(--padding-186xl);
+  position: relative;
+  gap: var(--gap-xl);
+  max-width: 100%;
+}
+.allRightsReserved {
+  position: relative;
+  line-height: 20px;
+}
+.allRightsReservedUnauthoriWrapper {
+  width: 635px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  max-width: 100%;
+  font-size: var(--paragraph-tooltip-size);
+}
+.frameParent {
+  align-self: stretch;
+  background-color: var(--color-black);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-base) var(--padding-284xl) var(--padding-base)
+    var(--padding-xl);
+  box-sizing: border-box;
+  gap: var(--gap-5xl);
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--paragraph-subtitle-s-size);
+  color: var(--base-typography-textwhite);
+  font-family: var(--paragraph-tooltip);
+}
+@media screen and (max-width: 1200px) {
+  .frameParent {
+    padding-right: var(--padding-132xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .vectorParent {
+    flex-wrap: wrap;
+    padding-left: var(--padding-83xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .frameParent {
+    padding-right: var(--padding-56xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .aboutTheGameParent,
+  .moreParent {
+    flex: 1;
+  }
+  .vectorParent {
+    padding-left: var(--padding-32xl);
+    box-sizing: border-box;
+  }
+  .frameParent {
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

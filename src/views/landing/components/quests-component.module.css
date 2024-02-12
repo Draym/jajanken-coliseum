@@ -1,0 +1,64 @@
+.completeChallenges {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 40px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+.frameParent {
+  align-self: stretch;
+  display: grid;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-5xl);
+  grid-template-columns: repeat(4, minmax(211px, 1fr));
+  z-index: 1;
+  text-align: left;
+  font-size: var(--headline-h5-size);
+}
+.completeChallengesParent {
+  width: 1240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xl) var(--padding-181xl);
+  box-sizing: border-box;
+  gap: var(--gap-21xl);
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--headline-h4-size);
+  color: var(--base-typography-textwhite);
+  font-family: var(--paragraph-tooltip);
+}
+@media screen and (max-width: 1050px) {
+  .completeChallenges {
+    font-size: var(--font-size-7xl);
+    line-height: 32px;
+  }
+  .frameParent {
+    justify-content: center;
+    grid-template-columns: repeat(2, minmax(211px, 367px));
+  }
+}
+@media screen and (max-width: 750px) {
+  .completeChallengesParent {
+    gap: var(--gap-21xl);
+    padding-bottom: var(--padding-111xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .completeChallenges {
+    font-size: var(--font-size-lgi);
+    line-height: 24px;
+  }
+  .frameParent {
+    grid-template-columns: minmax(211px, 1fr);
+  }
+}

@@ -1,0 +1,1343 @@
+.unionIcon {
+    width: 1031.2px;
+    height: 1010.2px;
+    position: absolute;
+    margin: 0 !important;
+    bottom: 543.8px;
+    left: -868px;
+    object-fit: contain;
+}
+.frameChild {
+    align-self: stretch;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+    display: none;
+}
+.seeMore {
+    position: relative;
+    line-height: 20px;
+    z-index: 6;
+}
+.arrowsDiagramsarrowIcon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    z-index: 5;
+}
+.seeMoreParent,
+.vectorParent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 var(--padding-xl);
+}
+.vectorParent {
+    align-self: stretch;
+    padding: 0 0 var(--padding-5xl);
+    box-sizing: border-box;
+    gap: var(--gap-137xl);
+    background-image: url(/rectangle-18@2x.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    max-width: 100%;
+    z-index: 4;
+    text-align: center;
+    font-size: var(--paragraph-caption-size);
+    color: var(--base-typography-textwhite);
+    font-family: var(--paragraph-tooltip);
+}
+.frameInner,
+.frameItem {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: hard-light;
+}
+.frameItem {
+    top: -0.02px;
+    left: 147.4px;
+    background-color: rgba(1, 63, 190, 0.1);
+    filter: blur(400px);
+    width: 695.8px;
+    height: 707.2px;
+    transform: rotate(12.03deg);
+    transform-origin: 0 0;
+    z-index: 2;
+}
+.frameInner {
+    top: 147px;
+    left: 373px;
+    background-color: var(--base-typography-textwhite);
+    width: 1526px;
+    height: 57px;
+    z-index: 3;
+}
+.ellipseParent {
+    width: 1899px;
+    height: 837px;
+    top: 528px;
+    left: -390px;
+}
+.ellipseParent,
+.image20Icon,
+.maskGroupIcon {
+    position: absolute;
+    margin: 0 !important;
+}
+.image20Icon {
+    width: 328px;
+    height: 328px;
+    bottom: 2852px;
+    left: 301px;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+    z-index: 3;
+}
+.maskGroupIcon {
+    /*width: 100%;*/
+    height: 100%;
+    /*  top: 0;
+      right: 0;*/
+    bottom: 0;
+    left: -10px;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    z-index: 1;
+}
+.rectangleIcon {
+    height: 300px;
+    width: 300px;
+    position: relative;
+    object-fit: cover;
+}
+.findFortuneOr,
+.loremIpsumDolor {
+    align-self: stretch;
+    position: relative;
+}
+.findFortuneOr {
+    margin: 0;
+    font-size: inherit;
+    line-height: 32px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: inherit;
+}
+.loremIpsumDolor {
+    height: 168px;
+    font-size: var(--paragraph-body-default-size);
+    line-height: 24px;
+    display: inline-block;
+}
+.findFortuneOrDieParent,
+.frameWrapper,
+.rectangleParent {
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.findFortuneOrDieParent {
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--padding-xl) 0;
+    gap: var(--gap-5xs);
+    min-width: 356px;
+}
+.frameWrapper,
+.rectangleParent {
+    flex-direction: row;
+}
+.rectangleParent {
+    flex: 1;
+    border-radius: var(--br-mini);
+    background-color: var(--color-gray-100);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--color-gray-200);
+    overflow: hidden;
+    align-items: center;
+    padding: 0 var(--padding-13xl) 0 0;
+    gap: var(--gap-13xl);
+    z-index: 3;
+}
+.frameWrapper {
+    width: 912px;
+    align-items: flex-start;
+    padding: 0 0 146px;
+}
+.cardsToRules {
+    margin: 0;
+    position: relative;
+    font-size: inherit;
+    line-height: 32px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: inherit;
+    z-index: 2;
+}
+.coins,
+.inTheEndless {
+    font-family: var(--paragraph-tooltip);
+    color: var(--base-typography-textwhite);
+}
+.coins {
+    font-weight: 500;
+    color: var(--color-gold-100);
+}
+.blankLine,
+.inTheEndlessBattleRoyaleA {
+    margin: 0;
+}
+.coins1 {
+    font-weight: 500;
+    font-family: var(--paragraph-tooltip);
+    color: var(--color-gold-100);
+}
+.toExitAndClaimRewardsPla {
+    margin: 0;
+}
+.inTheEndlessContainer,
+.lineDiv {
+    height: 192px;
+    position: relative;
+    z-index: 2;
+}
+.inTheEndlessContainer {
+    flex: 1;
+    line-height: 24px;
+    display: inline-block;
+    min-width: 239px;
+    max-width: 100%;
+}
+.lineDiv {
+    width: 2px;
+    border-right: 2px solid var(--base-typography-textwhite);
+    box-sizing: border-box;
+}
+.inTheEndlessBattleRoyaleAParent {
+    align-self: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--gap-base);
+    text-align: right;
+    font-size: var(--paragraph-body-default-size);
+}
+.cardsToRulesThemParent,
+.frameContainer,
+.inTheEndlessBattleRoyaleAParent {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 100%;
+}
+.cardsToRulesThemParent {
+    width: 384px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--gap-5xl);
+}
+.frameContainer {
+    width: 996px;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0 0 116px;
+    box-sizing: border-box;
+}
+.duelThemAll {
+    margin: 0;
+    position: relative;
+    font-size: inherit;
+    line-height: 32px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: inherit;
+    z-index: 2;
+}
+.duelThemAllWrapper {
+    width: 287px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+.groupIcon {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -0.5px;
+    right: 0.4px;
+    bottom: 0.5px;
+    left: 0;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: contain;
+    z-index: 4;
+}
+.span {
+    font-size: var(--headline-h5-size);
+}
+.div {
+    position: absolute;
+    top: 10.62px;
+    right: 55.19px;
+    line-height: 24px;
+    transform: rotate(15deg);
+    transform-origin: 0 0;
+    z-index: 5;
+}
+.frameParent2 {
+    width: 196px;
+    height: 205px;
+    position: relative;
+}
+.frameWrapper1 {
+    width: 313px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 17px 0 0;
+    box-sizing: border-box;
+}
+.frameChild1 {
+    height: 192px;
+    width: 2px;
+    position: relative;
+    border-right: 2px solid var(--base-typography-textwhite);
+    box-sizing: border-box;
+    z-index: 2;
+}
+.coins2,
+.inTheEndless1 {
+    font-family: var(--paragraph-tooltip);
+    color: var(--base-typography-textwhite);
+}
+.coins2 {
+    font-weight: 500;
+    color: var(--color-gold-100);
+}
+.blankLine1,
+.inTheEndlessBattleRoyaleA1 {
+    margin: 0;
+}
+.coins3 {
+    font-weight: 500;
+    font-family: var(--paragraph-tooltip);
+    color: var(--color-gold-100);
+}
+.toExitAndClaimRewardsPla1 {
+    margin: 0;
+}
+.inTheEndlessContainer1 {
+    height: 192px;
+    flex: 1;
+    position: relative;
+    font-size: var(--paragraph-body-default-size);
+    line-height: 24px;
+    display: inline-block;
+    min-width: 239px;
+    max-width: 100%;
+    z-index: 3;
+    color: var(--base-typography-textwhite);
+}
+.frameGroup,
+.frameParent1 {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 100%;
+}
+.frameParent1 {
+    align-self: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--gap-base);
+    font-size: var(--headline-h6-size);
+    color: #f6c900;
+}
+.frameGroup {
+    width: 713px;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-5xl);
+}
+.frameDiv,
+.instanceWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+.frameDiv {
+    width: 996px;
+    max-width: 100%;
+}
+.instanceWrapper {
+    align-self: stretch;
+    padding: 0 49px 54px;
+}
+.frameChild2,
+.matchmaking {
+    position: relative;
+    z-index: 2;
+}
+.matchmaking {
+    margin: 0;
+    font-size: inherit;
+    line-height: 32px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: inherit;
+}
+.frameChild2 {
+    height: 192px;
+    width: 2px;
+    border-right: 2px solid var(--base-typography-textwhite);
+    box-sizing: border-box;
+}
+.coins4,
+.inTheEndless2 {
+    font-family: var(--paragraph-tooltip);
+    color: var(--base-typography-textwhite);
+}
+.coins4 {
+    font-weight: 500;
+    color: var(--color-gold-100);
+}
+.blankLine2,
+.inTheEndlessBattleRoyaleA2 {
+    margin: 0;
+}
+.coins5 {
+    font-weight: 500;
+    font-family: var(--paragraph-tooltip);
+    color: var(--color-gold-100);
+}
+.toExitAndClaimRewardsPla2 {
+    margin: 0;
+}
+.inTheEndlessContainer2 {
+    height: 192px;
+    flex: 1;
+    position: relative;
+    line-height: 24px;
+    display: inline-block;
+    min-width: 239px;
+    max-width: 100%;
+    z-index: 3;
+}
+.frameParent3,
+.instanceParent,
+.lineParent,
+.matchmakingParent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 100%;
+}
+.lineParent {
+    align-self: stretch;
+    flex-direction: row;
+    gap: var(--gap-base);
+    font-size: var(--paragraph-body-default-size);
+}
+.frameParent3,
+.instanceParent,
+.matchmakingParent {
+    flex-direction: column;
+}
+.matchmakingParent {
+    align-self: stretch;
+    gap: var(--gap-5xl);
+}
+.frameParent3,
+.instanceParent {
+    width: 384px;
+    gap: var(--gap-99xl);
+}
+.frameParent3 {
+    width: 996px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 0 82px;
+    box-sizing: border-box;
+    gap: var(--gap-xl);
+}
+.wrapperRectangle18,
+.wrapperRectangle18Child {
+    position: absolute;
+    height: 100%;
+    /*  width: 100%;*/
+    left: 0;
+}
+.wrapperRectangle18Child {
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: contain;
+    left: -10px;
+    top: -64px;
+    transform: scale(1.019);
+}
+.wrapperRectangle18 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapperRectangle17Child {
+    object-fit: contain;
+    top: 0;
+    transform: scale(1.794);
+}
+.wrapperRectangle16Child,
+.wrapperRectangle17,
+.wrapperRectangle17Child {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+.wrapperRectangle17 {
+    top: -0.5px;
+    border-radius: var(--br-72xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapperRectangle16Child {
+    z-index: 3;
+    object-fit: contain;
+    top: 20px;
+    transform: scale(1.25);
+}
+.wrapperRectangle16 {
+    position: absolute;
+    top: 25.5px;
+    left: 49px;
+    border-radius: var(--br-72xl) var(--br-72xl) var(--br-72xl) 0;
+    width: 384px;
+    height: 200px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image10Icon,
+.image11Icon {
+    position: absolute;
+    border-radius: var(--br-7xs);
+    width: 123.5px;
+    object-fit: contain;
+}
+.image10Icon {
+    top: 4.2px;
+    left: 7.5px;
+    height: 155.8px;
+}
+.image11Icon {
+    height: calc(100% - 4.1px);
+    top: 0;
+    bottom: 4.1px;
+    left: 0;
+    max-height: 100%;
+    z-index: 1;
+}
+.image10Parent {
+    position: absolute;
+    top: -0.5px;
+    left: 0;
+    width: 131px;
+    height: 159.9px;
+    z-index: 4;
+}
+.span1 {
+    font-size: var(--headline-h5-size);
+}
+.div1 {
+    position: absolute;
+    top: -10.53px;
+    left: 23px;
+    line-height: 24px;
+    transform: rotate(-15deg);
+    transform-origin: 0 0;
+    z-index: 5;
+}
+.wrapperRectangle17Parent {
+    position: absolute;
+    top: 1200px;
+    left: 173px;
+    width: 482px;
+    height: 252px;
+}
+.wrapperGroup45Child {
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    object-fit: contain;
+    position: absolute;
+    left: -57px;
+    top: 1px;
+    transform: scale(2.215);
+}
+.wrapperGroup45 {
+    position: absolute;
+    top: 580px;
+    left: 900px;
+    width: 626.7px;
+    height: 442.9px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ellipseDiv,
+.frameChild3 {
+    position: absolute;
+    top: 2052px;
+    left: 210px;
+    border-radius: 50%;
+    background-color: rgba(255, 37, 29, 0.2);
+    filter: blur(300px);
+    width: 498px;
+    height: 360px;
+    mix-blend-mode: hard-light;
+    z-index: 2;
+}
+.frameChild3 {
+    top: 82.3px;
+    left: 1111.26px;
+    background-color: rgba(42, 174, 251, 0.1);
+    filter: blur(100px);
+    width: 90.3px;
+    height: 91.8px;
+    transform: rotate(15deg);
+    transform-origin: 0 0;
+    z-index: 4;
+}
+.image16Icon {
+    position: absolute;
+    top: 90px;
+    left: 1097px;
+    width: 93.5px;
+    height: 100px;
+    object-fit: cover;
+    z-index: 5;
+}
+.image21Icon,
+.image5Icon {
+    position: absolute;
+    top: 1686px;
+    left: 907px;
+    width: 108.6px;
+    height: 136.7px;
+    object-fit: contain;
+    z-index: 2;
+}
+.image5Icon {
+    top: 1745px;
+    left: 972px;
+    z-index: 3;
+}
+.wrapperRectangle18Parent {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0 !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: var(--headline-h6-size);
+    color: var(--tag-red);
+}
+.frameChild4 {
+    height: 294px;
+    width: 270px;
+    position: absolute;
+    margin: 0 !important;
+    bottom: 39px;
+    left: -2px;
+    border-radius: 50%;
+    background-color: rgba(25, 56, 86, 0.2);
+    filter: blur(300px);
+    mix-blend-mode: hard-light;
+}
+.frameChild5,
+.image21Icon1 {
+    position: relative;
+    object-fit: cover;
+}
+.image21Icon1 {
+    height: 373px;
+    flex: 1;
+    max-width: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+.frameChild5 {
+    height: 40px;
+    width: 40px;
+    border-radius: var(--br-8xs);
+}
+.cerberus {
+    margin: 0;
+    position: relative;
+    font-size: inherit;
+    line-height: 28px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: inherit;
+}
+.rectangleGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 var(--padding-6xs);
+    gap: var(--gap-5xs);
+}
+.youReceived35 {
+    position: relative;
+    line-height: 24px;
+}
+.youReceived35Wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0 39px 0 var(--padding-6xs);
+    font-size: var(--paragraph-subtitle-s-size);
+}
+.ellipseGroup,
+.frameParent5,
+.youReceived35Wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+.frameParent5 {
+    margin: 0 !important;
+    position: absolute;
+    top: 11px;
+    left: -2px;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-gray-100);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--color-gray-200);
+    flex-direction: column;
+    align-items: center;
+    padding: var(--padding-5xs);
+    gap: var(--gap-5xs);
+    z-index: 2;
+}
+.ellipseGroup {
+    align-self: stretch;
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+}
+.frameParent4,
+.groupDiv {
+    display: flex;
+    align-items: center;
+}
+.groupDiv {
+    width: 298px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 0 0 var(--padding-11xs);
+    box-sizing: border-box;
+    min-width: 298px;
+    z-index: 2;
+}
+.frameParent4 {
+    width: 953px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--gap-xl);
+    max-width: 100%;
+}
+.frameWrapper2,
+.maskGroupParent {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 100%;
+}
+.frameWrapper2 {
+    width: 996px;
+    flex-direction: row;
+    align-items: flex-start;
+    font-size: var(--headline-h6-size);
+}
+.maskGroupParent {
+    flex-direction: column;
+    align-items: center;
+    padding: 120px var(--padding-xl) 255px;
+    box-sizing: border-box;
+    gap: var(--gap-119xl);
+}
+.frameParent,
+.maskGroupParent,
+.rectangleDiv {
+    align-self: stretch;
+    position: relative;
+}
+.frameParent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    text-align: left;
+    font-size: var(--headline-h5-size);
+    color: var(--base-typography-textwhite);
+    font-family: var(--paragraph-tooltip);
+}
+.rectangleDiv {
+    height: 252px;
+    border-radius: var(--br-9xs);
+    border: 2px solid var(--color-peachpuff);
+    box-sizing: border-box;
+    display: none;
+}
+.frameChild6,
+.frameChild7 {
+    height: 4px;
+    width: 4px;
+    position: relative;
+    border-radius: 50%;
+    background-color: var(--color-peachpuff);
+    z-index: 2;
+}
+.ellipseContainer {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--gap-xl);
+}
+.findFortuneOr1 {
+    margin: 0;
+    width: 524px;
+    position: relative;
+    font-size: inherit;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: inherit;
+    display: inline-block;
+    max-width: 100%;
+}
+.frameParent7 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-xs);
+    max-width: 100%;
+}
+.welcomeToThe {
+    width: 524px;
+    position: relative;
+    font-size: var(--paragraph-body-default-size);
+    line-height: 24px;
+    color: var(--text);
+    display: inline-block;
+    max-width: 100%;
+}
+.frameParent6 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+    max-width: 100%;
+}
+.frameChild8 {
+    height: 4px;
+    width: 4px;
+    position: relative;
+    border-radius: 50%;
+    background-color: var(--color-peachpuff);
+    z-index: 2;
+}
+.enterTheArena {
+    position: relative;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+.al3Btntext {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--padding-13xl) var(--padding-11xs);
+    box-sizing: border-box;
+}
+.btn,
+.btnbgIcon {
+    align-self: stretch;
+    height: 40px;
+}
+.btnbgIcon {
+    position: relative;
+    border-radius: var(--br-9xs);
+    max-width: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+    object-fit: cover;
+    z-index: 1;
+}
+.btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.aMetamaskWallet {
+    position: relative;
+    font-size: var(--paragraph-tooltip-size);
+    line-height: 20px;
+    color: var(--base-typography-textprimary);
+    text-align: left;
+}
+.btnParent,
+.frameWrapper4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.btnParent {
+    align-self: stretch;
+    align-items: center;
+    gap: var(--gap-5xs);
+    z-index: 2;
+}
+.frameWrapper4 {
+    width: 224px;
+    align-items: flex-start;
+    padding: 0 0 var(--padding-base);
+    box-sizing: border-box;
+}
+.frameChild9 {
+    height: 4px;
+    width: 4px;
+    position: relative;
+    border-radius: 50%;
+    background-color: var(--color-peachpuff);
+    z-index: 2;
+}
+.ellipseParent1 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--gap-xl);
+    font-size: var(--button-button-l-size);
+    color: var(--text);
+}
+.frameWrapper3,
+.rectangleContainer {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.rectangleContainer {
+    flex: 1;
+    border-radius: var(--br-9xs);
+    border: 2px solid var(--color-peachpuff);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: var(--padding-5xs) var(--padding-7xs) var(--padding-5xs) 5px;
+    gap: var(--gap-21xl);
+    z-index: 1;
+}
+.frameWrapper3 {
+    width: 588px;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-blanchedalmond);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    flex-direction: row;
+    justify-content: center;
+    padding: var(--padding-5xs) var(--padding-5xs) var(--padding-5xs) 9px;
+}
+.frequentlyAskedQuestions {
+    margin: 0;
+    position: relative;
+    font-size: inherit;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: inherit;
+    display: inline-block;
+    max-width: 100%;
+}
+.whatCryptocurrencieJajanken {
+    position: relative;
+    line-height: 24px;
+}
+.arrowsDiagramsarrowIcon1 {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    min-height: 24px;
+}
+.whatCryptocurrencieJajankenParent {
+    width: 996px;
+    border-bottom: 1px solid var(--color-gray-200);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-base) var(--padding-5xs);
+    gap: var(--gap-xl);
+}
+.whatCryptocurrencieJajanken1 {
+    position: relative;
+    line-height: 24px;
+}
+.arrowsDiagramsarrowIcon2 {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    min-height: 24px;
+}
+.whatCryptocurrencieJajankenGroup {
+    width: 996px;
+    border-bottom: 1px solid var(--color-gray-200);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-base) var(--padding-5xs);
+    gap: var(--gap-xl);
+}
+.whatCryptocurrencieJajanken2 {
+    position: relative;
+    line-height: 24px;
+}
+.arrowsDiagramsarrowIcon3 {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    min-height: 24px;
+}
+.whatCryptocurrencieJajankenContainer {
+    width: 996px;
+    border-bottom: 1px solid var(--color-gray-200);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-base) var(--padding-5xs);
+    gap: var(--gap-xl);
+}
+.whatCryptocurrencieJajanken3 {
+    position: relative;
+    line-height: 24px;
+}
+.arrowsDiagramsarrowIcon4 {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    min-height: 24px;
+}
+.whatCryptocurrencieJajankenParent1 {
+    width: 996px;
+    border-bottom: 1px solid var(--color-gray-200);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-base) var(--padding-5xs);
+    gap: var(--gap-xl);
+}
+.whatCryptocurrencieJajanken4 {
+    position: relative;
+    line-height: 24px;
+}
+.arrowsDiagramsarrowIcon5 {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    min-height: 24px;
+}
+.whatCryptocurrencieJajankenParent2 {
+    width: 996px;
+    border-bottom: 1px solid var(--color-gray-200);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-base) var(--padding-5xs);
+    gap: var(--gap-xl);
+}
+.whatCryptocurrencieJajanken5 {
+    position: relative;
+    line-height: 24px;
+}
+.arrowsDiagramsarrowIcon6 {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    min-height: 24px;
+}
+.whatCryptocurrencieJajankenParent3 {
+    width: 996px;
+    border-bottom: 1px solid var(--color-gray-200);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-base) var(--padding-5xs);
+    gap: var(--gap-xl);
+}
+.frameSection,
+.frequentlyAskedQuestionsParent,
+.instanceGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 100%;
+}
+.instanceGroup {
+    width: 996px;
+    overflow-x: auto;
+    align-items: flex-start;
+    font-size: var(--paragraph-body-default-size);
+}
+.frameSection,
+.frequentlyAskedQuestionsParent {
+    align-items: center;
+    gap: var(--gap-21xl);
+    color: var(--base-typography-textwhite);
+}
+.frameSection {
+    padding: 0 var(--padding-xl) 160px;
+    box-sizing: border-box;
+    gap: var(--gap-181xl);
+    text-align: center;
+    font-size: var(--headline-h4-size);
+    color: var(--base-typography-textprimary);
+    font-family: var(--paragraph-tooltip);
+}
+.frameChild10,
+.unionIcon1 {
+    position: absolute;
+    object-fit: contain;
+    z-index: 2;
+}
+.unionIcon1 {
+    height: calc(100% - 0.4px);
+    width: calc(100% - 125.7px);
+    top: 0;
+    right: 0.7px;
+    bottom: 0.4px;
+    left: 125px;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.frameChild10 {
+    top: 900.5px;
+    left: -0.5px;
+    width: 88.7px;
+    height: 84.9px;
+}
+.unionParent {
+    width: 2771px;
+    height: 2513px;
+    position: absolute;
+    margin: 0 !important;
+    top: 1600px;
+    right: -2424px;
+}
+.homepage {
+    width: 100%;
+    position: relative;
+    background-color: #191727;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    letter-spacing: normal;
+}
+@media screen and (max-width: 1200px) {
+    .maskGroupParent {
+        padding-top: var(--padding-32xl);
+        padding-bottom: 108px;
+        box-sizing: border-box;
+    }
+}
+@media screen and (max-width: 1050px) {
+    .rectangleIcon {
+        flex: 1;
+    }
+    .frameParent3,
+    .rectangleParent {
+        flex-wrap: wrap;
+        box-sizing: border-box;
+    }
+    .rectangleParent {
+        padding-left: var(--padding-xl);
+        padding-top: var(--padding-xl);
+        padding-right: var(--padding-xl);
+    }
+    .frameParent3 {
+        padding-bottom: 53px;
+    }
+    .maskGroupParent {
+        gap: var(--gap-119xl);
+        padding-top: 33px;
+        padding-bottom: 70px;
+        box-sizing: border-box;
+    }
+    .findFortuneOr1,
+    .frequentlyAskedQuestions {
+        font-size: var(--font-size-7xl);
+        line-height: 32px;
+    }
+    .frameSection {
+        gap: var(--gap-181xl);
+        padding-bottom: 104px;
+        box-sizing: border-box;
+    }
+}
+@media screen and (max-width: 750px) {
+    .vectorParent {
+        gap: var(--gap-137xl);
+    }
+    .findFortuneOrDieParent {
+        min-width: 100%;
+    }
+    .frameChild1 {
+        width: 100%;
+        height: 2px;
+    }
+    .groupDiv {
+        flex: 1;
+    }
+    .frameParent4 {
+        flex-wrap: wrap;
+    }
+    .maskGroupParent {
+        gap: var(--gap-119xl);
+    }
+    .frameWrapper3,
+    .frequentlyAskedQuestionsParent,
+    .rectangleContainer {
+        gap: var(--gap-21xl);
+    }
+    .frameSection {
+        gap: var(--gap-181xl);
+        padding-bottom: 68px;
+        box-sizing: border-box;
+    }
+}
+@media screen and (max-width: 450px) {
+    .vectorParent {
+        gap: var(--gap-137xl);
+    }
+    .findFortuneOr {
+        font-size: var(--font-size-lgi);
+        line-height: 26px;
+    }
+    .rectangleParent {
+        gap: var(--gap-13xl);
+    }
+    .frameWrapper {
+        padding-bottom: 95px;
+        box-sizing: border-box;
+    }
+    .cardsToRules {
+        font-size: var(--font-size-lgi);
+        line-height: 26px;
+    }
+    .lineDiv {
+        width: 100%;
+        height: 2px;
+    }
+    .frameContainer {
+        padding-bottom: var(--padding-56xl);
+        box-sizing: border-box;
+    }
+    .duelThemAll {
+        font-size: var(--font-size-lgi);
+        line-height: 26px;
+    }
+    .div {
+        font-size: var(--paragraph-body-default-size);
+        line-height: 19px;
+    }
+    .instanceWrapper {
+        padding-left: var(--padding-xl);
+        padding-right: var(--padding-xl);
+        box-sizing: border-box;
+    }
+    .matchmaking {
+        font-size: var(--font-size-lgi);
+        line-height: 26px;
+    }
+    .frameChild2 {
+        width: 100%;
+        height: 2px;
+    }
+    .lineParent {
+        flex-wrap: wrap;
+    }
+    .instanceParent {
+        gap: var(--gap-99xl);
+    }
+    .frameParent3 {
+        padding-bottom: 34px;
+        box-sizing: border-box;
+    }
+    .cerberus,
+    .div1 {
+        font-size: var(--paragraph-body-default-size);
+        line-height: 19px;
+    }
+    .cerberus {
+        line-height: 22px;
+    }
+    .maskGroupParent {
+        gap: var(--gap-119xl);
+        padding-top: var(--padding-2xl);
+        padding-bottom: 45px;
+        box-sizing: border-box;
+    }
+    .findFortuneOr1 {
+        font-size: var(--font-size-lgi);
+        line-height: 24px;
+    }
+    .ellipseParent1 {
+        flex-wrap: wrap;
+    }
+    .frequentlyAskedQuestions {
+        font-size: var(--font-size-lgi);
+        line-height: 24px;
+    }
+    .frameSection {
+        gap: var(--gap-181xl);
+    }
+}

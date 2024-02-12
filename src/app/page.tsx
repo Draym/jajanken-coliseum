@@ -1,10 +1,7 @@
-import Image from "next/image";
-import Landing from "@/views/landing";
+import Landing from "@/views/landing/landing";
 
 export default function Home() {
     return (
-        <main>
-            <Landing></Landing>
-        </main>
+        <Landing/>
     );
 }

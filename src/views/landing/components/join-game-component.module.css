@@ -1,0 +1,209 @@
+.frameChild {
+  width: 369px;
+  height: 316px;
+  position: relative;
+  border-radius: var(--br-9xs);
+  border: 2px solid var(--color-peachpuff);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.frameInner,
+.frameItem {
+  height: 4px;
+  width: 4px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-peachpuff);
+  z-index: 2;
+}
+.ellipseParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.stepIntoThe {
+  margin: 0;
+  width: 320px;
+  height: 80px;
+  position: relative;
+  font-size: inherit;
+  line-height: 40px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-family: inherit;
+  display: inline-block;
+}
+.frameGroup {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+}
+.welcomeToThe {
+  width: 320px;
+  position: relative;
+  font-size: var(--paragraph-body-default-size);
+  line-height: 24px;
+  display: inline-block;
+}
+.frameParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+}
+.ellipseDiv {
+  height: 4px;
+  width: 4px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-peachpuff);
+  z-index: 2;
+}
+.enterTheArena {
+  position: relative;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+.al3Btntext {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-13xl) var(--padding-11xs);
+  box-sizing: border-box;
+}
+.btn,
+.btnbgIcon {
+  align-self: stretch;
+  height: 40px;
+}
+.btnbgIcon {
+  position: relative;
+  border-radius: var(--br-9xs);
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+  z-index: 1;
+}
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.aMetamaskWallet {
+  position: relative;
+  font-size: var(--paragraph-tooltip-size);
+  line-height: 20px;
+  color: var(--base-typography-textprimary);
+  text-align: left;
+}
+.btnParent,
+.frameDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.btnParent {
+  align-self: stretch;
+  align-items: center;
+  gap: var(--gap-5xs);
+  z-index: 2;
+}
+.frameDiv {
+  width: 224px;
+  align-items: flex-start;
+  padding: 0 0 var(--padding-base);
+  box-sizing: border-box;
+}
+.frameChild1 {
+  height: 4px;
+  width: 4px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-peachpuff);
+  z-index: 2;
+}
+.ellipseGroup {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  font-size: var(--button-button-l-size);
+}
+.frameContainer,
+.frameWrapper,
+.rectangleParent {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.rectangleParent {
+  flex: 1;
+  border-radius: var(--br-9xs);
+  border: 2px solid var(--color-peachpuff);
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-5xs) var(--padding-6xs) var(--padding-5xs)
+    var(--padding-7xs);
+  gap: var(--gap-21xl);
+  z-index: 1;
+}
+.frameContainer,
+.frameWrapper {
+  flex-direction: row;
+}
+.frameContainer {
+  width: 384px;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-blanchedalmond);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5xs) var(--padding-6xs) var(--padding-5xs)
+    var(--padding-5xs);
+  z-index: 5;
+}
+.frameWrapper {
+  width: 1240px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xl) var(--padding-base);
+  text-align: center;
+  font-size: var(--headline-h4-size);
+  color: var(--text);
+  font-family: var(--paragraph-tooltip);
+}
+@media screen and (max-width: 1050px) {
+  .stepIntoThe {
+    font-size: var(--font-size-7xl);
+    line-height: 32px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .stepIntoThe {
+    font-size: var(--font-size-lgi);
+    line-height: 24px;
+  }
+  .ellipseGroup {
+    flex-wrap: wrap;
+  }
+  .frameContainer,
+  .rectangleParent {
+    gap: var(--gap-21xl);
+  }
+}
