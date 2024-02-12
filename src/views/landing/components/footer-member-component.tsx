@@ -1,14 +1,14 @@
 import type {NextPage} from "next"
 import {useMemo, type CSSProperties} from "react"
 import styles from "./footer-member-component.module.css"
-import BtnLogo, {BtnLogoType} from "@/components/BtnLogo"
+import ButtonImg, {BtnLogoType} from "@/components/button-img"
 
 export type FrameComponent1Type = {
     name: string
     title: string
-    logo1: BtnLogoType
-    logo2: BtnLogoType
-    logo3: BtnLogoType
+    logo1?: BtnLogoType
+    logo2?: BtnLogoType
+    logo3?: BtnLogoType
     /** Style props */
     propFlex?: CSSProperties["flex"]
     propMinWidth?: CSSProperties["minWidth"]
@@ -37,9 +37,9 @@ const FooterMemberComponent: NextPage<FrameComponent1Type> = ({
                 <div className={styles.memberTitle}>{title}</div>
             </div>
             <div className={styles.iconsParent}>
-                <BtnLogo img={logo1.img} redirection={logo1.redirection} className={styles.icon}/>
-                <BtnLogo img={logo2.img} redirection={logo2.redirection} className={styles.icon}/>
-                <BtnLogo img={logo3.img} redirection={logo3.redirection} className={styles.icon}/>
+                {logo1 && <ButtonImg img={logo1.img} redirection={logo1.redirection} className={styles.icon}/>}
+                {logo2 && <ButtonImg img={logo2.img} redirection={logo2.redirection} className={styles.icon}/>}
+                {logo3 && <ButtonImg img={logo3.img} redirection={logo3.redirection} className={styles.icon}/>}
             </div>
         </div>
     );

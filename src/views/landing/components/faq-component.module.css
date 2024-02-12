@@ -1,0 +1,71 @@
+.frameSection,
+.frequentlyAskedQuestionsParent,
+.instanceGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 100%;
+}
+.instanceGroup {
+    width: 996px;
+    overflow-x: auto;
+    align-items: flex-start;
+    font-size: var(--paragraph-body-default-size);
+}
+
+.frameSection,
+.frequentlyAskedQuestionsParent {
+    align-items: center;
+    gap: var(--gap-21xl);
+    color: var(--base-typography-textwhite);
+}
+
+
+.frequentlyAskedQuestions {
+    margin: 0;
+    position: relative;
+    font-size: inherit;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: inherit;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.arrowsDiagramsarrowIcon {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    min-height: 24px;
+}
+.whatCryptocurrencieJajanken {
+    position: relative;
+    line-height: 24px;
+}
+.whatCryptocurrencieJajankenParent {
+    width: 996px;
+    border-bottom: 1px solid var(--color-gray-200);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-base) var(--padding-5xs);
+    gap: var(--gap-xl);
+}
+
+@media screen and (max-width: 1050px) {
+    .frequentlyAskedQuestions {
+        font-size: var(--font-size-7xl);
+        line-height: 32px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    .frequentlyAskedQuestionsParent,
+    .rectangleContainer {
+        gap: var(--gap-21xl);
+    }
+}

@@ -1,18 +1,18 @@
 'use client'
 
-import {ReactNode, useRef} from 'react';
+import {ReactNode, useRef} from 'react'
 
 export type ScrollLinkType = {
-    children: ReactNode;
-    target: string;
-    className?: string;
+    children: ReactNode
+    target: string
+    className?: string
 };
 
 const ScrollLink = ({children, target, className}: ScrollLinkType) => {
-    const targetRef = useRef<any>(null);
+    const targetRef = useRef<any>(null)
 
     const handleClick = () => {
-        targetRef.current?.scrollIntoView({behavior: 'smooth'});
+        targetRef.current?.scrollIntoView({behavior: 'smooth'})
     };
 
     return (
@@ -23,4 +23,4 @@ const ScrollLink = ({children, target, className}: ScrollLinkType) => {
     );
 };
 
-export default ScrollLink;
+export default ScrollLink

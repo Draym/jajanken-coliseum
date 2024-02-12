@@ -73,35 +73,6 @@
   line-height: 24px;
   text-transform: uppercase;
 }
-.al3Btntext {
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 0 var(--padding-13xl) var(--padding-11xs);
-  box-sizing: border-box;
-}
-.btn,
-.btnbgIcon {
-  align-self: stretch;
-  height: 40px;
-}
-.btnbgIcon {
-  position: relative;
-  border-radius: var(--br-9xs);
-  max-width: 100%;
-  overflow: hidden;
-  flex-shrink: 0;
-  object-fit: cover;
-  z-index: 1;
-}
-.btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
 .aMetamaskWallet {
   position: relative;
   font-size: var(--paragraph-tooltip-size);

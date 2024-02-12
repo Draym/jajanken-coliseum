@@ -1,0 +1,168 @@
+.frameWrapper3,
+.rectangleContainer {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.rectangleContainer {
+    flex: 1;
+    border-radius: var(--br-9xs);
+    border: 2px solid var(--color-peachpuff);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: var(--padding-5xs) var(--padding-7xs) var(--padding-5xs) 5px;
+    gap: var(--gap-21xl);
+    z-index: 1;
+}
+
+.frameWrapper3 {
+    width: 588px;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-blanchedalmond);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    flex-direction: row;
+    justify-content: center;
+    padding: var(--padding-5xs) var(--padding-5xs) var(--padding-5xs) 9px;
+}
+
+.rectangleDiv {
+    height: 252px;
+    border-radius: var(--br-9xs);
+    border: 2px solid var(--color-peachpuff);
+    box-sizing: border-box;
+    display: none;
+    align-self: stretch;
+    position: relative;
+}
+
+.frameParent6 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+    max-width: 100%;
+}
+
+.frameParent7 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-xs);
+    max-width: 100%;
+}
+
+.ellipseContainer {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--gap-xl);
+}
+
+.frameChild6,
+.frameChild7 {
+    height: 4px;
+    width: 4px;
+    position: relative;
+    border-radius: 50%;
+    background-color: var(--color-peachpuff);
+    z-index: 2;
+}
+
+.findFortuneOr1 {
+    margin: 0;
+    width: 524px;
+    position: relative;
+    font-size: inherit;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: inherit;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.welcomeToThe {
+    width: 524px;
+    position: relative;
+    font-size: var(--paragraph-body-default-size);
+    line-height: 24px;
+    color: var(--text);
+    display: inline-block;
+    max-width: 100%;
+}
+
+.ellipseParent1 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--gap-xl);
+    font-size: var(--button-button-l-size);
+    color: var(--text);
+}
+
+.frameChild8 {
+    height: 4px;
+    width: 4px;
+    position: relative;
+    border-radius: 50%;
+    background-color: var(--color-peachpuff);
+    z-index: 2;
+}
+
+.btnParent,
+.frameWrapper4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.btnParent {
+    align-self: stretch;
+    align-items: center;
+    gap: var(--gap-5xs);
+    z-index: 2;
+}
+.frameWrapper4 {
+    width: 224px;
+    align-items: flex-start;
+    padding: 0 0 var(--padding-base);
+    box-sizing: border-box;
+}
+
+.aMetamaskWallet {
+    position: relative;
+    font-size: var(--paragraph-tooltip-size);
+    line-height: 20px;
+    color: var(--base-typography-textprimary);
+    text-align: left;
+}
+
+@media screen and (max-width: 1050px) {
+    .findFortuneOr1{
+        font-size: var(--font-size-7xl);
+        line-height: 32px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .frameWrapper3,
+    .rectangleContainer {
+        gap: var(--gap-21xl);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .findFortuneOr1 {
+        font-size: var(--font-size-lgi);
+        line-height: 24px;
+    }
+}

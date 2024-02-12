@@ -8,23 +8,13 @@
   font-family: inherit;
   z-index: 2;
 }
-.coins,
 .inTheEndless {
   font-family: var(--paragraph-tooltip);
   color: var(--base-typography-textwhite);
 }
-.coins {
-  font-weight: 500;
-  color: var(--color-gold-100);
-}
 .blankLine,
 .inTheEndlessBattleRoyaleA {
   margin: 0;
-}
-.coins1 {
-  font-weight: 500;
-  font-family: var(--paragraph-tooltip);
-  color: var(--color-gold-100);
 }
 .toExitAndClaimRewardsPla {
   margin: 0;
@@ -79,6 +69,7 @@
   font-size: var(--headline-h5-size);
   color: var(--base-typography-textwhite);
   font-family: var(--paragraph-tooltip);
+  background-color: #eb1212 !important;
 }
 @media screen and (max-width: 450px) {
   .outsmartYourLuck {

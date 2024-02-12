@@ -1,19 +1,21 @@
 import styles from "./landing.module.css"
 import GroupComponent from "./components/group-component"
 import JoinGameComponent from "./components/join-game-component"
-import FrameComponent5 from "./components/frame-component5"
+import RulesLeftTextComponent from "./components/rules-left-text-component"
 import FrameComponent7 from "./components/frame-component7"
 import QuestsComponent from "./components/quests-component"
 import FooterComponent from "./components/footer-component"
+import JoinGameComponent2 from "@/views/landing/components/join-game2-component";
+import FaqComponent from "@/views/landing/components/faq-component";
 
 export default function Landing() {
     return (
         <div className={styles.homepage} id='toplanding'>
-            <img className={styles.unionIcon} alt="" src="/union.svg" />
+            <img className={styles.unionIcon} alt="" src="/union.svg"/>
             <section className={styles.vectorParent}>
-                <img className={styles.frameChild} alt="" src="/rectangle-18@2x.png" />
-                <GroupComponent />
-                <JoinGameComponent />
+                <img className={styles.frameChild} alt="" src="/rectangle-18@2x.png"/>
+                <GroupComponent/>
+                <JoinGameComponent/>
                 <div className={styles.seeMoreParent}>
                     <div className={styles.seeMore}>see more</div>
                     <img
@@ -25,13 +27,13 @@ export default function Landing() {
                 </div>
             </section>
             <section className={styles.ellipseParent}>
-                <div className={styles.frameItem} />
-                <div className={styles.frameInner} />
+                <div className={styles.frameItem}/>
+                <div className={styles.frameInner}/>
             </section>
-            <img className={styles.image20Icon} alt="" src="/image-20@2x.png" />
+            <img className={styles.image20Icon} alt="" src="/image-20@2x.png"/>
             <section className={styles.frameParent}>
                 <div className={styles.maskGroupParent}>
-                    <img className={styles.maskGroupIcon} alt="" src="/mask-group.svg" />
+                    <img className={styles.maskGroupIcon} alt="" src="/mask-group.svg"/>
                     <div className={styles.frameWrapper}>
                         <div className={styles.rectangleParent}>
                             <img
@@ -56,26 +58,26 @@ export default function Landing() {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.frameContainer}>
-                        <div className={styles.cardsToRulesThemParent}>
-                            <h2 className={styles.cardsToRules}>9 cards to rules them</h2>
-                            <div className={styles.inTheEndlessBattleRoyaleAParent}>
-                                <div className={styles.inTheEndlessContainer}>
-                                    <p className={styles.inTheEndlessBattleRoyaleA}>
-                    <span
-                        className={styles.inTheEndless}
-                    >{`In the endless battle royale arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
-                                        <span className={styles.coins}>{`coins `}</span>
-                                        <span>while losers risk elimination</span>
-                                    </p>
-                                    <p className={styles.blankLine}>&nbsp;</p>
-                                    <p className={styles.toExitAndClaimRewardsPla}>
-                                        <span>{`To exit and claim rewards, players must strategically manage their cards and coins, aiming to reach zero cards and maintain at least three `}</span>
-                                        <span className={styles.coins1}>coins</span>
-                                    </p>
-                                </div>
-                                <div className={styles.lineDiv} />
-                            </div>
+                    <div className={styles.frameParent3}>
+                        <RulesLeftTextComponent title="9 cards to rules them">
+                            <p className={styles.inTheEndlessBattleRoyaleA}>
+                                <span
+                                    className={styles.inTheEndless}>{`In the endless battle royal arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
+                                <span className={styles.souls}>{'souls '}</span>
+                                <span>while losers risk elimination</span>
+                            </p>
+                            <p className={styles.blankLine}>&nbsp;</p>
+                            <p className={styles.toExitAndClaimRewardsPla}>
+                                <span>{`To exit and claim rewards, players must manage their cards and coins, aiming to reach zero cards and maintain at least three `}</span>
+                                <span className={styles.souls}>souls</span>
+                            </p>
+                        </RulesLeftTextComponent>
+                        <div className={styles.rule1ImgWrapper}>
+                            <img
+                                className={styles.rule1ImgWrapperChild}
+                                alt=""
+                                src="/group-45.svg"
+                            />
                         </div>
                     </div>
                     <div className={styles.frameDiv}>
@@ -98,7 +100,7 @@ export default function Landing() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.frameChild1} />
+                                <div className={styles.frameChild1}/>
                                 <div className={styles.inTheEndlessContainer1}>
                                     <p className={styles.inTheEndlessBattleRoyaleA1}>
                     <span
@@ -117,7 +119,19 @@ export default function Landing() {
                         </div>
                     </div>
                     <div className={styles.frameParent3}>
-                        <FrameComponent5 outsmartYourLuck=" outsmart your Luck" />
+                        <RulesLeftTextComponent title="outsmart your Luck">
+                            <p className={styles.inTheEndlessBattleRoyaleA}>
+                                <span
+                                    className={styles.inTheEndless}>{`In the endless battle royal arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
+                                <span className={styles.souls}>{'souls '}</span>
+                                <span>while losers risk elimination</span>
+                            </p>
+                            <p className={styles.blankLine}>&nbsp;</p>
+                            <p className={styles.toExitAndClaimRewardsPla}>
+                                <span>{`To exit and claim rewards, players must manage their cards and coins, aiming to reach zero cards and maintain at least three `}</span>
+                                <span className={styles.souls}>souls</span>
+                            </p>
+                        </RulesLeftTextComponent>
                         <div className={styles.instanceParent}>
                             <FrameComponent7
                                 rectangle19="/rectangle-19@2x.png"
@@ -152,7 +166,7 @@ export default function Landing() {
                             <div className={styles.matchmakingParent}>
                                 <h2 className={styles.matchmaking}>Matchmaking</h2>
                                 <div className={styles.lineParent}>
-                                    <div className={styles.frameChild2} />
+                                    <div className={styles.frameChild2}/>
                                     <div className={styles.inTheEndlessContainer2}>
                                         <p className={styles.inTheEndlessBattleRoyaleA2}>
                       <span
@@ -200,42 +214,35 @@ export default function Landing() {
                                     alt=""
                                     src="/image-10@2x.png"
                                 />
-                                <img className={styles.image11Icon} alt="" />
+                                <img className={styles.image11Icon} alt=""/>
                             </div>
                             <div className={styles.div1}>
                                 <span>{`- `}</span>
                                 <span className={styles.span1}>1</span>
                             </div>
                         </div>
-                        <div className={styles.wrapperGroup45}>
-                            <img
-                                className={styles.wrapperGroup45Child}
-                                alt=""
-                                src="/group-45.svg"
-                            />
-                        </div>
-                        <div className={styles.ellipseDiv} />
-                        <div className={styles.frameChild3} />
+                        <div className={styles.ellipseDiv}/>
+                        <div className={styles.frameChild3}/>
                         <img
                             className={styles.image16Icon}
                             loading="eager"
                             alt=""
                             src="/image-16@2x.png"
                         />
-                        <img className={styles.image21Icon} alt="" />
-                        <img className={styles.image5Icon} alt="" />
+                        <img className={styles.image21Icon} alt=""/>
+                        <img className={styles.image5Icon} alt=""/>
                     </div>
                     <div className={styles.frameWrapper2}>
                         <div className={styles.frameParent4}>
-                            <FrameComponent5
-                                outsmartYourLuck="Get Rewarded"
+                            <RulesLeftTextComponent
+                                title="Get Rewarded"
                                 propPadding="0px 0px var(--padding-6xs)"
                                 propMinWidth="384px"
-                            />
+                            >hi</RulesLeftTextComponent>
                             <div className={styles.groupDiv}>
                                 <div className={styles.ellipseGroup}>
-                                    <div className={styles.frameChild4} />
-                                    <img className={styles.image21Icon1} alt="" />
+                                    <div className={styles.frameChild4}/>
+                                    <img className={styles.image21Icon1} alt=""/>
                                     <div className={styles.frameParent5}>
                                         <div className={styles.rectangleGroup}>
                                             <img
@@ -278,116 +285,14 @@ export default function Landing() {
                     propBoxShadow="unset"
                 />
             </section>
-            <QuestsComponent />
+            <QuestsComponent/>
             <section className={styles.frameSection}>
-                <div className={styles.frameWrapper3}>
-                    <div className={styles.rectangleContainer}>
-                        <div className={styles.rectangleDiv} />
-                        <div className={styles.frameParent6}>
-                            <div className={styles.frameParent7}>
-                                <div className={styles.ellipseContainer}>
-                                    <div className={styles.frameChild6} />
-                                    <div className={styles.frameChild7} />
-                                </div>
-                                <h1 className={styles.findFortuneOr1}>
-                                    Find fortune... or die
-                                </h1>
-                            </div>
-                            <div className={styles.welcomeToThe}>
-                                Welcome to the depths of the purgatory, where souls battle for
-                                survival under the watchful eye of the devil himself
-                            </div>
-                        </div>
-                        <div className={styles.ellipseParent1}>
-                            <div className={styles.frameChild8} />
-                            <div className={styles.frameWrapper4}>
-                                <div className={styles.btnParent}>
-                                    <div className={styles.btn}>
-                                        <div className={styles.al3Btntext}>
-                                            <b className={styles.enterTheArena}>enter the arena</b>
-                                        </div>
-                                        <img
-                                            className={styles.btnbgIcon}
-                                            alt=""
-                                            src="/btnbg@2x.png"
-                                        />
-                                    </div>
-                                    <div className={styles.aMetamaskWallet}>
-                                        A Metamask wallet is required to play
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.frameChild9} />
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.frequentlyAskedQuestionsParent}>
-                    <h1 className={styles.frequentlyAskedQuestions}>
-                        frequently asked questions
-                    </h1>
-                    <div className={styles.instanceGroup}>
-                        <div className={styles.whatCryptocurrencieJajankenParent}>
-                            <div className={styles.whatCryptocurrencieJajanken}>
-                                What cryptocurrencie Jajanken use ?
-                            </div>
-                            <img className={styles.arrowsDiagramsarrowIcon1} alt="" />
-                        </div>
-                        <div className={styles.whatCryptocurrencieJajankenGroup}>
-                            <div className={styles.whatCryptocurrencieJajanken1}>
-                                What cryptocurrencie Jajanken use ?
-                            </div>
-                            <img
-                                className={styles.arrowsDiagramsarrowIcon2}
-                                alt=""
-                                src="/arrows-diagramsarrow.svg"
-                            />
-                        </div>
-                        <div className={styles.whatCryptocurrencieJajankenContainer}>
-                            <div className={styles.whatCryptocurrencieJajanken2}>
-                                What cryptocurrencie Jajanken use ?
-                            </div>
-                            <img
-                                className={styles.arrowsDiagramsarrowIcon3}
-                                alt=""
-                                src="/arrows-diagramsarrow.svg"
-                            />
-                        </div>
-                        <div className={styles.whatCryptocurrencieJajankenParent1}>
-                            <div className={styles.whatCryptocurrencieJajanken3}>
-                                What cryptocurrencie Jajanken use ?
-                            </div>
-                            <img
-                                className={styles.arrowsDiagramsarrowIcon4}
-                                alt=""
-                                src="/arrows-diagramsarrow.svg"
-                            />
-                        </div>
-                        <div className={styles.whatCryptocurrencieJajankenParent2}>
-                            <div className={styles.whatCryptocurrencieJajanken4}>
-                                What cryptocurrencie Jajanken use ?
-                            </div>
-                            <img
-                                className={styles.arrowsDiagramsarrowIcon5}
-                                alt=""
-                                src="/arrows-diagramsarrow.svg"
-                            />
-                        </div>
-                        <div className={styles.whatCryptocurrencieJajankenParent3}>
-                            <div className={styles.whatCryptocurrencieJajanken5}>
-                                What cryptocurrencie Jajanken use ?
-                            </div>
-                            <img
-                                className={styles.arrowsDiagramsarrowIcon6}
-                                alt=""
-                                src="/arrows-diagramsarrow.svg"
-                            />
-                        </div>
-                    </div>
-                </div>
+                <JoinGameComponent2/>
+                <FaqComponent/>
             </section>
-            <FooterComponent />
+            <FooterComponent/>
             <section className={styles.unionParent}>
-                <img className={styles.unionIcon1} alt="" src="/union-2.svg" />
+                <img className={styles.unionIcon1} alt="" src="/union-2.svg"/>
                 <img
                     className={styles.frameChild10}
                     loading="eager"

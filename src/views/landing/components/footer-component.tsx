@@ -1,7 +1,7 @@
 import type {NextPage} from "next"
 import FooterMemberComponent from "./footer-member-component"
 import styles from "./footer-component.module.css"
-import ScrollLink from "@/components/ScrollLink"
+import ScrollLink from "@/components/scroll-link"
 
 const FooterComponent: NextPage = () => {
     return (
@@ -21,9 +21,8 @@ const FooterComponent: NextPage = () => {
                 <FooterMemberComponent
                     name="Kévin"
                     title="Developper"
-                    logo1={{img: "/linkedin-black@2x.png", redirection: "google.com"}}
-                    logo2={{img: "/twitter-black@2x.png", redirection: "google.com"}}
-                    logo3={{img: "/github-black.svg", redirection: "google.com"}}
+                    logo1={{img: "/github-black.svg", redirection: "https://github.com/Draym"}}
+                    logo2={{img: "/twitter-black@2x.png", redirection: "https://twitter.com/kevdrym"}}
                 />
                 <FooterMemberComponent
                     name="Clément"

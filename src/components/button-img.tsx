@@ -4,7 +4,7 @@ export type BtnLogoType = {
     className?: string
 }
 
-export default function BtnLogo({img, redirection, className}: BtnLogoType) {
+export default function ButtonImg({img, redirection, className}: BtnLogoType) {
     return (
         <a href={redirection} target="_blank" rel="noopener noreferrer">
             <img className={className} alt="" src={img}/>
