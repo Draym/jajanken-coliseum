@@ -10,13 +10,13 @@ const FooterComponent: NextPage = () => {
                 <img className={styles.vectorIcon} alt="" src="/vector.svg"/>
                 <div className={styles.aboutTheGameParent}>
                     <div className={styles.aboutTheGame}>About the game</div>
-                    <ScrollLink target={"explore"} className={styles.faq}><span>Explore</span></ScrollLink>
+                    <ScrollLink target={"explore"} className={styles.explore}><span>Explore</span></ScrollLink>
                     <ScrollLink target={"rules"} className={styles.rules}><span>Rules</span></ScrollLink>
                     <ScrollLink target={"quests"} className={styles.quests}><span>Quests</span></ScrollLink>
                 </div>
                 <div className={styles.moreParent}>
                     <div className={styles.more}>More</div>
-                    <ScrollLink target={""} className={styles.faq}><span>FAQ</span></ScrollLink>
+                    <ScrollLink target={"faq"} className={styles.faq}><span>FAQ</span></ScrollLink>
                 </div>
                 <FooterMemberComponent
                     name="Kévin"
