@@ -19,17 +19,17 @@ const FooterComponent: NextPage = () => {
                     <ScrollLink target={"faq"} className={styles.faq}><span>FAQ</span></ScrollLink>
                 </div>
                 <FooterMemberComponent
-                    name="Kévin"
+                    name="Kevin"
                     title="Developper"
                     logo1={{img: "/github-black.svg", redirection: "https://github.com/Draym"}}
                     logo2={{img: "/twitter-black@2x.png", redirection: "https://twitter.com/kevdrym"}}
                 />
                 <FooterMemberComponent
-                    name="Clément"
+                    name="Clement"
                     title="Product Designer"
-                    logo1={{img: "/behance-black@2x.png", redirection: "google.com"}}
-                    logo2={{img: "/dribbble-black@2x.png", redirection: "google.com"}}
-                    logo3={{img: "/instagram-black@2x.png", redirection: "google.com"}}
+                    logo1={{img: "/behance-black@2x.png", redirection: "https://www.behance.net/resand"}}
+                    logo2={{img: "/dribbble-black@2x.png", redirection: "https://dribbble.com/resand"}}
+                    logo3={{img: "/linkedin-black@2x.png", redirection: "https://www.linkedin.com/in/cl%C3%A9ment-andres-9416b6107/"}}
                     propFlex="unset"
                     propMinWidth="unset"
                 />
