@@ -1,10 +1,13 @@
 'use client'
 import styles from "./join-game2-component.module.css"
+import {useRouter} from 'next/navigation'
 import Button1 from "@/components/button-1"
 
 const JoinGameComponent2 = () => {
+    const router = useRouter()
 
     function joinGame() {
+        router.push('/game')
     }
 
     return (
