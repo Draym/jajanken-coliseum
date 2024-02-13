@@ -22,7 +22,7 @@ const PlayerCardComponent: NextPage<PlayerCardComponentType> = ({
     return (
         <div className={styles.frameParent}>
             <div className={styles.rectangleParent}>
-                <img className={styles.frameChild} alt="" src={avatar}/>
+                <img className={styles.avatar} alt="" src={avatar}/>
                 <div className={styles.pseudoParent}>
                     <h3 className={styles.pseudo}>{pseudo}</h3>
                     <div className={styles.score}>{score}</div>
