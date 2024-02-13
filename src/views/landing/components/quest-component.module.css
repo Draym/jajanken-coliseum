@@ -1,11 +1,11 @@
-.frameChild {
+.frameBorder {
   height: 200px;
   max-width: 100%;
   overflow: hidden;
   flex-shrink: 0;
   object-fit: cover;
 }
-.frameChild,
+.frameBorder,
 .loremIpsumDolor,
 .winStreak {
   align-self: stretch;

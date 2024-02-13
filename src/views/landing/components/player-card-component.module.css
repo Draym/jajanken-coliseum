@@ -1,11 +1,11 @@
-.frameChild {
+.frameBorder {
   height: 40px;
   width: 40px;
   border-radius: var(--br-8xs);
   object-fit: cover;
 }
 .pseudo,
-.frameChild,
+.frameBorder,
 .score {
   position: relative;
 }

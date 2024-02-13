@@ -8,7 +8,7 @@
     object-fit: contain;
 }
 
-.frameChild {
+.frameBorder {
     align-self: stretch;
     position: relative;
     max-width: 100%;
@@ -225,14 +225,14 @@
     margin: 0;
 }
 
-.inTheEndlessContainer,
+.frameParagraphText,
 .lineDiv {
     height: 192px;
     position: relative;
     z-index: 2;
 }
 
-.inTheEndlessContainer {
+.frameParagraphText {
     flex: 1;
     line-height: 24px;
     display: inline-block;
@@ -246,7 +246,7 @@
     box-sizing: border-box;
 }
 
-.inTheEndlessBattleRoyaleAParent {
+.frameParagraph {
     align-self: stretch;
     flex-direction: row;
     flex-wrap: wrap;
@@ -258,7 +258,7 @@
 
 .cardsToRulesThemParent,
 .frameContainer,
-.inTheEndlessBattleRoyaleAParent {
+.frameParagraph {
     display: flex;
     justify-content: flex-start;
     max-width: 100%;
@@ -856,8 +856,6 @@
 .frameParent5 {
     margin: 0 !important;
     position: absolute;
-    top: 11px;
-    left: -2px;
     border-radius: var(--br-3xs);
     background-color: var(--color-gray-100);
     backdrop-filter: blur(6px);
@@ -934,7 +932,7 @@
     align-items: center;
     justify-content: center;
     max-width: 100%;
-    text-align: left;
+    text-align: right;
     font-size: var(--headline-h5-size);
     color: var(--base-typography-textwhite);
     font-family: var(--paragraph-tooltip);

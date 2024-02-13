@@ -1,8 +1,8 @@
 import type {NextPage} from "next"
 import React, {useMemo, type CSSProperties} from "react"
-import styles from "./rules-left-text-component.module.css"
+import styles from "./rules-right-text-component.module.css"
 
-export type FrameComponent5Type = {
+export type RulesRightTextComponentType = {
     title: string;
     children: React.ReactNode;
 
@@ -11,12 +11,12 @@ export type FrameComponent5Type = {
     propMinWidth?: CSSProperties["minWidth"];
 };
 
-const RulesLeftTextComponent: NextPage<FrameComponent5Type> = ({
-                                                                   title,
-                                                                   children,
-                                                                   propPadding,
-                                                                   propMinWidth,
-                                                               }) => {
+const RulesRightTextComponent: NextPage<RulesRightTextComponentType> = ({
+                                                                            title,
+                                                                            children,
+                                                                            propPadding,
+                                                                            propMinWidth,
+                                                                        }) => {
     const frameDivStyle: CSSProperties = useMemo(() => {
         return {
             padding: propPadding,
@@ -26,17 +26,17 @@ const RulesLeftTextComponent: NextPage<FrameComponent5Type> = ({
 
     return (
         <div className={styles.frameWrapper} style={frameDivStyle}>
-            <div className={styles.outsmartYourLuckParent}>
-                <h2 className={styles.outsmartYourLuck}>{title}</h2>
-                <div className={styles.inTheEndlessBattleRoyaleAParent}>
-                    <div className={styles.inTheEndlessContainer}>
+            <div className={styles.frameParent}>
+                <h2 className={styles.frameTitle}>{title}</h2>
+                <div className={styles.frameParagraph}>
+                    <div className={styles.frameBorder}/>
+                    <div className={styles.frameParagraphText}>
                         {children}
                     </div>
-                    <div className={styles.frameChild}/>
                 </div>
             </div>
         </div>
     );
 };
 
-export default RulesLeftTextComponent;
+export default RulesRightTextComponent;
