@@ -1,0 +1,86 @@
+
+.exploreSoulImg {
+    position: absolute;top: -30px;
+    right: -20px;
+    width: 93px;
+    height: 100px;
+    z-index: 5;
+}
+
+.findFortuneOrDieParent,
+.frameWrapper,
+.rectangleParent {
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.findFortuneOrDieParent {
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--padding-xl) 0;
+    gap: var(--gap-5xs);
+    min-width: 356px;
+}
+
+.frameWrapper,
+.rectangleParent {
+    flex-direction: row;
+}
+
+
+.frameWrapper {
+    width: 912px;
+    align-items: flex-start;
+    padding: 0 0 146px;
+}
+
+.rectangleIcon {
+    height: 300px;
+    width: 300px;
+    position: relative;
+    object-fit: cover;
+}
+.findFortuneOr,
+.loremIpsumDolor {
+    align-self: stretch;
+    position: relative;
+}
+.findFortuneOr {
+    margin: 0;
+    font-size: inherit;
+    line-height: 32px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: inherit;
+}
+.loremIpsumDolor {
+    height: 168px;
+    font-size: var(--paragraph-body-default-size);
+    line-height: 24px;
+    display: inline-block;
+}
+@media screen and (max-width: 1050px) {
+    .rectangleIcon {
+        flex: 1;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .rectangleParent {
+        gap: var(--gap-13xl);
+    }
+
+    .frameWrapper {
+        padding-bottom: 95px;
+        box-sizing: border-box;
+    }
+
+    .findFortuneOr {
+        font-size: var(--font-size-lgi);
+        line-height: 26px;
+    }
+}

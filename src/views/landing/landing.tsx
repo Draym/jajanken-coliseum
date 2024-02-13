@@ -16,7 +16,6 @@ export default function Landing() {
         <div>
             <HeaderComponent/>
             <div className={styles.homepage} id='toplanding'>
-                <img className={styles.unionIcon} alt="" src="/union.svg"/>
                 <section className={styles.vectorParent}>
                     <JoinGameComponent/>
                     <div className={styles.seeMoreParent}>
@@ -34,32 +33,45 @@ export default function Landing() {
                 <section className={styles.frameParent}>
                     <div className={styles.maskGroupParent}>
                         <img className={styles.maskGroupIcon} alt="" src="/mask-group.svg"/>
-                        <Flex direction="row" id='explore'>
-                            <div className={styles.frameWrapper}>
-                                <div className={styles.rectangleParent}>
+
+                        <div id='explore' className={styles.container}>
+                            <Flex direction="row">
+                                <Box flex="2"></Box>
+                                <Box flex="8" position="relative">
                                     <img
-                                        className={styles.rectangleIcon}
+                                        className={styles.exploreSoulImg}
                                         loading="eager"
                                         alt=""
-                                        src="/rectangle-20@2x.png"
+                                        src="/image-16@2x.png"
                                     />
-                                    <div className={styles.findFortuneOrDieParent}>
-                                        <h2 className={styles.findFortuneOr}>Find fortune... or die</h2>
-                                        <div className={styles.loremIpsumDolor}>
-                                            Lorem ipsum dolor sit amet consectetur. Velit lacus nulla
-                                            neque in id senectus. Libero blandit orci in elementum sit
-                                            cras egestas quam. Nulla vivamus amet integer molestie arcu.
-                                            Nunc quis semper scelerisque id. Egestas pellentesque odio
-                                            justo condimentum sagittis. Sit at faucibus lectus at elit
-                                            pharetra etiam posuere sed. Sapien euismod cursus accumsan
-                                            tristique mauris augue gravida sed vel. Dolor nisi mauris
-                                            placerat euismod donec. Augue tempus dignissim facilisi
-                                            interdum.
+                                    <div className={styles.frameWrapper}>
+                                        <div className={styles.rectangleParent}>
+                                            <img
+                                                className={styles.rectangleIcon}
+                                                loading="eager"
+                                                alt=""
+                                                src="/rectangle-20@2x.png"
+                                            />
+                                            <div className={styles.findFortuneOrDieParent}>
+                                                <h2 className={styles.findFortuneOr}>Find fortune... or die</h2>
+                                                <div className={styles.loremIpsumDolor}>
+                                                    Lorem ipsum dolor sit amet consectetur. Velit lacus nulla
+                                                    neque in id senectus. Libero blandit orci in elementum sit
+                                                    cras egestas quam. Nulla vivamus amet integer molestie arcu.
+                                                    Nunc quis semper scelerisque id. Egestas pellentesque odio
+                                                    justo condimentum sagittis. Sit at faucibus lectus at elit
+                                                    pharetra etiam posuere sed. Sapien euismod cursus accumsan
+                                                    tristique mauris augue gravida sed vel. Dolor nisi mauris
+                                                    placerat euismod donec. Augue tempus dignissim facilisi
+                                                    interdum.
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </Flex>
+                                </Box>
+                                <Box flex="2"></Box>
+                            </Flex>
+                        </div>
                         <div id='rules' className={styles.container}>
                             <Flex direction="row" id='rule1' className={styles.rule1}>
                                 <Box flex="2"></Box>
@@ -243,12 +255,6 @@ export default function Landing() {
                                     src="/rectangle-18.svg"
                                 />
                             </div>
-                            <img
-                                className={styles.image16Icon}
-                                loading="eager"
-                                alt=""
-                                src="/image-16@2x.png"
-                            />
                         </div>
                     </div>
                 </section>
@@ -262,9 +268,8 @@ export default function Landing() {
                     </Flex>
                 </section>
                 <FooterComponent/>
-                {/*<section className={styles.unionParent}>*/}
-                {/*    <img className={styles.unionIcon1} alt="" src="/union-2.svg"/>*/}
-                {/*</section>*/}
+                <img className={styles.backgroundRedUnion2} alt="" src='/union-2.svg'/>
+                <img className={styles.backgroundGreenUnion3} alt="" src='/union-3.svg'/>
             </div>
         </div>
     );

@@ -1,13 +1,3 @@
-.unionIcon {
-    width: 1031.2px;
-    height: 1010.2px;
-    position: absolute;
-    margin: 0 !important;
-    bottom: 543.8px;
-    left: -868px;
-    object-fit: contain;
-}
-
 .frameBorder {
     align-self: stretch;
     position: relative;
@@ -40,7 +30,7 @@
     box-sizing: border-box;
     gap: var(--gap-137xl);
     background-position: center -50px;
-    background-image: url(/rectangle-18@2x.png);
+    background-image: url(/home-background.png);
     background-size: cover;
     background-repeat: no-repeat;
     max-width: 100%;
@@ -747,6 +737,20 @@
     z-index: 2;
 }
 
+.backgroundRedUnion2 {
+    position: absolute;
+    z-index: 2;
+    right: -100px;
+    top: 1800px;
+}
+
+.backgroundGreenUnion3 {
+    z-index: 2;
+    position: absolute;
+    top: 4600px;
+    left: -1100px;
+}
+
 .rule4BGRed {
     position: absolute;
     width: 498px;
@@ -758,13 +762,12 @@
     z-index: 2;
 }
 
-.image16Icon {
+.exploreSoulImg {
     position: absolute;
-    top: 90px;
-    left: 1097px;
-    width: 93.5px;
+    top: -40px;
+    right: 170px;
+    width: 93px;
     height: 100px;
-    object-fit: cover;
     z-index: 5;
 }
 
