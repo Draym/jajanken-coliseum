@@ -5,15 +5,14 @@ import ScrollLink from "@/components/scroll-link";
 
 const HeaderComponent: NextPage = () => {
     return (
-        <header className={styles.rectangleParent}>
-            <div className={styles.frameChild}/>
+        <header className={styles.headerContainer}>
             <img
                 className={styles.vectorIcon}
                 loading="eager"
                 alt=""
                 src="/vector.svg"
             />
-            <div className={styles.frameParent}>
+            <div className={styles.headerParent}>
                 <div className={styles.exploreParent}>
                     <ScrollLink target={"explore"} className={styles.explore}><span>Explore</span></ScrollLink>
                     <ScrollLink target={"rules"} className={styles.rules}><span>Rules</span></ScrollLink>

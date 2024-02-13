@@ -17,7 +17,6 @@ export default function Landing() {
             <HeaderComponent/>
             <div className={styles.homepage} id='toplanding'>
                 <img className={styles.unionIcon} alt="" src="/union.svg"/>
-                <img className={styles.frameChild} alt="" src="/rectangle-18@2x.png"/>
                 <section className={styles.vectorParent}>
                     <JoinGameComponent/>
                     <div className={styles.seeMoreParent}>
@@ -62,7 +61,7 @@ export default function Landing() {
                             </div>
                         </Flex>
                         <div id='rules' className={styles.container}>
-                            <Flex direction="row" id='rule1' className={styles.rules}>
+                            <Flex direction="row" id='rule1' className={styles.rule1}>
                                 <Box flex="2"></Box>
                                 <Box flex="4" display="flex" alignItems="center" justifyContent="center">
                                     <RulesLeftTextComponent title="9 cards to rules them">
@@ -89,7 +88,7 @@ export default function Landing() {
                             </Flex>
 
 
-                            <Flex direction="row" id='rule2' className={styles.rules}>
+                            <Flex direction="row" id='rule2' className={styles.rule2}>
                                 <Box flex="2"></Box>
                                 <Box flex="4" display="flex" alignItems="center" justifyContent="center">
                                     <div className={styles.rule2OrangeBG}/>
@@ -117,7 +116,7 @@ export default function Landing() {
                             </Flex>
 
 
-                            <Flex direction="row" id='rule3' className={styles.rules}>
+                            <Flex direction="row" id='rule3' className={styles.rule3}>
                                 <Box flex="2"></Box>
                                 <Box flex="4" display="flex" alignItems="center" justifyContent="center">
                                     <RulesLeftTextComponent title="outsmart your Luck">
@@ -141,7 +140,7 @@ export default function Landing() {
                             </Flex>
 
 
-                            <Flex direction="row" id='rule4' className={styles.rules}>
+                            <Flex direction="row" id='rule4' className={styles.rule4}>
                                 <Box flex="2"></Box>
                                 <Box flex="4" position="relative" display="flex" alignItems="center"
                                      justifyContent="center">
@@ -189,7 +188,7 @@ export default function Landing() {
                                 <Box flex="2"></Box>
                             </Flex>
 
-                            <Flex direction="row" id='rule5' className={styles.rules}>
+                            <Flex direction="row" id='rule5' className={styles.rule5}>
                                 <Box flex="2"></Box>
                                 <Box flex="4" display="flex" alignItems="center" justifyContent="center">
                                     <RulesLeftTextComponent
@@ -253,7 +252,7 @@ export default function Landing() {
                         </div>
                     </div>
                 </section>
-                <Flex direction="row" id='quests'>
+                <Flex direction="row" id='quests' className={styles.quests}>
                     <QuestsComponent/>
                 </Flex>
                 <section className={styles.frameSection}>

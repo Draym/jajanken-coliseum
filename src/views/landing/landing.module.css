@@ -670,9 +670,20 @@
     width: 100%;
 }
 
-.rules {
+.quests {
+    margin-top: 100px;
+}
+
+.rule1, .rule2, .rule3, .rule4, .rule5 {
     height: 400px;
+}
+
+.rule1, .rule2, .rule3, .rule4 {
     margin-bottom: 150px;
+}
+
+.rule5 {
+    margin-bottom: 0;
 }
 
 .rule1Img, .rule2Img, .rule3Img, .rule4Img, .rule5Img {

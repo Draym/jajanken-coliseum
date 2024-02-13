@@ -1,11 +1,3 @@
-.frameBorder {
-  height: 72px;
-  width: 1440px;
-  position: relative;
-  background-color: var(--text);
-  display: none;
-  max-width: 100%;
-}
 .vectorIcon {
   height: 40px;
   width: 43.3px;
@@ -48,19 +40,19 @@
   white-space: nowrap;
   z-index: 1;
 }
-.frameParent,
-.rectangleParent {
+.headerParent,
+.headerContainer {
   display: flex;
   flex-direction: row;
   max-width: 100%;
 }
-.frameParent {
+.headerParent {
   width: 904px;
   align-items: center;
   justify-content: flex-start;
   gap: var(--gap-77xl);
 }
-.rectangleParent {
+.headerContainer {
   align-self: stretch;
   background-color: var(--text);
   align-items: flex-start;
@@ -77,26 +69,26 @@
   font-family: var(--paragraph-tooltip);
 }
 @media screen and (max-width: 1200px) {
-  .rectangleParent {
+  .headerContainer {
     gap: var(--gap-234xl);
   }
 }
 @media screen and (max-width: 1050px) {
-  .frameParent {
+  .headerParent {
     display: none;
     gap: var(--gap-77xl);
   }
 }
 @media screen and (max-width: 750px) {
-  .rectangleParent {
+  .headerContainer {
     gap: var(--gap-234xl);
   }
 }
 @media screen and (max-width: 450px) {
-  .frameParent {
+  .headerParent {
     gap: var(--gap-77xl);
   }
-  .rectangleParent {
+  .headerContainer {
     gap: var(--gap-234xl);
   }
 }
