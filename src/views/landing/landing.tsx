@@ -7,13 +7,13 @@ import QuestsComponent from "./components/quests-component"
 import FooterComponent from "./components/footer-component"
 import JoinGameComponent2 from "@/views/landing/components/join-game2-component";
 import FaqComponent from "@/views/landing/components/faq-component";
-import {Flex} from "@chakra-ui/react";
+import {Box, Flex} from "@chakra-ui/react";
 import ScrollLink from "@/components/scroll-link";
+import RulesRightTextComponent from "@/views/landing/components/rules-right-text-component";
 
 export default function Landing() {
     return (
         <div>
-
             <HeaderComponent/>
             <div className={styles.homepage} id='toplanding'>
                 <img className={styles.unionIcon} alt="" src="/union.svg"/>
@@ -61,15 +61,14 @@ export default function Landing() {
                                 </div>
                             </div>
                         </Flex>
-
-
-                        <div id='rules'>
-                            <Flex direction="row" id='rule1'>
-                                <div className={styles.frameParent3}>
+                        <div id='rules' className={styles.container}>
+                            <Flex direction="row" id='rule1' className={styles.rules}>
+                                <Box flex="2"></Box>
+                                <Box flex="4" display="flex" alignItems="center" justifyContent="center">
                                     <RulesLeftTextComponent title="9 cards to rules them">
                                         <p className={styles.inTheEndlessBattleRoyaleA}>
-                                <span
-                                    className={styles.inTheEndless}>{`In the endless battle royal arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
+                                            <span
+                                                className={styles.inTheEndless}>{`In the endless battle royal arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
                                             <span className={styles.souls}>{'souls '}</span>
                                             <span>while losers risk elimination</span>
                                         </p>
@@ -79,96 +78,118 @@ export default function Landing() {
                                             <span className={styles.souls}>souls</span>
                                         </p>
                                     </RulesLeftTextComponent>
-                                    <div className={styles.rule1ImgWrapper}>
-                                        <img
-                                            className={styles.rule1ImgWrapperChild}
-                                            alt=""
-                                            src="/group-45.svg"
-                                        />
-                                    </div>
-                                </div>
+                                </Box>
+                                <Box flex="4" display="flex" alignItems="center" justifyContent="center">
+                                    <div className={styles.rule1BlueBG}/>
+                                    <div className={styles.rule1GreenBG}/>
+                                    <div className={styles.rule1RedBG}/>
+                                    <img className={styles.rule1Img} alt="" src='/rule1-img.png'/>
+                                </Box>
+                                <Box flex="2"></Box>
                             </Flex>
 
 
-                            <Flex direction="row" id='rule2'>
-                                <img className={styles.image22Icon} alt="" src='/rules-player-duel.png'/>
-                                <div className={styles.frameDiv}>
-                                    <div className={styles.frameGroup}>
-                                        <div className={styles.duelThemAllWrapper}>
-                                            <h2 className={styles.duelThemAll}>Duel them all</h2>
-                                        </div>
-                                        <div className={styles.frameParent1}>
-                                            <div className={styles.frameChild1}/>
-                                            <div className={styles.inTheEndlessContainer1}>
-                                                <p className={styles.inTheEndlessBattleRoyaleA1}>
-                                        <span
-                                            className={styles.inTheEndless1}>{`In the endless battle royale arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
-                                                    <span className={styles.coins2}>{`coins `}</span>
-                                                    <span>while losers risk elimination</span>
-                                                </p>
-                                                <p className={styles.blankLine1}>&nbsp;</p>
-                                                <p className={styles.toExitAndClaimRewardsPla1}>
-                                                    <span>{`To exit and claim rewards, players must strategically manage their cards and coins, aiming to reach zero cards and maintain at least three `}</span>
-                                                    <span className={styles.coins3}>coins</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Flex>
-
-
-                            <Flex direction="row" id='rule3'>
-                                <div className={styles.frameWrapper2}>
-                                    <div className={styles.frameParent4}>
-                                        <RulesLeftTextComponent title="outsmart your Luck">
-                                            <p className={styles.inTheEndlessBattleRoyaleA}>
-                                <span
-                                    className={styles.inTheEndless}>{`In the endless battle royal arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
-                                                <span className={styles.souls}>{'souls '}</span>
-                                                <span>while losers risk elimination</span>
-                                            </p>
-                                            <p className={styles.blankLine}>&nbsp;</p>
-                                            <p className={styles.toExitAndClaimRewardsPla}>
-                                                <span>{`To exit and claim rewards, players must manage their cards and coins, aiming to reach zero cards and maintain at least three `}</span>
-                                                <span className={styles.souls}>souls</span>
-                                            </p>
-                                        </RulesLeftTextComponent>
-                                    </div>
-                                    <img className={styles.image21Icon} alt="" src='/rules-player-data.png'/>
-                                </div>
-                            </Flex>
-
-
-                            <Flex direction="row" id='rule4'>
-                                <div className={styles.frameDiv}>
-                                    <div className={styles.instanceParent}>
-                                        <div className={styles.instanceWrapper}>
-                                        </div>
-                                        <div className={styles.matchmakingParent}>
-                                            <h2 className={styles.matchmaking}>Matchmaking</h2>
-                                            <div className={styles.lineParent}>
-                                                <div className={styles.frameChild2}/>
-                                                <div className={styles.inTheEndlessContainer2}>
-                                                    <p className={styles.inTheEndlessBattleRoyaleA2}>
+                            <Flex direction="row" id='rule2' className={styles.rules}>
+                                <Box flex="2"></Box>
+                                <Box flex="4" display="flex" alignItems="center" justifyContent="center">
+                                    <div className={styles.rule2OrangeBG}/>
+                                    <img className={styles.rule2Img} alt="" src='/rule2-img.png'/>
+                                </Box>
+                                <Box flex="4" display="flex" alignItems="center" justifyContent="center">
+                                    <RulesRightTextComponent
+                                        title="duel them all"
+                                        propPadding="0px 0px var(--padding-6xs)"
+                                        propMinWidth="384px"
+                                    ><p className={styles.inTheEndlessBattleRoyaleA}>
                                             <span
-                                                className={styles.inTheEndless2}>{`In the endless battle royale arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
-                                                        <span className={styles.coins4}>{`coins `}</span>
-                                                        <span>while losers risk elimination</span>
-                                                    </p>
-                                                    <p className={styles.blankLine2}>&nbsp;</p>
-                                                    <p className={styles.toExitAndClaimRewardsPla2}>
-                                                        <span>{`To exit and claim rewards, players must strategically manage their cards and coins, aiming to reach zero cards and maintain at least three `}</span>
-                                                        <span className={styles.coins5}>coins</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                                className={styles.inTheEndless}>{`In the endless battle royal arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
+                                        <span className={styles.souls}>{'souls '}</span>
+                                        <span>while losers risk elimination</span>
+                                    </p>
+                                        <p className={styles.blankLine}>&nbsp;</p>
+                                        <p className={styles.toExitAndClaimRewardsPla}>
+                                            <span>{`To exit and claim rewards, players must manage their cards and coins, aiming to reach zero cards and maintain at least three `}</span>
+                                            <span className={styles.souls}>souls</span>
+                                        </p>
+                                    </RulesRightTextComponent>
+                                </Box>
+                                <Box flex="2"></Box>
                             </Flex>
 
-                            <Flex direction="row" id='rule5'>
+
+                            <Flex direction="row" id='rule3' className={styles.rules}>
+                                <Box flex="2"></Box>
+                                <Box flex="4" display="flex" alignItems="center" justifyContent="center">
+                                    <RulesLeftTextComponent title="outsmart your Luck">
+                                        <p className={styles.inTheEndlessBattleRoyaleA}>
+                                                <span
+                                                    className={styles.inTheEndless}>{`In the endless battle royal arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
+                                            <span className={styles.souls}>{'souls '}</span>
+                                            <span>while losers risk elimination</span>
+                                        </p>
+                                        <p className={styles.blankLine}>&nbsp;</p>
+                                        <p className={styles.toExitAndClaimRewardsPla}>
+                                            <span>{`To exit and claim rewards, players must manage their cards and coins, aiming to reach zero cards and maintain at least three `}</span>
+                                            <span className={styles.souls}>souls</span>
+                                        </p>
+                                    </RulesLeftTextComponent>
+                                </Box>
+                                <Box flex="4" display="flex" alignItems="center" justifyContent="center">
+                                    <img className={styles.rule3Img} alt="" src='/rule3-img.png'/>
+                                </Box>
+                                <Box flex="2"></Box>
+                            </Flex>
+
+
+                            <Flex direction="row" id='rule4' className={styles.rules}>
+                                <Box flex="2"></Box>
+                                <Box flex="4" position="relative" display="flex" alignItems="center"
+                                     justifyContent="center">
+                                    <img className={styles.rule4Img} alt="" src='/rule4-img.png'/>
+                                    <Box position="absolute" top="0" left="0">
+                                        <PlayerCardComponent
+                                            avatar="/rectangle-19-1@2x.png"
+                                            pseudo="Anubis"
+                                            score="1V - 1L"
+                                            cardRed="2"
+                                            cardGreen="2"
+                                            cardBlue="3"
+                                        />
+                                    </Box>
+                                    <Box position="absolute" bottom="140" right="230">
+                                        <PlayerCardComponent
+                                            avatar="/rectangle-19@2x.png"
+                                            pseudo="Cerberus"
+                                            score="3V - 0L"
+                                            cardRed="3"
+                                            cardGreen="2"
+                                            cardBlue="1"
+                                        />
+                                    </Box>
+                                    <div className={styles.rule4BGRed}/>
+                                </Box>
+                                <Box flex="4" display="flex" alignItems="center" justifyContent="center">
+                                    <RulesLeftTextComponent
+                                        title="matchmaking"
+                                        propPadding="0px 0px var(--padding-6xs)"
+                                        propMinWidth="384px"
+                                    ><p className={styles.inTheEndlessBattleRoyaleA}>
+                                            <span
+                                                className={styles.inTheEndless}>{`In the endless battle royal arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
+                                        <span className={styles.souls}>{'souls '}</span>
+                                        <span>while losers risk elimination</span>
+                                    </p>
+                                        <p className={styles.blankLine}>&nbsp;</p>
+                                        <p className={styles.toExitAndClaimRewardsPla}>
+                                            <span>{`To exit and claim rewards, players must manage their cards and coins, aiming to reach zero cards and maintain at least three `}</span>
+                                            <span className={styles.souls}>souls</span>
+                                        </p>
+                                    </RulesLeftTextComponent>
+                                </Box>
+                                <Box flex="2"></Box>
+                            </Flex>
+
+                            <Flex direction="row" id='rule5' className={styles.rules}>
                                 <div className={styles.frameWrapper2}>
                                     <div className={styles.frameParent4}>
                                         <RulesLeftTextComponent
@@ -176,8 +197,8 @@ export default function Landing() {
                                             propPadding="0px 0px var(--padding-6xs)"
                                             propMinWidth="384px"
                                         ><p className={styles.inTheEndlessBattleRoyaleA}>
-                                <span
-                                    className={styles.inTheEndless}>{`In the endless battle royal arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
+                                            <span
+                                                className={styles.inTheEndless}>{`In the endless battle royal arena, players pay an entry fee to engage in relentless combat. By playing cards against opponents, winners earn `}</span>
                                             <span className={styles.souls}>{'souls '}</span>
                                             <span>while losers risk elimination</span>
                                         </p>
@@ -185,7 +206,8 @@ export default function Landing() {
                                             <p className={styles.toExitAndClaimRewardsPla}>
                                                 <span>{`To exit and claim rewards, players must manage their cards and coins, aiming to reach zero cards and maintain at least three `}</span>
                                                 <span className={styles.souls}>souls</span>
-                                            </p></RulesLeftTextComponent>
+                                            </p>
+                                        </RulesLeftTextComponent>
                                         <div className={styles.groupDiv}>
                                             <div className={styles.ellipseGroup}>
                                                 <div className={styles.frameChild4}/>
@@ -220,8 +242,6 @@ export default function Landing() {
                                     src="/rectangle-18.svg"
                                 />
                             </div>
-                            <div className={styles.ellipseDiv}/>
-                            <div className={styles.frameChild3}/>
                             <img
                                 className={styles.image16Icon}
                                 loading="eager"
@@ -230,27 +250,6 @@ export default function Landing() {
                             />
                         </div>
                     </div>
-                    <PlayerCardComponent
-                        rectangle19="/rectangle-19-1@2x.png"
-                        pseudo="Anubis"
-                        score="1V - 1L"
-                        prop="6"
-                        prop1="2"
-                    />
-                    <PlayerCardComponent
-                        rectangle19="/rectangle-19@2x.png"
-                        pseudo="Cerberus"
-                        score="2V - 0L"
-                        prop="6"
-                        prop1="2"
-                        propBottom="888px"
-                        propLeft="481px"
-                        propMargin="0 !important"
-                        propPosition="absolute"
-                        propBackgroundColor="rgba(0, 0, 0, 0.3)"
-                        propBorder="1px solid var(--color-gray-200)"
-                        propBoxShadow="unset"
-                    />
                 </section>
                 <Flex direction="row" id='quests'>
                     <QuestsComponent/>

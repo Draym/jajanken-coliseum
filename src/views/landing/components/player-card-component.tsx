@@ -1,83 +1,49 @@
-import type { NextPage } from "next"
-import { useMemo, type CSSProperties } from "react"
+import type {NextPage} from "next"
+import {useMemo, type CSSProperties} from "react"
 import styles from "./player-card-component.module.css"
 
-export type FrameComponent4Type = {
-  rectangle19?: string;
-  pseudo?: string;
-  score?: string;
-  prop?: string;
-  prop1?: string;
-
-  /** Style props */
-  propBottom?: CSSProperties["bottom"];
-  propLeft?: CSSProperties["left"];
-  propMargin?: CSSProperties["margin"];
-  propPosition?: CSSProperties["position"];
-  propBackgroundColor?: CSSProperties["backgroundColor"];
-  propBorder?: CSSProperties["border"];
-  propBoxShadow?: CSSProperties["boxShadow"];
+export type PlayerCardComponentType = {
+    avatar?: string;
+    pseudo?: string;
+    score?: string;
+    cardRed?: string;
+    cardGreen?: string;
+    cardBlue?: string;
 };
 
-const PlayerCardComponent: NextPage<FrameComponent4Type> = ({
-  rectangle19,
-  pseudo,
-  score,
-  prop,
-  prop1,
-  propBottom,
-  propLeft,
-  propMargin,
-  propPosition,
-  propBackgroundColor,
-  propBorder,
-  propBoxShadow,
-}) => {
-  const frameDiv1Style: CSSProperties = useMemo(() => {
-    return {
-      bottom: propBottom,
-      left: propLeft,
-      margin: propMargin,
-      position: propPosition,
-      backgroundColor: propBackgroundColor,
-      border: propBorder,
-      boxShadow: propBoxShadow,
-    };
-  }, [
-    propBottom,
-    propLeft,
-    propMargin,
-    propPosition,
-    propBackgroundColor,
-    propBorder,
-    propBoxShadow,
-  ]);
-
-  return (
-    <div className={styles.frameParent} style={frameDiv1Style}>
-      <div className={styles.rectangleParent}>
-        <img className={styles.frameChild} alt="" src={rectangle19} />
-        <div className={styles.anubisParent}>
-          <h3 className={styles.anubis}>{pseudo}</h3>
-          <div className={styles.v7l}>{score}</div>
+const PlayerCardComponent: NextPage<PlayerCardComponentType> = ({
+                                                                    avatar,
+                                                                    pseudo,
+                                                                    score,
+                                                                    cardRed,
+                                                                    cardGreen,
+                                                                    cardBlue
+                                                                }) => {
+    return (
+        <div className={styles.frameParent}>
+            <div className={styles.rectangleParent}>
+                <img className={styles.frameChild} alt="" src={avatar}/>
+                <div className={styles.pseudoParent}>
+                    <h3 className={styles.pseudo}>{pseudo}</h3>
+                    <div className={styles.score}>{score}</div>
+                </div>
+            </div>
+            <div className={styles.frameGroup}>
+                <div className={styles.parent}>
+                    <div className={styles.div}>{cardRed}</div>
+                    <img className={styles.imageCardFire} alt="" src="/image-5@2x.png"/>
+                </div>
+                <div className={styles.container}>
+                    <div className={styles.div2}>{cardGreen}</div>
+                    <img className={styles.imageCardGreen} alt="" src="/image-5-2@2x.png"/>
+                </div>
+                <div className={styles.group}>
+                    <div className={styles.div1}>{cardBlue}</div>
+                    <img className={styles.imageCardBlue} alt="" src="/image-5-1@2x.png"/>
+                </div>
+            </div>
         </div>
-      </div>
-      <div className={styles.frameGroup}>
-        <div className={styles.parent}>
-          <div className={styles.div}>{prop}</div>
-          <img className={styles.image5Icon} alt="" src="/image-5@2x.png"/>
-        </div>
-        <div className={styles.container}>
-          <div className={styles.div2}>3</div>
-          <img className={styles.image5Icon2} alt="" src="/image-5-2@2x.png"/>
-        </div>
-        <div className={styles.group}>
-          <div className={styles.div1}>{prop1}</div>
-          <img className={styles.image5Icon1} alt="" src="/image-5-1@2x.png"/>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default PlayerCardComponent;

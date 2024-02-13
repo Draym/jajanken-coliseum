@@ -342,6 +342,7 @@
     padding: 17px 0 0;
     box-sizing: border-box;
 }
+
 .frameWrapper4 {
     width: 313px;
     display: flex;
@@ -665,42 +666,85 @@
     transform: scale(2.215);
 }
 
-.rule1ImgWrapper {
-    position: absolute;
-    top: 580px;
-    left: 900px;
-    width: 626.7px;
-    height: 442.9px;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.container {
+    width: 100%;
 }
 
-.ellipseDiv,
-.frameChild3 {
+.rules {
+    height: 400px;
+    margin-bottom: 150px;
+}
+
+.rule1Img, .rule2Img, .rule3Img, .rule4Img, .rule5Img {
+    z-index: 2;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.rule4Img {
+    mix-blend-mode: lighten;
+}
+
+.rule1BlueBG {
     position: absolute;
-    top: 2052px;
-    left: 210px;
-    border-radius: 50%;
-    background-color: rgba(255, 37, 29, 0.2);
-    filter: blur(300px);
-    width: 498px;
+    width: 274px;
     height: 360px;
+    right: 550px;
+    background: #013FBE;
     mix-blend-mode: hard-light;
+    opacity: 0.3;
+    filter: blur(150px);
+    transform: rotate(-15deg);
     z-index: 2;
 }
 
-.frameChild3 {
-    top: 82.3px;
-    left: 1111.26px;
-    background-color: rgba(42, 174, 251, 0.1);
-    filter: blur(100px);
-    width: 90.3px;
-    height: 91.8px;
-    transform: rotate(15deg);
-    transform-origin: 0 0;
-    z-index: 4;
+.rule1RedBG {
+    position: absolute;
+    width: 273px;
+    height: 360px;
+    right: 450px;
+    background: #FF251D;
+    mix-blend-mode: hard-light;
+    opacity: 0.3;
+    filter: blur(150px);
+    z-index: 2;
+}
+
+.rule1GreenBG {
+    position: absolute;
+    width: 274px;
+    height: 360px;
+    right: 300px;
+    background: #61E833;
+    mix-blend-mode: hard-light;
+    opacity: 0.3;
+    filter: blur(150px);
+    transform: rotate(14.08deg);
+    z-index: 2;
+}
+
+.rule2OrangeBG {
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    background: #e8a033;
+    mix-blend-mode: hard-light;
+    opacity: 0.3;
+    filter: blur(150px);
+    transform: rotate(14.08deg);
+    z-index: 2;
+}
+
+.rule4BGRed {
+    position: absolute;
+    width: 498px;
+    height: 360px;
+    background: #FF251D;
+    mix-blend-mode: hard-light;
+    opacity: 0.2;
+    filter: blur(150px);
+    z-index: 2;
 }
 
 .image16Icon {
