@@ -2,6 +2,7 @@ import type {NextPage} from "next"
 import {Button} from "@chakra-ui/react"
 import styles from "./header-component.module.css"
 import ScrollLink from "@/components/scroll-link";
+import DisplayWallet from "@/components/wallet/display-wallet";
 
 const HeaderComponent: NextPage = () => {
     return (
@@ -20,8 +21,8 @@ const HeaderComponent: NextPage = () => {
                 </div>
                 <ScrollLink target={"quests"} className={styles.quests}><span>Quests</span></ScrollLink>
                 <ScrollLink target={"faq"} className={styles.faq}><span>FAQ</span></ScrollLink>
-                <Button className={styles.btn} variant="outline" colorScheme="teal"/>
             </div>
+            <DisplayWallet/>
         </header>
     );
 };

@@ -36,10 +36,6 @@
   font-weight: 500;
   z-index: 1;
 }
-.btn {
-  white-space: nowrap;
-  z-index: 1;
-}
 .headerParent,
 .headerContainer {
   display: flex;
