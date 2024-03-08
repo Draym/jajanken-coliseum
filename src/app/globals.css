@@ -3,6 +3,7 @@ body {
   margin: 0;
   line-height: normal;
   background-color: var(--color-black);
+  overflow-x: hidden;
 }
 :root {
   /* fonts */

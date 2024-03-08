@@ -6,7 +6,7 @@ import {
     MenuList,
     MenuItem,
     Button,
-    Text,
+    Text
 } from '@chakra-ui/react';
 
 interface ProfileIconProps {
