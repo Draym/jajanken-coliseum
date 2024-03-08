@@ -4,11 +4,16 @@ import {useAccount} from "wagmi"
 import AccountWallet from "@/components/wallet/account-wallet"
 import {ConnectButton} from "@rainbow-me/rainbowkit"
 
-export default function DisplayWallet() {
+
+interface DisplayWalletProps {
+    menuItems?: { title: string, cb: () => void }[]
+}
+
+export default function DisplayWallet({menuItems}: DisplayWalletProps) {
     const {isConnected} = useAccount()
     return (
         <div style={{position: 'absolute', right: '30px'}}>
-            {isConnected ? <AccountWallet/> : <ConnectButton/>}
+            {isConnected ? <AccountWallet menuItems={menuItems || []}/> : <ConnectButton/>}
         </div>
     )
 }
