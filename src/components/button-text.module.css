@@ -1,0 +1,25 @@
+.btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-size: cover;
+    align-self: stretch;
+    height: 40px;
+}
+
+.btnTextParent {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--padding-13xl) var(--padding-11xs);
+    box-sizing: border-box;
+}
+
+.btnText {
+    position: relative;
+    line-height: 24px;
+    text-transform: uppercase;
+}
