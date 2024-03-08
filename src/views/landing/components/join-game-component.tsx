@@ -2,7 +2,7 @@
 
 import styles from "./join-game-component.module.css"
 import {useRouter} from 'next/navigation'
-import Button1 from "@/components/button-1"
+import ButtonGreen from "@/components/button-green"
 
 const JoinGameComponent = () => {
     const router = useRouter()
@@ -32,7 +32,7 @@ const JoinGameComponent = () => {
                         <div className={styles.ellipseDiv}/>
                         <div className={styles.frameDiv}>
                             <div className={styles.btnParent}>
-                                <Button1 altText="enter the arena" onClick={joinGame}/>
+                                <ButtonGreen text="enter the arena" onClick={joinGame}/>
                                 <div className={styles.aMetamaskWallet}>
                                     ETH wallet required to play
                                 </div>
