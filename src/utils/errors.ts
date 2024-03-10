@@ -22,7 +22,14 @@ export class Forbidden extends HttpError {
   }
 }
 
+export class ServerError extends HttpError {
+  constructor(message?: string) {
+    super(`ServerError ${message ? `: ${message}` : ''}`, 500)
+  }
+}
+
 export const formatError = (error: any): NextResponse => {
+  console.error(error)
   return NextResponse.json(
     { error: error.message },
     { status: error.code || 500 }
