@@ -55,9 +55,7 @@ const LoginComponent: React.FC<LoginComponentProps> = ({onSignIn}) => {
     }
 
     return (
-        <Modal isOpen={true} isCentered={true} onClose={() => {
-            console.log('close modal?')
-        }}>
+        <Modal isOpen={true} isCentered={true} onClose={() => {}}>
             <ModalOverlay/>
             <ModalContent>
                 <ModalHeader>

@@ -9,19 +9,17 @@ import {
 import useSession from "@/front/hooks/session"
 import LoginComponent from "@/front/views/game/components/login-component"
 import {useState} from "react"
+import RegisterComponent from "@/front/views/game/components/register-component";
 
 export default function Game() {
     const [refreshKey, setRefreshKey] = useState(0)
-    const session = useSession()
+    const session = useSession(refreshKey)
 
-    console.log('session', session)
-
-    const onSignIn = () => {
-        console.log('signed in')
+    const updateFrame = () => {
         setRefreshKey(prevKey => prevKey + 1)
     }
 
-    if (session) {
+    if (session && session.name) {
         return (
             <div className={styles.container}>
                 <HeaderComponent/>
@@ -46,7 +44,8 @@ export default function Game() {
         return (
             <div className={styles.container}>
                 <HeaderComponent/>
-                <LoginComponent onSignIn={onSignIn}/>
+                {session && !session.name ? <RegisterComponent onRegister={updateFrame}/> :
+                    <LoginComponent onSignIn={updateFrame}/>}
             </div>
         )
     }

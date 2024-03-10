@@ -8,6 +8,7 @@ import {validateSession} from "@/server/auth/session"
 export async function POST(req: NextRequest): Promise<NextResponse> {
     try {
         const session = validateSession(req)
+        console.log('send message: ', session)
         const body: {
             message: string
             receiverId?: string

@@ -6,6 +6,12 @@ export interface ICreateUser {
     email: string | null
 }
 
+export interface IUpdateUser {
+    name: string | null
+    email: string | null
+}
+
+
 export interface UserDocument extends mongoose.Document {
     name: string
     address: string

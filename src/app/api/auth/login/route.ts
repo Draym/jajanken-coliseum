@@ -28,13 +28,13 @@ export async function POST(req: NextRequest): Promise<any> {
         await SIWEObject.verify({signature: body.signature, nonce: body.nonce})
         const user = await _signIn(body.address)
         const token = jwt.encodeJWT({id: user.id, address: user.address})
-        return NextResponse.json({success: true})
-        // TODO check how to set cookie
-        //     .cookies.set(jwt.cookieKey, token, {
-        //     httpOnly: true,
-        //     secure: true,
-        //     sameSite: 'strict'
-        // })
+        const response = NextResponse.json({success: true})
+        response.cookies.set(jwt.cookieKey, token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'strict'
+        })
+        return response
     } catch (e) {
         console.error(e)
         return NextResponse.json({error: 'Authentication failed'}, {status: 401})

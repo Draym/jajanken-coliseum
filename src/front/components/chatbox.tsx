@@ -12,7 +12,7 @@ const fetcher = async (url: string) => {
 
 const ChatBox: React.FC = () => {
     const [message, setMessage] = useState('');
-    const {data, error} = useSWR('/api/chat/history', fetcher);
+    const {data, error} = useSWR('/api/chat/history', fetcher, { refreshInterval: 500 });
     const messages = data ? data.messages : [];
 
     const handleSubmit = async (e: FormEvent) => {
