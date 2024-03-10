@@ -1,7 +1,7 @@
 import type {NextPage} from "next"
 import FooterMemberComponent from "./footer-member-component"
 import styles from "./footer-component.module.css"
-import ScrollLink from "@/components/scroll-link"
+import ScrollLink from "@/front/components/scroll-link"
 
 const FooterComponent: NextPage = () => {
     return (

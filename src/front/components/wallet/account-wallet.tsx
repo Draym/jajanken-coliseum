@@ -1,7 +1,7 @@
 'use client'
 
 import {useAccount, useDisconnect, useEnsAvatar, useEnsName} from 'wagmi'
-import ProfileIcon from "@/components/profileIcon"
+import ProfileIcon from "@/front/components/profileIcon"
 
 interface AccountWalletProps {
     menuItems: { title: string, cb: () => void }[]

@@ -1,6 +1,6 @@
 import styles from "./game.module.css"
-import HeaderComponent from "@/views/game/components/header-component"
-import Chatbox from "@/components/chatbox";
+import HeaderComponent from "@/front/views/game/components/header-component"
+import Chatbox from "@/front/components/chatbox";
 import {Box, Flex} from "@chakra-ui/react";
 
 export default function Game() {

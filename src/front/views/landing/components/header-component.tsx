@@ -1,7 +1,7 @@
 import type {NextPage} from "next"
 import styles from "./header-component.module.css"
-import ScrollLink from "@/components/scroll-link"
-import DisplayWallet from "@/components/wallet/display-wallet"
+import ScrollLink from "@/front/components/scroll-link"
+import DisplayWallet from "@/front/components/wallet/display-wallet"
 
 const HeaderComponent: NextPage = () => {
     return (

@@ -1,7 +1,7 @@
 import type {NextPage} from "next"
 import {useMemo, type CSSProperties} from "react"
 import styles from "./footer-member-component.module.css"
-import ButtonImg, {BtnLogoType} from "@/components/button-img"
+import ButtonImg, {BtnLogoType} from "@/front/components/button-img"
 
 export type FrameComponent1Type = {
     name: string

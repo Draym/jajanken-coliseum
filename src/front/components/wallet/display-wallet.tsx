@@ -1,7 +1,7 @@
 'use client'
 
 import {useAccount} from "wagmi"
-import AccountWallet from "@/components/wallet/account-wallet"
+import AccountWallet from "@/front/components/wallet/account-wallet"
 import {ConnectButton} from "@rainbow-me/rainbowkit"
 
 

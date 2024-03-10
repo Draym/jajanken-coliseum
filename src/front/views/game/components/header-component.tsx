@@ -2,9 +2,9 @@
 
 import type {NextPage} from "next"
 import styles from "./header-component.module.css"
-import DisplayWallet from "@/components/wallet/display-wallet"
-import UrlLink from "@/components/url-link"
-import ButtonText from "@/components/button-text"
+import DisplayWallet from "@/front/components/wallet/display-wallet"
+import UrlLink from "@/front/components/url-link"
+import ButtonText from "@/front/components/button-text"
 import {useRouter} from "next/navigation";
 
 const HeaderComponent: NextPage = () => {

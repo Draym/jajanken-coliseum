@@ -6,10 +6,10 @@ import RulesRightTextComponent from "./components/rules-right-text-component"
 import PlayerCardComponent from "./components/player-card-component"
 import QuestsComponent from "./components/quests-component"
 import FooterComponent from "./components/footer-component"
-import JoinGameComponent2 from "@/views/landing/components/join-game2-component";
-import FaqComponent from "@/views/landing/components/faq-component";
+import JoinGameComponent2 from "@/front/views/landing/components/join-game2-component";
+import FaqComponent from "@/front/views/landing/components/faq-component";
 import {Box, Flex} from "@chakra-ui/react";
-import ScrollLink from "@/components/scroll-link";
+import ScrollLink from "@/front/components/scroll-link";
 
 export default function Landing() {
     return (

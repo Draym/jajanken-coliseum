@@ -1,7 +1,7 @@
 'use client'
 import styles from "./join-game2-component.module.css"
 import {useRouter} from 'next/navigation'
-import ButtonGreen from "@/components/button-green"
+import ButtonGreen from "@/front/components/button-green"
 
 const JoinGameComponent2 = () => {
     const router = useRouter()
