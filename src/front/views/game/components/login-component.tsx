@@ -1,12 +1,5 @@
 'use client'
-import {
-    Button,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalBody
-} from "@chakra-ui/react"
+import {Button, Modal, ModalBody, ModalContent, ModalHeader, ModalOverlay} from "@chakra-ui/react"
 import React, {useEffect, useState} from "react"
 import axios from "axios"
 import {ChallengeDTO} from "@/server/dtos/login.dto"
@@ -19,7 +12,7 @@ export interface LoginComponentProps {
 }
 
 function createSiweMessage(address: string, statement: string, nonce: string, chainId: number) {
-    const message = new SiweMessage({
+    return new SiweMessage({
         domain: window.location.host,
         address,
         statement,
@@ -27,8 +20,7 @@ function createSiweMessage(address: string, statement: string, nonce: string, ch
         version: '1',
         chainId,
         nonce
-    });
-    return message.prepareMessage();
+    })
 }
 
 const LoginComponent: React.FC<LoginComponentProps> = ({onSignIn}) => {
@@ -49,13 +41,13 @@ const LoginComponent: React.FC<LoginComponentProps> = ({onSignIn}) => {
         if (!address) return console.error('No address')
         const siweMessage = createSiweMessage(address, challenge.message, challenge.nonce, chainId)
         signMessageAsync({
-            message: siweMessage,
+            message: siweMessage.prepareMessage(),
         }).then((signature) => {
             axios.post('/api/auth/login', {
+                message: JSON.stringify(siweMessage),
+                signature,
                 address,
-                message: siweMessage,
-                nonce: challenge.nonce,
-                signature
+                nonce: challenge.nonce
             }).then(async (res) => {
                 onSignIn()
             })
