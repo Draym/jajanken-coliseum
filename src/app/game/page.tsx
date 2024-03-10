@@ -1,4 +1,4 @@
-import Game from "@/views/game/game"
+import Game from "@/front/views/game/game"
 
 export default function Home() {
     return (
