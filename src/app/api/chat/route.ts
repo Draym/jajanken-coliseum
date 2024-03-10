@@ -3,15 +3,11 @@ import {formatError} from "@/utils/errors"
 import {CreateMessageDTO} from "@/server/dtos/message.dto"
 import chatMessageRepository from "@/server/db/repositories/chatMessageRepository"
 import {ObjectId} from "mongodb"
-import jwt from "@/server/auth/jwt";
+import {validateSession} from "@/server/auth/session"
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
     try {
-        const token = req.cookies.get(jwt.cookieKey)
-        if (!token) {
-            return NextResponse.json({error: 'No token provided'}, {status: 401})
-        }
-        const session = jwt.decodeJWT(token.value)
+        const session = validateSession(req)
         const body: {
             message: string
             receiverId?: string

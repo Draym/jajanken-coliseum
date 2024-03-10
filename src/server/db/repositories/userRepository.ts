@@ -1,18 +1,18 @@
 import { User, UserDocument, ICreateUser } from '@/server/db/models/User'
-import { NotFound } from 'http-errors'
 import { ObjectId } from 'mongodb'
+import {NotFound} from "@/utils/errors";
 
-const get = async (id: ObjectId): Promise<UserDocument> => {
+const get = async (id: string | ObjectId): Promise<UserDocument> => {
     const user = await User.findById(id)
     if (!user) {
-        throw NotFound('User not found')
+        throw new NotFound('User not found')
     }
     return user
 }
 const getByAddress = async (address: string): Promise<UserDocument> => {
     const user = await User.findOne({ address })
     if (!user) {
-        throw NotFound('User not found')
+        throw new NotFound('User not found')
     }
     return user
 }
