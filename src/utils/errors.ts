@@ -16,6 +16,12 @@ export class NotAuthorized extends HttpError {
   }
 }
 
+export class NotFound extends HttpError {
+  constructor(message?: string) {
+    super(`NotFound ${message ? `: ${message}` : ''}`, 404)
+  }
+}
+
 export class Forbidden extends HttpError {
   constructor(message?: string) {
     super(`Forbidden ${message ? `: ${message}` : ''}`, 403)
