@@ -10,10 +10,17 @@ import useSession from "@/front/hooks/session"
 import LoginComponent from "@/front/views/game/components/login-component"
 import {useState} from "react"
 import RegisterComponent from "@/front/views/game/components/register-component";
+import {getContract} from "viem";
+import {useAccount, useChainId, useWalletClient} from "wagmi";
+import contracts from "@/blockchain/contracts";
+import useGameContract from "@/front/hooks/useGameContract";
 
 export default function Game() {
     const [refreshKey, setRefreshKey] = useState(0)
     const session = useSession(refreshKey)
+    const ticketCost = useGameContract.entranceTicketCost()
+    const totalSoul = useGameContract.getTotalSoul()
+    console.log('data: ', ticketCost, totalSoul)
 
     const updateFrame = () => {
         setRefreshKey(prevKey => prevKey + 1)
