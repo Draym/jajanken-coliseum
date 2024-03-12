@@ -1,6 +1,7 @@
-import {useChainId, useReadContract} from "wagmi"
+import {Config, useChainId, useReadContract, useWriteContract} from "wagmi"
 import contracts, {Contract} from "@/blockchain/contracts"
-import {BigNumberish} from "ethers";
+import {ethers} from "ethers";
+import {WriteContractMutate} from "@wagmi/core/query";
 
 type uint = bigint
 type uint8 = bigint
@@ -121,25 +122,43 @@ function getTotalBlue(): uint | undefined {
     return ticketCost as uint
 }
 
-// /**
-//  * Check if there is fund to withdraw
-//  * only available for game owner
-//  */
-// function hasFundToWithdraw() external view returns (uint256) {
-// const {data: hash, writeContract} = useWriteContract()
-// }
-//
+/**
+ * Check if there is fund to withdraw
+ * only available for game owner
+ */
+function hasFundToWithdraw(): uint256 {
+    const contractConfig = useGameConfig()
+    const {data: ticketCost} = useReadContract({
+        ...contractConfig,
+        functionName: 'hasFundToWithdraw',
+        args: [],
+    })
+    return ticketCost as uint
+}
+
 // /**
 //  * Withdraw excess balance of funds
 //  * only available for game owner
 //  */
 // function withdrawExcessiveBalance(address payable _recipient) external onlyOwner {
-//
+// const {data: hash, writeContract} = useWriteContract()
 // }
-//
-//
-// function joinGame() external payable override(JaJanken) {
-// }
+
+// external payable
+function joinGame(writeContract?: WriteContractMutate<Config, any>, entranceTicket?: uint256): () => void {
+    const contractConfig = useGameConfig()
+
+    return () => {
+        if (!contractConfig || !entranceTicket || !writeContract) return
+        writeContract({
+            ...contractConfig,
+            functionName: 'joinGame',
+            args: [],
+            value: ethers.parseUnits(entranceTicket.toString(), 'wei'),
+        })
+    }
+}
+
 //
 // function playMatch(bytes32 _commitment, address _p1, address _p2, bytes memory _matchSig) external override(JaJanken) {
 // }
@@ -152,7 +171,6 @@ function getTotalBlue(): uint | undefined {
 // }
 //
 // function waitingForOpponentToReveal(address _matchId) external view override(JaJanken) returns (bool) {
-//     return _waitingForOpponentToReveal(_matchId);
 // }
 //
 // function skipAfkDuringPlay(address _matchId) external override(JaJanken) {
@@ -179,5 +197,7 @@ export default {
     getTotalSoul,
     getTotalRed,
     getTotalGreen,
-    getTotalBlue
+    getTotalBlue,
+    hasFundToWithdraw,
+    joinGame
 }
