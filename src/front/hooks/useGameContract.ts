@@ -1,4 +1,4 @@
-import {Config, useChainId, useReadContract, useWriteContract} from "wagmi"
+import {Config, useAccount, useChainId, useReadContract, useWriteContract} from "wagmi"
 import contracts, {Contract} from "@/blockchain/contracts"
 import {ethers} from "ethers";
 import {WriteContractMutate} from "@wagmi/core/query";
@@ -58,11 +58,13 @@ function encodeAction(_yourAddress: address, _action: Technique, _revealKey: byt
 
 // external view
 function getProfile(): Player | undefined {
+    const {address} = useAccount()
     const contractConfig = useGameConfig()
     const {data: profile} = useReadContract({
         ...contractConfig,
         functionName: 'getProfile',
         args: [],
+        account: address
     })
     return profile as Player
 }
