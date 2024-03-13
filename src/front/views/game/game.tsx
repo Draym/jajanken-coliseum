@@ -37,7 +37,7 @@ export default function Game() {
             console.log('New logs!', logs)
         },
     })
-    unwatch()
+    // todo: unwatch() when component unmounts
     console.log('data: ', ticketCost, totalSoul, player)
 
     console.log('pendingJoinGame', isConfirming, isConfirmed)
