@@ -4,6 +4,10 @@ import {ChakraProvider, extendTheme} from '@chakra-ui/react'
 import {CacheProvider} from "@emotion/react";
 import React from "react";
 import createCache from "@emotion/cache";
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
+import {WagmiProvider} from 'wagmi'
+import {wagmiConfig} from '@/lib/wagmi'
+import {WalletModalProvider} from '@/contexts/wallet-modal-context'
 
 
 const chakraTheme = extendTheme({
@@ -14,10 +18,18 @@ const emotionCache = createCache({
     prepend: true,
 })
 
+const queryClient = new QueryClient()
+
 export function Providers({children}: { children: React.ReactNode }) {
     return <CacheProvider value={emotionCache}>
         <ChakraProvider theme={chakraTheme}>
-            {children}
+            <WagmiProvider config={wagmiConfig}>
+                <QueryClientProvider client={queryClient}>
+                    <WalletModalProvider>
+                        {children}
+                    </WalletModalProvider>
+                </QueryClientProvider>
+            </WagmiProvider>
         </ChakraProvider>
     </CacheProvider>
 }

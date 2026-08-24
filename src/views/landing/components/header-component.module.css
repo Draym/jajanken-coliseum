@@ -1,94 +1,143 @@
-.vectorIcon {
-  height: 40px;
-  width: 43.3px;
-  position: relative;
-  min-height: 40px;
-  z-index: 1;
-}
-.explore,
-.rules {
-  position: relative;
-  line-height: 24px;
-  font-weight: 500;
-  z-index: 1;
-}
-.unionIcon {
-  height: 40px;
-  width: 28.9px;
-  position: relative;
-  z-index: 1;
-}
-.exploreParent {
-  width: 322px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 var(--padding-10xs) 0 0;
-  box-sizing: border-box;
-  gap: var(--gap-xl);
-  max-width: 100%;
-}
-.faq,
-.quests {
-  position: relative;
-  line-height: 24px;
-  font-weight: 500;
-  z-index: 1;
-}
-.btn {
-  white-space: nowrap;
-  z-index: 1;
-}
-.headerParent,
 .headerContainer {
-  display: flex;
-  flex-direction: row;
-  max-width: 100%;
-}
-.headerParent {
-  width: 904px;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--gap-77xl);
-}
-.headerContainer {
-  align-self: stretch;
+  width: 100%;
   background-color: var(--text);
-  align-items: flex-start;
-  justify-content: center;
-  padding: var(--padding-base) var(--padding-xl);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: var(--padding-base) clamp(20px, 3vw, 32px);
   box-sizing: border-box;
-  gap: var(--gap-234xl);
   top: 0;
   z-index: 99;
   position: sticky;
+  overflow: visible;
   text-align: center;
   font-size: var(--paragraph-body-default-size);
   color: var(--base-typography-textwhite);
   font-family: var(--paragraph-tooltip);
 }
-@media screen and (max-width: 1200px) {
-  .headerContainer {
-    gap: var(--gap-234xl);
-  }
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  z-index: 1;
 }
-@media screen and (max-width: 1050px) {
-  .headerParent {
-    display: none;
-    gap: var(--gap-77xl);
-  }
+
+.logoButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
+
+.vectorIcon {
+  height: 40px;
+  width: 43.3px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.headerCenter {
+  grid-column: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-xl);
+  z-index: 2;
+}
+
+.rules,
+.quests {
+  position: relative;
+  line-height: 24px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.unionIcon {
+  height: 40px;
+  width: 28.9px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.headerRight {
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  justify-self: end;
+  width: fit-content;
+  max-width: 100%;
+  z-index: 1;
+  text-align: left;
+}
+
+.headerPlayBtn {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.headerPlayBtn > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 40px;
+  min-width: 0;
+  align-self: center;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+
+.headerPlayBtn > button > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px 2px;
+  box-sizing: border-box;
+}
+
 @media screen and (max-width: 750px) {
-  .headerContainer {
-    gap: var(--gap-234xl);
+  .headerCenter {
+    gap: var(--gap-base);
   }
 }
-@media screen and (max-width: 450px) {
-  .headerParent {
-    gap: var(--gap-77xl);
-  }
+
+@media screen and (max-width: 600px) {
   .headerContainer {
-    gap: var(--gap-234xl);
+    padding: var(--padding-base) var(--padding-base);
+    column-gap: var(--gap-base);
+  }
+
+  .unionIcon {
+    height: 32px;
+    width: 23px;
+  }
+
+  .rules,
+  .quests {
+    font-size: var(--paragraph-caption-size);
+  }
+
+  .headerPlayBtn > button {
+    width: 108px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .unionIcon {
+    display: none;
   }
 }

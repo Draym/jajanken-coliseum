@@ -15,23 +15,17 @@
     font-size: 13px;
 }
 
-.seeMoreParent,
-.vectorParent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 var(--padding-xl);
-}
-
-.vectorParent {
+.heroSlide {
     align-self: stretch;
-    padding: 0 0 var(--padding-5xl);
+    width: 100%;
+    height: 100%;
+    min-height: calc(100dvh - var(--landing-header-height, 72px));
+    padding: 0 var(--padding-xl) 0;
     box-sizing: border-box;
     gap: var(--gap-137xl);
-    background-position: center -50px;
     background-image: url(/home-background.png);
     background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
     max-width: 100%;
     z-index: 4;
@@ -39,7 +33,95 @@
     font-size: var(--paragraph-caption-size);
     color: var(--base-typography-textwhite);
     font-family: var(--paragraph-tooltip);
-    height: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+.howToPlaySlide,
+.contentSlide,
+.questsSlide,
+.ctaSection,
+.faqSlide,
+.footerSlide {
+    width: 100%;
+    color: var(--base-typography-textwhite);
+    font-family: var(--paragraph-tooltip);
+}
+
+.contentSlide {
+    background-color: #191727;
+}
+
+.ctaSection {
+    background-color: #191727;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    min-height: calc(100dvh - var(--landing-header-height, 72px));
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.howToPlaySection {
+    width: 100%;
+    padding: 80px var(--padding-xl) 120px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.rulesContainer {
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+}
+
+.ruleVisual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.questsSlide {
+    background-color: #191727;
+    box-sizing: border-box;
+}
+
+.ctaSlideContent {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 0;
+    padding: 32px var(--padding-xl) 0;
+    box-sizing: border-box;
+}
+
+.ctaSlideFooter {
+    width: 100%;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.ctaSlideFooter footer {
+    width: 100%;
+}
+
+.faqSlide {
+    background-color: #191727;
+}
+
+.footerSlide {
+    background-color: #191727;
+    justify-content: flex-end;
+    padding-bottom: var(--padding-5xl);
 }
 
 .frameInner,
@@ -78,8 +160,7 @@
 }
 
 .ellipseParent,
-.image20Icon,
-.maskGroupIcon {
+.image20Icon {
     position: absolute;
     margin: 0 !important;
 }
@@ -94,17 +175,30 @@
     z-index: 3;
 }
 
-.maskGroupIcon {
-    /*width: 100%;*/
-    height: 100%;
-    /*  top: 0;
-      right: 0;*/
-    bottom: 0;
-    left: -10px;
-    max-width: 100%;
+.rule5Main {
+    position: relative;
+    display: flex;
+    min-width: 0;
     overflow: hidden;
-    max-height: 100%;
+}
+
+.rule5Columns {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    align-items: center;
+}
+
+.rule5RedBg {
+    position: absolute;
+    inset: 0;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
     z-index: 1;
+    pointer-events: none;
 }
 
 .rectangleIcon {
@@ -661,19 +755,160 @@
 }
 
 .quests {
-    margin-top: 100px;
+    margin-top: 0;
 }
 
 .rule1, .rule2, .rule3, .rule4, .rule5 {
-    height: 400px;
-}
-
-.rule1, .rule2, .rule3, .rule4 {
-    margin-bottom: 150px;
-}
-
-.rule5 {
+    min-height: 360px;
+    align-items: center;
+    flex-wrap: nowrap !important;
     margin-bottom: 0;
+}
+
+@media screen and (max-width: 1050px) {
+    .ruleRow.rule1,
+    .ruleRow.rule2,
+    .ruleRow.rule3,
+    .ruleRow.rule4,
+    .rule5Columns.ruleRow {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 44%);
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "title visual"
+            "body body";
+        gap: 8px 16px;
+        align-items: end;
+        min-height: auto;
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    .rule5 {
+        min-height: auto;
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    .rule5Main {
+        flex: 1 1 0 !important;
+        min-width: 0;
+        max-width: none;
+        width: auto;
+    }
+
+    .ruleGutter {
+        display: none !important;
+    }
+
+    .ruleVisualCol {
+        grid-area: visual;
+        align-self: end;
+        justify-self: end;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .ruleTextCol {
+        display: contents;
+    }
+
+    .ruleRevealContents {
+        display: contents;
+    }
+
+    .rulesContainer [class*="frameWrapper"] {
+        display: contents;
+        width: 100% !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+        text-align: left !important;
+    }
+
+    .rulesContainer [class*="frameParent"] {
+        display: contents;
+    }
+
+    .rulesContainer [class*="frameTitle"] {
+        grid-area: title;
+        align-self: end;
+        justify-self: start;
+        text-align: left !important;
+        font-size: var(--font-size-lgi);
+        line-height: 26px;
+        max-width: 100%;
+    }
+
+    .rulesContainer [class*="frameParagraph"] {
+        grid-area: body;
+        grid-column: 1 / -1;
+        align-self: start;
+        align-items: stretch;
+        text-align: left !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .rulesContainer [class*="frameParagraphText"] {
+        height: auto !important;
+        min-height: 0;
+        min-width: 0 !important;
+        text-align: left !important;
+        flex: 1;
+    }
+
+    .rulesContainer [class*="frameBorder"] {
+        width: 2px !important;
+        height: auto !important;
+        min-height: 48px;
+        align-self: stretch;
+        flex-shrink: 0;
+        order: -1;
+        border-right: 2px solid var(--base-typography-textwhite) !important;
+        border-bottom: none !important;
+    }
+
+    .ruleVisual,
+    .rule3Visual,
+    .rule5Visual {
+        transform: none;
+    }
+
+    .rule3Visual .rule3Img {
+        max-height: 120px;
+        width: auto;
+    }
+
+    .rule5Visual .rule5Img {
+        max-height: 110px;
+    }
+
+    .rule1Img,
+    .rule2Img {
+        max-height: 120px;
+        width: auto;
+    }
+
+    .rule5Columns .ruleVisualCol .rule5RewardCard {
+        transform: scale(0.72);
+        transform-origin: top right;
+        top: 0;
+        right: -8px;
+    }
+
+    .rule4 .ruleVisualCol > div {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .rulesContainer {
+        gap: 80px;
+    }
+
+    .howToPlaySection {
+        padding: 48px var(--padding-base) 80px;
+    }
 }
 
 .rule1Img, .rule2Img, .rule3Img, .rule4Img, .rule5Img {
@@ -685,6 +920,102 @@
 
 .rule4Img {
     mix-blend-mode: lighten;
+}
+
+.rule3Visual {
+    transform: none;
+    transform-origin: center center;
+}
+
+.rule3Visual .rule3Img {
+    max-height: 280px;
+    width: auto;
+}
+
+.rule5Visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: none;
+    transform-origin: center center;
+}
+
+.rule5ImageWrap {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+
+.rule5Visual .rule5Img {
+    display: block;
+    max-height: 280px;
+    width: auto;
+    margin: 0 auto;
+}
+
+.rule5RewardCard {
+    position: absolute;
+    top: 8px;
+    right: -18px;
+    z-index: 2;
+    transform: none;
+    transform-origin: top right;
+}
+
+.rule5Visual .frameParent5 {
+    position: relative;
+    width: 240px;
+    margin: 0 !important;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    padding: var(--padding-5xs) var(--padding-sm) var(--padding-5xs) var(--padding-base);
+    font-size: var(--headline-h6-size);
+}
+
+.rule5Visual .rectangleGroup {
+    align-self: stretch;
+    padding: 0;
+}
+
+.rule5Visual .youReceived35Wrapper {
+    padding: 0;
+    font-size: var(--paragraph-tooltip-size);
+    align-self: stretch;
+}
+
+.rule5Visual .youReceived35 {
+    line-height: 20px;
+    font-size: var(--paragraph-tooltip-size);
+}
+
+@media screen and (min-width: 1051px) {
+    .rule5Visual .rule5Img {
+        max-height: 320px;
+    }
+
+    .rule5RewardCard {
+        right: -24px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .rule5Visual .rule5Img {
+        max-height: 220px;
+    }
+
+    .rule5RewardCard {
+        transform: scale(0.82);
+        transform-origin: top right;
+    }
+}
+
+.rule3Visual .rule3Img,
+.rule5Visual .rule5Img {
+    display: block;
+    margin: 0 auto;
 }
 
 .rule1BlueBG {
@@ -1065,11 +1396,6 @@
     width: 100%;
     position: relative;
     background-color: #191727;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
     letter-spacing: normal;
 }
 
@@ -1123,7 +1449,7 @@
 }
 
 @media screen and (max-width: 750px) {
-    .vectorParent {
+    .heroSlide {
         gap: var(--gap-137xl);
     }
 
@@ -1162,7 +1488,7 @@
 }
 
 @media screen and (max-width: 450px) {
-    .vectorParent {
+    .heroSlide {
         gap: var(--gap-137xl);
     }
 

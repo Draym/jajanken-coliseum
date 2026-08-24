@@ -30,12 +30,39 @@
   gap: var(--gap-xs);
 }
 .frameParent {
-  flex: 1;
+  flex: 0 1 auto;
   flex-direction: column;
   gap: var(--gap-5xs);
-  min-width: 80px;
+  min-width: 0;
   text-align: left;
   font-size: var(--paragraph-subtitle-s-size);
   color: var(--base-typography-textwhite);
   font-family: var(--paragraph-tooltip);
+}
+
+@media screen and (max-width: 750px) {
+  .frameParent {
+    font-size: var(--paragraph-tooltip-size);
+    gap: var(--gap-9xs);
+  }
+
+  .memberName {
+    font-size: var(--paragraph-caption-size);
+    line-height: 14px;
+  }
+
+  .memberTitle {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  .icon {
+    height: 14px;
+    width: 14px;
+    min-height: 14px;
+  }
+
+  .iconsParent {
+    gap: var(--gap-9xs);
+  }
 }

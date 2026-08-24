@@ -1,7 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .game-main {
+        @apply relative isolate flex min-h-0 flex-1 flex-col items-center justify-center overflow-hidden px-5 py-12 box-border;
+    }
+
+    .game-main::before {
+        content: "";
+        position: absolute;
+        inset: -16px;
+        background-image: url(/home-background.png);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        filter: blur(6px);
+        transform: scale(1.04);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .game-main::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(6, 7, 17, 0.72);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .game-main > * {
+        position: relative;
+        z-index: 2;
+    }
+}
+
 body {
   margin: 0;
   line-height: normal;
+  --landing-header-height: 72px;
 }
 :root {
   /* fonts */

@@ -1,0 +1,39 @@
+.container {
+    height: calc(100dvh - var(--landing-header-height, 72px));
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    background-color: #191727;
+    position: relative;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.slideFixed {
+    height: calc(100dvh - var(--landing-header-height, 72px));
+    min-height: calc(100dvh - var(--landing-header-height, 72px));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.slideFlow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+    flex-shrink: 0;
+}

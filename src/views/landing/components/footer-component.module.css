@@ -1,50 +1,75 @@
 .vectorIcon {
   height: 40px;
   width: 43.3px;
-  position: absolute;
-  margin: 0 !important;
-  top: 0;
-  left: 0;
+  flex-shrink: 0;
+  position: relative;
 }
+
 .aboutTheGame {
   position: relative;
   line-height: 16px;
   font-weight: 500;
 }
+
 .explore,
 .quests,
 .rules {
   position: relative;
   line-height: 24px;
 }
+
 .aboutTheGameParent {
-  flex: 0.8293;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0 var(--padding-2xl) 0 0;
-  box-sizing: border-box;
   gap: var(--gap-9xs);
   min-width: 80px;
 }
+
+.footerBrand {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--padding-2xl);
+  flex-shrink: 0;
+}
+
+.footerTeam {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--padding-56xl);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.footerTeam > * {
+  flex: 0 0 auto;
+  min-width: unset;
+}
+
 .faq,
 .more {
   position: relative;
 }
+
 .more {
   line-height: 16px;
   font-weight: 500;
 }
+
 .faq {
   line-height: 24px;
 }
+
 .moreParent,
 .vectorParent {
   display: flex;
   align-items: flex-start;
   box-sizing: border-box;
 }
+
 .moreParent {
   flex: 0.2787;
   flex-direction: column;
@@ -53,38 +78,39 @@
   gap: var(--gap-9xs);
   min-width: 79px;
 }
+
 .vectorParent {
-  width: 917px;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 0 0 var(--padding-186xl);
-  position: relative;
   gap: var(--gap-xl);
   max-width: 100%;
 }
+
 .allRightsReserved {
   position: relative;
   line-height: 20px;
 }
+
 .allRightsReservedUnauthoriWrapper {
-  width: 635px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-end;
+  justify-content: center;
   max-width: 100%;
   font-size: var(--paragraph-tooltip-size);
 }
+
 .frameParent {
   align-self: stretch;
-  background-color: var(--color-black);
+  background-color: var(--text);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-start;
-  padding: var(--padding-base) var(--padding-284xl) var(--padding-base)
-    var(--padding-xl);
+  padding: var(--padding-base) var(--padding-xl);
   box-sizing: border-box;
   gap: var(--gap-5xl);
   max-width: 100%;
@@ -93,36 +119,88 @@
   color: var(--base-typography-textwhite);
   font-family: var(--paragraph-tooltip);
 }
-@media screen and (max-width: 1200px) {
-  .frameParent {
-    padding-right: var(--padding-132xl);
-    box-sizing: border-box;
-  }
+
+.frameParentEmbedded {
+  width: 100%;
+  margin: 0;
+  align-self: stretch;
+  padding: var(--padding-base) var(--padding-xl) !important;
+  gap: var(--gap-base);
+  border-radius: 0;
 }
+
+.vectorParentEmbedded {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 !important;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
 @media screen and (max-width: 1050px) {
-  .vectorParent {
-    flex-wrap: wrap;
-    padding-left: var(--padding-83xl);
-    box-sizing: border-box;
+  .footerTeam {
+    gap: var(--padding-2xl);
+  }
+
+  .vectorParentEmbedded {
+    gap: var(--gap-base);
+  }
+
+  .vectorParentEmbedded .footerTeam {
+    margin-left: auto;
+    width: auto;
+    flex-shrink: 0;
+    justify-content: flex-end;
   }
 }
+
 @media screen and (max-width: 750px) {
-  .frameParent {
-    padding-right: var(--padding-56xl);
-    box-sizing: border-box;
+  .frameParentEmbedded {
+    padding: var(--padding-base) var(--padding-base) !important;
+  }
+
+  .footerBrand {
+    gap: var(--padding-base);
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .aboutTheGameParent {
+    min-width: 0;
+  }
+
+  .vectorParentEmbedded .footerTeam {
+    gap: var(--gap-base);
+    flex-wrap: nowrap;
+  }
+
+  .vectorParentEmbedded .footerTeam > * {
+    min-width: 0;
   }
 }
+
 @media screen and (max-width: 450px) {
   .aboutTheGameParent,
   .moreParent {
-    flex: 1;
+    flex: 0 1 auto;
   }
-  .vectorParent {
-    padding-left: var(--padding-32xl);
-    box-sizing: border-box;
+
+  .footerBrand {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--gap-5xs);
   }
-  .frameParent {
-    padding-right: var(--padding-xl);
-    box-sizing: border-box;
+
+  .vectorIcon {
+    height: 32px;
+    width: 34px;
+  }
+
+  .aboutTheGame,
+  .explore,
+  .rules,
+  .quests {
+    font-size: var(--paragraph-caption-size);
+    line-height: 18px;
   }
 }

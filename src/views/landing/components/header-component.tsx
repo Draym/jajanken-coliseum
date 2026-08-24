@@ -1,29 +1,91 @@
-import type {NextPage} from "next"
-import {Button} from "@chakra-ui/react"
-import styles from "./header-component.module.css"
-import ScrollLink from "@/components/scroll-link";
+'use client'
 
-const HeaderComponent: NextPage = () => {
+import styles from "./header-component.module.css"
+import ScrollLink from "@/components/scroll-link"
+import Button1 from "@/components/button-1"
+import PlayerProfileButton from "@/components/player-profile-button"
+import {useRouter} from "next/navigation"
+import {useAccount} from 'wagmi'
+import {useWalletModal} from '@/contexts/wallet-modal-context'
+
+type HeaderComponentProps = {
+    action?: 'play' | 'connect-wallet'
+    showNavLinks?: boolean
+    showWalletButton?: boolean
+    showConnectedWalletButton?: boolean
+}
+
+function truncateAddress(address: string) {
+    return `${address.slice(0, 4)}...${address.slice(-4)}`
+}
+
+export default function HeaderComponent({
+    action = 'play',
+    showNavLinks = true,
+    showWalletButton = true,
+    showConnectedWalletButton = false,
+}: HeaderComponentProps) {
+    const router = useRouter()
+    const {openModal, openAccountMenu} = useWalletModal()
+    const {address, isConnected} = useAccount()
+
+    const handleWalletClick = () => {
+        if (isConnected && address) {
+            openAccountMenu()
+            return
+        }
+
+        openModal()
+    }
+
+    const showPlayButton = showWalletButton && action === 'play'
+    const showConnectButton = showWalletButton && action === 'connect-wallet'
+    const showConnectedButton = showConnectedWalletButton && isConnected && Boolean(address)
+    const showRightSection = showPlayButton || showConnectButton || showConnectedButton
+
     return (
         <header className={styles.headerContainer}>
-            <img
-                className={styles.vectorIcon}
-                loading="eager"
-                alt=""
-                src="/vector.svg"
-            />
-            <div className={styles.headerParent}>
-                <div className={styles.exploreParent}>
-                    <ScrollLink target={"explore"} className={styles.explore}><span>Explore</span></ScrollLink>
-                    <ScrollLink target={"rules"} className={styles.rules}><span>Rules</span></ScrollLink>
-                    <img className={styles.unionIcon} alt="" src="/union-1.svg"/>
-                </div>
-                <ScrollLink target={"quests"} className={styles.quests}><span>Quests</span></ScrollLink>
-                <ScrollLink target={"faq"} className={styles.faq}><span>FAQ</span></ScrollLink>
-                <Button className={styles.btn} variant="outline" colorScheme="teal"/>
+            <div className={styles.headerLeft}>
+                <button
+                    type="button"
+                    className={styles.logoButton}
+                    onClick={() => router.push('/')}
+                    aria-label="Go to home"
+                >
+                    <img
+                        className={styles.vectorIcon}
+                        loading="eager"
+                        alt=""
+                        src="/vector.svg"
+                    />
+                </button>
             </div>
-        </header>
-    );
-};
 
-export default HeaderComponent;
+            <div className={styles.headerCenter}>
+                {showNavLinks && (
+                    <ScrollLink target={"rules"} className={styles.rules}><span>Rules</span></ScrollLink>
+                )}
+                <img className={styles.unionIcon} alt="" src="/union-1.svg"/>
+                {showNavLinks && (
+                    <ScrollLink target={"quests"} className={styles.quests}><span>Quests</span></ScrollLink>
+                )}
+            </div>
+
+            {showRightSection && (
+                <div className={styles.headerRight}>
+                    {showPlayButton ? (
+                        <div className={styles.headerPlayBtn}>
+                            <Button1 altText="Play" onClick={() => router.push('/game')}/>
+                        </div>
+                    ) : (
+                        <PlayerProfileButton
+                            label={address ? truncateAddress(address) : 'Connect'}
+                            onClick={handleWalletClick}
+                            connected={showConnectedButton}
+                        />
+                    )}
+                </div>
+            )}
+        </header>
+    )
+}

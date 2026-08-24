@@ -9,6 +9,7 @@ export type PlayerCardComponentType = {
     cardRed?: string;
     cardGreen?: string;
     cardBlue?: string;
+    className?: string;
 };
 
 const PlayerCardComponent: NextPage<PlayerCardComponentType> = ({
@@ -17,10 +18,11 @@ const PlayerCardComponent: NextPage<PlayerCardComponentType> = ({
                                                                     score,
                                                                     cardRed,
                                                                     cardGreen,
-                                                                    cardBlue
+                                                                    cardBlue,
+                                                                    className,
                                                                 }) => {
     return (
-        <div className={styles.frameParent}>
+        <div className={`${styles.frameParent} ${className ?? ''}`.trim()}>
             <div className={styles.rectangleParent}>
                 <img className={styles.avatar} alt="" src={avatar}/>
                 <div className={styles.pseudoParent}>

@@ -22,7 +22,7 @@ const JoinGameComponent = () => {
                                 <div className={styles.frameItem}/>
                                 <div className={styles.frameInner}/>
                             </div>
-                            <h1 className={styles.stepIntoThe}>Step into the Battle Arena</h1>
+                            <h1 className={styles.stepIntoThe}>Step into the Arena</h1>
                         </div>
                         <div className={styles.welcomeToThe}>
                             Welcome to the depths of the purgatory, where souls battle for survival under the watchful eye of the devil himself

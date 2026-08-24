@@ -1,0 +1,64 @@
+.seeMore {
+    position: relative;
+    line-height: 20px;
+    z-index: 6;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    transition: color 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.seeMoreParent {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    gap: 8px;
+    z-index: 10;
+    transition: transform 0.25s ease;
+}
+
+.seeMoreParent:hover {
+    transform: translateX(-50%) translateY(-2px);
+}
+
+.seeMoreParent:hover .seeMore {
+    color: #fff;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.55), 0 0 24px rgba(247, 212, 54, 0.35);
+    transform: scale(1.06);
+}
+
+.seeMoreParent:hover .arrowsDiagramsarrowIcon {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+    animation-duration: 1.2s;
+}
+
+.arrowsDiagramsarrowIcon {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    z-index: 6;
+    opacity: 0.75;
+    transition: opacity 0.25s ease, filter 0.25s ease;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(6px);
+    }
+}

@@ -1,0 +1,116 @@
+.battleArena {
+    position: relative;
+    width: min(100%, 360px);
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    flex-shrink: 0;
+}
+
+.battleGlow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 88%;
+    height: 72%;
+    transform: translate(-50%, -50%);
+    background: #ff251d;
+    mix-blend-mode: hard-light;
+    opacity: 0.2;
+    filter: blur(90px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.vsImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 56%;
+    min-width: 160px;
+    max-width: 280px;
+    height: auto;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+    z-index: 10;
+    pointer-events: none;
+    object-fit: contain;
+}
+
+.playerTopLeft,
+.playerBottomRight {
+    position: absolute;
+}
+
+.playerTopLeft {
+    top: 16px;
+    left: -4px;
+    z-index: 20;
+}
+
+.playerBottomRight {
+    bottom: 16px;
+    right: -4px;
+    z-index: 0;
+}
+
+.playerCard {
+    position: relative !important;
+    margin: 0 !important;
+    z-index: auto !important;
+}
+
+@media screen and (max-width: 1050px) {
+    .battleArena {
+        width: min(100%, 240px);
+    }
+
+    .vsImage {
+        width: 50%;
+        min-width: 90px;
+        max-width: 140px;
+    }
+
+    .playerTopLeft {
+        transform: scale(0.82);
+        transform-origin: top left;
+    }
+
+    .playerBottomRight {
+        transform: scale(0.82);
+        transform-origin: bottom right;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .battleArena {
+        width: min(100%, 200px);
+    }
+
+    .vsImage {
+        width: 46%;
+        min-width: 72px;
+        max-width: 110px;
+    }
+
+    .playerTopLeft,
+    .playerBottomRight {
+        transform: scale(0.72);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .battleArena {
+        width: min(100%, 170px);
+    }
+
+    .vsImage {
+        width: 42%;
+        min-width: 60px;
+        max-width: 90px;
+    }
+
+    .playerTopLeft,
+    .playerBottomRight {
+        transform: scale(0.64);
+    }
+}

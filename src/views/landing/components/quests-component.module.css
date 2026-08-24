@@ -10,24 +10,25 @@
   max-width: 100%;
 }
 .frameParent {
-  align-self: stretch;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
   display: grid;
-  flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   gap: var(--gap-5xl);
-  grid-template-columns: repeat(4, minmax(211px, 1fr));
+  grid-template-columns: repeat(4, minmax(211px, 280px));
   z-index: 1;
   text-align: left;
   font-size: var(--headline-h5-size);
 }
 .completeChallengesParent {
-  width: 1240px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 var(--padding-xl) var(--padding-181xl);
+  padding: 48px var(--padding-xl) 0;
   box-sizing: border-box;
   gap: var(--gap-21xl);
   max-width: 100%;
@@ -43,13 +44,12 @@
   }
   .frameParent {
     justify-content: center;
-    grid-template-columns: repeat(2, minmax(211px, 367px));
+    grid-template-columns: repeat(2, minmax(211px, 280px));
   }
 }
 @media screen and (max-width: 750px) {
   .completeChallengesParent {
     gap: var(--gap-21xl);
-    padding-bottom: var(--padding-111xl);
     box-sizing: border-box;
   }
 }
@@ -59,6 +59,7 @@
     line-height: 24px;
   }
   .frameParent {
-    grid-template-columns: minmax(211px, 1fr);
+    justify-content: center;
+    grid-template-columns: minmax(211px, 280px);
   }
 }
