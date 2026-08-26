@@ -62,7 +62,7 @@ const interactiveStyles: Record<
             'shadow-[0_0_36px_rgba(255,107,107,0.75),0_0_0_3px_rgba(247,212,54,0.95),0_12px_32px_rgba(247,212,54,0.25)]',
         ambientGlow: 'shadow-[0_0_20px_rgba(255,107,107,0.28)]',
     },
-    paa: {
+    chi: {
         hoverBorder: 'group-hover:border-[#8dffc8]',
         hoverGlow: 'group-hover:shadow-[0_0_26px_rgba(107,255,184,0.65),0_8px_24px_rgba(60,220,140,0.35)]',
         selectedBorder: 'border-[#f7d436]',
@@ -70,7 +70,7 @@ const interactiveStyles: Record<
             'shadow-[0_0_36px_rgba(107,255,184,0.75),0_0_0_3px_rgba(247,212,54,0.95),0_12px_32px_rgba(247,212,54,0.25)]',
         ambientGlow: 'shadow-[0_0_20px_rgba(107,255,184,0.28)]',
     },
-    chi: {
+    paa: {
         hoverBorder: 'group-hover:border-[#9ccfff]',
         hoverGlow: 'group-hover:shadow-[0_0_26px_rgba(107,184,255,0.65),0_8px_24px_rgba(60,140,255,0.35)]',
         selectedBorder: 'border-[#f7d436]',

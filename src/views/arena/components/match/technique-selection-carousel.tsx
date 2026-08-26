@@ -1,6 +1,6 @@
 'use client'
 
-import {useEffect, useRef, useState, type TouchEvent} from 'react'
+import {useEffect, useRef, useState, type TouchEvent as ReactTouchEvent} from 'react'
 import {motion} from 'framer-motion'
 import TechniqueHandCard from '@/components/technique-hand-card'
 import type {TechniqueId} from '@/lib/techniques'
@@ -44,7 +44,7 @@ function CarouselArrow({
             type="button"
             className="flex shrink-0 p-1 text-white/30 active:text-white/55"
             onClick={onClick}
-            aria-label={direction === 'left' ? 'Previous technique' : 'Next technique'}
+            aria-label={direction === 'left' ? 'Previous move' : 'Next move'}
         >
             <svg
                 className="size-6"
@@ -71,8 +71,48 @@ export default function TechniqueSelectionCarousel({
     const [activeIndex, setActiveIndex] = useState(0)
     const [prevActiveIndex, setPrevActiveIndex] = useState(0)
     const [isTransitioning, setIsTransitioning] = useState(false)
+    const carouselRef = useRef<HTMLDivElement>(null)
     const swipeStart = useRef<{x: number; y: number} | null>(null)
+    const isHorizontalSwipe = useRef(false)
     const transitionTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+    useEffect(() => {
+        const element = carouselRef.current
+        if (!element) {
+            return
+        }
+
+        const handleTouchMove = (event: TouchEvent) => {
+            const start = swipeStart.current
+            if (!start) {
+                return
+            }
+
+            const touch = event.touches[0]
+            if (!touch) {
+                return
+            }
+
+            const deltaX = touch.clientX - start.x
+            const deltaY = touch.clientY - start.y
+
+            if (!isHorizontalSwipe.current) {
+                if (Math.abs(deltaX) >= 8 || Math.abs(deltaY) >= 8) {
+                    isHorizontalSwipe.current = Math.abs(deltaX) > Math.abs(deltaY)
+                }
+            }
+
+            if (isHorizontalSwipe.current) {
+                event.preventDefault()
+            }
+        }
+
+        element.addEventListener('touchmove', handleTouchMove, {passive: false})
+
+        return () => {
+            element.removeEventListener('touchmove', handleTouchMove)
+        }
+    }, [])
 
     useEffect(() => {
         if (!selected) {
@@ -144,22 +184,28 @@ export default function TechniqueSelectionCarousel({
         goToIndex((activeIndex + 1) % handOrder.length)
     }
 
-    const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    const handleTouchStart = (event: ReactTouchEvent<HTMLDivElement>) => {
         const touch = event.touches[0]
         if (!touch) {
             return
         }
+        isHorizontalSwipe.current = false
         swipeStart.current = {x: touch.clientX, y: touch.clientY}
     }
 
-    const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
-        const start = swipeStart.current
+    const resetSwipe = () => {
         swipeStart.current = null
+        isHorizontalSwipe.current = false
+    }
+
+    const handleTouchEnd = (event: ReactTouchEvent<HTMLDivElement>) => {
+        const start = swipeStart.current
         if (!start) {
             return
         }
 
         const touch = event.changedTouches[0]
+        resetSwipe()
         if (!touch) {
             return
         }
@@ -189,14 +235,16 @@ export default function TechniqueSelectionCarousel({
     }
 
     return (
-        <div className="mx-auto flex w-full max-w-[420px] items-center gap-1 px-2">
+        <div
+            ref={carouselRef}
+            className="mx-auto flex w-full max-w-[420px] touch-pan-y overscroll-x-none items-center gap-1 px-2"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            onTouchCancel={resetSwipe}
+        >
             <CarouselArrow direction="left" onClick={goToPrevious} />
 
-            <div
-                className="relative min-h-[340px] min-w-0 flex-1 touch-pan-y overflow-visible [perspective:1200px]"
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
-            >
+            <div className="relative min-h-[340px] min-w-0 flex-1 overflow-visible [perspective:1200px]">
                 <div className="relative flex h-[340px] items-end justify-center [transform-style:preserve-3d]">
                     {handOrder.map((techniqueId, index) => {
                         const offset = getCircularOffset(index, activeIndex, handOrder.length)

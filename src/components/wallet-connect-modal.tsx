@@ -2,12 +2,15 @@
 
 import {useEffect, useState} from 'react'
 import {createPortal} from 'react-dom'
+import {usePathname} from 'next/navigation'
 import {AnimatePresence, motion} from 'framer-motion'
 import {useConnect, useConnectors, type Connector} from 'wagmi'
 import {appChainId, isAppTestnet} from '@/config/chain'
 import {getWalletErrorMessage} from '@/lib/wallet-errors'
 import {walletOptions, type WalletOptionId} from '@/lib/wagmi'
 import {useWalletModal} from '@/contexts/wallet-modal-context'
+import {isGameShellRoute} from '@/lib/wallet-session'
+import {useWalletBootstrap} from '@/hooks/use-wallet-bootstrap'
 import WalletConnectingOverlay from '@/components/wallet-connecting-overlay'
 
 type ConnectorLike = {
@@ -38,7 +41,9 @@ function findConnector(connectors: readonly ConnectorLike[], walletId: WalletOpt
 }
 
 export default function WalletConnectModal() {
+    const pathname = usePathname()
     const {isModalOpen, isModalDismissible, closeModal} = useWalletModal()
+    const {allowWalletModal} = useWalletBootstrap()
     const {connectAsync, isPending, error} = useConnect()
     const connectors = useConnectors() as readonly ConnectorLike[]
     const [mounted, setMounted] = useState(false)
@@ -60,6 +65,10 @@ export default function WalletConnectModal() {
 
     const isConnecting = pendingWalletId !== null
     const connectErrorMessage = getWalletErrorMessage(error)
+    const isGameRoute = isGameShellRoute(pathname)
+    const isForcedPrompt = isGameRoute && allowWalletModal
+    const isVisible = isForcedPrompt || isModalOpen
+    const canDismiss = isForcedPrompt ? false : isModalDismissible
 
     const handleConnect = async (walletId: WalletOptionId) => {
         const targetConnector = findConnector(connectors, walletId)
@@ -83,14 +92,14 @@ export default function WalletConnectModal() {
 
     const modal = (
         <AnimatePresence>
-            {isModalOpen && (
+            {isVisible && (
                 <motion.div
                     className="fixed inset-0 z-[200] flex items-center justify-center bg-[rgba(6,7,17,0.78)] p-6 backdrop-blur-[10px] max-sm:items-end max-sm:p-4"
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}
                     transition={{duration: 0.2}}
-                    onClick={isModalDismissible ? () => closeModal() : undefined}
+                    onClick={canDismiss ? () => closeModal() : undefined}
                     role="presentation"
                 >
                     <motion.div
@@ -108,7 +117,7 @@ export default function WalletConnectModal() {
                             <WalletConnectingOverlay walletId={pendingWalletId}/>
                         ) : (
                             <>
-                                {isModalDismissible && (
+                                {canDismiss && (
                                     <button
                                         type="button"
                                         className="absolute right-[18px] top-[18px] flex size-6 items-center justify-center border-none bg-transparent p-0 text-white/30 transition-colors hover:text-white/65 disabled:cursor-not-allowed disabled:opacity-25"

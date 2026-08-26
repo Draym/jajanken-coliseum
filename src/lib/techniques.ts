@@ -20,16 +20,16 @@ export const techniques: Record<TechniqueId, TechniqueDefinition> = {
     chi: {
         id: 'chi',
         name: 'CHI',
-        image: '/blue.webp',
-        imageUsed: '/blue-bw.webp',
-        accent: '#6bb8ff',
+        image: '/green.webp',
+        imageUsed: '/green-bw.webp',
+        accent: '#6bffb8',
     },
     paa: {
         id: 'paa',
         name: 'PAA',
-        image: '/green.webp',
-        imageUsed: '/green-bw.webp',
-        accent: '#6bffb8',
+        image: '/blue.webp',
+        imageUsed: '/blue-bw.webp',
+        accent: '#6bb8ff',
     },
 }
 

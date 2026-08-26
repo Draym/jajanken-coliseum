@@ -27,6 +27,10 @@ type ColiseumPlayerContextValue = {
     entranceFee: bigint | undefined
     isPlayerLoading: boolean
     isProfileLoading: boolean
+    isPlayerFetching: boolean
+    isProfileFetching: boolean
+    hasPlayerData: boolean
+    hasProfileData: boolean
     isFeeLoading: boolean
     isPlayerInArena: boolean
     refetchPlayer: () => Promise<{data?: unknown}>
@@ -54,6 +58,7 @@ export function ColiseumPlayerProvider({children}: {children: ReactNode}) {
         data: playerResult,
         refetch: refetchPlayer,
         isLoading: isPlayerLoading,
+        isFetching: isPlayerFetching,
     } = useReadContract({
         address: coliseumAddress,
         abi: coliseumAbi,
@@ -62,6 +67,7 @@ export function ColiseumPlayerProvider({children}: {children: ReactNode}) {
         chainId: appChainId,
         query: {
             enabled: canReadPlayer,
+            refetchOnMount: 'always',
         },
     })
 
@@ -78,6 +84,7 @@ export function ColiseumPlayerProvider({children}: {children: ReactNode}) {
         data: profileResult,
         refetch: refetchProfile,
         isLoading: isProfileLoading,
+        isFetching: isProfileFetching,
     } = useReadContract({
         address: coliseumAddress,
         abi: coliseumAbi,
@@ -86,6 +93,8 @@ export function ColiseumPlayerProvider({children}: {children: ReactNode}) {
         chainId: appChainId,
         query: {
             enabled: canReadPlayer && playerIsInArena,
+            staleTime: 0,
+            refetchOnMount: 'always',
         },
     })
 
@@ -116,6 +125,10 @@ export function ColiseumPlayerProvider({children}: {children: ReactNode}) {
             entranceFee: entranceFee as bigint | undefined,
             isPlayerLoading,
             isProfileLoading,
+            isPlayerFetching,
+            isProfileFetching,
+            hasPlayerData: playerResult !== undefined,
+            hasProfileData: profileResult !== undefined,
             isFeeLoading,
             isPlayerInArena: playerIsInArena,
             refetchPlayer: refetchPlayer as () => Promise<{data?: unknown}>,
@@ -126,10 +139,14 @@ export function ColiseumPlayerProvider({children}: {children: ReactNode}) {
             arenaStatus,
             entranceFee,
             isFeeLoading,
+            isPlayerFetching,
             isPlayerLoading,
+            isProfileFetching,
             isProfileLoading,
             playerIsInArena,
+            playerResult,
             profile,
+            profileResult,
             refetchAll,
             refetchPlayer,
             refetchProfile,

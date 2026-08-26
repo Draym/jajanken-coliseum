@@ -78,6 +78,13 @@ export function getOpponentAddress(matchId: Address, p2: Address, self: Address)
     return matchId
 }
 
+export function getOpponentAddressFromMatchEnd(end: ParsedMatchEnd, self: Address): Address {
+    if (self.toLowerCase() === end.p1.toLowerCase()) {
+        return end.p2
+    }
+    return end.p1
+}
+
 export function getSelfTechniqueFromEnd(end: ParsedMatchEnd, self: Address, matchId: Address): TechniqueId | null {
     if (self.toLowerCase() === matchId.toLowerCase()) {
         return end.p1Played

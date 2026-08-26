@@ -28,7 +28,7 @@ import {
     parsePlayerProfile,
 } from '@/lib/coliseum-contract'
 import {encodeActionLocally, generateRevealKey} from '@/lib/match/commitment'
-import {clearMatchCommit, getMatchCommit, saveMatchCommit} from '@/lib/match/match-storage'
+import {clearMatchCommit, clearRevealSubmitted, getMatchCommit, markRevealSubmitted, pruneStaleMatchCommits, saveMatchCommit, type StoredMatchCommit} from '@/lib/match/match-storage'
 import {parseMatchEndArgs} from '@/lib/match/parse-match'
 import type {ParsedMatchEnd} from '@/lib/match/parse-match'
 import {techniqueIdToContract} from '@/lib/match/technique-enum'
@@ -81,6 +81,8 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
     const [lastMatchEnd, setLastMatchEnd] = useState<ParsedMatchEnd | null>(null)
     const settleCallbackRef = useRef<SettleCallback | null>(null)
     const handledReceiptRef = useRef<string | null>(null)
+    const pendingPlayCommitRef = useRef<StoredMatchCommit | null>(null)
+    const handledWalletErrorRef = useRef<string | null>(null)
 
     const {
         writeContractAsync,
@@ -122,13 +124,56 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
         setLastMatchEnd(null)
     }, [resetTransactionState])
 
-    const failAction = useCallback(() => {
-        resetTransactionState()
-    }, [resetTransactionState])
+    const handleWalletFailure = useCallback(
+        (failedAction: ColiseumChainAction) => {
+            pendingPlayCommitRef.current = null
+
+            if (failedAction === 'play_match' && activeMatchId) {
+                clearMatchCommit(activeMatchId)
+            }
+            if (failedAction === 'reveal_match' && activeMatchId) {
+                clearRevealSubmitted(activeMatchId)
+            }
+            if (failedAction === 'join_match') {
+                setMatchmakingPhase('idle')
+            }
+
+            resetTransactionState()
+        },
+        [activeMatchId, resetTransactionState],
+    )
+
+    const failAction = useCallback(
+        (failedAction?: ColiseumChainAction | null) => {
+            const action = failedAction ?? activeAction
+            if (!action) {
+                resetTransactionState()
+                return
+            }
+            handleWalletFailure(action)
+        },
+        [activeAction, handleWalletFailure, resetTransactionState],
+    )
 
     const clearLastMatchEnd = useCallback(() => {
         setLastMatchEnd(null)
     }, [])
+
+    useEffect(() => {
+        if (!profile) {
+            return
+        }
+
+        if (isPlayerInMatch(profile)) {
+            setActiveMatchId((current) =>
+                current?.toLowerCase() === profile.inMatch.toLowerCase() ? current : profile.inMatch,
+            )
+            return
+        }
+
+        setActiveMatchId(null)
+        setLastMatchEnd(null)
+    }, [profile])
 
     const captureMatchEndFromEvents = useCallback((events: ReturnType<typeof parseColiseumEvents>) => {
         const matchEnded = events.find((event) => event.eventName === 'MatchEnd')
@@ -139,6 +184,7 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
 
     const completeMatchStart = useCallback(
         async (matchId: Address) => {
+            setLastMatchEnd(null)
             setActiveMatchId(matchId)
             setMatchmakingPhase('idle')
 
@@ -164,8 +210,34 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
     }, [activeAction, isSigning, txHash, isConfirming, isReceiptSuccess])
 
     useEffect(() => {
+        if (!activeAction || !submitError) return
+
+        const errorKey = `submit:${activeAction}:${submitError.name}:${submitError.message}`
+        if (handledWalletErrorRef.current === errorKey) return
+
+        handledWalletErrorRef.current = errorKey
+        handleWalletFailure(activeAction)
+    }, [activeAction, handleWalletFailure, submitError])
+
+    useEffect(() => {
+        if (!activeAction || !confirmError || !txHash) return
+
+        const errorKey = `confirm:${activeAction}:${txHash}:${confirmError.name}:${confirmError.message}`
+        if (handledWalletErrorRef.current === errorKey) return
+
+        handledWalletErrorRef.current = errorKey
+        handleWalletFailure(activeAction)
+    }, [activeAction, confirmError, handleWalletFailure, txHash])
+
+    useEffect(() => {
         if (!activeAction || !isReceiptSuccess || !receipt || !txHash) return
         if (handledReceiptRef.current === receipt.transactionHash) return
+
+        if (receipt.status === 'reverted') {
+            handledReceiptRef.current = receipt.transactionHash
+            handleWalletFailure(activeAction)
+            return
+        }
 
         handledReceiptRef.current = receipt.transactionHash
         const settle = settleCallbackRef.current
@@ -207,7 +279,7 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
                 resetTransactionState()
             } catch (error) {
                 console.error('[coliseum] failed to process transaction receipt', error)
-                failAction()
+                handleWalletFailure(action)
             }
         }
 
@@ -216,7 +288,7 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
         activeAction,
         captureMatchEndFromEvents,
         completeMatchStart,
-        failAction,
+        handleWalletFailure,
         isReceiptSuccess,
         receipt,
         refetchAll,
@@ -306,25 +378,36 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
     const submitAction = useCallback(
         async (action: ColiseumChainAction, options: SubmitActionOptions | undefined, write: () => Promise<unknown>) => {
             if (!coliseumAddress || !isColiseumConfigured) return
+            if (activeAction !== null) return
 
             settleCallbackRef.current = options?.onSettled ?? null
             handledReceiptRef.current = null
+            handledWalletErrorRef.current = null
             resetWrite()
             setActiveAction(action)
             setPhase('signing')
 
             try {
                 await write()
-            } catch {
-                failAction()
+
+                if (action === 'play_match' && pendingPlayCommitRef.current) {
+                    saveMatchCommit(pendingPlayCommitRef.current)
+                    pendingPlayCommitRef.current = null
+                }
+                if (action === 'reveal_match' && activeMatchId) {
+                    markRevealSubmitted(activeMatchId)
+                }
+            } catch (error) {
+                console.error('[coliseum] wallet write failed', error)
+                handleWalletFailure(action)
             }
         },
-        [failAction, resetWrite],
+        [activeAction, activeMatchId, handleWalletFailure, resetWrite],
     )
 
     const joinArena = useCallback(
         async (options?: SubmitActionOptions) => {
-            if (entranceFee === undefined) return
+            if (entranceFee === undefined || activeAction !== null) return
 
             await submitAction('join_arena', options, () =>
                 writeContractAsync({
@@ -336,10 +419,12 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
                 }),
             )
         },
-        [entranceFee, submitAction, writeContractAsync],
+        [activeAction, entranceFee, submitAction, writeContractAsync],
     )
 
     const joinMatch = useCallback(async (options?: SubmitActionOptions) => {
+        if (activeAction !== null) return
+
         await submitAction('join_match', options, () =>
             writeContractAsync({
                 address: coliseumAddress!,
@@ -348,14 +433,15 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
                 chainId: appChainId,
             }),
         )
-    }, [submitAction, writeContractAsync])
+    }, [activeAction, submitAction, writeContractAsync])
 
     const playMatch = useCallback(
         async (technique: TechniqueId) => {
-            if (!address || !activeMatchId) return
+            if (!address || !activeMatchId || activeAction !== null) return
+            if (getMatchCommit(activeMatchId)) return
 
             const revealKey = generateRevealKey()
-            saveMatchCommit({matchId: activeMatchId, technique, revealKey})
+            pendingPlayCommitRef.current = {matchId: activeMatchId, technique, revealKey}
             const commitment = encodeActionLocally(address, technique, revealKey)
 
             await submitAction('play_match', undefined, () =>
@@ -368,11 +454,11 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
                 }),
             )
         },
-        [activeMatchId, address, submitAction, writeContractAsync],
+        [activeAction, activeMatchId, address, submitAction, writeContractAsync],
     )
 
     const revealMatch = useCallback(async () => {
-        if (!activeMatchId) return
+        if (!activeMatchId || activeAction !== null) return
 
         const commit = getMatchCommit(activeMatchId)
         if (!commit) return
@@ -386,10 +472,10 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
                 chainId: appChainId,
             }),
         )
-    }, [activeMatchId, submitAction, writeContractAsync])
+    }, [activeAction, activeMatchId, submitAction, writeContractAsync])
 
     const skipAfkDuringPlay = useCallback(async () => {
-        if (!activeMatchId) return
+        if (!activeMatchId || activeAction !== null) return
 
         await submitAction('skip_afk_play', undefined, () =>
             writeContractAsync({
@@ -400,10 +486,10 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
                 chainId: appChainId,
             }),
         )
-    }, [activeMatchId, submitAction, writeContractAsync])
+    }, [activeAction, activeMatchId, submitAction, writeContractAsync])
 
     const skipAfkDuringReveal = useCallback(async () => {
-        if (!activeMatchId) return
+        if (!activeMatchId || activeAction !== null) return
 
         await submitAction('skip_afk_reveal', undefined, () =>
             writeContractAsync({
@@ -414,9 +500,11 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
                 chainId: appChainId,
             }),
         )
-    }, [activeMatchId, submitAction, writeContractAsync])
+    }, [activeAction, activeMatchId, submitAction, writeContractAsync])
 
     const withdrawGains = useCallback(async (options?: SubmitActionOptions) => {
+        if (activeAction !== null) return
+
         await submitAction('withdraw_gains', options, () =>
             writeContractAsync({
                 address: coliseumAddress!,
@@ -425,7 +513,7 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
                 chainId: appChainId,
             }),
         )
-    }, [submitAction, writeContractAsync])
+    }, [activeAction, submitAction, writeContractAsync])
 
     const isJoinMatchButtonLoading =
         activeAction === 'join_match' && (phase === 'signing' || phase === 'confirming' || phase === 'syncing')

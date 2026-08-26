@@ -2,7 +2,6 @@
 
 import {useCallback, useState} from 'react'
 import {useRouter} from 'next/navigation'
-import {useAccount} from 'wagmi'
 import {useColiseumChain} from '@/contexts/coliseum-chain-context'
 import {useColiseumPlayer} from '@/contexts/coliseum-player-context'
 import {formatEther} from 'viem'
@@ -17,7 +16,6 @@ function formatEthAmount(value: bigint) {
 
 export default function GameContent() {
     const router = useRouter()
-    const {isConnected} = useAccount()
     const [activeModeIndex, setActiveModeIndex] = useState(0)
     const {entranceFee, isFeeLoading, isPlayerInArena, arenaStatus, isPlayerLoading} = useColiseumPlayer()
     const {joinArena, isActionPending, error} = useColiseumChain()
@@ -87,10 +85,6 @@ export default function GameContent() {
     )
 
     const walletErrorMessage = getWalletErrorMessage(error)
-
-    if (!isConnected) {
-        return null
-    }
 
     return (
         <div className="relative z-[2] flex w-full flex-col items-center">

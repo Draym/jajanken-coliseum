@@ -7,6 +7,7 @@ export type StoredMatchCommit = {
     matchId: Address
     technique: TechniqueId
     revealKey: Hex
+    revealSubmitted?: boolean
 }
 
 function readAll(): StoredMatchCommit[] {
@@ -47,9 +48,47 @@ export function clearMatchCommit(matchId: Address) {
     writeAll(readAll().filter((entry) => entry.matchId.toLowerCase() !== matchId.toLowerCase()))
 }
 
+export function markRevealSubmitted(matchId: Address) {
+    const commit = getMatchCommit(matchId)
+    if (!commit) {
+        return
+    }
+
+    saveMatchCommit({...commit, revealSubmitted: true})
+}
+
+export function clearRevealSubmitted(matchId: Address) {
+    const commit = getMatchCommit(matchId)
+    if (!commit?.revealSubmitted) {
+        return
+    }
+
+    saveMatchCommit({...commit, revealSubmitted: false})
+}
+
+export function hasRevealSubmitted(matchId: Address) {
+    return Boolean(getMatchCommit(matchId)?.revealSubmitted)
+}
+
 export function clearAllMatchCommits() {
     if (typeof window === 'undefined') {
         return
     }
     sessionStorage.removeItem(STORAGE_KEY)
+}
+
+/** Drop commits for matches other than the active on-chain match (or all if none). */
+export function pruneStaleMatchCommits(activeMatchId: Address | null) {
+    if (typeof window === 'undefined') {
+        return
+    }
+
+    if (!activeMatchId) {
+        clearAllMatchCommits()
+        return
+    }
+
+    writeAll(
+        readAll().filter((entry) => entry.matchId.toLowerCase() === activeMatchId.toLowerCase()),
+    )
 }

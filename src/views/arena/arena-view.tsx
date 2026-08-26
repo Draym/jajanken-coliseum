@@ -1,25 +1,24 @@
 'use client'
 
 import Link from 'next/link'
-import {useAccount} from 'wagmi'
+import AppLoadingScreen from '@/components/app-loading-screen'
 import {useColiseumChain} from '@/contexts/coliseum-chain-context'
-import {useAwaitingArenaEntrySync} from '@/hooks/use-awaiting-arena-entry-sync'
+import {useArenaBootstrap} from '@/hooks/use-arena-bootstrap'
 import {useColiseumArena} from '@/hooks/use-coliseum-arena'
 import {useColiseumMatch} from '@/hooks/use-coliseum-match'
 import {useColiseumPlayer} from '@/contexts/coliseum-player-context'
-import {isPlayerInMatch} from '@/lib/coliseum-contract'
 import ArenaGamePanel from '@/views/arena/components/arena-game-panel'
 import ArenaLobbyPanel from '@/views/arena/components/arena-lobby-panel'
 import MatchPanel from '@/views/arena/components/match/match-panel'
 import {PostMatchEliminated} from '@/views/arena/components/match/post-match-screens'
 
 export default function ArenaView() {
-    const {isConnected} = useAccount()
-    const {profile, isProfileLoading, isPlayerInArena, isPlayerLoading} = useColiseumPlayer()
-    const isSyncingEntry = useAwaitingArenaEntrySync(isPlayerInArena)
+    const {isBootstrapping, loadingMessage} = useArenaBootstrap()
+    const {profile, isPlayerInArena} = useColiseumPlayer()
     const {alivePlayers, techniqueSupply, isLoading: isArenaLoading} = useColiseumArena()
     const {joinMatch, isJoinMatchButtonLoading, isSearchingForMatch, activeMatchId} = useColiseumChain()
-    const {isInMatch, uiPhase, postMatchScreen, dismissPostMatch} = useColiseumMatch()
+    const matchState = useColiseumMatch()
+    const {isInMatch, uiPhase, postMatchScreen, dismissPostMatch} = matchState
 
     const showMatch =
         profile &&
@@ -28,18 +27,8 @@ export default function ArenaView() {
             uiPhase === 'resolution' ||
             (uiPhase === 'post_match' && postMatchScreen !== null))
 
-    if (!isConnected) {
-        return null
-    }
-
-    if (isPlayerLoading || isProfileLoading || isSyncingEntry || (isPlayerInArena && !profile)) {
-        return (
-            <div className="arena-layout items-center justify-center">
-                <p className="text-sm text-white/50">
-                    {isSyncingEntry ? 'Syncing your arena entry...' : 'Loading your fighter profile...'}
-                </p>
-            </div>
-        )
+    if (isBootstrapping) {
+        return <AppLoadingScreen message={loadingMessage} />
     }
 
     if (!isPlayerInArena || !profile) {
@@ -72,7 +61,7 @@ export default function ArenaView() {
     return (
         <div className="arena-layout">
             {showMatch ? (
-                <MatchPanel profile={profile} />
+                <MatchPanel profile={profile} match={matchState} />
             ) : (
                 <ArenaGamePanel
                     profile={profile}

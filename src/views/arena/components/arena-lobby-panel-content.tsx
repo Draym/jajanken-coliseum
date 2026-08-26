@@ -12,8 +12,8 @@ export type ArenaLobbyPanelContentProps = {
 
 const supplyGlow: Record<TechniqueId, string> = {
     guu: 'shadow-[0_0_14px_rgba(255,90,70,0.55)]',
-    paa: 'shadow-[0_0_14px_rgba(90,255,140,0.5)]',
-    chi: 'shadow-[0_0_14px_rgba(90,150,255,0.5)]',
+    chi: 'shadow-[0_0_14px_rgba(90,255,140,0.5)]',
+    paa: 'shadow-[0_0_14px_rgba(90,150,255,0.5)]',
 }
 
 function SupplyIcon({techniqueId}: {techniqueId: TechniqueId}) {

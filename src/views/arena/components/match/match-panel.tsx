@@ -1,10 +1,9 @@
 'use client'
 
-import {useEffect} from 'react'
+import {type ReactNode, useEffect} from 'react'
 import {useAccount} from 'wagmi'
 import type {PlayerProfile} from '@/lib/coliseum-contract'
-import {useColiseumMatch} from '@/hooks/use-coliseum-match'
-import type {OpponentSnapshot} from '@/hooks/use-coliseum-match'
+import type {ColiseumMatchState, OpponentSnapshot} from '@/hooks/use-coliseum-match'
 import {totalTechniques} from '@/lib/match/player-status'
 import MatchActionButton from '@/views/arena/components/match/match-action-button'
 import MatchBattleDisplay from '@/views/arena/components/match/match-battle-display'
@@ -16,6 +15,15 @@ import {PostMatchCashout, PostMatchEliminated} from '@/views/arena/components/ma
 
 type MatchPanelProps = {
     profile: PlayerProfile
+    match: ColiseumMatchState
+}
+
+function MatchStatusSlot({children}: {children: React.ReactNode}) {
+    return (
+        <div className="flex w-full max-w-md min-h-[5.125rem] flex-col items-center justify-center gap-3 sm:min-h-[5.625rem]">
+            {children}
+        </div>
+    )
 }
 
 function WaitingBanner({message, canSkip, onSkip, isSkipLoading}: {
@@ -25,20 +33,23 @@ function WaitingBanner({message, canSkip, onSkip, isSkipLoading}: {
     isSkipLoading?: boolean
 }) {
     return (
-        <div className="flex flex-col items-center gap-3">
-            <p className="m-0 text-sm text-white/50">{message}</p>
-            {canSkip && (
-                <MatchActionButton
-                    label="Skip AFK opponent"
-                    isLoading={isSkipLoading}
-                    onClick={onSkip}
-                />
-            )}
+        <div className="flex w-full max-w-md flex-col items-center gap-3">
+            <p className="m-0 min-h-[1.25rem] text-center text-sm text-white/50">{message}</p>
+            <div className="flex min-h-[2.875rem] items-center justify-center sm:min-h-[3.125rem]">
+                {canSkip ? (
+                    <MatchActionButton
+                        label="Skip AFK opponent"
+                        isLoading={isSkipLoading}
+                        onClick={onSkip}
+                        className="!mt-0"
+                    />
+                ) : null}
+            </div>
         </div>
     )
 }
 
-export default function MatchPanel({profile}: MatchPanelProps) {
+export default function MatchPanel({profile, match}: MatchPanelProps) {
     const {address} = useAccount()
     const {
         matchId,
@@ -62,7 +73,8 @@ export default function MatchPanel({profile}: MatchPanelProps) {
         skipAfkDuringReveal,
         finishResolution,
         dismissPostMatch,
-    } = useColiseumMatch()
+        sessionSelf,
+    } = match
 
     useEffect(() => {
         if (!selectedTechnique) {
@@ -82,6 +94,21 @@ export default function MatchPanel({profile}: MatchPanelProps) {
 
     if (!address || !matchId) return null
 
+    const enemy = opponent as OpponentSnapshot | undefined
+    const selfLives = uiPhase === 'resolution' && sessionSelf ? sessionSelf.nen : profile.nen
+    const selfTechniqueCount =
+        uiPhase === 'resolution' && sessionSelf ? sessionSelf.totalTechniques : totalTechniques(profile)
+    const selfBar = (
+        <MatchProfileBar address={address} lives={selfLives} totalTechniques={selfTechniqueCount} />
+    )
+    const opponentBar = enemy ? (
+        <MatchProfileBar address={enemy.address} lives={enemy.nen} totalTechniques={enemy.totalTechniques} />
+    ) : (
+        <div className="invisible pointer-events-none" aria-hidden="true">
+            <MatchProfileBar address={address} lives={selfLives} totalTechniques={selfTechniqueCount} />
+        </div>
+    )
+
     if (uiPhase === 'post_match' && postMatchScreen === 'eliminated') {
         return <PostMatchEliminated onDismiss={dismissPostMatch} />
     }
@@ -94,9 +121,8 @@ export default function MatchPanel({profile}: MatchPanelProps) {
         return (
             <div className="arena-game-panel">
                 <MatchScreenLayout
-                    top={
-                        <MatchProfileBar address={address} lives={profile.nen} totalTechniques={totalTechniques(profile)} />
-                    }
+                    top={selfBar}
+                    bottom={opponentBar}
                     center={
                         <MatchResolution matchId={matchId} resolution={resolutionData} onComplete={() => void finishResolution()} />
                     }
@@ -104,14 +130,6 @@ export default function MatchPanel({profile}: MatchPanelProps) {
             </div>
         )
     }
-
-    const enemy = opponent as OpponentSnapshot | undefined
-    const selfBar = (
-        <MatchProfileBar address={address} lives={profile.nen} totalTechniques={totalTechniques(profile)} />
-    )
-    const opponentBar = enemy ? (
-        <MatchProfileBar address={enemy.address} lives={enemy.nen} totalTechniques={enemy.totalTechniques} />
-    ) : null
 
     return (
         <div className="arena-game-panel">
@@ -146,39 +164,42 @@ export default function MatchPanel({profile}: MatchPanelProps) {
                                     showOpponentPlaceholder={!opponentTechnique}
                                 />
 
-                                {uiPhase === 'waiting_commit' && (
-                                    <WaitingBanner
-                                        message="Waiting for opponent to commit..."
-                                        canSkip={canSkipPlay}
-                                        isSkipLoading={isSkipAfkLoading}
-                                        onSkip={() => void skipAfkDuringPlay()}
-                                    />
-                                )}
+                                <MatchStatusSlot>
+                                    {uiPhase === 'waiting_commit' && (
+                                        <WaitingBanner
+                                            message="Waiting for opponent to commit..."
+                                            canSkip={canSkipPlay}
+                                            isSkipLoading={isSkipAfkLoading}
+                                            onSkip={() => void skipAfkDuringPlay()}
+                                        />
+                                    )}
 
-                                {uiPhase === 'reveal_ready' && (
-                                    <MatchActionButton
-                                        label="Reveal"
-                                        isLoading={isRevealMatchLoading}
-                                        onClick={() => void revealMatch()}
-                                    />
-                                )}
+                                    {uiPhase === 'reveal_ready' && (
+                                        <MatchActionButton
+                                            label="Reveal"
+                                            isLoading={isRevealMatchLoading}
+                                            onClick={() => void revealMatch()}
+                                            className="!mt-0"
+                                        />
+                                    )}
 
-                                {uiPhase === 'waiting_reveal' && (
-                                    <WaitingBanner
-                                        message="Waiting for opponent to reveal..."
-                                        canSkip={canSkipReveal}
-                                        isSkipLoading={isSkipAfkLoading}
-                                        onSkip={() => void skipAfkDuringReveal()}
-                                    />
-                                )}
+                                    {uiPhase === 'waiting_reveal' && (
+                                        <WaitingBanner
+                                            message="Waiting for opponent to reveal..."
+                                            canSkip={canSkipReveal}
+                                            isSkipLoading={isSkipAfkLoading}
+                                            onSkip={() => void skipAfkDuringReveal()}
+                                        />
+                                    )}
 
-                                {uiPhase === 'commit_pending' && (
-                                    <p className="m-0 text-sm text-white/50">Committing your technique...</p>
-                                )}
+                                    {uiPhase === 'commit_pending' && (
+                                        <p className="m-0 text-center text-sm text-white/50">Committing your move...</p>
+                                    )}
 
-                                {uiPhase === 'reveal_pending' && (
-                                    <p className="m-0 text-sm text-white/50">Revealing your technique...</p>
-                                )}
+                                    {uiPhase === 'reveal_pending' && (
+                                        <p className="m-0 text-center text-sm text-white/50">Revealing your move...</p>
+                                    )}
+                                </MatchStatusSlot>
                             </>
                         )}
                     </>
