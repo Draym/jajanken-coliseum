@@ -1,6 +1,6 @@
-import {createConfig, http} from 'wagmi'
-import {base, baseSepolia} from 'wagmi/chains'
+import {createConfig, createStorage, http} from 'wagmi'
 import {coinbaseWallet, injected, metaMask} from 'wagmi/connectors'
+import {appChain} from '@/config/chain'
 
 const dappUrl =
     typeof window !== 'undefined'
@@ -23,12 +23,15 @@ export const coinbaseConnector = coinbaseWallet({
 })
 
 export const wagmiConfig = createConfig({
-    chains: [base, baseSepolia],
+    chains: [appChain],
     connectors: [metaMaskConnector, phantomConnector, coinbaseConnector],
     transports: {
-        [base.id]: http(),
-        [baseSepolia.id]: http(),
+        [appChain.id]: http(),
     },
+    // Per-tab storage so two windows can use different wallets (e.g. Phantom + MetaMask for local testing).
+    storage: createStorage({
+        storage: typeof window !== 'undefined' ? window.sessionStorage : undefined,
+    }),
     ssr: true,
 })
 

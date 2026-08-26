@@ -8,6 +8,7 @@ import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import {WagmiProvider} from 'wagmi'
 import {wagmiConfig} from '@/lib/wagmi'
 import {WalletModalProvider} from '@/contexts/wallet-modal-context'
+import AppChainGuard from '@/components/app-chain-guard'
 
 
 const chakraTheme = extendTheme({
@@ -26,7 +27,9 @@ export function Providers({children}: { children: React.ReactNode }) {
             <WagmiProvider config={wagmiConfig}>
                 <QueryClientProvider client={queryClient}>
                     <WalletModalProvider>
-                        {children}
+                        <AppChainGuard>
+                            {children}
+                        </AppChainGuard>
                     </WalletModalProvider>
                 </QueryClientProvider>
             </WagmiProvider>

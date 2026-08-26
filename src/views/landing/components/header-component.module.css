@@ -109,6 +109,21 @@
   box-sizing: border-box;
 }
 
+.headerCenterArena {
+  min-width: 0;
+}
+
+.arenaMobileNav {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .arenaMobileNav {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 750px) {
   .headerCenter {
     gap: var(--gap-base);
@@ -119,6 +134,7 @@
   .headerContainer {
     padding: var(--padding-base) var(--padding-base);
     column-gap: var(--gap-base);
+    grid-template-columns: auto minmax(0, 1fr) auto;
   }
 
   .unionIcon {

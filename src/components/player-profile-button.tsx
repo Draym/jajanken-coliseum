@@ -4,22 +4,27 @@ type PlayerProfileButtonProps = {
     label: string
     onClick: () => void
     connected?: boolean
+    compact?: boolean
 }
 
-export default function PlayerProfileButton({label, onClick, connected = false}: PlayerProfileButtonProps) {
+export default function PlayerProfileButton({label, onClick, connected = false, compact = false}: PlayerProfileButtonProps) {
     return (
         <button
             type="button"
             onClick={onClick}
-            className="inline-flex h-10 max-w-full items-center gap-2.5 rounded-[10px] border border-white/15 bg-white/[0.06] px-3.5 font-sans transition-colors hover:border-white/25 hover:bg-white/[0.1]"
+            className={`inline-flex max-w-full items-center rounded-[10px] border border-white/15 bg-white/[0.06] font-sans transition-colors hover:border-white/25 hover:bg-white/[0.1] ${
+                compact ? 'h-8 gap-1.5 px-2' : 'h-10 gap-2.5 px-3.5'
+            }`}
             aria-label={connected ? `Open player profile for ${label}` : label}
         >
             <span
-                className={`size-7 shrink-0 rounded-lg border border-white/10 bg-white/[0.04] ${connected ? 'shadow-[inset_0_0_0_1px_rgba(52,211,153,0.25)]' : ''}`}
+                className={`shrink-0 rounded-lg border border-white/10 bg-white/[0.04] ${connected ? 'shadow-[inset_0_0_0_1px_rgba(52,211,153,0.25)]' : ''} ${
+                    compact ? 'size-6' : 'size-7'
+                }`}
                 aria-hidden="true"
             >
                 <svg
-                    className="m-1.5 size-4 text-white/80"
+                    className={`text-white/80 ${compact ? 'm-1 size-4' : 'm-1.5 size-4'}`}
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +45,7 @@ export default function PlayerProfileButton({label, onClick, connected = false}:
                     />
                 </svg>
             </span>
-            <span className="truncate font-mono text-[13px] font-medium leading-5 tracking-[0.02em] text-white">
+            <span className={`truncate font-mono font-medium leading-5 tracking-[0.02em] text-white ${compact ? 'text-[11px]' : 'text-[13px]'}`}>
                 {label}
             </span>
             {connected && (

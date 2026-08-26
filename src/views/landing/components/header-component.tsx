@@ -4,6 +4,7 @@ import styles from "./header-component.module.css"
 import ScrollLink from "@/components/scroll-link"
 import Button1 from "@/components/button-1"
 import PlayerProfileButton from "@/components/player-profile-button"
+import ArenaMobileNavActions from "@/views/arena/components/arena-mobile-nav-actions"
 import {useRouter} from "next/navigation"
 import {useAccount} from 'wagmi'
 import {useWalletModal} from '@/contexts/wallet-modal-context'
@@ -13,10 +14,15 @@ type HeaderComponentProps = {
     showNavLinks?: boolean
     showWalletButton?: boolean
     showConnectedWalletButton?: boolean
+    variant?: 'default' | 'arena'
 }
 
 function truncateAddress(address: string) {
     return `${address.slice(0, 4)}...${address.slice(-4)}`
+}
+
+function truncateAddressCompact(address: string) {
+    return `${address.slice(0, 5)}..`
 }
 
 export default function HeaderComponent({
@@ -24,6 +30,7 @@ export default function HeaderComponent({
     showNavLinks = true,
     showWalletButton = true,
     showConnectedWalletButton = false,
+    variant = 'default',
 }: HeaderComponentProps) {
     const router = useRouter()
     const {openModal, openAccountMenu} = useWalletModal()
@@ -42,6 +49,12 @@ export default function HeaderComponent({
     const showConnectButton = showWalletButton && action === 'connect-wallet'
     const showConnectedButton = showConnectedWalletButton && isConnected && Boolean(address)
     const showRightSection = showPlayButton || showConnectButton || showConnectedButton
+    const isArenaVariant = variant === 'arena'
+    const walletLabel = address
+        ? isArenaVariant
+            ? truncateAddressCompact(address)
+            : truncateAddress(address)
+        : 'Connect'
 
     return (
         <header className={styles.headerContainer}>
@@ -61,13 +74,21 @@ export default function HeaderComponent({
                 </button>
             </div>
 
-            <div className={styles.headerCenter}>
-                {showNavLinks && (
-                    <ScrollLink target={"rules"} className={styles.rules}><span>Rules</span></ScrollLink>
-                )}
-                <img className={styles.unionIcon} alt="" src="/union-1.svg"/>
-                {showNavLinks && (
-                    <ScrollLink target={"quests"} className={styles.quests}><span>Quests</span></ScrollLink>
+            <div className={`${styles.headerCenter} ${isArenaVariant ? styles.headerCenterArena : ''}`}>
+                {isArenaVariant ? (
+                    <div className={styles.arenaMobileNav}>
+                        <ArenaMobileNavActions />
+                    </div>
+                ) : (
+                    <>
+                        {showNavLinks && (
+                            <ScrollLink target={"rules"} className={styles.rules}><span>Rules</span></ScrollLink>
+                        )}
+                        <img className={styles.unionIcon} alt="" src="/union-1.svg"/>
+                        {showNavLinks && (
+                            <ScrollLink target={"quests"} className={styles.quests}><span>Quests</span></ScrollLink>
+                        )}
+                    </>
                 )}
             </div>
 
@@ -79,9 +100,10 @@ export default function HeaderComponent({
                         </div>
                     ) : (
                         <PlayerProfileButton
-                            label={address ? truncateAddress(address) : 'Connect'}
+                            label={walletLabel}
                             onClick={handleWalletClick}
                             connected={showConnectedButton}
+                            compact={isArenaVariant}
                         />
                     )}
                 </div>

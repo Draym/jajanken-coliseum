@@ -4,6 +4,8 @@ import {useEffect, useState} from 'react'
 import {createPortal} from 'react-dom'
 import {AnimatePresence, motion} from 'framer-motion'
 import {useConnect, useConnectors, type Connector} from 'wagmi'
+import {appChainId, isAppTestnet} from '@/config/chain'
+import {getWalletErrorMessage} from '@/lib/wallet-errors'
 import {walletOptions, type WalletOptionId} from '@/lib/wagmi'
 import {useWalletModal} from '@/contexts/wallet-modal-context'
 import WalletConnectingOverlay from '@/components/wallet-connecting-overlay'
@@ -57,6 +59,7 @@ export default function WalletConnectModal() {
     }
 
     const isConnecting = pendingWalletId !== null
+    const connectErrorMessage = getWalletErrorMessage(error)
 
     const handleConnect = async (walletId: WalletOptionId) => {
         const targetConnector = findConnector(connectors, walletId)
@@ -66,7 +69,12 @@ export default function WalletConnectModal() {
 
         setPendingWalletId(walletId)
         try {
-            await connectAsync({connector: targetConnector as Connector})
+            // On testnet, Phantom blocks chain switches when testnet mode is off — connect first, then switch via AppChainGuard.
+            if (walletId === 'phantom' && isAppTestnet) {
+                await connectAsync({connector: targetConnector as Connector})
+            } else {
+                await connectAsync({connector: targetConnector as Connector, chainId: appChainId})
+            }
             closeModal({force: true})
         } catch {
             /* error surfaced via useConnect().error */
@@ -174,9 +182,9 @@ export default function WalletConnectModal() {
                                     ))}
                                 </ul>
 
-                                {error && (
+                                {connectErrorMessage && (
                                     <p className="mt-3.5 rounded-[10px] border border-brand-danger/30 bg-brand-danger/10 px-3 py-2.5 text-[13px] leading-[18px] text-[#ffb4b4]" role="alert">
-                                        {error.message.split('\n')[0]}
+                                        {connectErrorMessage}
                                     </p>
                                 )}
 
