@@ -2,6 +2,9 @@
   "name": "jajanken-coliseum",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "cross-env NEXT_DEV_WEBPACK=1 WATCHPACK_POLLING=true CHOKIDAR_USEPOLLING=1 next dev -p 3002 --webpack",
     "dev:turbo": "next dev",
