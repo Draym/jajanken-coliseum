@@ -19,12 +19,15 @@ import {
 import {clearMatchCommit, getMatchCommit, clearRevealSubmitted, pruneStaleMatchCommits} from '@/lib/match/match-storage'
 import {
     bothPlayersCommitted,
+    getMatchFingerprint,
     getOpponentAddress,
     getOpponentAddressFromMatchEnd,
     getOpponentTechniqueFromEnd,
     getSelfTechniqueFromEnd,
+    hasPlayableResolution,
     hasPlayerCommitted,
     hasPlayerRevealed,
+    isMatchSlotActive,
     parseOnChainMatch,
     type OnChainMatch,
 } from '@/lib/match/parse-match'
@@ -60,23 +63,23 @@ function deriveChainMatchPhase(params: {
     const {matchId, self, match, hasLocalCommit, isPlayMatchLoading, isRevealMatchLoading} = params
 
     if (!matchId || !self) return 'select'
+    if (!isMatchSlotActive(match)) return 'select'
     if (isPlayMatchLoading) return 'commit_pending'
     if (isRevealMatchLoading) return 'reveal_pending'
 
-    const hasCommittedOnChain = match ? hasPlayerCommitted(match, self, matchId) : false
+    const hasCommittedOnChain = hasPlayerCommitted(match!, self, matchId)
     const hasCommitted = hasCommittedOnChain || hasLocalCommit
 
     if (!hasCommitted) return 'select'
-    if (!match) return 'waiting_commit'
+    if (!bothPlayersCommitted(match!)) return 'waiting_commit'
 
-    if (!bothPlayersCommitted(match)) return 'waiting_commit'
+    const hasRevealedOnChain = hasPlayerRevealed(match!, self, matchId)
+    if (hasRevealedOnChain) return 'waiting_reveal'
 
-    const hasRevealedOnChain = hasPlayerRevealed(match, self, matchId)
-    if (!hasRevealedOnChain) {
-        return 'reveal_ready'
-    }
+    // On-chain commit exists but reveal secret is gone (storage wipe / other device).
+    if (!hasLocalCommit) return 'reveal_blocked'
 
-    return 'waiting_reveal'
+    return 'reveal_ready'
 }
 
 function isMatchEndForSession(end: ParsedMatchEnd, sessionMatchId: Address, self: Address) {
@@ -94,7 +97,7 @@ export type ColiseumMatchState = ReturnType<typeof useColiseumMatch>
 
 export function useColiseumMatch() {
     const {address} = useAccount()
-    const {profile, hasProfileData, refetchAll, refetchPlayer} = useColiseumPlayer()
+    const {profile, hasProfileData, refetchAll, refetchPlayer, refetchProfile} = useColiseumPlayer()
     const {
         activeMatchId,
         setActiveMatchId,
@@ -102,10 +105,12 @@ export function useColiseumMatch() {
         clearLastMatchEnd,
         isPlayMatchLoading,
         isRevealMatchLoading,
+        isForfeitMatchLoading,
         playMatch,
         revealMatch,
         skipAfkDuringPlay,
         skipAfkDuringReveal,
+        forfeitMatch,
         isSkipAfkLoading,
     } = useColiseumChain()
 
@@ -115,6 +120,7 @@ export function useColiseumMatch() {
     const [resolutionData, setResolutionData] = useState<ParsedMatchEnd | null>(null)
     const [matchSession, setMatchSession] = useState<MatchSessionSnapshot | null>(null)
     const prevChainMatchIdRef = useRef<Address | null>(null)
+    const prevMatchFingerprintRef = useRef<string>('')
 
     const chainMatchId = activeMatchId ?? (profile && isPlayerInMatch(profile) ? profile.inMatch : null)
 
@@ -129,22 +135,33 @@ export function useColiseumMatch() {
 
         if (!profile || !isPlayerInMatch(profile)) {
             setActiveMatchId(null)
-            clearLastMatchEnd()
-            setResolutionData(null)
-            setPostMatchScreen(null)
-            setSelectedTechnique(null)
-            clearMatchSession()
-            setUiPhase('select')
-            pruneStaleMatchCommits(null)
+            if (uiPhase !== 'resolution' && uiPhase !== 'post_match') {
+                clearLastMatchEnd()
+                setResolutionData(null)
+                setPostMatchScreen(null)
+                setSelectedTechnique(null)
+                clearMatchSession()
+                setUiPhase('select')
+            }
+            // Do not wipe reveal secrets on a transient !inMatch flicker.
             return
         }
 
         const onChainMatchId = profile.inMatch
-        setActiveMatchId((current) =>
-            current?.toLowerCase() === onChainMatchId.toLowerCase() ? current : onChainMatchId,
-        )
+        if (activeMatchId?.toLowerCase() !== onChainMatchId.toLowerCase()) {
+            setActiveMatchId(onChainMatchId)
+        }
         pruneStaleMatchCommits(onChainMatchId)
-    }, [address, clearLastMatchEnd, clearMatchSession, hasProfileData, profile, setActiveMatchId])
+    }, [
+        activeMatchId,
+        address,
+        clearLastMatchEnd,
+        clearMatchSession,
+        hasProfileData,
+        profile,
+        setActiveMatchId,
+        uiPhase,
+    ])
 
     useEffect(() => {
         const prevChainMatchId = prevChainMatchIdRef.current
@@ -165,6 +182,11 @@ export function useColiseumMatch() {
             setMatchSession(null)
             clearLastMatchEnd()
             setUiPhase('select')
+            prevMatchFingerprintRef.current = ''
+        }
+
+        if (!chainMatchId && prevChainMatchId) {
+            prevMatchFingerprintRef.current = ''
         }
 
         prevChainMatchIdRef.current = chainMatchId
@@ -175,7 +197,7 @@ export function useColiseumMatch() {
             ? matchSession.matchId
             : chainMatchId
 
-    const {data: matchRaw, refetch: refetchMatch, isLoading: isMatchLoading, isFetching: isMatchFetching} = useReadContract({
+    const {data: matchRaw, refetch: refetchMatch, isLoading: isMatchLoading, isFetching: isMatchFetching, isError: isMatchError} = useReadContract({
         address: coliseumAddress,
         abi: coliseumAbi,
         functionName: 'matches',
@@ -184,7 +206,14 @@ export function useColiseumMatch() {
         query: {
             enabled: isColiseumConfigured && Boolean(chainMatchId) && uiPhase !== 'resolution' && uiPhase !== 'post_match',
             refetchOnMount: 'always',
-            refetchInterval: uiPhase === 'waiting_commit' || uiPhase === 'waiting_reveal' ? 3000 : false,
+            refetchInterval:
+                uiPhase === 'waiting_commit' ||
+                uiPhase === 'waiting_reveal' ||
+                uiPhase === 'reveal_ready' ||
+                uiPhase === 'reveal_blocked' ||
+                uiPhase === 'select'
+                    ? 3000
+                    : false,
         },
     })
 
@@ -192,6 +221,38 @@ export function useColiseumMatch() {
         if (!matchRaw) return undefined
         return parseOnChainMatch(matchRaw as readonly unknown[])
     }, [matchRaw])
+
+    // Match ids are p1 addresses and get reused — reset local UI when the slot content changes.
+    useEffect(() => {
+        if (!chainMatchId || !match) return
+        if (uiPhase === 'resolution' || uiPhase === 'post_match') return
+
+        const fingerprint = getMatchFingerprint(match)
+        const prevFingerprint = prevMatchFingerprintRef.current
+
+        if (!prevFingerprint) {
+            prevMatchFingerprintRef.current = fingerprint
+            return
+        }
+
+        if (fingerprint === prevFingerprint) return
+
+        const prevP2 = prevFingerprint.split(':')[0] ?? ''
+        const p2Changed = match.p2.toLowerCase() !== prevP2
+        const slotLooksFresh =
+            isMatchSlotActive(match) &&
+            !bothPlayersCommitted(match) &&
+            !hasPlayerCommitted(match, chainMatchId, chainMatchId)
+
+        prevMatchFingerprintRef.current = fingerprint
+
+        if (p2Changed || slotLooksFresh) {
+            clearMatchCommit(chainMatchId)
+            clearRevealSubmitted(chainMatchId)
+            setSelectedTechnique(null)
+            setUiPhase('select')
+        }
+    }, [chainMatchId, match, uiPhase])
 
     const opponentAddress = useMemo(() => {
         if (!chainMatchId || !match || !address) return undefined
@@ -275,10 +336,23 @@ export function useColiseumMatch() {
         })
     }, [address, chainMatchId, hasLocalCommit, isPlayMatchLoading, isRevealMatchLoading, match])
 
-    const isChainMatchReady = !chainMatchId || (matchRaw !== undefined && !isMatchLoading)
+    const isChainMatchReady = !chainMatchId || matchRaw !== undefined || isMatchError
 
     const wasPlayLoadingRef = useRef(false)
     const wasRevealLoadingRef = useRef(false)
+
+    // Keep profile.inMatch in sync so ended matches drop back to lobby even if MatchEnd was missed.
+    useEffect(() => {
+        if (!chainMatchId) return
+        if (uiPhase === 'resolution' || uiPhase === 'post_match') return
+
+        const interval = window.setInterval(() => {
+            void refetchProfile()
+            void refetchMatch()
+        }, 4000)
+
+        return () => window.clearInterval(interval)
+    }, [chainMatchId, refetchMatch, refetchProfile, uiPhase])
 
     useEffect(() => {
         if (!chainMatchId || !address || !isChainMatchReady || !match) {
@@ -331,6 +405,41 @@ export function useColiseumMatch() {
             return
         }
 
+        // Forfeit / incomplete ends have no playable techniques — skip clash, return to lobby.
+        if (!hasPlayableResolution(lastMatchEnd)) {
+            void (async () => {
+                clearLastMatchEnd()
+                clearMatchCommit(sessionMatchId)
+                await refetchAll()
+                const result = (await refetchPlayer()) as {data?: unknown}
+                const freshStatus = result.data
+                    ? parsePlayerArenaStatus(result.data as Parameters<typeof parsePlayerArenaStatus>[0])
+                    : undefined
+
+                setResolutionData(null)
+                setActiveMatchId(null)
+                setSelectedTechnique(null)
+                clearMatchSession()
+                prevMatchFingerprintRef.current = ''
+
+                if (freshStatus) {
+                    const screen = getPostMatchScreenFromStatus(freshStatus)
+                    if (screen === 'arena') {
+                        setUiPhase('select')
+                        setPostMatchScreen(null)
+                    } else {
+                        setUiPhase('post_match')
+                        setPostMatchScreen(screen)
+                    }
+                    return
+                }
+
+                setUiPhase('select')
+                setPostMatchScreen(null)
+            })()
+            return
+        }
+
         const opponentAddr = getOpponentAddressFromMatchEnd(lastMatchEnd, address)
 
         setResolutionData(lastMatchEnd)
@@ -358,9 +467,30 @@ export function useColiseumMatch() {
                 selfTechniques: prev?.selfTechniques ?? (profile ? totalTechniques(profile) : 0),
             }
         })
-    }, [activeMatchId, address, chainMatchId, chainOpponent, clearLastMatchEnd, lastMatchEnd, profile, resolutionData])
+    }, [
+        activeMatchId,
+        address,
+        chainMatchId,
+        chainOpponent,
+        clearLastMatchEnd,
+        clearMatchSession,
+        lastMatchEnd,
+        profile,
+        refetchAll,
+        refetchPlayer,
+        resolutionData,
+        setActiveMatchId,
+    ])
 
-    const isInMatch = Boolean(displayMatchId && (profile && isPlayerInMatch(profile) || uiPhase === 'resolution' || uiPhase === 'post_match'))
+    const isInMatch = Boolean(
+        displayMatchId &&
+            (uiPhase === 'resolution' ||
+                uiPhase === 'post_match' ||
+                (profile &&
+                    isPlayerInMatch(profile) &&
+                    // Empty/cleared match slots should not keep the match UI open.
+                    (uiPhase === 'reveal_blocked' || isMatchSlotActive(match) || isMatchLoading || isMatchFetching))),
+    )
 
     const selfTechnique = useMemo(() => {
         if (committedTechnique) return committedTechnique
@@ -472,10 +602,12 @@ export function useColiseumMatch() {
         isPlayMatchLoading,
         isRevealMatchLoading,
         isSkipAfkLoading,
+        isForfeitMatchLoading,
         playMatch: commitPlay,
         revealMatch: submitReveal,
         skipAfkDuringPlay,
         skipAfkDuringReveal,
+        forfeitMatch,
         finishResolution,
         dismissPostMatch,
         refetchMatch,

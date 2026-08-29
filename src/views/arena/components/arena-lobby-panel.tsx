@@ -2,6 +2,7 @@
 
 import {useEffect} from 'react'
 import type {TechniqueId} from '@/lib/techniques'
+import {ArenaChatProvider} from '@/contexts/arena-chat-context'
 import {useArenaUi} from '@/contexts/arena-ui-context'
 import {ArenaLobbyPanelContent} from '@/views/arena/components/arena-lobby-panel-content'
 
@@ -27,7 +28,7 @@ export default function ArenaLobbyPanel({alivePlayers, techniqueSupply, isLoadin
         }
     }, [isLobbyOpen])
 
-    const panelContent = (
+    const renderContent = () => (
         <ArenaLobbyPanelContent
             alivePlayers={alivePlayers}
             techniqueSupply={techniqueSupply}
@@ -36,7 +37,7 @@ export default function ArenaLobbyPanel({alivePlayers, techniqueSupply, isLoadin
     )
 
     return (
-        <>
+        <ArenaChatProvider>
             {isLobbyOpen && (
                 <button
                     type="button"
@@ -51,10 +52,10 @@ export default function ArenaLobbyPanel({alivePlayers, techniqueSupply, isLoadin
                 className={`arena-sidebar arena-sidebar--mobile-drawer lg:hidden ${isLobbyOpen ? 'arena-sidebar--open' : ''}`}
                 aria-hidden={!isLobbyOpen}
             >
-                {panelContent}
+                {renderContent()}
             </aside>
 
-            <aside className="arena-sidebar hidden lg:flex">{panelContent}</aside>
-        </>
+            <aside className="arena-sidebar hidden lg:flex">{renderContent()}</aside>
+        </ArenaChatProvider>
     )
 }

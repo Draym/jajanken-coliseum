@@ -8,7 +8,9 @@ import {
     useMemo,
     useRef,
     useState,
+    type Dispatch,
     type ReactNode,
+    type SetStateAction,
 } from 'react'
 import type {Address} from 'viem'
 import {zeroAddress} from 'viem'
@@ -52,7 +54,8 @@ type ColiseumChainContextValue = {
     isPlayMatchLoading: boolean
     isRevealMatchLoading: boolean
     isSkipAfkLoading: boolean
-    setActiveMatchId: (matchId: Address | null) => void
+    isForfeitMatchLoading: boolean
+    setActiveMatchId: Dispatch<SetStateAction<Address | null>>
     clearLastMatchEnd: () => void
     joinArena: (options?: SubmitActionOptions) => Promise<void>
     joinMatch: (options?: SubmitActionOptions) => Promise<void>
@@ -60,6 +63,7 @@ type ColiseumChainContextValue = {
     revealMatch: () => Promise<void>
     skipAfkDuringPlay: () => Promise<void>
     skipAfkDuringReveal: () => Promise<void>
+    forfeitMatch: () => Promise<void>
     withdrawGains: (options?: SubmitActionOptions) => Promise<void>
     reset: () => void
     error: Error | null
@@ -165,15 +169,15 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
         }
 
         if (isPlayerInMatch(profile)) {
-            setActiveMatchId((current) =>
-                current?.toLowerCase() === profile.inMatch.toLowerCase() ? current : profile.inMatch,
-            )
+            if (activeMatchId?.toLowerCase() !== profile.inMatch.toLowerCase()) {
+                setActiveMatchId(profile.inMatch)
+            }
             return
         }
 
         setActiveMatchId(null)
         setLastMatchEnd(null)
-    }, [profile])
+    }, [activeMatchId, profile])
 
     const captureMatchEndFromEvents = useCallback((events: ReturnType<typeof parseColiseumEvents>) => {
         const matchEnded = events.find((event) => event.eventName === 'MatchEnd')
@@ -266,11 +270,11 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
                     return
                 }
 
-                if (action === 'play_match' || action === 'reveal_match' || action === 'skip_afk_play' || action === 'skip_afk_reveal') {
+                if (action === 'play_match' || action === 'reveal_match' || action === 'skip_afk_play' || action === 'skip_afk_reveal' || action === 'forfeit_match') {
                     captureMatchEndFromEvents(events)
                 }
 
-                if (action === 'reveal_match' || action === 'skip_afk_play' || action === 'skip_afk_reveal') {
+                if (action === 'reveal_match' || action === 'skip_afk_play' || action === 'skip_afk_reveal' || action === 'forfeit_match') {
                     await refetchAll()
                 }
 
@@ -502,6 +506,20 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
         )
     }, [activeAction, activeMatchId, submitAction, writeContractAsync])
 
+    const forfeitMatch = useCallback(async () => {
+        if (!activeMatchId || activeAction !== null) return
+
+        await submitAction('forfeit_match', undefined, () =>
+            writeContractAsync({
+                address: coliseumAddress!,
+                abi: coliseumAbi,
+                functionName: 'forfeitMatch',
+                args: [activeMatchId],
+                chainId: appChainId,
+            }),
+        )
+    }, [activeAction, activeMatchId, submitAction, writeContractAsync])
+
     const withdrawGains = useCallback(async (options?: SubmitActionOptions) => {
         if (activeAction !== null) return
 
@@ -528,6 +546,9 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
         (activeAction === 'skip_afk_play' || activeAction === 'skip_afk_reveal') &&
         (phase === 'signing' || phase === 'confirming' || phase === 'syncing')
 
+    const isForfeitMatchLoading =
+        activeAction === 'forfeit_match' && (phase === 'signing' || phase === 'confirming' || phase === 'syncing')
+
     const value = useMemo<ColiseumChainContextValue>(
         () => ({
             activeAction,
@@ -552,15 +573,19 @@ export function ColiseumChainProvider({children}: {children: ReactNode}) {
             revealMatch,
             skipAfkDuringPlay,
             skipAfkDuringReveal,
+            forfeitMatch,
             withdrawGains,
             reset,
             error: submitError ?? confirmError ?? null,
+            isForfeitMatchLoading,
         }),
         [
             activeAction,
             activeMatchId,
             clearLastMatchEnd,
             confirmError,
+            forfeitMatch,
+            isForfeitMatchLoading,
             isJoinMatchButtonLoading,
             isPlayMatchLoading,
             isRevealMatchLoading,

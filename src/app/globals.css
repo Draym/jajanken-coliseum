@@ -195,3 +195,15 @@ body {
   --br-7xs: 6px;
   --br-72xl: 91px;
 }
+
+/* emoji-mart (arena chat) */
+.arena-emoji-picker em-emoji-picker {
+  --rgb-background: 10, 8, 18;
+  --rgb-input: 18, 15, 28;
+  --rgb-color: 235, 235, 245;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --font-family: inherit;
+  width: min(320px, calc(100vw - 2rem));
+  height: 340px;
+  border: 0;
+}

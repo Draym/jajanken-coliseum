@@ -38,6 +38,24 @@ export function isZeroBytes32(value: `0x${string}`) {
     return value === zeroHash
 }
 
+/** Match id slots are reused (id = p1). A live match always has a non-zero p2. */
+export function isMatchSlotActive(match: OnChainMatch | undefined) {
+    return Boolean(match?.p2 && match.p2 !== zeroAddress)
+}
+
+export function getMatchFingerprint(match: OnChainMatch | undefined) {
+    if (!match) return ''
+    return [
+        match.p2.toLowerCase(),
+        match.p1Hidden,
+        match.p2Hidden,
+        match.p1Revealed,
+        match.p2Revealed,
+        match.playTime.toString(),
+        match.revealTime.toString(),
+    ].join(':')
+}
+
 export function bothPlayersCommitted(match: OnChainMatch) {
     return !isZeroBytes32(match.p1Hidden) && !isZeroBytes32(match.p2Hidden)
 }
@@ -104,4 +122,9 @@ export function didPlayerWin(end: ParsedMatchEnd, self: Address): boolean | null
         return null
     }
     return end.winner.toLowerCase() === self.toLowerCase()
+}
+
+/** True when both sides revealed a technique (normal clash). Forfeit/AFK ends often lack this. */
+export function hasPlayableResolution(end: ParsedMatchEnd) {
+    return end.p1Played !== null && end.p2Played !== null
 }

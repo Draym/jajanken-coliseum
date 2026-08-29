@@ -42,7 +42,8 @@ export async function handleColiseumEvents(
         }
         case 'reveal_match':
         case 'skip_afk_play':
-        case 'skip_afk_reveal': {
+        case 'skip_afk_reveal':
+        case 'forfeit_match': {
             await deps.refetchAll()
             break
         }

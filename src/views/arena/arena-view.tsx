@@ -16,14 +16,13 @@ export default function ArenaView() {
     const {isBootstrapping, loadingMessage} = useArenaBootstrap()
     const {profile, isPlayerInArena} = useColiseumPlayer()
     const {alivePlayers, techniqueSupply, isLoading: isArenaLoading} = useColiseumArena()
-    const {joinMatch, isJoinMatchButtonLoading, isSearchingForMatch, activeMatchId} = useColiseumChain()
+    const {joinMatch, isJoinMatchButtonLoading, isSearchingForMatch} = useColiseumChain()
     const matchState = useColiseumMatch()
     const {isInMatch, uiPhase, postMatchScreen, dismissPostMatch} = matchState
 
     const showMatch =
         profile &&
         (isInMatch ||
-            Boolean(activeMatchId) ||
             uiPhase === 'resolution' ||
             (uiPhase === 'post_match' && postMatchScreen !== null))
 

@@ -1,5 +1,6 @@
 'use client'
 
+import {useEffect, useRef} from 'react'
 import {useAccount} from 'wagmi'
 import type {ParsedMatchEnd} from '@/lib/match/parse-match'
 import {didPlayerWin, getOpponentTechniqueFromEnd, getSelfTechniqueFromEnd} from '@/lib/match/parse-match'
@@ -18,12 +19,21 @@ function toClashOutcome(isDraw: boolean, playerWon: boolean | null): ClashOutcom
 
 export default function MatchResolution({matchId, resolution, onComplete}: MatchResolutionProps) {
     const {address} = useAccount()
+    const completedRef = useRef(false)
 
     const selfTechnique = address ? getSelfTechniqueFromEnd(resolution, address, matchId) : null
     const opponentTechnique = address ? getOpponentTechniqueFromEnd(resolution, address, matchId) : null
     const playerWon = address ? didPlayerWin(resolution, address) : null
+    const canAnimate = Boolean(selfTechnique && opponentTechnique)
 
-    if (!selfTechnique || !opponentTechnique) {
+    useEffect(() => {
+        if (canAnimate || completedRef.current) return
+        completedRef.current = true
+        // Forfeit / incomplete MatchEnd — nothing to animate; leave match UI.
+        onComplete()
+    }, [canAnimate, onComplete])
+
+    if (!canAnimate || !selfTechnique || !opponentTechnique) {
         return null
     }
 

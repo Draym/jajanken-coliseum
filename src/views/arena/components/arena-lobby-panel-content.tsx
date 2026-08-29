@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import {formatArenaCount} from '@/hooks/use-coliseum-arena'
 import {techniqueCardAspectClass, techniqueIds, techniques, type TechniqueId} from '@/lib/techniques'
+import ArenaChat from '@/views/arena/components/arena-chat'
 
 export type ArenaLobbyPanelContentProps = {
     alivePlayers?: number
@@ -28,13 +29,6 @@ function SupplyIcon({techniqueId}: {techniqueId: TechniqueId}) {
         </span>
     )
 }
-
-const chatPlaceholders = [
-    {name: 'PlayerOne', color: 'text-[#b8f04a]', message: 'Lorem ipsum dolor sit amet consectetur.'},
-    {name: 'RivalX', color: 'text-[#5ce1ff]', message: 'Waiting for the next match to start.'},
-    {name: 'VenomSlicer', color: 'text-[#f7d436]', message: 'Good luck in the coliseum.', featured: true},
-    {name: 'GhostHand', color: 'text-[#ff6b6b]', message: 'Anyone up for a duel after this?'},
-]
 
 export function ArenaLobbyPanelContent({
     alivePlayers,
@@ -74,53 +68,7 @@ export function ArenaLobbyPanelContent({
                 </p>
             </section>
 
-            <section className="flex min-h-0 flex-1 flex-col">
-                <div className="flex-1 space-y-3 overflow-y-auto p-4 sm:p-5">
-                    {chatPlaceholders.map((entry) => (
-                        <div
-                            key={entry.name}
-                            className={
-                                entry.featured
-                                    ? 'rounded-xl border border-[#f7d436]/35 bg-[#f7d436]/[0.04] px-3 py-2.5'
-                                    : 'px-1 py-1'
-                            }
-                        >
-                            <p className="m-0 text-sm leading-5 text-white/70">
-                                {entry.featured && (
-                                    <span className="mr-1.5 inline-block text-[#f7d436]" aria-hidden="true">
-                                        ♛
-                                    </span>
-                                )}
-                                <span className={`font-black ${entry.color}`}>{entry.name}</span>
-                                <span className="text-white/55"> {entry.message}</span>
-                            </p>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="border-t border-white/[0.06] p-4">
-                    <div className="flex gap-2">
-                        <div className="relative min-w-0 flex-1">
-                            <input
-                                className="w-full rounded-xl border border-white/10 bg-[#0a0812] px-3 py-2.5 pr-10 text-sm text-white/35 outline-none"
-                                placeholder="Send a message"
-                                disabled
-                                readOnly
-                            />
-                            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-white/25" aria-hidden="true">
-                                ☺
-                            </span>
-                        </div>
-                        <button
-                            type="button"
-                            className="shrink-0 rounded-xl border border-[#b8f04a]/50 bg-[#b8f04a]/15 px-4 py-2.5 text-xs font-black uppercase tracking-[0.08em] text-[#d7ff7a]"
-                            disabled
-                        >
-                            Chat
-                        </button>
-                    </div>
-                </div>
-            </section>
+            <ArenaChat />
         </>
     )
 }

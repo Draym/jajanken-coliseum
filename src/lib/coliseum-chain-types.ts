@@ -5,6 +5,7 @@ export type ColiseumChainAction =
     | 'reveal_match'
     | 'skip_afk_play'
     | 'skip_afk_reveal'
+    | 'forfeit_match'
     | 'withdraw_gains'
 
 export type ColiseumChainPhase = 'idle' | 'signing' | 'confirming' | 'syncing' | 'settling'
@@ -18,5 +19,6 @@ export type MatchUiPhase =
     | 'reveal_ready'
     | 'reveal_pending'
     | 'waiting_reveal'
+    | 'reveal_blocked'
     | 'resolution'
     | 'post_match'

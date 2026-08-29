@@ -67,10 +67,12 @@ export default function MatchPanel({profile, match}: MatchPanelProps) {
         isPlayMatchLoading,
         isRevealMatchLoading,
         isSkipAfkLoading,
+        isForfeitMatchLoading,
         playMatch,
         revealMatch,
         skipAfkDuringPlay,
         skipAfkDuringReveal,
+        forfeitMatch,
         finishResolution,
         dismissPostMatch,
         sessionSelf,
@@ -156,7 +158,8 @@ export default function MatchPanel({profile, match}: MatchPanelProps) {
                             uiPhase === 'waiting_commit' ||
                             uiPhase === 'reveal_ready' ||
                             uiPhase === 'reveal_pending' ||
-                            uiPhase === 'waiting_reveal') && (
+                            uiPhase === 'waiting_reveal' ||
+                            uiPhase === 'reveal_blocked') && (
                             <>
                                 <MatchBattleDisplay
                                     selfTechnique={committedTechnique ?? selfTechnique}
@@ -184,12 +187,36 @@ export default function MatchPanel({profile, match}: MatchPanelProps) {
                                     )}
 
                                     {uiPhase === 'waiting_reveal' && (
-                                        <WaitingBanner
-                                            message="Waiting for opponent to reveal..."
-                                            canSkip={canSkipReveal}
-                                            isSkipLoading={isSkipAfkLoading}
-                                            onSkip={() => void skipAfkDuringReveal()}
-                                        />
+                                        <div className="flex w-full max-w-md flex-col items-center gap-3">
+                                            <WaitingBanner
+                                                message="Waiting for opponent to reveal..."
+                                                canSkip={canSkipReveal}
+                                                isSkipLoading={isSkipAfkLoading}
+                                                onSkip={() => void skipAfkDuringReveal()}
+                                            />
+                                            <button
+                                                type="button"
+                                                className="text-xs font-bold uppercase tracking-[0.08em] text-white/35 underline-offset-2 hover:text-white/60 hover:underline disabled:opacity-40"
+                                                disabled={isForfeitMatchLoading}
+                                                onClick={() => void forfeitMatch()}
+                                            >
+                                                {isForfeitMatchLoading ? 'Forfeiting…' : 'Forfeit match'}
+                                            </button>
+                                        </div>
+                                    )}
+
+                                    {uiPhase === 'reveal_blocked' && (
+                                        <div className="flex w-full max-w-md flex-col items-center gap-3">
+                                            <p className="m-0 text-center text-sm text-white/50">
+                                                Match state is out of sync (missing reveal key). Forfeit to return to the lobby.
+                                            </p>
+                                            <MatchActionButton
+                                                label="Forfeit match"
+                                                isLoading={isForfeitMatchLoading}
+                                                onClick={() => void forfeitMatch()}
+                                                className="!mt-0"
+                                            />
+                                        </div>
                                     )}
 
                                     {uiPhase === 'commit_pending' && (
